@@ -13,10 +13,11 @@ help:
 	@echo "make schoon      - exports en dashboard weggooien"
 
 setup:
+	@test -f .env || (cp .env.example .env && echo "Aangemaakt: .env — vul je tokens in")
 	python3 -m venv $(VENV)
 	$(PY) -m pip install --upgrade pip
 	$(PY) -m pip install -r scripts/requirements.txt
-	@echo "Klaar. Vergeet .env niet: cp .env.example .env"
+	@echo "Klaar. Vul nu .env in (HOMEY_HOST en HOMEY_API_KEY)."
 
 inventaris: homey tahoma appletv
 	@echo "Inventarisatie klaar. Zie inventaris/export/"
