@@ -1,0 +1,22 @@
+# Geheimen
+.env
+*.token
+scripts/**/credentials.json
+
+# Machine-exports (kunnen device-ID's en gateway-PIN bevatten)
+inventaris/export/*
+!inventaris/export/.gitkeep
+
+# Gegenereerd
+dashboard/index.html
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# macOS
+.DS_Store

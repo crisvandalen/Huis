@@ -1,0 +1,9 @@
+# Somfy TaHoma / Overkiz
+pyoverkiz>=1.13.0
+
+# Apple TV
+pyatv>=0.14.5
+
+# Gedeeld
+aiohttp>=3.9
+PyYAML>=6.0

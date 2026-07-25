@@ -1,0 +1,49 @@
+# Handgeschreven inventaris — dit bestand is leidend.
+# De machine-exports in inventaris/export/ weten wél de ID's, maar niet waar
+# iets hangt of wat je ermee wil. Dat zet je hier.
+#
+# Vul dit aan nadat je `make inventaris` hebt gedraaid.
+
+huis:
+  naam: ""
+  adres_kort: ""      # bv. "Utrecht" — voor weer/zonstand, geen volledig adres
+  breedtegraad: 52.09
+  lengtegraad: 5.12
+
+verdiepingen:
+  - naam: begane grond
+    kamers: [woonkamer, keuken, hal, tuin]
+  - naam: eerste
+    kamers: [slaapkamer, badkamer, werkkamer]
+
+hubs:
+  - naam: Homey Pro
+    type: homey
+    rol: "hub voor Zigbee / Z-Wave / 433 / Matter"
+    ip: ""            # zie .env
+  - naam: Somfy TaHoma
+    type: tahoma
+    rol: "zonwering en rolluiken"
+    protocol: ""      # io-homecontrol of RTS — belangrijk, zie hieronder
+  - naam: Apple TV
+    type: appletv
+    rol: "media in de woonkamer, tevens aanwezigheidssignaal"
+    kamer: woonkamer
+
+# Zonwering apart, omdat de details hier bepalend zijn voor wat mogelijk is.
+zonwering:
+  - naam: ""          # bv. "Screen woonkamer zuid"
+    kamer: ""
+    protocol: ""      # io = statusterugkoppeling, RTS = eenrichtingsverkeer
+    orientatie: ""    # noord / oost / zuid / west — nodig voor zonsturing
+    type: ""          # screen / rolluik / markies / uitvalscherm
+    windgevoelig: true
+    opmerking: ""
+
+# Alles wat niet vanzelf uit een export komt, of waar je iets bij wil noteren.
+apparaten: []
+  # - naam: ""
+  #   bron: homey        # homey | tahoma | appletv | los
+  #   kamer: ""
+  #   doel: ""           # waar gebruik je het voor
+  #   opmerking: ""
