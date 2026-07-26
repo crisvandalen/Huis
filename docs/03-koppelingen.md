@@ -79,3 +79,17 @@ zodra er iets start, pauzeert of stopt, zonder te pollen.
 | Kijkt er iemand tv | Apple TV via pyatv push updates |
 | Rolluik-/screenstand | TaHoma, maar alleen betrouwbaar bij io |
 | Licht, sensoren, schakelaars | Homey |
+
+## Homey via de cloud (VPS/remote)
+
+Getest 26-07: de lokale API-key wordt door de Athom-cloud geweigerd (HTTP 401)
+en `<homey-id>.homey.eu-west-1.homeypro.net` lost niet op. Remote werkt dus
+NIET met de lokale key, wel via de officiele OAuth2-flow:
+
+1. API Client aanmaken op https://tools.developer.homey.app (redirect: `http://localhost`).
+2. `HOMEY_CLIENT_ID` en `HOMEY_CLIENT_SECRET` in `.env`.
+3. Eenmalig: `make cloud-auth` -> URL openen, inloggen, code kopieren,
+   `node scripts/homey/cloud-auth.mjs <code>`.
+4. Daarna altijd: `make cloud-test`, of in code `maakHomeyApi()` uit
+   `scripts/homey/cloud-client.mjs`. Refresh-token staat in
+   `scripts/homey/.homey-cloud-token.json` (gitignored) - kopieer die mee naar de VPS.

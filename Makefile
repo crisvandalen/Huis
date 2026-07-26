@@ -40,3 +40,9 @@ serve:
 
 schoon:
 	rm -f inventaris/export/*.json dashboard/index.html
+
+cloud-auth: ## Eenmalig inloggen bij Athom-cloud (OAuth2)
+	node scripts/homey/cloud-auth.mjs $(CODE)
+
+cloud-test: ## Test de cloud-verbinding met Homey
+	node scripts/homey/cloud-test.mjs

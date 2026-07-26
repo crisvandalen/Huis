@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "homey-api": "^3.19.1"
+  }
+}

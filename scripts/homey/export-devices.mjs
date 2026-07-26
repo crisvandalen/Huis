@@ -5,6 +5,9 @@
  * Vereist in .env:
  *   HOMEY_HOST=192.168.1.10        (IP, of homey-<id>.local)
  *   HOMEY_API_KEY=...              (Homey Web App -> Settings -> API Keys)
+ *   HOMEY_REMOTE_URL=...          (optioneel; cloud-URL uit je Homey-account,
+ *                                  bv https://<id>.homey.eu-west-1.homeypro.net,
+ *                                  om van BUITEN je LAN te testen)
  *
  * Probeert automatisch meerdere routes: plain http, de https-route via
  * homeylocal.com, en mDNS. Geen dependencies; Node 18+ heeft fetch ingebouwd.
@@ -45,7 +48,13 @@ const IS_IPV4 = /^\d{1,3}(\.\d{1,3}){3}$/;
 
 /** Mogelijke routes naar dezelfde Homey, in volgorde van waarschijnlijkheid. */
 function basisUrls(host) {
-  const urls = [`http://${host}`];
+  const urls = [];
+  if (process.env.HOMEY_REMOTE_URL) {
+    let r = process.env.HOMEY_REMOTE_URL;
+    while (r.endsWith('/')) r = r.slice(0, -1);
+    urls.push(r);
+  }
+  if (host) urls.push(`http://${host}`);
   if (IS_IPV4.test(host)) {
     // Athom's certificaat-truc: 192.168.2.174 -> 192-168-2-174.homey.homeylocal.com
     urls.push(`https://${host.replace(/\./g, "-")}.homey.homeylocal.com`);
@@ -155,6 +164,7 @@ async function main() {
     process.exit(1);
   }
 
+  if (process.env.HOMEY_REMOTE_URL) console.log('Remote-URL gezet, cloud-route wordt als eerste geprobeerd.');
   console.log(`Homey zoeken op '${host}' ...`);
   const gekozen = await kiesBasis(host, key);
 

@@ -58,6 +58,7 @@ def verzamel():
                 "naam": d.get("name"),
                 "zone": zone_per_id.get(d.get("id")),
                 "klasse": d.get("class"),
+                "driver": str(d.get("driverId") or d.get("driverUri") or ""),
                 "beschikbaar": d.get("available", True),
                 "caps": caps,
             })
@@ -91,6 +92,29 @@ def kpis(apparaten):
     aan = [a for a in lampen if a["caps"].get("onoff")]
 
     tegels = []
+
+    # KNMI-weerapparaat (voor de controle van de zonwering-condities).
+    # De app gebruikt eigen veldnamen: current_temp, recap/expected_today_recap,
+    # wind_speed_k_m_h, expected_today_max_temp, expected_today_sunshine.
+    knmi = next((a for a in apparaten if "knmi" in a.get("driver", "").lower()), None)
+    if knmi:
+        c = knmi["caps"]
+        buiten = c.get("current_temp", c.get("measure_temperature"))
+        recap = c.get("recap") or c.get("expected_today_recap")
+        wind = c.get("wind_speed_k_m_h", c.get("measure_wind_strength"))
+        maxt = c.get("expected_today_max_temp")
+        zonkans = c.get("expected_today_sunshine")
+        sub = " · ".join(s for s in (
+            recap,
+            f"max {maxt:g}°" if isinstance(maxt, (int, float)) else None,
+            f"zonkans {zonkans:g}%" if isinstance(zonkans, (int, float)) else None,
+            f"wind {wind:.0f} km/u" if isinstance(wind, (int, float)) else None,
+        ) if s)
+        if buiten is not None:
+            tegels.append(("Buiten (KNMI)", f"{buiten:.1f}", "°C", sub or None))
+        elif recap:
+            tegels.append(("Weer (KNMI)", recap, "", None))
+
     if p1:
         w = p1["caps"].get("measure_power")
         kwh = p1["caps"].get("meter_power.daily")
