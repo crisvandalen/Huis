@@ -1,7 +1,8 @@
-# 02 — Architectuurkeuze (nog open)
+# 02 — Architectuurkeuze (beslist: optie A)
 
-Invullen ná de inventarisatie. Zie `docs/adr/0002-hub-keuze.md` voor de
-uiteindelijke beslissing.
+**Besloten op 26-07: optie A, Homey blijft de baas.** Zie
+`docs/adr/0002-hub-keuze.md` voor het besluit en de gevolgen. De rest van dit
+document blijft staan als achtergrond bij die afweging.
 
 ## De vraag
 

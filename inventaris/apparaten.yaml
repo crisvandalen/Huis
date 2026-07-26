@@ -6,15 +6,20 @@
 
 huis:
   naam: ""
-  adres_kort: ""      # bv. "Utrecht" — voor weer/zonstand, geen volledig adres
-  breedtegraad: 52.09
-  lengtegraad: 5.12
+  adres_kort: "Waardenburg"   # voor weer/zonstand, geen volledig adres
+  breedtegraad: 51.835
+  lengtegraad: 5.251
 
+# Overgenomen uit de Homey-zones (export 25-07)
 verdiepingen:
   - naam: begane grond
-    kamers: [woonkamer, keuken, hal, tuin]
-  - naam: eerste
-    kamers: [slaapkamer, badkamer, werkkamer]
+    kamers: [entree, gang, woonkamer, keuken, studeerkamer]
+  - naam: eerste verdieping
+    kamers: [slaapkamer, overloop, badkamer]
+  - naam: zolder
+    kamers: [zolder]
+  - naam: buiten
+    kamers: [serre, tuin]
 
 hubs:
   - naam: Homey Pro
@@ -32,13 +37,17 @@ hubs:
 
 # Zonwering apart, omdat de details hier bepalend zijn voor wat mogelijk is.
 zonwering:
-  - naam: ""          # bv. "Screen woonkamer zuid"
-    kamer: ""
-    protocol: ""      # io = statusterugkoppeling, RTS = eenrichtingsverkeer
-    orientatie: ""    # noord / oost / zuid / west — nodig voor zonsturing
-    type: ""          # screen / rolluik / markies / uitvalscherm
+  # Uit de Homey-export: dit scherm is al via de TaHoma-app aan Homey gekoppeld.
+  - naam: Serre
+    kamer: serre
+    protocol: io       # io_horizontal_awning → statusterugkoppeling aanwezig
+    orientatie: ONO    # kompas 67° (gemeten 25-07) → ochtend- en vroege middagzon
+    orientatie_graden: 67
+    type: knikarmscherm
     windgevoelig: true
-    opmerking: ""
+    opmerking: "Homey-device 352689c3; heeft ook 'my_value' (My-positie) en lock_state.
+      Zon staat op deze gevel van zonsopgang tot ca. 13:30 (zonazimut > ~157° = vrij)."
+  # Meer schermen? Die verschijnen in de TaHoma-export (make tahoma).
 
 # Alles wat niet vanzelf uit een export komt, of waar je iets bij wil noteren.
 apparaten: []

@@ -1,13 +1,20 @@
-# 001 — Zonwering op zon, wind en aanwezigheid
+# 001 — Zonwering serre op zon, wind en temperatuur
 
-**Status:** idee
-**Draait op:** nog te bepalen (zie ADR 0002)
+**Status:** gespecificeerd
+**Draait op:** Homey advanced flow (ADR 0002)
+
+## Situatie
+
+Eén scherm: knikarmscherm "Serre", io-homecontrol (met terugkoppeling),
+gevel **ONO (67°)**. Locatie Waardenburg (51.835 N / 5.251 O). De zon staat
+op deze gevel van zonsopgang tot ca. **13:30**; daarna is het een
+schaduwgevel. Zonstand-triggers komen uit de app **Zonnestanden** die al in
+Homey draait.
 
 ## Wat moet het doen
 
-Schermen sluiten wanneer de zon een gevel echt raakt en het binnen te warm
-dreigt te worden, en ze weer openen zodra dat niet meer speelt — met wind
-altijd als noodrem.
+Het serre-scherm sluiten tijdens zonnige, warme ochtenden en weer openen
+zodra de zon de gevel rond 13:30 verlaat — met wind altijd als noodrem.
 
 ## Waarom
 
@@ -17,9 +24,11 @@ wil.
 
 ## Trigger
 
-- Zonstand passeert de drempel voor een gevel (azimut + elevatie), én
-- buitentemperatuur boven de drempel, én
-- geen bewolking boven de drempel.
+**Sluiten (ochtend):** zon-elevatie boven ~10° (Zonnestanden), én
+buitentemperatuur boven de drempel, én geen zware bewolking.
+
+**Openen (middag):** zonazimut passeert ~157° (zon draait van de gevel af,
+rond 13:30) — of eerder, zodra het bewolkt raakt.
 
 Wind heeft een eigen, altijd actieve trigger die alles overruled.
 
@@ -35,22 +44,20 @@ Wind heeft een eigen, altijd actieve trigger die alles overruled.
 
 ## Actie
 
-1. Bepaal per gevel of de zon erop staat (azimut binnen bereik, elevatie > 10°).
-2. Sluit de schermen van die gevel naar de ingestelde stand.
-3. Zodra de zon de gevel verlaat of het bewolkt wordt: open weer, mits het
-   nog licht is.
-4. Bij zonsondergang: alles open (of dicht, als je ook privacy wil — dat is
-   dan wél een aparte automatisering).
+1. **Sluiten:** scherm naar de My-positie (`my_value` = 105) — die stand is
+   er al en is kennelijk de gewenste.
+2. **Openen:** scherm helemaal in zodra de zon de gevel verlaat (azimut
+   ~157°) of bij aanhoudende bewolking.
+3. Status controleren via `windowcoverings_state` (io geeft terugkoppeling);
+   wijkt de stand af van wat de flow stuurde, dan heeft iemand handbediend →
+   2 uur niets doen.
 
 ## Ontsnapping
 
-Handbediening wint altijd, en zet de automatisering voor die zonwering 2 uur
-opzij. Uitzondering: de windbeveiliging is nooit te overrulen.
-
-Bij io-homecontrol is handbediening te detecteren via de status. **Bij RTS
-niet** — daar weet het systeem alleen wat het zelf gestuurd heeft. Voor
-RTS-schermen betekent dat: minder vaak sturen, en liever een vaste dagritme dan
-fijnmazig reageren.
+Handbediening wint altijd, en zet de automatisering 2 uur opzij. Detectie kan
+hier echt, want io koppelt de stand terug: wijkt `windowcoverings_state` af
+van wat de flow laatst stuurde, dan was het een mens. Uitzondering: de
+windbeveiliging is nooit te overrulen.
 
 ## Randgevallen
 
@@ -71,7 +78,12 @@ februari.
 
 ## Openstaande vragen
 
-- [ ] Welke gevels en oriëntaties? (`inventaris/apparaten.yaml`)
-- [ ] io of RTS per scherm?
-- [ ] Is er een windsensor, of komt wind uit een weerdienst?
-- [ ] Wat is de gewenste sluitstand — helemaal dicht, of op kier voor licht?
+- [x] Gevel en oriëntatie: serre, ONO 67° ✓
+- [x] io of RTS: io, met terugkoppeling ✓
+- [x] Sluitstand: de My-positie (105) ✓ (aanname — checken of die stand bevalt)
+- [ ] Is er een windsensor op het scherm (io-windsensor), of moet wind uit een
+      weerdienst-app in Homey komen?
+- [ ] Temperatuurdrempel: welke buitentemperatuur voelt als "te warm voor de
+      serre"? Startwaarde 22 °C, bijstellen in de praktijk.
+- [ ] Overweging: Aqara temperatuur/vochtsensor in de serre voor sturing op
+      binnentemperatuur (middaghitte komt niet via deze gevel binnen).
