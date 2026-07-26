@@ -46,3 +46,8 @@ cloud-auth: ## Eenmalig inloggen bij Athom-cloud (OAuth2)
 
 cloud-test: ## Test de cloud-verbinding met Homey
 	node scripts/homey/cloud-test.mjs
+
+cloud-export: ## Homey via de cloud exporteren (werkt ook op de VPS)
+	node scripts/homey/export-cloud.mjs
+
+cloud-dashboard: cloud-export dashboard ## cloud-export + dashboard bouwen (voor de VPS-cron)
