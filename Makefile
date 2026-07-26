@@ -1,4 +1,4 @@
-.PHONY: setup inventaris homey tahoma appletv dashboard schoon help
+.PHONY: setup inventaris homey tahoma appletv dashboard serve schoon help
 
 VENV := .venv
 PY := $(VENV)/bin/python
@@ -10,6 +10,7 @@ help:
 	@echo "make tahoma      - alleen TaHoma exporteren"
 	@echo "make appletv     - Apple TV's scannen"
 	@echo "make dashboard   - dashboard/index.html bouwen uit de exports"
+	@echo "make serve       - dashboard serveren op localhost:8321 met ververs-knop"
 	@echo "make schoon      - exports en dashboard weggooien"
 
 setup:
@@ -33,6 +34,9 @@ appletv:
 
 dashboard:
 	$(PY) scripts/bouw_dashboard.py
+
+serve:
+	$(PY) scripts/serveer.py
 
 schoon:
 	rm -f inventaris/export/*.json dashboard/index.html

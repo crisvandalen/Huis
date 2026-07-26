@@ -284,10 +284,19 @@ def main() -> None:
   .dot-aan {{ background:var(--st-good); }}
   .dot-uit {{ background:var(--rand); }}
   footer {{ margin-top:3rem; color:var(--text-muted); font-size:.8rem; }}
+  .kop {{ display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; }}
+  #ververs {{ font:inherit; font-size:.9rem; border:1px solid var(--rand);
+      background:var(--surface-2); color:var(--text-primary); border-radius:99px;
+      padding:.45rem 1.1rem; cursor:pointer; flex:none; }}
+  #ververs:hover {{ border-color:var(--series-1); }}
+  #ververs[disabled] {{ opacity:.55; cursor:wait; }}
 </style></head>
 <body class="viz-root">
-<h1>🏠 Huis — dashboard</h1>
-<p class="sub">Momentopname van {esc(stamp_net)} · ververs met <code>make homey &amp;&amp; make dashboard</code></p>
+<div class="kop">
+  <div><h1>🏠 Huis — dashboard</h1>
+  <p class="sub">Momentopname van {esc(stamp_net)}<span id="ververs-uitleg"> · ververs met <code>make homey &amp;&amp; make dashboard</code>, of start <code>make serve</code> voor een knop</span></p></div>
+  <button id="ververs" hidden>↻ Ververs</button>
+</div>
 
 <div class="tegels">{tegel_html}</div>
 <div class="meldingen">{melding_html}</div>
@@ -303,6 +312,27 @@ def main() -> None:
 
 <footer>Gegenereerd door scripts/bouw_dashboard.py · bron: inventaris/export/ ·
 project <code>~/projects/Prive/huis</code></footer>
+<script>
+  // De ververs-knop werkt alleen als de pagina via make serve draait —
+  // op file:// is er niets dat de export kan uitvoeren.
+  const knop = document.getElementById("ververs");
+  if (location.protocol.startsWith("http")) {{
+    knop.hidden = false;
+    document.getElementById("ververs-uitleg").hidden = true;
+    knop.addEventListener("click", async () => {{
+      knop.disabled = true; knop.textContent = "… bezig";
+      try {{
+        const r = await fetch("/ververs", {{ method: "POST" }});
+        const j = await r.json();
+        if (j.gelukt) {{ location.reload(); return; }}
+        alert("Verversen mislukt:\\n\\n" + j.log);
+      }} catch (e) {{
+        alert("Kon de server niet bereiken: " + e.message);
+      }}
+      knop.disabled = false; knop.textContent = "↻ Ververs";
+    }});
+  }}
+</script>
 </body></html>
 """
 
