@@ -5,16 +5,19 @@
 
 ## Situatie
 
-Eén scherm: knikarmscherm "Serre", io-homecontrol (met terugkoppeling),
-gevel **ONO (67°)**. Locatie Waardenburg (51.835 N / 5.251 O). De zon staat
-op deze gevel van zonsopgang tot ca. **13:30**; daarna is het een
-schaduwgevel. Zonstand-triggers komen uit de app **Zonnestanden** die al in
-Homey draait.
+Eén scherm: horizontale **binnenzonwering** in de serre (onder het glas),
+io-homecontrol met terugkoppeling. Gevel **ONO (67°)**, locatie Waardenburg
+(51.835 N / 5.251 O). De zon staat op deze kant van zonsopgang tot ca.
+**13:30**; daarna geeft het huis schaduw. Zonstand-triggers komen uit de app
+**Zonnestanden** die al in Homey draait.
+
+Omdat het scherm binnen hangt is er **geen windrisico** — geen windsensor en
+geen noodrem nodig. Dat maakt deze automatisering aanzienlijk eenvoudiger.
 
 ## Wat moet het doen
 
 Het serre-scherm sluiten tijdens zonnige, warme ochtenden en weer openen
-zodra de zon de gevel rond 13:30 verlaat — met wind altijd als noodrem.
+zodra de zon rond 13:30 van de serre af draait.
 
 ## Waarom
 
@@ -30,13 +33,10 @@ buitentemperatuur boven de drempel, én geen zware bewolking.
 **Openen (middag):** zonazimut passeert ~157° (zon draait van de gevel af,
 rond 13:30) — of eerder, zodra het bewolkt raakt.
 
-Wind heeft een eigen, altijd actieve trigger die alles overruled.
-
 ## Voorwaarden
 
 | Voorwaarde | Waarde | Waarom |
 | --- | --- | --- |
-| Windsnelheid onder | *invullen* km/u | markiezen en uitvalschermen zijn windgevoelig |
 | Buitentemperatuur boven | ~22 °C | onder die grens is opwarming welkom |
 | Bewolking onder | ~60 % | zonder directe zon heeft sluiten geen zin |
 | Handbediening in de afgelopen | 2 uur | een mens die zelf iets zette wint |
@@ -56,19 +56,17 @@ Wind heeft een eigen, altijd actieve trigger die alles overruled.
 
 Handbediening wint altijd, en zet de automatisering 2 uur opzij. Detectie kan
 hier echt, want io koppelt de stand terug: wijkt `windowcoverings_state` af
-van wat de flow laatst stuurde, dan was het een mens. Uitzondering: de
-windbeveiliging is nooit te overrulen.
+van wat de flow laatst stuurde, dan was het een mens.
 
 ## Randgevallen
 
-- **TaHoma onbereikbaar** — niets doen, melden. Nooit blind commando's
-  herhalen.
-- **Wind valt weg** — niet automatisch weer sluiten binnen 30 minuten; windvlagen
-  komen in golven.
-- **Herstart** — de stand van RTS-schermen is onbekend. Wacht op het volgende
-  natuurlijke moment (zonsopgang/-ondergang) in plaats van te gokken.
-- **Cloud-rate-limit bij Somfy** — commando's kunnen tijdens piekuren falen.
-  Eén retry, dan stoppen en melden.
+- **Scherm onbereikbaar** (TaHoma-app of io-verbinding hapert) — niets doen,
+  melden. Nooit blind commando's herhalen.
+- **Herstart van Homey** — io geeft de echte stand terug, dus gewoon de status
+  opvragen en verder; niets blind sturen.
+- **Bewolkt-zonnig-bewolkt geflipper** — hysterese inbouwen: pas reageren als
+  de bewolkingstoestand minstens 20 minuten stabiel is, anders klappert het
+  scherm de hele dag.
 
 ## Testen
 
@@ -81,9 +79,8 @@ februari.
 - [x] Gevel en oriëntatie: serre, ONO 67° ✓
 - [x] io of RTS: io, met terugkoppeling ✓
 - [x] Sluitstand: de My-positie (105) ✓ (aanname — checken of die stand bevalt)
-- [ ] Is er een windsensor op het scherm (io-windsensor), of moet wind uit een
-      weerdienst-app in Homey komen?
+- [x] Windsensor: niet nodig — scherm hangt bínnen de serre ✓
 - [ ] Temperatuurdrempel: welke buitentemperatuur voelt als "te warm voor de
       serre"? Startwaarde 22 °C, bijstellen in de praktijk.
-- [ ] Overweging: Aqara temperatuur/vochtsensor in de serre voor sturing op
-      binnentemperatuur (middaghitte komt niet via deze gevel binnen).
+- [ ] Overweging: Aqara temperatuur/vochtsensor in de serre — bij een
+      binnenscherm is de serretemperatuur zelf de eerlijkste stuurwaarde.

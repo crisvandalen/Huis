@@ -43,8 +43,8 @@ zonwering:
     protocol: io       # io_horizontal_awning → statusterugkoppeling aanwezig
     orientatie: ONO    # kompas 67° (gemeten 25-07) → ochtend- en vroege middagzon
     orientatie_graden: 67
-    type: knikarmscherm
-    windgevoelig: true
+    type: binnenzonwering   # horizontaal scherm bínnen de serre (onder het glas)
+    windgevoelig: false     # hangt binnen — geen windsensor nodig, geen noodrem
     opmerking: "Homey-device 352689c3; heeft ook 'my_value' (My-positie) en lock_state.
       Zon staat op deze gevel van zonsopgang tot ca. 13:30 (zonazimut > ~157° = vrij)."
   # Meer schermen? Die verschijnen in de TaHoma-export (make tahoma).
