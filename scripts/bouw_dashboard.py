@@ -17,6 +17,15 @@ from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
+try:
+    from zoneinfo import ZoneInfo
+    # Vaste weergave-tijdzone: het dashboard wordt op de VPS (UTC) gebouwd,
+    # maar de tijden moeten in Amsterdamse tijd staan. astimezone(None) zou
+    # de tijdzone van de bouw-machine pakken — precies wat we NIET willen.
+    LOKALE_TZ = ZoneInfo("Europe/Amsterdam")
+except Exception:  # geen tzdata -> val terug op systeem-lokaal
+    LOKALE_TZ = None
+
 ROOT = Path(__file__).resolve().parents[1]
 EXPORT_DIR = ROOT / "inventaris" / "export"
 UIT = ROOT / "dashboard" / "index.html"
@@ -49,7 +58,7 @@ def esc(x) -> str:
 def tijdkort(iso) -> str:
     """ISO-tijd -> 'dd-mm HH:MM' in lokale tijd."""
     try:
-        return datetime.fromisoformat(str(iso).replace("Z", "+00:00")).astimezone().strftime("%d-%m %H:%M")
+        return datetime.fromisoformat(str(iso).replace("Z", "+00:00")).astimezone(LOKALE_TZ).strftime("%d-%m %H:%M")
     except Exception:
         return str(iso or "?")
 
@@ -198,7 +207,7 @@ def main() -> None:
     adv_aan = sum(1 for f in adv if f.get("enabled"))
 
     try:
-        tijd = datetime.fromisoformat(stamp.replace("Z", "+00:00")).astimezone()
+        tijd = datetime.fromisoformat(stamp.replace("Z", "+00:00")).astimezone(LOKALE_TZ)
         stamp_net = tijd.strftime("%d-%m-%Y %H:%M")
     except Exception:
         stamp_net = stamp or "?"
