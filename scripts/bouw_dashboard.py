@@ -27,6 +27,15 @@ KLASSE_ICOON = {
     "camera": "📷", "other": "·",
 }
 
+# Ring-camera's komen via de Amazon Ring-app binnen. Homey labelt ze als
+# klasse "sensor", dus we herkennen ze aan de driver en behandelen ze apart
+# als camera (eigen icoon en eigen "Camera's"-blok).
+RING_DRIVER = "com.amazon.ring"
+
+
+def is_ring(a) -> bool:
+    return RING_DRIVER in (a.get("driver") or "")
+
 
 def lees(naam: str):
     p = EXPORT_DIR / naam
@@ -140,12 +149,23 @@ def kpis(apparaten):
     return tegels
 
 
+def cameras(apparaten):
+    """De Ring-camera's, gesorteerd op naam — voor het aparte camerablok."""
+    return sorted((a for a in apparaten if is_ring(a)), key=lambda a: str(a["naam"]))
+
+
 def statusmeldingen(apparaten):
     """Dingen die aandacht vragen — met icoon en tekst, nooit alleen kleur."""
     meldingen = []
     slot = next((a for a in apparaten if a["klasse"] == "lock"), None)
     if slot and slot["caps"].get("locked") is False:
         meldingen.append(("warning", "⚠", f"{slot['naam'].capitalize()} is niet op slot"))
+    # Live beweging en een loeiende sirene bij een Ring-camera vragen aandacht.
+    for a in cameras(apparaten):
+        if a["caps"].get("alarm_motion") is True:
+            meldingen.append(("warning", "⚠", f"Beweging bij camera {a['naam']}"))
+        if a["caps"].get("siren") is True:
+            meldingen.append(("serious", "✖", f"Sirene aan: camera {a['naam']}"))
     for a in apparaten:
         if a["caps"].get("alarm_contact") is True:
             meldingen.append(("warning", "⚠", f"Contact open: {a['naam']}"))
@@ -187,6 +207,40 @@ def main() -> None:
         for soort, icoon, tekst in meldingen) or \
         '<div class="melding melding-ok"><span aria-hidden="true">✓</span> Geen bijzonderheden</div>'
 
+    # camera's: eigen blok met de status die de Ring-app doorgeeft.
+    # (Geen live beeld — de Homey Ring-app levert geen videostream, alleen
+    # beweging, batterij, floodlight en sirene.)
+    cams = cameras(apparaten)
+    camera_html = ""
+    for a in cams:
+        c = a["caps"]
+        badges = []
+        beweging = c.get("alarm_motion")
+        if beweging is True:
+            badges.append(("warn", "◉ beweging"))
+        elif beweging is False:
+            badges.append(("rust", "rustig"))
+        b = c.get("measure_battery")
+        if isinstance(b, (int, float)):
+            soort_b = "warn" if b < 20 else "rust"
+            badges.append((soort_b, f"🔋 {b:.0f}%"))
+        if "flood_light" in c:
+            aan = c.get("flood_light") is True
+            badges.append(("aan" if aan else "rust", f"💡 licht {'aan' if aan else 'uit'}"))
+        if c.get("siren") is True:
+            badges.append(("alarm", "🔊 sirene aan"))
+        if not a.get("beschikbaar", True):
+            badges.append(("alarm", "✖ offline"))
+        badge_html = "".join(
+            f'<span class="badge badge-{s}">{esc(t)}</span>' for s, t in badges)
+        zone = esc(a["zone"] or "Onbekend")
+        camera_html += (
+            f'<section class="camera"><div class="camera-kop">'
+            f'<span class="camera-icoon" aria-hidden="true">📷</span>'
+            f'<span class="camera-naam">{esc(a["naam"])}</span>'
+            f'<span class="camera-zone">{zone}</span></div>'
+            f'<div class="badges">{badge_html}</div></section>')
+
     # staafdiagram: apparaten per ruimte (één reeks → één kleur, geen legenda)
     staven = ""
     for zone, n in zones_sorted:
@@ -202,10 +256,12 @@ def main() -> None:
         items = ""
         for a in sorted((x for x in apparaten if (x["zone"] or "Onbekend") == zone),
                         key=lambda x: str(x["naam"])):
-            icoon = KLASSE_ICOON.get(a["klasse"], "·")
+            icoon = "📷" if is_ring(a) else KLASSE_ICOON.get(a["klasse"], "·")
             status = ""
             c = a["caps"]
-            if a["klasse"] == "light":
+            if is_ring(a):
+                status = "beweging" if c.get("alarm_motion") else "rustig"
+            elif a["klasse"] == "light":
                 status = "aan" if c.get("onoff") else "uit"
             elif "measure_temperature" in c and c["measure_temperature"] is not None:
                 status = f"{c['measure_temperature']:.1f}°"
@@ -314,6 +370,23 @@ def main() -> None:
       padding:.45rem 1.1rem; cursor:pointer; flex:none; }}
   #ververs:hover {{ border-color:var(--series-1); }}
   #ververs[disabled] {{ opacity:.55; cursor:wait; }}
+
+  .cameras {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+              gap:.9rem; }}
+  .camera {{ border:1px solid var(--rand); border-radius:12px; padding:.8rem .95rem; }}
+  .camera-kop {{ display:flex; align-items:baseline; gap:.5rem; }}
+  .camera-icoon {{ flex:none; }}
+  .camera-naam {{ font-weight:600; font-size:.95rem; }}
+  .camera-zone {{ margin-left:auto; color:var(--text-muted); font-size:.8rem;
+                  white-space:nowrap; }}
+  .badges {{ display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.6rem; }}
+  .badge {{ font-size:.78rem; border-radius:99px; padding:.18rem .6rem;
+            background:var(--surface-2); color:var(--text-secondary); }}
+  .badge-rust {{ color:var(--text-secondary); }}
+  .badge-aan {{ color:var(--st-warn); }}
+  .badge-warn {{ color:var(--st-warn); font-weight:600; }}
+  .badge-alarm {{ color:var(--st-serious); font-weight:600; }}
+  .camera-uitleg {{ color:var(--text-muted); font-size:.8rem; margin:.2rem 0 0; }}
 </style></head>
 <body class="viz-root">
 <div class="kop">
@@ -324,6 +397,11 @@ def main() -> None:
 
 <div class="tegels">{tegel_html}</div>
 <div class="meldingen">{melding_html}</div>
+{f'''
+<h2>Camera's ({len(cams)})</h2>
+<div class="cameras">{camera_html}</div>
+<p class="camera-uitleg">Status via de Homey Ring-app — beweging, batterij, floodlight en sirene.
+Geen live videobeeld: dat levert de Ring-app niet.</p>''' if cams else ''}
 
 <h2>Apparaten per ruimte ({len(apparaten)} totaal)</h2>
 <div class="grafiek">{staven}</div>
