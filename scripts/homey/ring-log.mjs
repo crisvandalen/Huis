@@ -51,31 +51,41 @@ async function main() {
   }
   console.log(`${rings.length} Ring-camera's: ${rings.map((d) => d.name).join(', ')}\n`);
 
-  // Alle insight-logs ophalen en indexeren op uri (= eigenaar-apparaat).
-  const logs = Object.values(await api.insights.getLogs());
-  console.log(`${logs.length} insight-logs in totaal.\n`);
+  // Alle insight-logs ophalen. Homey-versies verschillen in veldnamen, dus we
+  // matchen soepel: een log hoort bij een apparaat als de device-id ergens in
+  // de sleutel/id/uri/ownerUri voorkomt.
+  const logEntries = Object.entries(await api.insights.getLogs());
+  console.log(`${logEntries.length} insight-logs in totaal.\n`);
+
+  const hoortBij = (key, log, id) =>
+    [key, log?.id, log?.uri, log?.ownerUri].some((x) => String(x ?? '').includes(id));
+  const isMotion = (key, log) =>
+    [key, log?.id].some((x) => String(x ?? '').includes(CAP));
 
   const cameras = [];
   for (const d of rings) {
-    const uri = `homey:device:${d.id}`;
-    const log = logs.find(
-      (l) => (l.uri === uri || String(l.ownerUri || '') === uri) && l.id === CAP);
-    if (!log) {
-      console.log(`  --  ${d.name.padEnd(12)} geen Insights-log voor ${CAP} ` +
-        `(staat "logboek" voor beweging aan in de Homey-app?)`);
-      cameras.push({ naam: d.name, id: d.id, beschikbaar: !!log, events: [], aantal: 0 });
+    const eigen = logEntries.filter(([key, log]) => hoortBij(key, log, d.id));
+    // Diagnostiek: laat zien wélke logs deze camera heeft (id's).
+    const ids = eigen.map(([key, log]) => String(log?.id ?? key)).sort();
+    console.log(`  ${d.name}: ${eigen.length} eigen logs` +
+      (ids.length ? ` -> ${ids.join(', ')}` : ' (geen enkele Insights-log)'));
+
+    const motion = eigen.find(([key, log]) => isMotion(key, log));
+    if (!motion) {
+      cameras.push({ naam: d.name, id: d.id, beschikbaar: false, events: [], aantal: 0 });
       continue;
     }
+    const [key, log] = motion;
     let values = [];
+    const params = { id: log?.id ?? key, uri: log?.uri ?? log?.ownerUri ?? `homey:device:${d.id}`, resolution: RESOLUTIE };
     try {
-      const res = await api.insights.getLogEntries(
-        { id: log.id, uri: log.uri ?? uri, resolution: RESOLUTIE });
+      const res = await api.insights.getLogEntries(params);
       values = res?.values ?? res?.entries ?? [];
     } catch (err) {
-      console.log(`  --  ${d.name.padEnd(12)} getLogEntries faalde: ${err.message}`);
+      console.log(`      getLogEntries faalde (${JSON.stringify(params)}): ${err.message}`);
     }
     const events = haalEvents(values);
-    console.log(`  ok  ${d.name.padEnd(12)} ${values.length} datapunten -> ${events.length} beweging-events`);
+    console.log(`      -> motion-log '${params.id}': ${values.length} datapunten, ${events.length} events`);
     cameras.push({ naam: d.name, id: d.id, beschikbaar: true, events, aantal: events.length });
   }
 
