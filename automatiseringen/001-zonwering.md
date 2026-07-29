@@ -1,7 +1,13 @@
-# 001 — Zonwering serre op zon, wind en temperatuur
+# 001 — Zonwering serre op zon en temperatuur
 
-**Status:** gespecificeerd
-**Draait op:** Homey advanced flow (ADR 0002)
+**Status:** gebouwd (29-07, via `scripts/homey/maak-zonwering-flows.mjs`) — nog
+uitgeschakeld; aanzetten na controle in de app
+**Draait op:** 3 Homey advanced flows + 2 logic-variabelen (ADR 0002)
+
+De flows heten "Zonwering – Serre dicht (ochtend)", "– Serre open (middag)" en
+"– handbediening wint". `ZW_FlowStuurt` staat 5 min aan rond eigen commando's
+zodat de handbedieningsflow niet op zichzelf triggert; `ZW_Handbediend`
+blokkeert beide stuurflows 2 uur na een handmatige ingreep.
 
 ## Situatie
 
