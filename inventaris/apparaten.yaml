@@ -77,6 +77,17 @@ apparaten:
     driver: "com.amazon.ring:stickupcam"
     capabilities: [alarm_motion, siren]
     opmerking: "Binnencamera: geen batterij- of floodlight-capability. Geen live beeld via Homey."
+  # Zonnepanelen via de Enphase-app (Drenso), cloud-login (Enlighten). Homey
+  # klasse 'solarpanel'; het dashboard toont 'Zon nu' (W) en 'Zon vandaag' (kWh).
+  # Live watt werkt alleen op de Homey Pro (die we hebben).
+  - naam: "Cris van Dalen"
+    bron: homey
+    kamer: ""            # omvormer/systeem, niet aan één ruimte gebonden
+    doel: "zonproductie meten (Enphase)"
+    driver: "com.enphase:inverter"
+    capabilities: [measure_power, "meter_power.day", meter_power]
+    opmerking: "measure_power = productie nu (W); meter_power.day = vandaag (kWh);
+      meter_power = totaal (kWh). Naam komt uit Enlighten. Geen LAN-token nodig; loopt via de cloud."
   # Sjabloon voor nieuwe regels:
   # - naam: ""
   #   bron: homey        # homey | tahoma | appletv | los
