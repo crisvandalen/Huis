@@ -33,7 +33,7 @@ UIT = ROOT / "dashboard" / "index.html"
 KLASSE_ICOON = {
     "light": "💡", "sensor": "◉", "thermostat": "🌡", "lock": "🔒",
     "doorbell": "🔔", "remote": "🎛", "sunshade": "⛱", "heater": "♨",
-    "camera": "📷", "other": "·",
+    "camera": "📷", "solarpanel": "☀", "other": "·",
 }
 
 # Ring-camera's komen via de Amazon Ring-app binnen. Homey labelt ze als
@@ -108,7 +108,12 @@ def kpis(apparaten):
     vind = lambda **crit: next(
         (a for a in apparaten if all(a.get(k) == v for k, v in crit.items())), None)
 
-    p1 = next((a for a in apparaten if "measure_power" in a["caps"]), None)
+    # P1/net-meter: eerste measure_power-apparaat dat GEEN zonnepaneel is
+    # (anders zou de Enphase-omvormer de netmeter kunnen kapen).
+    p1 = next((a for a in apparaten
+               if "measure_power" in a["caps"] and a["klasse"] != "solarpanel"), None)
+    zon = next((a for a in apparaten if a["klasse"] == "solarpanel"), None) \
+        or next((a for a in apparaten if "enphase" in (a.get("driver") or "").lower()), None)
     thermo = next((a for a in apparaten if a["klasse"] == "thermostat"
                    and "woonkamer" in (a["naam"] or "").lower()), None) \
         or next((a for a in apparaten if a["klasse"] == "thermostat"), None)
@@ -151,6 +156,15 @@ def kpis(apparaten):
             tegels.append(("Stroom vandaag", f"{kwh:.1f}", "kWh", None))
         if gas is not None:
             tegels.append(("Gas vandaag", f"{gas:.2f}", "m³", None))
+    if zon:
+        w = zon["caps"].get("measure_power")
+        dag = zon["caps"].get("meter_power.day", zon["caps"].get("meter_power.daily"))
+        tot = zon["caps"].get("meter_power")
+        if w is not None:
+            sub = f"totaal {tot:,.0f} kWh".replace(",", ".") if isinstance(tot, (int, float)) else None
+            tegels.append(("Zon nu", f"{w:.0f}", "W", sub))
+        if dag is not None:
+            tegels.append(("Zon vandaag", f"{dag:.1f}", "kWh", None))
     if thermo:
         t = thermo["caps"].get("measure_temperature")
         doel = thermo["caps"].get("target_temperature")
@@ -304,6 +318,8 @@ def main() -> None:
             c = a["caps"]
             if is_ring(a):
                 status = "beweging" if c.get("alarm_motion") else "rustig"
+            elif a["klasse"] == "solarpanel" and c.get("measure_power") is not None:
+                status = f"{c['measure_power']:.0f} W"
             elif a["klasse"] == "light":
                 status = "aan" if c.get("onoff") else "uit"
             elif "measure_temperature" in c and c["measure_temperature"] is not None:
