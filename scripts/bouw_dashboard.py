@@ -122,11 +122,48 @@ def kpis(apparaten):
     lampen = [a for a in apparaten if a["klasse"] == "light"]
     aan = [a for a in lampen if a["caps"].get("onoff")]
 
-    tegels = []
+    nu, vandaag, woning = [], [], []
 
-    # KNMI-weerapparaat (voor de controle van de zonwering-condities).
-    # De app gebruikt eigen veldnamen: current_temp, recap/expected_today_recap,
-    # wind_speed_k_m_h, expected_today_max_temp, expected_today_sunshine.
+    # --- Energie: nu (vermogen) --------------------------------------------
+    if zon:
+        w = zon["caps"].get("measure_power")
+        tot = zon["caps"].get("meter_power")
+        if w is not None:
+            sub = f"totaal {tot:,.0f} kWh".replace(",", ".") if isinstance(tot, (int, float)) else None
+            nu.append(("Zon nu", f"{w:.0f}", "W", sub))
+    if zon and p1:
+        zw = zon["caps"].get("measure_power")
+        nw = p1["caps"].get("measure_power")
+        if isinstance(zw, (int, float)) and isinstance(nw, (int, float)):
+            nu.append(("Verbruik nu", f"{zw + nw:.0f}", "W",
+                       f"zon {zw:.0f} W · net {nw:+.0f} W"))
+    if p1:
+        w = p1["caps"].get("measure_power")
+        if isinstance(w, (int, float)):
+            # negatief = terug het net op; positief = van het net afnemen.
+            if w < 0:
+                nu.append(("Teruglevering nu", f"{-w:.0f}", "W", "naar het net"))
+            else:
+                nu.append(("Afname net", f"{w:.0f}", "W", "van het net"))
+
+    # --- Energie & gas: vandaag (meterstanden van de dag) ------------------
+    if zon:
+        dag = zon["caps"].get("meter_power.day", zon["caps"].get("meter_power.daily"))
+        if dag is not None:
+            vandaag.append(("Zon vandaag", f"{dag:.1f}", "kWh", None))
+    if p1:
+        kwh = p1["caps"].get("meter_power.daily")
+        gas = p1["caps"].get("meter_gas.daily")
+        gasnu = p1["caps"].get("measure_gas")
+        if kwh is not None:
+            vandaag.append(("Stroom vandaag", f"{kwh:.1f}", "kWh", None))
+        if gas is not None:
+            vandaag.append(("Gas vandaag", f"{gas:.2f}", "m³", None))
+        if gasnu is not None:
+            vandaag.append(("Gas nu", f"{gasnu:.3f}", "m³", None))
+
+    # --- Klimaat & woning --------------------------------------------------
+    # KNMI-weerapparaat (eigen veldnamen: current_temp, recap, wind_speed_k_m_h, …).
     knmi = next((a for a in apparaten if "knmi" in a.get("driver", "").lower()), None)
     if knmi:
         c = knmi["caps"]
@@ -142,52 +179,25 @@ def kpis(apparaten):
             f"wind {wind:.0f} km/u" if isinstance(wind, (int, float)) else None,
         ) if s)
         if buiten is not None:
-            tegels.append(("Buiten (KNMI)", f"{buiten:.1f}", "°C", sub or None))
+            woning.append(("Buiten (KNMI)", f"{buiten:.1f}", "°C", sub or None))
         elif recap:
-            tegels.append(("Weer (KNMI)", recap, "", None))
-
-    if p1:
-        w = p1["caps"].get("measure_power")
-        kwh = p1["caps"].get("meter_power.daily")
-        gas = p1["caps"].get("meter_gas.daily")
-        if w is not None:
-            tegels.append(("Stroom nu", f"{w:.0f}", "W", None))
-        if kwh is not None:
-            tegels.append(("Stroom vandaag", f"{kwh:.1f}", "kWh", None))
-        if gas is not None:
-            tegels.append(("Gas vandaag", f"{gas:.2f}", "m³", None))
-        gasnu = p1["caps"].get("measure_gas")
-        if gasnu is not None:
-            tegels.append(("Gas nu", f"{gasnu:.3f}", "m³", None))
-    if zon:
-        w = zon["caps"].get("measure_power")
-        dag = zon["caps"].get("meter_power.day", zon["caps"].get("meter_power.daily"))
-        tot = zon["caps"].get("meter_power")
-        if w is not None:
-            sub = f"totaal {tot:,.0f} kWh".replace(",", ".") if isinstance(tot, (int, float)) else None
-            tegels.append(("Zon nu", f"{w:.0f}", "W", sub))
-        if dag is not None:
-            tegels.append(("Zon vandaag", f"{dag:.1f}", "kWh", None))
-    # Huisverbruik nu = zonproductie + netstroom (netstroom negatief = teruglevering).
-    if zon and p1:
-        zw = zon["caps"].get("measure_power")
-        nw = p1["caps"].get("measure_power")
-        if isinstance(zw, (int, float)) and isinstance(nw, (int, float)):
-            tegels.append(("Verbruik nu", f"{zw + nw:.0f}", "W",
-                           f"zon {zw:.0f} W · net {nw:+.0f} W"))
+            woning.append(("Weer (KNMI)", recap, "", None))
     if thermo:
         t = thermo["caps"].get("measure_temperature")
         doel = thermo["caps"].get("target_temperature")
         if t is not None:
-            tegels.append(("Woonkamer", f"{t:.1f}", "°C",
+            woning.append(("Woonkamer", f"{t:.1f}", "°C",
                            f"doel {doel:g}°" if doel is not None else None))
-    tegels.append(("Lampen aan", str(len(aan)), f"van {len(lampen)}",
+    woning.append(("Lampen aan", str(len(aan)), f"van {len(lampen)}",
                    ", ".join(a["naam"] for a in aan[:3]) if aan else "alles uit"))
     if scherm:
         st = scherm["caps"].get("windowcoverings_state")
         vert = {"down": "dicht", "up": "open", "idle": "stil"}.get(st, st or "?")
-        tegels.append(("Serre-scherm", vert, "", None))
-    return tegels
+        woning.append(("Serre-scherm", vert, "", None))
+
+    # Alleen niet-lege groepen teruggeven.
+    return [(t, g) for t, g in
+            (("Energie — nu", nu), ("Vandaag", vandaag), ("Klimaat & woning", woning)) if g]
 
 
 def cameras(apparaten):
@@ -220,7 +230,7 @@ def statusmeldingen(apparaten):
 
 def main() -> None:
     apparaten, flows, adv, stamp = verzamel()
-    tegels = kpis(apparaten)
+    groepen = kpis(apparaten)
     meldingen = statusmeldingen(apparaten)
 
     per_zone = Counter((a["zone"] or "Onbekend") for a in apparaten)
@@ -237,11 +247,17 @@ def main() -> None:
         stamp_net = stamp or "?"
 
     # --- bouwstenen -------------------------------------------------------
-    tegel_html = "".join(
-        f'''<div class="tegel"><div class="tegel-label">{esc(lab)}</div>
-        <div class="tegel-waarde">{esc(val)}<span class="tegel-eenheid">{esc(een)}</span></div>
-        {f'<div class="tegel-sub">{esc(sub)}</div>' if sub else ''}</div>'''
-        for lab, val, een, sub in tegels)
+    def tegels_html(tg):
+        return "".join(
+            f'''<div class="tegel"><div class="tegel-label">{esc(lab)}</div>
+            <div class="tegel-waarde">{esc(val)}<span class="tegel-eenheid">{esc(een)}</span></div>
+            {f'<div class="tegel-sub">{esc(sub)}</div>' if sub else ''}</div>'''
+            for lab, val, een, sub in tg)
+
+    # gegroepeerde tegels: elke groep een eigen kopje, zodat het overzichtelijk blijft.
+    tegel_secties = "".join(
+        f'<h2 class="groepkop">{esc(titel)}</h2><div class="tegels">{tegels_html(tg)}</div>'
+        for titel, tg in groepen)
 
     melding_html = "".join(
         f'<div class="melding melding-{soort}"><span aria-hidden="true">{icoon}</span> {esc(tekst)}</div>'
@@ -400,11 +416,13 @@ def main() -> None:
   h1 {{ font-size:1.35rem; margin:0; }}
   h2 {{ font-size:.85rem; text-transform:uppercase; letter-spacing:.05em;
        color:var(--text-secondary); margin:2.2rem 0 .8rem; }}
+  h2.groepkop {{ margin:1.5rem 0 .5rem; }}
+  h2.groepkop:first-of-type {{ margin-top:1.2rem; }}
   h3 {{ font-size:.95rem; margin:0 0 .4rem; }}
   .sub {{ color:var(--text-muted); font-size:.85rem; margin:.2rem 0 0; }}
 
   .tegels {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-             gap:.75rem; margin-top:1.2rem; }}
+             gap:.75rem; margin-top:.5rem; }}
   .tegel {{ background:var(--surface-2); border-radius:12px; padding:.9rem 1rem; }}
   .tegel-label {{ font-size:.75rem; text-transform:uppercase; letter-spacing:.05em;
                   color:var(--text-secondary); }}
@@ -500,9 +518,8 @@ def main() -> None:
   <button id="ververs" hidden>↻ Ververs</button>
 </div>
 
-<div class="tegels">{tegel_html}</div>
 <div class="meldingen">{melding_html}</div>
-{f'<div class="netinfo"><span class="netinfo-label">Netkwaliteit</span>{net_html}</div>' if net_html else ''}
+{tegel_secties}
 {f'''
 <h2>Camera's ({len(cams)})</h2>
 <div class="cameras">{camera_html}</div>
@@ -522,6 +539,7 @@ Geen live videobeeld: dat levert de Ring-app niet.</p>''' if cams else ''}
 
 <h2>Flows ({flows_aan + adv_aan} aan, {len(flows) + len(adv) - flows_aan - adv_aan} uit)</h2>
 <div class="flows"><ul>{flowlijst}</ul></div>
+{f'<div class="netinfo"><span class="netinfo-label">Netkwaliteit</span>{net_html}</div>' if net_html else ''}
 
 <footer>Gegenereerd door scripts/bouw_dashboard.py · bron: inventaris/export/ ·
 project <code>~/projects/Prive/huis</code></footer>
@@ -551,7 +569,9 @@ project <code>~/projects/Prive/huis</code></footer>
 
     UIT.parent.mkdir(parents=True, exist_ok=True)
     UIT.write_text(doc)
-    print(f"{len(apparaten)} apparaten, {len(tegels)} tegels, {len(meldingen)} meldingen -> {UIT}")
+    n_tegels = sum(len(g) for _, g in groepen)
+    print(f"{len(apparaten)} apparaten, {n_tegels} tegels in {len(groepen)} groepen, "
+          f"{len(meldingen)} meldingen -> {UIT}")
 
 
 if __name__ == "__main__":
