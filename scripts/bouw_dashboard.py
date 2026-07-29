@@ -156,6 +156,9 @@ def kpis(apparaten):
             tegels.append(("Stroom vandaag", f"{kwh:.1f}", "kWh", None))
         if gas is not None:
             tegels.append(("Gas vandaag", f"{gas:.2f}", "m³", None))
+        gasnu = p1["caps"].get("measure_gas")
+        if gasnu is not None:
+            tegels.append(("Gas nu", f"{gasnu:.3f}", "m³", None))
     if zon:
         w = zon["caps"].get("measure_power")
         dag = zon["caps"].get("meter_power.day", zon["caps"].get("meter_power.daily"))
@@ -165,6 +168,13 @@ def kpis(apparaten):
             tegels.append(("Zon nu", f"{w:.0f}", "W", sub))
         if dag is not None:
             tegels.append(("Zon vandaag", f"{dag:.1f}", "kWh", None))
+    # Huisverbruik nu = zonproductie + netstroom (netstroom negatief = teruglevering).
+    if zon and p1:
+        zw = zon["caps"].get("measure_power")
+        nw = p1["caps"].get("measure_power")
+        if isinstance(zw, (int, float)) and isinstance(nw, (int, float)):
+            tegels.append(("Verbruik nu", f"{zw + nw:.0f}", "W",
+                           f"zon {zw:.0f} W · net {nw:+.0f} W"))
     if thermo:
         t = thermo["caps"].get("measure_temperature")
         doel = thermo["caps"].get("target_temperature")
@@ -237,6 +247,27 @@ def main() -> None:
         f'<div class="melding melding-{soort}"><span aria-hidden="true">{icoon}</span> {esc(tekst)}</div>'
         for soort, icoon, tekst in meldingen) or \
         '<div class="melding melding-ok"><span aria-hidden="true">✓</span> Geen bijzonderheden</div>'
+
+    # netkwaliteit-strip uit de P1-meter (spanning, storingen, verbinding).
+    netm = next((a for a in apparaten
+                 if "measure_power" in a["caps"] and a["klasse"] != "solarpanel"), None)
+    net_html = ""
+    if netm:
+        c = netm["caps"]
+        badges = []
+        v = c.get("measure_voltage.l1", c.get("measure_voltage"))
+        if isinstance(v, (int, float)):
+            soort = "warn" if (v < 207 or v > 253) else "rust"  # NL: 230 V ±10%
+            badges.append((soort, ("⚡ " + f"{v:.1f}".replace(".", ",") + " V")))
+        fails = c.get("long_power_fail_count")
+        if isinstance(fails, (int, float)):
+            badges.append(("rust", f"storingen: {fails:.0f}"))
+        conn = c.get("alarm_connectivity")
+        if conn is True:
+            badges.append(("alarm", "⚠ verbindingsprobleem"))
+        elif conn is False:
+            badges.append(("rust", "✓ verbonden"))
+        net_html = "".join(f'<span class="badge badge-{s}">{esc(t)}</span>' for s, t in badges)
 
     # camera's: eigen blok met de status die de Ring-app doorgeeft.
     # (Geen live beeld — de Homey Ring-app levert geen videostream, alleen
@@ -446,6 +477,9 @@ def main() -> None:
   .badge-warn {{ color:var(--st-warn); font-weight:600; }}
   .badge-alarm {{ color:var(--st-serious); font-weight:600; }}
   .camera-uitleg {{ color:var(--text-muted); font-size:.8rem; margin:.2rem 0 0; }}
+  .netinfo {{ display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; margin-top:.7rem; }}
+  .netinfo-label {{ font-size:.75rem; text-transform:uppercase; letter-spacing:.05em;
+                    color:var(--text-secondary); }}
 
   .camlogs {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
               gap:.9rem; }}
@@ -468,6 +502,7 @@ def main() -> None:
 
 <div class="tegels">{tegel_html}</div>
 <div class="meldingen">{melding_html}</div>
+{f'<div class="netinfo"><span class="netinfo-label">Netkwaliteit</span>{net_html}</div>' if net_html else ''}
 {f'''
 <h2>Camera's ({len(cams)})</h2>
 <div class="cameras">{camera_html}</div>
