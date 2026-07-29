@@ -46,6 +46,14 @@ def esc(x) -> str:
     return html.escape(str(x if x is not None else ""))
 
 
+def tijdkort(iso) -> str:
+    """ISO-tijd -> 'dd-mm HH:MM' in lokale tijd."""
+    try:
+        return datetime.fromisoformat(str(iso).replace("Z", "+00:00")).astimezone().strftime("%d-%m %H:%M")
+    except Exception:
+        return str(iso or "?")
+
+
 def verzamel():
     """Combineert homey-ruw (waarden) met homey.json (nette zones)."""
     ruw = lees("homey-ruw.json")
@@ -241,6 +249,32 @@ def main() -> None:
             f'<span class="camera-zone">{zone}</span></div>'
             f'<div class="badges">{badge_html}</div></section>')
 
+    # camera-log: recente beweging uit Homey Insights (ring-log.json), optioneel.
+    # Wordt gevuld door scripts/homey/ring-log.mjs; ontbreekt het bestand, dan
+    # slaan we het blok over.
+    ringlog = lees("ring-log.json")
+    camlog_html = ""
+    ringlog_periode = ""
+    if ringlog and ringlog.get("cameras"):
+        RES_NL = {"last24Hours": "laatste 24 uur", "last7Days": "laatste 7 dagen",
+                  "last14Days": "laatste 14 dagen", "last31Days": "laatste 31 dagen"}
+        ringlog_periode = RES_NL.get(ringlog.get("resolutie"), ringlog.get("resolutie", ""))
+        for cam in sorted(ringlog["cameras"], key=lambda x: str(x.get("naam"))):
+            evs = cam.get("events") or []
+            if not cam.get("beschikbaar", True):
+                regels = ('<li class="log-leeg">geen Insights-log — zet "logboek" '
+                          'aan bij deze camera in de Homey-app</li>')
+            elif not evs:
+                regels = '<li class="log-leeg">geen beweging in deze periode</li>'
+            else:
+                recent = list(reversed(evs))[:8]
+                regels = "".join(f"<li>{esc(tijdkort(t))}</li>" for t in recent)
+            camlog_html += (
+                f'<section class="camlog"><div class="camlog-kop">'
+                f'<span class="camera-naam">📷 {esc(cam.get("naam"))}</span>'
+                f'<span class="camlog-aantal">{esc(cam.get("aantal", len(evs)))}×</span></div>'
+                f"<ul>{regels}</ul></section>")
+
     # staafdiagram: apparaten per ruimte (één reeks → één kleur, geen legenda)
     staven = ""
     for zone, n in zones_sorted:
@@ -387,6 +421,18 @@ def main() -> None:
   .badge-warn {{ color:var(--st-warn); font-weight:600; }}
   .badge-alarm {{ color:var(--st-serious); font-weight:600; }}
   .camera-uitleg {{ color:var(--text-muted); font-size:.8rem; margin:.2rem 0 0; }}
+
+  .camlogs {{ display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+              gap:.9rem; }}
+  .camlog {{ border:1px solid var(--rand); border-radius:12px; padding:.8rem .95rem; }}
+  .camlog-kop {{ display:flex; align-items:baseline; justify-content:space-between;
+                 gap:.5rem; margin-bottom:.4rem; }}
+  .camlog-aantal {{ color:var(--text-secondary); font-variant-numeric:tabular-nums;
+                    font-size:.85rem; }}
+  .camlog ul {{ list-style:none; margin:0; padding:0; }}
+  .camlog li {{ font-size:.85rem; color:var(--text-secondary); padding:.12rem 0;
+                font-variant-numeric:tabular-nums; }}
+  .camlog .log-leeg {{ color:var(--text-muted); font-variant-numeric:normal; }}
 </style></head>
 <body class="viz-root">
 <div class="kop">
@@ -402,6 +448,11 @@ def main() -> None:
 <div class="cameras">{camera_html}</div>
 <p class="camera-uitleg">Status via de Homey Ring-app — beweging, batterij, floodlight en sirene.
 Geen live videobeeld: dat levert de Ring-app niet.</p>''' if cams else ''}
+{f'''
+<h2>Camera-log — recente beweging ({esc(ringlog_periode)})</h2>
+<div class="camlogs">{camlog_html}</div>
+<p class="camera-uitleg">Beweging-events uit Homey Insights (alarm_motion). Bijgewerkt met
+<code>make ring-log</code>.</p>''' if camlog_html else ''}
 
 <h2>Apparaten per ruimte ({len(apparaten)} totaal)</h2>
 <div class="grafiek">{staven}</div>
