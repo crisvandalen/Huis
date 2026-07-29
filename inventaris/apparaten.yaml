@@ -50,7 +50,34 @@ zonwering:
   # Meer schermen? Die verschijnen in de TaHoma-export (make tahoma).
 
 # Alles wat niet vanzelf uit een export komt, of waar je iets bij wil noteren.
-apparaten: []
+#
+# Ring-camera's: via de Amazon Ring-app aan Homey gekoppeld. Homey geeft ze
+# klasse 'sensor' (niet 'camera'), dus het dashboard herkent ze aan de driver
+# com.amazon.ring. De app levert GEEN videostream — alleen de capabilities
+# hieronder. Zie docs/adr/0003-ring-cameras-dashboard.md voor de afweging.
+apparaten:
+  - naam: Front
+    bron: homey
+    kamer: Entree
+    doel: "camera voordeur / oprit"
+    driver: "com.amazon.ring:stickupcam"
+    capabilities: [alarm_motion, measure_battery, flood_light, siren]
+    opmerking: "Heeft floodlight. Geen live beeld via Homey."
+  - naam: Backyard
+    bron: homey
+    kamer: Tuin
+    doel: "camera achtertuin"
+    driver: "com.amazon.ring:stickupcam"
+    capabilities: [alarm_motion, measure_battery, flood_light, siren]
+    opmerking: "Heeft floodlight. Geen live beeld via Homey."
+  - naam: Woonkamer
+    bron: homey
+    kamer: Woonkamer
+    doel: "camera binnen"
+    driver: "com.amazon.ring:stickupcam"
+    capabilities: [alarm_motion, siren]
+    opmerking: "Binnencamera: geen batterij- of floodlight-capability. Geen live beeld via Homey."
+  # Sjabloon voor nieuwe regels:
   # - naam: ""
   #   bron: homey        # homey | tahoma | appletv | los
   #   kamer: ""
