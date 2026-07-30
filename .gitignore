@@ -2,6 +2,7 @@
 .env
 *.token
 scripts/**/credentials.json
+scripts/homey/.homey-cloud-token.json
 
 # Machine-exports (kunnen device-ID's en gateway-PIN bevatten)
 inventaris/export/*
@@ -20,4 +21,3 @@ node_modules/
 
 # macOS
 .DS_Store
-scripts/homey/.homey-cloud-token.json

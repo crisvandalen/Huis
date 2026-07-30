@@ -29,18 +29,24 @@ def ververs() -> tuple[bool, str]:
     """Draait de exports en de generator. Geeft (gelukt, logtekst) terug."""
     log = []
     stappen = [
-        ("homey-export", ["node", str(ROOT / "scripts/homey/export-devices.mjs")]),
-        ("dashboard", [sys.executable, str(ROOT / "scripts/bouw_dashboard.py")]),
+        ("homey-export", ["node", str(ROOT / "scripts/homey/export-devices.mjs")], True),
     ]
-    for naam, cmd in stappen:
+    # Ring-cameralog is optioneel: alleen als de OAuth-token er is, en een
+    # mislukking mag de verversing niet blokkeren.
+    if (ROOT / "scripts/homey/.homey-cloud-token.json").exists():
+        stappen.append(("ring-log", ["node", str(ROOT / "scripts/homey/ring-log.mjs")], False))
+    stappen.append(("dashboard", [sys.executable, str(ROOT / "scripts/bouw_dashboard.py")], True))
+
+    for naam, cmd, verplicht in stappen:
         try:
-            uit = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, timeout=60)
+            uit = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, timeout=90)
             log.append(f"[{naam}] exit {uit.returncode}\n{uit.stdout}{uit.stderr}".strip())
-            if uit.returncode != 0:
+            if uit.returncode != 0 and verplicht:
                 return False, "\n".join(log)
         except subprocess.TimeoutExpired:
-            log.append(f"[{naam}] time-out na 60s")
-            return False, "\n".join(log)
+            log.append(f"[{naam}] time-out")
+            if verplicht:
+                return False, "\n".join(log)
     return True, "\n".join(log)
 
 
