@@ -720,12 +720,50 @@ def tab_overzicht(apparaten, groepen, meldingen) -> str:
         for soort, icoon, tekst in meldingen) or \
         '<div class="melding melding-ok"><span aria-hidden="true">✓</span> Geen bijzonderheden</div>'
 
-    # Curated tegels: weer, verbruik, woonkamer, zon.
+    # Curated tegels: weer, energie, woonkamer, huisstatus.
     def pak(titel, labels):
         return [t for t in groepen.get(titel, []) if t[0] in labels]
-    kern = (pak("Klimaat & woning", {"Buiten (KNMI)", "Weer (KNMI)", "Woonkamer"})
-            + pak("Energie — nu", {"Verbruik nu", "Zon nu"}))
+    kern = (pak("Klimaat & woning", {"Buiten (KNMI)", "Weer (KNMI)", "Woonkamer",
+                                     "Lampen aan", "Serre-scherm"})
+            + pak("Energie — nu", {"Verbruik nu", "Zon nu", "Teruglevering nu", "Afname net"})
+            + pak("Vandaag", {"Stroom vandaag", "Gas vandaag"}))
+
+    # Voordeur-tegel (niet in de kpi-groepen, wel startpagina-waardig).
+    slot = next((a for a in apparaten if a["klasse"] == "lock"), None)
+    if slot and slot["caps"].get("locked") is not None:
+        kern.append(("Voordeur", "op slot" if slot["caps"].get("locked") else "open", "", None))
+
     kern_html = f'<div class="tegels">{tegels_html(kern)}</div>' if kern else ""
+
+    # Zonsopgang/-ondergang uit KNMI als voetregel bij de tegels.
+    knmi = next((a for a in apparaten if "knmi" in (a.get("driver") or "").lower()), None)
+    zon_html = ""
+    if knmi:
+        op, onder = knmi["caps"].get("sun_up"), knmi["caps"].get("sun_down")
+        if op and onder:
+            zon_html = f'<p class="uitleg">🌅 zon op {esc(op)} · 🌇 onder {esc(onder)}</p>'
+
+    # Laatste camerabeweging per camera (uit ring-log.json).
+    ringlog = lees("ring-log.json") or {}
+    cam_html = ""
+    if ringlog.get("cameras"):
+        ref = nu_lokaal()
+        regels = ""
+        for cam in sorted(ringlog["cameras"], key=lambda x: str(x.get("naam"))):
+            evs = sorted((d for d in (parse_iso(t) for t in cam.get("events") or []) if d),
+                         reverse=True)
+            if evs:
+                laatst = evs[0]
+                wanneer = laatst.strftime("%H:%M") if laatst.date() == ref.date() else \
+                    laatst.strftime("%d-%m %H:%M")
+                n24 = sum(1 for d in evs if (ref - d).total_seconds() <= 86400)
+                status = f"{wanneer} · {n24}× in 24 u"
+            else:
+                status = "geen beweging in het log"
+            regels += (f'<li class="apparaat"><span class="app-icoon" aria-hidden="true">📷</span>'
+                       f'<span class="app-naam">{esc(cam.get("naam"))}</span>'
+                       f'<span class="app-status">{esc(status)}</span></li>')
+        cam_html = f'<div class="kolom"><h2>Laatste beweging</h2><ul>{regels}</ul></div>'
 
     # Agenda-snippet (max 3 komende).
     data = lees("mail-agenda.json") or {}
@@ -755,11 +793,11 @@ def tab_overzicht(apparaten, groepen, meldingen) -> str:
         mail_html = f'<div class="kolom"><h2>{esc(kop)}</h2><ul class="maillijst">{rijen}</ul></div>'
 
     kolommen = ""
-    if agenda_html or mail_html:
-        kolommen = f'<div class="tweekolom">{agenda_html}{mail_html}</div>'
+    if agenda_html or mail_html or cam_html:
+        kolommen = f'<div class="tweekolom">{agenda_html}{cam_html}{mail_html}</div>'
 
     return (f'<div class="meldingen">{melding_html}</div>'
-            + (f'<h2>Nu in huis</h2>{kern_html}' if kern_html else "")
+            + (f'<h2>Nu in huis</h2>{kern_html}{zon_html}' if kern_html else "")
             + kolommen)
 
 

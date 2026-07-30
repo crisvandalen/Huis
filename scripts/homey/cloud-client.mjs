@@ -27,6 +27,11 @@ export function laadEnv() {
       if (!(k in process.env)) process.env[k] = v;
     }
   } catch { /* geen .env */ }
+  // Oudere .env-bestanden gebruikten HOMEY_CLOUD_CLIENT_*; beide namen werken.
+  if (!process.env.HOMEY_CLIENT_ID && process.env.HOMEY_CLOUD_CLIENT_ID)
+    process.env.HOMEY_CLIENT_ID = process.env.HOMEY_CLOUD_CLIENT_ID;
+  if (!process.env.HOMEY_CLIENT_SECRET && process.env.HOMEY_CLOUD_CLIENT_SECRET)
+    process.env.HOMEY_CLIENT_SECRET = process.env.HOMEY_CLOUD_CLIENT_SECRET;
 }
 
 class FileStore extends AthomCloudAPI.StorageAdapter {
