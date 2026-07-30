@@ -522,28 +522,37 @@ def tab_netwerk(apparaten, net_html) -> str:
         status_klasse = "goed" if online else ("slecht" if online is False else "onb")
         status_tekst = "online" if online else ("offline" if online is False else "onbekend")
         naam = router.get("model") or router.get("merk") or "Router"
+
+        # Enkele échte cijfers als tegel; de rest (tekstfeiten) in een tabel.
         tg = []
+        if router.get("clients") not in (None, ""):
+            tg.append(("Verbonden apparaten", str(router["clients"]), "", None))
+        if router.get("uptime"):
+            tg.append(("Uptime", router["uptime"], "", None))
+
         veld_labels = [
             ("merk", "Merk"), ("model", "Model"), ("firmware", "Firmware"),
-            ("uptime", "Uptime"), ("wan_ip", "WAN-IP"), ("lan_ip", "LAN-IP"),
-            ("clients", "Verbonden apparaten"), ("verbinding", "Verbinding"),
-            ("provider", "Provider"), ("signaal", "Signaal"),
-            ("modem_temp", "Modemtemperatuur"), ("download", "Download"),
-            ("upload", "Upload"), ("latency", "Latency"),
+            ("verbinding", "Verbinding"), ("provider", "Provider"),
+            ("signaal", "Signaal"), ("modem_temp", "Modemtemperatuur"),
+            ("wan_ip", "WAN-IP"), ("lan_ip", "LAN-IP"),
+            ("download", "Download"), ("upload", "Upload"), ("latency", "Latency"),
         ]
+        rijen = ""
         for sleutel, label in veld_labels:
             v = router.get(sleutel)
             if v not in (None, "", []):
-                tg.append((label, v, "", None))
+                rijen += f'<tr><td>{esc(label)}</td><td class="num">{esc(v)}</td></tr>'
         wifi = router.get("wifi")
         if isinstance(wifi, list) and wifi:
-            tg.append(("Wi-Fi", ", ".join(str(w) for w in wifi), "", None))
+            rijen += f'<tr><td>Wi-Fi</td><td class="num">{esc(", ".join(str(w) for w in wifi))}</td></tr>'
+
         rstamp = tijdkort(router.get("opgehaald_op")) if router.get("opgehaald_op") else ""
         delen.append(
             f'<h2>Router</h2>'
             f'<div class="router-status router-{status_klasse}">'
             f'<span class="router-dot"></span>{esc(naam)} — {esc(status_tekst)}</div>'
-            f'<div class="tegels">{tegels_html(tg)}</div>'
+            + (f'<div class="tegels">{tegels_html(tg)}</div>' if tg else '')
+            + f'<table class="metertabel"><tbody>{rijen}</tbody></table>'
             + (f'<p class="uitleg">Uitgelezen op {esc(rstamp)}.</p>' if rstamp else ''))
     else:
         delen.append(
