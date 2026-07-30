@@ -786,7 +786,7 @@ def main() -> None:
 
     doc = f"""<!doctype html>
 <html lang="nl"><head><meta charset="utf-8">
-<title>Huis — startpagina</title>
+<title>Startpagina</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   .viz-root {{
@@ -958,7 +958,7 @@ def main() -> None:
 </style></head>
 <body class="viz-root">
 <div class="kop">
-  <div><h1>🏠 Huis — startpagina</h1>
+  <div><h1>🏠 Startpagina</h1>
   <p class="sub">Momentopname van {esc(stamp_net)}<span id="ververs-uitleg"> · ververs met <code>make homey &amp;&amp; make dashboard</code>, of start <code>make serve</code> voor een knop</span></p></div>
   <button id="ververs" hidden>↻ Ververs</button>
 </div>
