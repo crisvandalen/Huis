@@ -766,6 +766,22 @@ def tab_overzicht(apparaten, groepen, meldingen) -> str:
     if slot and slot["caps"].get("locked") is not None:
         kern.append(("Voordeur", "op slot" if slot["caps"].get("locked") else "open", "", None))
 
+    # Router-tegel: online-status + de actieve WAN-interface (uit failover).
+    router = lees("router.json") or {}
+    if router:
+        online = router.get("online")
+        actief = None
+        for deel in str(router.get("failover") or "").split("·"):
+            if "online" in deel:
+                actief = deel.split(":")[0].strip()
+                break
+        sub = " · ".join(s for s in (
+            f"actief: {actief}" if actief else None,
+            router.get("verbinding"),
+        ) if s)
+        kern.append(("Router", "online" if online else ("offline" if online is False else "?"),
+                     "", sub or router.get("model")))
+
     kern_html = f'<div class="tegels">{tegels_html(kern)}</div>' if kern else ""
 
     # Zonsopgang/-ondergang uit KNMI als voetregel bij de tegels.
