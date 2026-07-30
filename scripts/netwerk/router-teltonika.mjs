@@ -121,35 +121,42 @@ async function main() {
   mkdirSync(EXPORT_DIR, { recursive: true });
   writeFileSync(resolve(EXPORT_DIR, "router-ruw.json"), JSON.stringify(ruw, null, 1));
 
-  // Best-effort mapping naar het dashboard-formaat.
+  // Mapping afgestemd op RutOS 7.x (geverifieerd op RUTX12, fw 07.21).
   const ap = ruw.apparaat?.data ?? {};
-  const sys = ruw.systeem?.data ?? {};
   const ifs = ruw.interfaces?.data;
   const wl = ruw.draadloos?.data;
   const dhcp = ruw.dhcp?.data;
-  const wcl = ruw.wifi_clients?.data;
-
-  const wan = Array.isArray(ifs)
-    ? ifs.find((i) => /wan|mob/i.test(`${i.name ?? i.id ?? ""}`) && (i.ipv4_address || i.ip_address || i.ipaddr))
+  const mob = Array.isArray(ruw.mobiel?.data)
+    ? ruw.mobiel.data.find((m) => m.primary || m.state === "Connected") ?? ruw.mobiel.data[0]
     : null;
+
+  const lan = Array.isArray(ifs) ? ifs.find((i) => i.id === "lan" || i.interface === "lan") : null;
+  const wan = Array.isArray(ifs)
+    ? ifs.find((i) => i.area_type === "wan" && i.is_up && (i.ipaddrs?.length))
+    : null;
+
+  // ssid's zitten in name: 'ap "Dalen_BackUP"' / 'sta "WifiDalenRUT"'
   const wifiNamen = Array.isArray(wl)
-    ? [...new Set(wl.map((w) => w.ssid).filter(Boolean))]
+    ? [...new Set(wl.map((w) => (String(w.name ?? "").match(/"([^"]+)"/) || [])[1] || w.ssid)
+        .filter(Boolean))]
     : [];
-  const aantalClients =
-    (Array.isArray(wcl) ? wcl.length : null) ??
-    (Array.isArray(dhcp) ? dhcp.length : (Array.isArray(dhcp?.leases) ? dhcp.leases.length : null));
 
   const router = {
     opgehaald_op: new Date().toISOString(),
     online: true,
     merk: "Teltonika",
-    model: ap.model ?? ap.name ?? ap.device_name ?? null,
-    firmware: ap.firmware ?? ap.fw_version ?? ap.version ?? null,
-    uptime: uptimeTekst(Number(sys.uptime ?? ap.uptime)) ?? null,
-    wan_ip: wan?.ipv4_address ?? wan?.ip_address ?? wan?.ipaddr ?? null,
+    model: ap.static?.device_name ?? ap.static?.model ?? null,
+    firmware: ap.static?.fw_version ?? null,
+    uptime: uptimeTekst(Number(lan?.uptime)),
+    wan_ip: (wan?.ipaddrs?.[0] ?? "").split("/")[0] || null,
     lan_ip: host,
-    clients: aantalClients,
+    clients: Array.isArray(dhcp) ? dhcp.length : null,
     wifi: wifiNamen,
+    // 4G-details (RUTX12): getoond op de Netwerk-tab
+    verbinding: mob?.conntype ?? null,
+    provider: mob?.operator && mob.operator !== "N/A" ? mob.operator : null,
+    signaal: Number.isFinite(mob?.rsrp) ? `${mob.rsrp} dBm (RSRP)` : null,
+    modem_temp: Number.isFinite(mob?.temperature) ? `${mob.temperature} °C` : null,
   };
   writeFileSync(resolve(EXPORT_DIR, "router.json"), JSON.stringify(router, null, 1));
 

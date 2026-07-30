@@ -526,7 +526,9 @@ def tab_netwerk(apparaten, net_html) -> str:
         veld_labels = [
             ("merk", "Merk"), ("model", "Model"), ("firmware", "Firmware"),
             ("uptime", "Uptime"), ("wan_ip", "WAN-IP"), ("lan_ip", "LAN-IP"),
-            ("clients", "Verbonden apparaten"), ("download", "Download"),
+            ("clients", "Verbonden apparaten"), ("verbinding", "Verbinding"),
+            ("provider", "Provider"), ("signaal", "Signaal"),
+            ("modem_temp", "Modemtemperatuur"), ("download", "Download"),
             ("upload", "Upload"), ("latency", "Latency"),
         ]
         for sleutel, label in veld_labels:
