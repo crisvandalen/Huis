@@ -58,3 +58,6 @@ cloud-export: ## Homey via de cloud exporteren (werkt ook op de VPS)
 	node scripts/homey/export-cloud.mjs
 
 cloud-dashboard: cloud-export dashboard ## cloud-export + dashboard bouwen (voor de VPS-cron)
+
+router: ## Teltonika-router uitlezen naar inventaris/export/router.json (thuis draaien)
+	node scripts/netwerk/router-teltonika.mjs
