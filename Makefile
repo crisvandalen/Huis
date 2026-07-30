@@ -19,6 +19,7 @@ setup:
 	python3 -m venv $(VENV)
 	$(PY) -m pip install --upgrade pip
 	$(PY) -m pip install -r scripts/requirements.txt
+	@test -f package.json && npm install --no-fund --no-audit || true
 	@echo "Klaar. Vul nu .env in (HOMEY_HOST en HOMEY_API_KEY)."
 
 inventaris: homey tahoma appletv

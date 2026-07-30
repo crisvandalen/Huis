@@ -1,5 +1,8 @@
 {
+  "name": "huis",
+  "private": true,
+  "description": "Domotica-project — npm-dependencies voor de cloud-scripts (Ring-log)",
   "dependencies": {
-    "homey-api": "^3.19.1"
+    "homey-api": "^3.0.0"
   }
 }
