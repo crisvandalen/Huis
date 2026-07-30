@@ -1,4 +1,4 @@
-.PHONY: setup inventaris homey tahoma appletv dashboard serve schoon help
+.PHONY: setup inventaris homey tahoma appletv dashboard serve publiceer schoon help
 
 VENV := .venv
 PY := $(VENV)/bin/python
@@ -11,6 +11,7 @@ help:
 	@echo "make appletv     - Apple TV's scannen"
 	@echo "make dashboard   - dashboard/index.html bouwen uit de exports"
 	@echo "make serve       - dashboard serveren op localhost:8321 met ververs-knop"
+	@echo "make publiceer   - verse export + dashboard naar de VPS sturen (VPS_DOEL in .env)"
 	@echo "make schoon      - exports en dashboard weggooien"
 
 setup:
@@ -37,6 +38,11 @@ dashboard:
 
 serve:
 	$(PY) scripts/serveer.py
+
+publiceer: homey dashboard
+	@set -a; . ./.env; set +a; \
+	if [ -z "$$VPS_DOEL" ]; then echo "VPS_DOEL ontbreekt in .env"; exit 1; fi; \
+	rsync -az dashboard/index.html "$$VPS_DOEL" && echo "Gepubliceerd naar $$VPS_DOEL"
 
 schoon:
 	rm -f inventaris/export/*.json dashboard/index.html

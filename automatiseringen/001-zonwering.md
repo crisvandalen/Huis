@@ -33,11 +33,22 @@ wil.
 
 ## Trigger
 
-**Sluiten (ochtend):** zon-elevatie boven ~10° (Zonnestanden), én
-buitentemperatuur boven de drempel, én geen zware bewolking.
+**Sluiten:** bij elke KNMI-update (±elke 10 min) beoordelen: zonshoogte
+boven 10° én azimut onder 210° én temperatuur boven drempel én zonkans boven
+drempel én scherm staat nog open → sluiten.
 
-**Openen (middag):** zonazimut passeert ~157° (zon draait van de gevel af,
-rond 13:30) — of eerder, zodra het bewolkt raakt.
+> Geleerd op 30-07: de eerste versie triggerde eenmalig op "zonshoogte
+> passeert 10°" (~7:10). Op warme dagen is het dán nog te koel, waarna de
+> flow die dag geen tweede kans kreeg — op de eerste tropische dag bleef het
+> scherm dus open. Nu is de KNMI-update de hartslag en zijn zonstand-checks
+> condities geworden.
+
+**Openen (middag):** zonazimut passeert **210°** (~15:00) — of eerder, zodra
+het bewolkt raakt.
+
+> Geleerd op 29-07: de gevelberekening (157°, ~13:30) was te vroeg — een serre
+> vangt zon door het dák, niet alleen door de gevel. Cris' waarneming: zon is
+> rond 15:00 echt weg → azimut 210°. Dit is een praktijkwaarde, geen formule.
 
 ## Voorwaarden
 
@@ -65,6 +76,11 @@ hier echt, want io koppelt de stand terug: wijkt `windowcoverings_state` af
 van wat de flow laatst stuurde, dan was het een mens.
 
 ## Randgevallen
+
+- **De My-positie moet in de TaHoma-app van Somfy zelf zijn ingesteld.** Zonder
+  ingestelde My doet "Zet de positie naar MY" stilletjes niets — geen fout,
+  geen beweging (zo ontdekt op 29-07). Instellen: scherm naar de gewenste
+  stand zetten en de My-knop lang indrukken (of via de TaHoma-app).
 
 - **Scherm onbereikbaar** (TaHoma-app of io-verbinding hapert) — niets doen,
   melden. Nooit blind commando's herhalen.

@@ -21,13 +21,15 @@ import { randomUUID } from "node:crypto";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 const ECHT = process.argv.includes("--echt");
+const VERVANG = process.argv.includes("--vervang"); // bestaande Zonwering-flows eerst verwijderen
 
 // ---- instellingen (drempels uit de spec; pas gerust aan) -------------------
 const ZON_ELEVATIE = 10;      // ° — trigger "sluiten" zodra zon hierboven komt
-const ZON_AZIMUT_VRIJ = 157;  // ° — zon draait van de ONO-gevel af (~13:30)
+const ZON_AZIMUT_VRIJ = 210;  // ° — zon echt weg uit de serre (~15:00; gemeten
+                              // met Cris, 29-07: 157° van de gevelberekening was
+                              // te vroeg — het dak vangt langer zon dan de gevel)
 const TEMP_DREMPEL = 22;      // °C buitentemperatuur (KNMI current_temp)
 const ZONKANS_DREMPEL = 50;   // %  (KNMI expected_today_sunshine)
-const OCHTEND = ["06:00", "13:30"];
 const BLOKKADE_UUR = 2;       // handbediening wint dit aantal uren
 const FLOWSTUURT_MIN = 5;     // minuten dat ZW_FlowStuurt aanstaat na eigen commando
 
@@ -134,13 +136,16 @@ async function main() {
   console.log("");
 
   // --- kaarten kiezen ------------------------------------------------------
+  const knmiAppUri = "homey:app:nl.bochove.knmi";
   const kaart = {
-    trZonHoog: vindKaart(triggers, sunUri, ["altitude_greater_than"]),
+    trKnmiData: vindKaart(triggers, knmiAppUri, ["received-new-data"]),
+    coHoogte: vindKaart(condities, sunUri, ["cond_altitude"]),
+    coAzimut: Object.values(condities).find((k) => k.id === `${sunUri}:cond_azimuth`),
+    coSchermOpen: vindKaart(condities, serreUri, ["windowcoverings_state_is"]),
     trAzimut: vindKaart(triggers, sunUri, ["azimuth_greater_than"]),
     // "positie veranderd" heeft géén verplichte argumenten en vangt alles
     trSerreVeranderd: vindKaart(triggers, serreUri, [
       "windowcoverings_set_changed", "windowcoverings_state_changed", "windowcoverings"]),
-    coTijdTussen: Object.values(condities).find((k) => k.id === "homey:manager:cron:time_between"),
     coGroterDan: Object.values(condities).find((k) => k.id === "homey:manager:logic:gt"),
     coBool: Object.values(condities).find((k) => k.id === "homey:manager:logic:equal_boolean"),
     acSerreMy: vindKaart(acties, serreUri, ["quick_open", "my_position", "my"]),
@@ -203,19 +208,26 @@ async function main() {
     return cards;
   }
 
+  // Flow A herbeoordeelt bij elke KNMI-update (ontwerpfout 30-07 opgelost:
+  // de oude eenmalige zonshoogte-trigger vuurde om ~7:10, wanneer het op
+  // warme dagen nog te koel is — daarna kwam er die dag geen tweede kans).
   const flowA = {
     name: "Zonwering – Serre dicht (ochtend)",
     enabled: false,
     cards: keten([
-      { ownerUri: sunUri, id: kaart.trZonHoog.id, type: "trigger", args: { altitude: ZON_ELEVATIE } },
-      { ownerUri: "homey:manager:cron", id: kaart.coTijdTussen.id, type: "condition",
-        args: { time1: OCHTEND[0], time2: OCHTEND[1] } },
+      { ownerUri: knmiAppUri, id: kaart.trKnmiData.id, type: "trigger" },
+      { ownerUri: sunUri, id: kaart.coHoogte.id, type: "condition",
+        args: { value: ZON_ELEVATIE, condition: ">" } },
+      { ownerUri: sunUri, id: kaart.coAzimut.id, type: "condition",
+        args: { value: ZON_AZIMUT_VRIJ, condition: "<" } },
       { ownerUri: "homey:manager:logic", id: kaart.coGroterDan.id, type: "condition",
         droptoken: tokenKnmi("current_temp"), args: { comparator: TEMP_DREMPEL } },
       { ownerUri: "homey:manager:logic", id: kaart.coGroterDan.id, type: "condition",
         droptoken: tokenKnmi("expected_today_sunshine"), args: { comparator: ZONKANS_DREMPEL } },
       { ownerUri: "homey:manager:logic", id: kaart.coBool.id, type: "condition",
         droptoken: tokenVar("ZW_Handbediend"), inverted: true },
+      { ownerUri: serreUri, id: kaart.coSchermOpen.id, type: "condition",
+        args: { state: "up" } },   // alleen sturen als het scherm nog open staat
       { ownerUri: "homey:manager:logic", id: kaart.acZetBool.id, type: "action",
         args: { variable: { id: varId.ZW_FlowStuurt, name: "ZW_FlowStuurt" }, value: true } },
       { ownerUri: serreUri, id: kaart.acSerreMy.id, type: "action" },
@@ -260,7 +272,14 @@ async function main() {
   const bestaandeFlows = await api(basis, key, "/api/manager/flow/advancedflow/");
   for (const flow of [flowA, flowB, flowC]) {
     const dubbel = Object.values(bestaandeFlows).find((f) => f.name === flow.name);
-    if (dubbel) { console.log(`\nbestaat al, overgeslagen: "${flow.name}"`); continue; }
+    if (dubbel && VERVANG && ECHT) {
+      await api(basis, key, `/api/manager/flow/advancedflow/${dubbel.id}/`, "DELETE");
+      console.log(`\noude versie verwijderd: "${flow.name}"`);
+    } else if (dubbel && !VERVANG) {
+      console.log(`\nbestaat al, overgeslagen: "${flow.name}" (vervangen: --vervang)`); continue;
+    } else if (dubbel) {
+      console.log(`\nzou vervangen worden: "${flow.name}"`);
+    }
     console.log(`\n=== ${flow.name} (${Object.keys(flow.cards).length} kaarten, uit) ===`);
     for (const c of Object.values(flow.cards))
       console.log(`  ${(c.type ?? "?").padEnd(10)} ${c.id ?? "vertraging"} ${c.args ? JSON.stringify(c.args) : ""}${c.droptoken ? "  ← " + c.droptoken : ""}${c.inverted ? "  (omgekeerd: nee)" : ""}`);

@@ -5,9 +5,6 @@
  * Vereist in .env:
  *   HOMEY_HOST=192.168.1.10        (IP, of homey-<id>.local)
  *   HOMEY_API_KEY=...              (Homey Web App -> Settings -> API Keys)
- *   HOMEY_REMOTE_URL=...          (optioneel; cloud-URL uit je Homey-account,
- *                                  bv https://<id>.homey.eu-west-1.homeypro.net,
- *                                  om van BUITEN je LAN te testen)
  *
  * Probeert automatisch meerdere routes: plain http, de https-route via
  * homeylocal.com, en mDNS. Geen dependencies; Node 18+ heeft fetch ingebouwd.
@@ -46,20 +43,22 @@ const ENDPOINTS = {
 
 const IS_IPV4 = /^\d{1,3}(\.\d{1,3}){3}$/;
 
-/** Mogelijke routes naar dezelfde Homey, in volgorde van waarschijnlijkheid. */
+/** Mogelijke routes naar dezelfde Homey, in volgorde van waarschijnlijkheid.
+ *  Lokaal eerst; als HOMEY_CLOUD_ID is gezet ook de cloudroute van Athom —
+ *  die werkt óók buitenshuis (bijv. vanaf een VPS). */
 function basisUrls(host) {
   const urls = [];
-  if (process.env.HOMEY_REMOTE_URL) {
-    let r = process.env.HOMEY_REMOTE_URL;
-    while (r.endsWith('/')) r = r.slice(0, -1);
-    urls.push(r);
+  if (host) {
+    urls.push(`http://${host}`);
+    if (IS_IPV4.test(host)) {
+      // Athom's certificaat-truc: 192.168.2.174 -> 192-168-2-174.homey.homeylocal.com
+      urls.push(`https://${host.replace(/\./g, "-")}.homey.homeylocal.com`);
+    } else if (!host.endsWith(".local")) {
+      urls.push(`http://${host}.local`);
+    }
   }
-  if (host) urls.push(`http://${host}`);
-  if (IS_IPV4.test(host)) {
-    // Athom's certificaat-truc: 192.168.2.174 -> 192-168-2-174.homey.homeylocal.com
-    urls.push(`https://${host.replace(/\./g, "-")}.homey.homeylocal.com`);
-  } else if (!host.endsWith(".local")) {
-    urls.push(`http://${host}.local`);
+  if (process.env.HOMEY_CLOUD_ID) {
+    urls.push(`https://${process.env.HOMEY_CLOUD_ID}.connect.athom.com`);
   }
   return urls;
 }
@@ -159,13 +158,12 @@ async function main() {
   const host = process.env.HOMEY_HOST;
   const key = process.env.HOMEY_API_KEY;
 
-  if (!host || !key) {
-    console.error("HOMEY_HOST en/of HOMEY_API_KEY ontbreken. Vul .env in.");
+  if ((!host && !process.env.HOMEY_CLOUD_ID) || !key) {
+    console.error("HOMEY_API_KEY plus HOMEY_HOST en/of HOMEY_CLOUD_ID ontbreken. Vul .env in.");
     process.exit(1);
   }
 
-  if (process.env.HOMEY_REMOTE_URL) console.log('Remote-URL gezet, cloud-route wordt als eerste geprobeerd.');
-  console.log(`Homey zoeken op '${host}' ...`);
+  console.log(`Homey zoeken (${host ?? "geen lokaal adres"}${process.env.HOMEY_CLOUD_ID ? " + cloudroute" : ""}) ...`);
   const gekozen = await kiesBasis(host, key);
 
   if (!gekozen.basis) {
@@ -194,6 +192,19 @@ async function main() {
       resultaat.data[naam] = null;
       console.log(`  --   ${naam.padEnd(18)} ${err.status ? err.message : oorzaak(err)}`);
     }
+  }
+
+  // advanced flows ook volledig ophalen (de lijst bevat alleen naam/status,
+  // maar de kaarten willen we in git kunnen volgen)
+  if (resultaat.data.advanced_flows) {
+    resultaat.data.advanced_flows_volledig = {};
+    for (const f of Object.values(resultaat.data.advanced_flows)) {
+      try {
+        resultaat.data.advanced_flows_volledig[f.id] =
+          await haal(gekozen.basis, key, `/api/manager/flow/advancedflow/${f.id}/`);
+      } catch { /* enkele flow niet leesbaar: overslaan */ }
+    }
+    console.log(`  ok   advanced (vol)     ${Object.keys(resultaat.data.advanced_flows_volledig).length} flows met kaarten`);
   }
 
   writeFileSync(resolve(EXPORT_DIR, "homey-ruw.json"), JSON.stringify(resultaat, null, 2));
