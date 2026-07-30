@@ -235,6 +235,27 @@ def kpis(apparaten):
         if t is not None:
             woning.append(("Woonkamer", f"{t:.1f}", "°C",
                            f"doel {doel:g}°" if doel is not None else None))
+
+    # Serre-temperatuur (multisensor): zoek op zone of naam.
+    serre_sens = next(
+        (a for a in apparaten
+         if a["caps"].get("measure_temperature") is not None
+         and a["klasse"] not in ("thermostat", "heater")
+         and "serre" in ((a.get("zone") or "") + " " + (a["naam"] or "")).lower()),
+        None) or next(
+        (a for a in apparaten
+         if a["caps"].get("measure_temperature") is not None
+         and "multi" in (a["naam"] or "").lower()),
+        None)
+    if serre_sens:
+        t = serre_sens["caps"].get("measure_temperature")
+        vocht = serre_sens["caps"].get("measure_humidity")
+        lux = serre_sens["caps"].get("measure_luminance")
+        sub = " · ".join(s for s in (
+            f"vocht {vocht:.0f}%" if isinstance(vocht, (int, float)) else None,
+            f"{lux:.0f} lux" if isinstance(lux, (int, float)) else None,
+        ) if s)
+        woning.append(("Serre", f"{t:.1f}", "°C", sub or None))
     woning.append(("Lampen aan", str(len(aan)), f"van {len(lampen)}",
                    ", ".join(a["naam"] for a in aan[:3]) if aan else "alles uit"))
     if scherm:
@@ -723,7 +744,7 @@ def tab_overzicht(apparaten, groepen, meldingen) -> str:
     # Curated tegels: weer, energie, woonkamer, huisstatus.
     def pak(titel, labels):
         return [t for t in groepen.get(titel, []) if t[0] in labels]
-    kern = (pak("Klimaat & woning", {"Buiten (KNMI)", "Weer (KNMI)", "Woonkamer",
+    kern = (pak("Klimaat & woning", {"Buiten (KNMI)", "Weer (KNMI)", "Woonkamer", "Serre",
                                      "Lampen aan", "Serre-scherm"})
             + pak("Energie — nu", {"Verbruik nu", "Zon nu", "Teruglevering nu", "Afname net"})
             + pak("Vandaag", {"Stroom vandaag", "Gas vandaag"}))
