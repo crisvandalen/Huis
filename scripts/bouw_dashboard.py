@@ -972,7 +972,7 @@ def main() -> None:
   .tegel-eenheid {{ font-size:.85rem; font-weight:400; color:var(--text-secondary);
                     margin-left:.3rem; }}
   .tegel-sub {{ font-size:.78rem; color:var(--text-muted); margin-top:.1rem;
-                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }}
+                overflow-wrap:anywhere; }}  /* nooit afkappen: gewoon doorlopen */
 
   .meldingen {{ display:flex; flex-wrap:wrap; gap:.5rem; }}
   .melding {{ font-size:.85rem; border-radius:99px; padding:.3rem .85rem;
@@ -989,7 +989,7 @@ def main() -> None:
                 display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:.3rem .9rem; }}
   .lijnrij {{ display:flex; align-items:center; gap:.6rem; padding:.35rem .1rem;
               border-bottom:1px solid var(--rand); }}
-  .lijn-naam {{ flex:1; font-size:.9rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }}
+  .lijn-naam {{ flex:1; font-size:.9rem; overflow-wrap:anywhere; }}
   .lijn-zone {{ color:var(--text-muted); font-size:.78rem; }}
 
   .groot-cijfer {{ display:flex; align-items:baseline; gap:.6rem; margin:.4rem 0 1rem;
@@ -1044,7 +1044,7 @@ def main() -> None:
   .mail-ster.leeg {{ color:var(--rand); }}
   .mail-body {{ display:flex; flex-direction:column; flex:1; min-width:0; }}
   .mail-van {{ font-size:.82rem; color:var(--text-secondary); }}
-  .mail-onderwerp {{ font-size:.92rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }}
+  .mail-onderwerp {{ font-size:.92rem; overflow-wrap:anywhere; }}
   .mail-tijd {{ flex:none; color:var(--text-muted); font-size:.78rem;
                 font-variant-numeric:tabular-nums; }}
 
@@ -1053,7 +1053,7 @@ def main() -> None:
   .rij {{ display:grid; grid-template-columns:110px 1fr 2.2em; align-items:center;
           gap:.6rem; margin:.32rem 0; position:relative; }}
   .rij-label {{ font-size:.85rem; color:var(--text-secondary); text-align:right;
-                white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }}
+                overflow-wrap:anywhere; }}
   .rij-track {{ height:18px; }}
   .rij-bar {{ height:100%; max-height:18px; background:var(--series-1);
               border-radius:0 4px 4px 0; min-width:3px; }}
@@ -1067,7 +1067,7 @@ def main() -> None:
   .apparaat {{ display:flex; align-items:baseline; gap:.5rem; padding:.18rem 0; font-size:.88rem; }}
   .app-icoon {{ width:1.2em; text-align:center; color:var(--text-muted); }}
   .apparaat-aan .app-icoon {{ color:var(--st-warn); }}
-  .app-naam {{ flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }}
+  .app-naam {{ flex:1; overflow-wrap:anywhere; }}
   .app-status {{ color:var(--text-muted); font-size:.8rem; }}
   .flows ul {{ list-style:none; margin:0; padding:0; columns:2 320px; }}
   .flows li {{ display:flex; align-items:center; gap:.55rem; padding:.22rem 0;
