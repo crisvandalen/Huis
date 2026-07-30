@@ -533,6 +533,7 @@ def tab_netwerk(apparaten, net_html) -> str:
         veld_labels = [
             ("merk", "Merk"), ("model", "Model"), ("firmware", "Firmware"),
             ("verbinding", "Verbinding"), ("provider", "Provider"),
+            ("failover", "Failover"),
             ("signaal", "Signaal"), ("modem_temp", "Modemtemperatuur"),
             ("wan_ip", "WAN-IP"), ("lan_ip", "LAN-IP"),
             ("download", "Download"), ("upload", "Upload"), ("latency", "Latency"),

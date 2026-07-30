@@ -101,6 +101,7 @@ async function main() {
     wifi_clients: ["/api/wireless/devices/status", "/api/wireless/clients/status"],
     dhcp: ["/api/dhcp/leases/ipv4/status", "/api/dhcp/leases/status", "/api/dhcp/status"],
     mobiel: ["/api/mobile/modems/status", "/api/modems/status"],
+    failover: ["/api/failover/status", "/api/mwan/status", "/api/network/failover/status"],
   };
 
   const ruw = {};
@@ -141,9 +142,35 @@ async function main() {
         .filter(Boolean))]
     : [];
 
+  // Failover-status: liefst uit de failover-API, anders afleiden uit de
+  // WAN-interfaces (elke area_type=="wan" met z'n up/down-status).
+  let failover = null;
+  const fo = ruw.failover?.data;
+  if (fo && typeof fo === "object") {
+    const items = Array.isArray(fo) ? fo : Object.entries(fo).map(([k, v]) =>
+      (typeof v === "object" ? { interface: k, ...v } : { interface: k, status: v }));
+    const delen = items
+      .map((i) => {
+        const nm = i.interface ?? i.name ?? i.id;
+        const st = i.status ?? i.state ?? (i.up === true ? "online" : i.up === false ? "offline" : null);
+        return nm && st != null ? `${nm}: ${st}` : null;
+      })
+      .filter(Boolean);
+    if (delen.length) failover = delen.join(" · ");
+  }
+  if (!failover && Array.isArray(ifs)) {
+    const wans = ifs.filter((i) => i.area_type === "wan");
+    if (wans.length) {
+      failover = wans
+        .map((i) => `${i.name ?? i.id}: ${i.is_up ? "online" : "stand-by"}`)
+        .join(" · ");
+    }
+  }
+
   const router = {
     opgehaald_op: new Date().toISOString(),
     online: true,
+    failover,
     merk: "Teltonika",
     model: ap.static?.device_name ?? ap.static?.model ?? null,
     firmware: ap.static?.fw_version ?? null,
