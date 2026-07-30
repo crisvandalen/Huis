@@ -766,21 +766,13 @@ def tab_overzicht(apparaten, groepen, meldingen) -> str:
     if slot and slot["caps"].get("locked") is not None:
         kern.append(("Voordeur", "op slot" if slot["caps"].get("locked") else "open", "", None))
 
-    # Router-tegel: online-status + de actieve WAN-interface (uit failover).
+    # Router-tegel: online-status + de volledige failover-stand van alle WAN's.
     router = lees("router.json") or {}
     if router:
         online = router.get("online")
-        actief = None
-        for deel in str(router.get("failover") or "").split("·"):
-            if "online" in deel:
-                actief = deel.split(":")[0].strip()
-                break
-        sub = " · ".join(s for s in (
-            f"actief: {actief}" if actief else None,
-            router.get("verbinding"),
-        ) if s)
+        sub = router.get("failover") or router.get("verbinding") or router.get("model")
         kern.append(("Router", "online" if online else ("offline" if online is False else "?"),
-                     "", sub or router.get("model")))
+                     "", sub))
 
     kern_html = f'<div class="tegels">{tegels_html(kern)}</div>' if kern else ""
 

@@ -153,9 +153,12 @@ async function main() {
       .map((i) => {
         const nm = i.interface ?? i.name ?? i.id;
         const st = i.status ?? i.state ?? (i.up === true ? "online" : i.up === false ? "offline" : null);
-        return nm && st != null ? `${nm}: ${st}` : null;
+        return nm && st != null ? { nm, st: String(st) } : null;
       })
-      .filter(Boolean);
+      .filter(Boolean)
+      // 'notracking' = interface doet niet mee aan failover; niet tonen
+      .filter((i) => i.st.toLowerCase() !== "notracking")
+      .map((i) => `${i.nm}: ${i.st}`);
     if (delen.length) failover = delen.join(" · ");
   }
   if (!failover && Array.isArray(ifs)) {
