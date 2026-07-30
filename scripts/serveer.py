@@ -15,13 +15,14 @@ from __future__ import annotations
 
 import http.server
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DASHBOARD = ROOT / "dashboard" / "index.html"
-POORT = 8321
+POORT = int(os.environ.get("HUIS_POORT", "8321"))   # op de VPS: 8765 (Caddy)
 
 
 def ververs() -> tuple[bool, str]:
