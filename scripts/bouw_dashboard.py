@@ -611,12 +611,47 @@ def tab_mailagenda() -> str:
     return "".join(delen)
 
 
-def tab_energie(groepen) -> str:
+def tab_energie(groepen, apparaten) -> str:
     delen = []
     for titel in ("Energie — nu", "Vandaag"):
         tg = groepen.get(titel) or []
         if tg:
             delen.append(f'<h2>{esc(titel)}</h2><div class="tegels">{tegels_html(tg)}</div>')
+
+    # Meterstanden + netkwaliteit uit de P1 (Kaifa)
+    p1 = next((a for a in apparaten
+               if "measure_power" in a["caps"] and a["klasse"] != "solarpanel"), None)
+    if p1:
+        c = p1["caps"]
+        kwh = lambda v: f"{v:,.1f} kWh".replace(",", "X").replace(".", ",").replace("X", ".") \
+            if isinstance(v, (int, float)) else "—"
+        m3 = lambda v: f"{v:,.1f} m³".replace(",", "X").replace(".", ",").replace("X", ".") \
+            if isinstance(v, (int, float)) else "—"
+        rijen = [
+            ("Afgenomen — tarief 1 (dal)", kwh(c.get("meter_power.consumed.t1"))),
+            ("Afgenomen — tarief 2 (normaal)", kwh(c.get("meter_power.consumed.t2"))),
+            ("Afgenomen — totaal", kwh(c.get("meter_power.consumed"))),
+            ("Teruggeleverd — totaal", kwh(c.get("meter_power.returned"))),
+            ("Netto (meterstand)", kwh(c.get("meter_power"))),
+            ("Gas — totaal", m3(c.get("meter_gas"))),
+        ]
+        tabel = "".join(f'<tr><td>{esc(l)}</td><td class="num">{esc(w)}</td></tr>'
+                        for l, w in rijen)
+        delen.append(f'<h2>Meterstanden</h2><table class="metertabel"><tbody>{tabel}</tbody></table>')
+
+        tarief = {1: "1 (dal)", 2: "2 (normaal)"}.get(c.get("tariff"), c.get("tariff"))
+        volt = c.get("measure_voltage.l1")
+        fase = c.get("net_load_phase1_pct")
+        storingen = c.get("long_power_fail_count")
+        net_items = " · ".join(s for s in (
+            f"tarief nu: {tarief}" if tarief is not None else None,
+            f"spanning {volt:.0f} V" if isinstance(volt, (int, float)) else None,
+            f"fasebelasting {fase:.0f}%" if isinstance(fase, (int, float)) else None,
+            f"{storingen} langdurige stroomstoringen (ooit)" if isinstance(storingen, (int, float)) else None,
+        ) if s)
+        if net_items:
+            delen.append(f'<p class="uitleg">{esc(net_items)}</p>')
+
     if not delen:
         return '<p class="leeg">Geen energiegegevens in de export.</p>'
     return "".join(delen)
@@ -771,7 +806,7 @@ def main() -> None:
         "vannacht": tab_vannacht(apparaten),
         "netwerk": tab_netwerk(apparaten, net_html),
         "mailagenda": tab_mailagenda(),
-        "energie": tab_energie(groepen),
+        "energie": tab_energie(groepen, apparaten),
         "huis": tab_huis(apparaten, flows, adv),
     }
 
@@ -954,6 +989,9 @@ def main() -> None:
   .dot {{ width:8px; height:8px; border-radius:50%; flex:none; box-shadow:0 0 0 2px var(--surface-1); }}
   .dot-aan {{ background:var(--st-good); }}
   .dot-uit {{ background:var(--rand); }}
+  .metertabel {{ border-collapse:collapse; max-width:440px; width:100%; }}
+  .metertabel td {{ padding:.4rem .7rem; border-bottom:1px solid var(--rand); font-size:.9rem; }}
+  .metertabel td.num {{ text-align:right; font-variant-numeric:tabular-nums; }}
   footer {{ margin-top:3rem; color:var(--text-muted); font-size:.8rem; }}
 </style></head>
 <body class="viz-root">
