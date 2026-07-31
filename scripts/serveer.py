@@ -29,6 +29,9 @@ def ververs() -> tuple[bool, str]:
     """Draait de exports en de generator. Geeft (gelukt, logtekst) terug."""
     log = []
     stappen = [
+        # eerst git pull: haalt o.a. de door Cowork gepushte data/mail-agenda.json
+        # binnen; niet-fataal (geen repo of geen netwerk = gewoon doorgaan)
+        ("git-pull", ["git", "pull", "-q", "--ff-only"], False),
         ("homey-export", ["node", str(ROOT / "scripts/homey/export-devices.mjs")], True),
     ]
     # Ring-cameralog is optioneel: alleen als de OAuth-token er is, en een

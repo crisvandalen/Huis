@@ -74,8 +74,14 @@ def is_ring(a) -> bool:
 
 
 def lees(naam: str):
-    p = EXPORT_DIR / naam
-    return json.loads(p.read_text()) if p.exists() else None
+    # Twee vindplaatsen: export/ (lokaal gegenereerd) en data/ (daar pusht de
+    # dagelijkse Cowork-taak bestanden heen via GitHub, bv. mail-agenda.json).
+    # De nieuwste wint, zodat een oude lokale kopie een verse push niet verbergt.
+    kandidaten = [p for p in (EXPORT_DIR / naam, ROOT / "data" / naam) if p.exists()]
+    if not kandidaten:
+        return None
+    p = max(kandidaten, key=lambda x: x.stat().st_mtime)
+    return json.loads(p.read_text())
 
 
 def esc(x) -> str:
