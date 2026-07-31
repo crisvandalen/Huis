@@ -1,0 +1,62 @@
+{
+ "opgehaald_op": "2026-07-30T11:09:37.164160+00:00",
+ "agenda": [
+  {
+   "start": "2026-07-30T20:00:00+02:00",
+   "eind": "2026-07-30T21:00:00+02:00",
+   "titel": "De Molenwiek — reservering",
+   "agenda": "Gezin"
+  },
+  {
+   "start": "2026-07-31T11:30:00+02:00",
+   "eind": "2026-07-31T12:30:00+02:00",
+   "titel": "Kapper — Adrie's Hairstyling",
+   "locatie": "Zaltbommel",
+   "agenda": "Gezin"
+  },
+  {
+   "start": "2026-08-01T09:30:00+02:00",
+   "eind": "2026-08-01T10:30:00+02:00",
+   "titel": "De Molenwiek — reservering",
+   "agenda": "Gezin"
+  }
+ ],
+ "mail": {
+  "type": "recent",
+  "ongelezen_aantal": 0,
+  "items": [
+   {
+    "van": "AI Report",
+    "onderwerp": "Ruim 1100 AI-medewerkers vragen om een noodrem",
+    "tijd": "2026-07-30T10:03:15Z"
+   },
+   {
+    "van": "Adrie's Hairstyling",
+    "onderwerp": "⏰ Herinnering: afspraak 31 juli 11:30",
+    "tijd": "2026-07-30T05:33:18Z",
+    "belangrijk": true
+   },
+   {
+    "van": "The AI Daily",
+    "onderwerp": "Grok bouwt nu dashboards, games en apps uit simpele prompts",
+    "tijd": "2026-07-30T05:00:30Z"
+   },
+   {
+    "van": "Wehkamp",
+    "onderwerp": "10.- korting, omdat we je missen!",
+    "tijd": "2026-07-29T16:42:52Z"
+   },
+   {
+    "van": "GitHub",
+    "onderwerp": "Personal access token 'mailbox dashbrd' verloopt binnenkort",
+    "tijd": "2026-07-28T23:02:26Z",
+    "belangrijk": true
+   },
+   {
+    "van": "Anthropic",
+    "onderwerp": "You earned €10.00 of extra usage",
+    "tijd": "2026-07-28T14:28:55Z"
+   }
+  ]
+ }
+}
