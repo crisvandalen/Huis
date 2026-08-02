@@ -1,10 +1,10 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-01T05:28:23Z",
+  "opgehaald_op": "2026-08-02T05:09:00Z",
   "agenda": [
     {
-      "start": "2026-08-01T09:30:00+02:00",
-      "eind": "2026-08-01T10:30:00+02:00",
+      "start": "2026-08-04T20:00:00+02:00",
+      "eind": "2026-08-04T21:00:00+02:00",
       "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
@@ -12,12 +12,36 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 1,
+    "ongelezen_aantal": 5,
     "items": [
       {
-        "van": "Only for Men",
-        "onderwerp": "🚨 Nog één kans op 15% EXTRA!",
-        "tijd": "2026-08-01T05:04:27Z",
+        "van": "Otrium",
+        "onderwerp": "Last call: 15% korting op alle summer sale 🕛",
+        "tijd": "2026-08-02T06:14:02Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Vann Bottles",
+        "onderwerp": "Het beste van het beste.",
+        "tijd": "2026-08-02T06:00:32Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Plutosport",
+        "onderwerp": "NU! tot 60% KORTING op vakantie-items 🌴",
+        "tijd": "2026-08-02T05:24:29Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Apple",
+        "onderwerp": "Je factuur van Apple",
+        "tijd": "2026-08-02T00:38:56Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Simply Wall St",
+        "onderwerp": "Week 31: CLNX is up 3.6% this week and the market is up 0.9%",
+        "tijd": "2026-08-01T22:06:38Z",
         "belangrijk": true
       }
     ]
