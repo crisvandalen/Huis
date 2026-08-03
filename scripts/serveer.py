@@ -86,7 +86,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
 
 def main() -> None:
-    server = http.server.HTTPServer(("127.0.0.1", POORT), Handler)
+    server = http.server.HTTPServer((os.environ.get("HUIS_HOST", "127.0.0.1"), POORT), Handler)
     print(f"Dashboard: http://localhost:{POORT}  (stoppen: Ctrl+C)")
     try:
         server.serve_forever()
