@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-02T05:09:00Z",
+  "opgehaald_op": "2026-08-03T05:10:00Z",
   "agenda": [
     {
       "start": "2026-08-04T20:00:00+02:00",
@@ -15,34 +15,34 @@
     "ongelezen_aantal": 5,
     "items": [
       {
-        "van": "Otrium",
-        "onderwerp": "Last call: 15% korting op alle summer sale 🕛",
-        "tijd": "2026-08-02T06:14:02Z",
+        "van": "The AI Daily",
+        "onderwerp": "Claude brak per ongeluk in bij drie echte bedrijven",
+        "tijd": "2026-08-03T05:00:32Z",
         "belangrijk": true
       },
       {
-        "van": "Vann Bottles",
-        "onderwerp": "Het beste van het beste.",
-        "tijd": "2026-08-02T06:00:32Z",
+        "van": "Foodie",
+        "onderwerp": "Magnesium in de kijker - 26% korting deze week! 👀",
+        "tijd": "2026-08-03T05:00:00Z",
         "belangrijk": true
       },
       {
-        "van": "Plutosport",
-        "onderwerp": "NU! tot 60% KORTING op vakantie-items 🌴",
-        "tijd": "2026-08-02T05:24:29Z",
+        "van": "ABOUT YOU Outlet",
+        "onderwerp": "Tot wel 65% korting op CAMP DAVID, Verstopte highlights,...",
+        "tijd": "2026-08-03T04:06:47Z",
         "belangrijk": true
+      },
+      {
+        "van": "Hetzner",
+        "onderwerp": "Hetzner Online GmbH - Invoice 080001084019 (K0739918126)",
+        "tijd": "2026-08-03T00:29:21Z",
+        "belangrijk": false
       },
       {
         "van": "Apple",
-        "onderwerp": "Je factuur van Apple",
-        "tijd": "2026-08-02T00:38:56Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Simply Wall St",
-        "onderwerp": "Week 31: CLNX is up 3.6% this week and the market is up 0.9%",
-        "tijd": "2026-08-01T22:06:38Z",
-        "belangrijk": true
+        "onderwerp": "De account van Kim heeft nieuwe rechten",
+        "tijd": "2026-08-02T23:42:28Z",
+        "belangrijk": false
       }
     ]
   }
