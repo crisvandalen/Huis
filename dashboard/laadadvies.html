@@ -6,7 +6,7 @@
 <title>Laadadvies — huis Waardenburg</title>
 <style>
   :root{--bg:#0f1420;--panel:#171e2e;--panel2:#1e2637;--line:#2b3548;--tekst:#e8edf6;--dim:#9aa7bd;
-    --prijs:#4f8cff;--goed:#2fbf71;--neg:#f2557a;--accent:#4f8cff;}
+    --prijs:#4f8cff;--goed:#2fbf71;--neg:#f2557a;--verg:#f5a524;--accent:#4f8cff;}
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--tekst);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
   .wrap{max-width:980px;margin:0 auto;padding:22px 16px 60px}
@@ -40,6 +40,7 @@
   <header><h1>Laadadvies</h1><div class="stamp" id="stamp">laden…</div></header>
   <div id="err" class="err" style="display:none"></div>
   <div id="neg" class="neg" style="display:none"></div>
+  <div id="winst" class="neg" style="display:none;background:rgba(47,191,113,.12);border-color:rgba(47,191,113,.45)"></div>
   <div class="advies"><div class="groot" id="advies">–</div><div class="sub" id="adviesSub"></div></div>
 
   <div class="tiles">
@@ -55,6 +56,7 @@
         <span><i class="dot" style="background:var(--dim)"></i>kale markt</span>
         <span><i class="dot" style="background:var(--goed)"></i>beste laadvenster</span>
         <span><i class="dot" style="background:var(--neg)"></i>negatieve markt</span>
+        <span><i class="dot" style="background:var(--verg)"></i>50five-vergoeding</span>
       </div>
     </div>
     <canvas id="c" height="240"></canvas>
@@ -81,7 +83,9 @@ function toon(){
   $('stamp').textContent='bijgewerkt '+new Date(D.gegenereerd).toLocaleString('nl-NL');
   const bv=D.beste_venster;
   if(bv){$('advies').textContent='🔌 Laad de Mini’s '+bv.label;
-    $('adviesSub').textContent='gemiddeld '+EUR(bv.gem)+'/kWh · ~€'+(D.besparing_per_dag||0).toFixed(2)+' voordeel t.o.v. lukraak laden ('+D.laaduren+' u laden)';}
+    let sub='gemiddeld '+EUR(bv.gem)+'/kWh · ~€'+(D.besparing_per_dag||0).toFixed(2)+' voordeel t.o.v. lukraak laden ('+D.laaduren+' u laden)';
+    if(D.vergoeding_kwh!=null){const m=D.marge_beste_venster;sub+=' · vergoeding '+EUR(D.vergoeding_kwh)+'/kWh → '+(m>0?'winst '+EUR(m)+'/kWh (~€'+(D.winst_per_dag||0).toFixed(2)+'/dag)':'geen marge in dit venster');}
+    $('adviesSub').textContent=sub;}
   else $('advies').textContent='Geen venster berekend';
   const g=D.goedkoopste_uur;$('tGoed').textContent=g?uur(g.tijd):'–';$('tGoedSub').textContent=g?EUR(g.allin)+'/kWh':'';
   const nv=D.nacht_venster;$('tNacht').textContent=nv?nv.label:'–';$('tNachtSub').textContent=nv?'gem '+EUR(nv.gem)+'/kWh':'';
@@ -89,6 +93,9 @@ function toon(){
   const neg=D.negatieve_uren||[];const nb=$('neg');
   if(neg.length){nb.style.display='';nb.innerHTML='⚠ <b>Negatieve marktprijs</b> op: '+neg.map(n=>n.label).join(', ')+' — stroom is dan het goedkoopst (~'+EUR(neg[0].allin)+'/kWh all-in). Staat er een Mini thuis, laad dan extra; dit valt vaak samen met veel zon.';}
   else nb.style.display='none';
+  const wl=D.winst_uren||[];const wb=$('winst');
+  if(wl.length && D.vergoeding_kwh!=null){wb.style.display='';wb.innerHTML='✅ <b>Met winst laden</b> ('+wl.length+' u onder je 50five-vergoeding van '+EUR(D.vergoeding_kwh)+'/kWh): '+wl.slice(0,8).map(w=>w.label).join(', ')+(wl.length>8?' …':'')+'. Je all-in prijs is dan lager dan wat je terugkrijgt.';}
+  else wb.style.display='none';
   teken();
 }
 function teken(){
@@ -115,6 +122,11 @@ function teken(){
   if(iNu>0){ctx.strokeStyle=hexA('--tekst',.5);ctx.setLineDash([3,3]);ctx.beginPath();ctx.moveTo(x(iNu),T);ctx.lineTo(x(iNu),T+ph);ctx.stroke();ctx.setLineDash([]);}
   const lijn=(v,kl,wd)=>{ctx.strokeStyle=kl;ctx.lineWidth=wd;ctx.beginPath();v.forEach((val,i)=>{const X=x(i),Y=y(val);i?ctx.lineTo(X,Y):ctx.moveTo(X,Y);});ctx.stroke();};
   lijn(markt,css('--dim'),1.3);lijn(allin,css('--prijs'),2.2);
+  // 50five-vergoeding: alles onder deze lijn = met winst laden
+  if(D.vergoeding_kwh!=null&&D.vergoeding_kwh<=mx){const Y=y(D.vergoeding_kwh);
+    ctx.strokeStyle=css('--verg');ctx.lineWidth=1.5;ctx.setLineDash([6,4]);
+    ctx.beginPath();ctx.moveTo(L,Y);ctx.lineTo(L+pw,Y);ctx.stroke();ctx.setLineDash([]);
+    ctx.fillStyle=css('--verg');ctx.textAlign='left';ctx.font='10px sans-serif';ctx.fillText('vergoeding',L+2,Y-3);}
 }
 laad();setInterval(laad,600000);
 window.addEventListener('resize',()=>D&&teken());

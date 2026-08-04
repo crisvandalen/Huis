@@ -39,6 +39,24 @@ const OPSLAG = num('FLEX_OPSLAG_KWH', 0.0255);
 const LAADUREN = Math.max(1, Math.round(num('LAADUREN', 5)));
 const LAAD_PER_DAG = num('LAAD_PER_DAG_KWH', 29);
 
+// 50five-vergoeding per kWh: afgeleid uit de sessiedata (som te-ontvangen / som kWh),
+// met .env-override LAAD_VERGOEDING_KWH; valt terug op het 50five-standaardtarief.
+function leesVergoedingKwh() {
+  const env = parseFloat(process.env.LAAD_VERGOEDING_KWH);
+  if (!isNaN(env)) return env;
+  try {
+    const p = resolve(ROOT, 'inventaris/export/laadpaal-sessies.csv');
+    let kwh = 0, eur = 0;
+    for (const l of readFileSync(p, 'utf8').trim().split('\n').slice(1)) {
+      const c = l.split(','); if (c.length < 6) continue;
+      kwh += parseFloat(c[3]) || 0; eur += parseFloat(c[5]) || 0;
+    }
+    if (kwh > 0) return eur / kwh;
+  } catch { /* nog geen sessies */ }
+  return 0.375; // 50five-standaardtarief bij benadering
+}
+const VERGOEDING = leesVergoedingKwh();
+
 async function haalDag(datum) {
   const url = `https://api.energyzero.nl/v1/energyprices?fromDate=${datum}T00:00:00.000Z&tillDate=${datum}T23:00:00.000Z&interval=4&usageType=1&inclBtw=true`;
   const res = await fetch(url);
@@ -89,6 +107,12 @@ export async function maakLaadadvies({ stil = false } = {}) {
 
   const besparing = globaal ? Math.max(0, (gemHorizon - globaal.gem) * LAAD_PER_DAG) : 0;
 
+  // Winst-uren: uren waarin je all-in prijs onder je 50five-vergoeding ligt (= met marge laden).
+  const winstUren = prijzen.filter(u => u.allin < VERGOEDING)
+    .map(u => ({ tijd: new Date(u.t).toISOString(), label: lokaalLabel(u.t), allin: u.allin, winst: VERGOEDING - u.allin }));
+  const margeVenster = globaal ? VERGOEDING - globaal.gem : null;
+  const winstPerDag = margeVenster != null ? Math.max(0, margeVenster) * LAAD_PER_DAG : 0;
+
   const advies = {
     gegenereerd: nu.toISOString(),
     laaduren: LAADUREN, laad_per_dag_kwh: LAAD_PER_DAG,
@@ -98,6 +122,10 @@ export async function maakLaadadvies({ stil = false } = {}) {
     goedkoopste_uur: { tijd: new Date(goedkoopsteUur.t).toISOString(), label: lokaalLabel(goedkoopsteUur.t), allin: goedkoopsteUur.allin, markt: goedkoopsteUur.markt },
     negatieve_uren: negatief,
     besparing_per_dag: besparing,
+    vergoeding_kwh: VERGOEDING,
+    marge_beste_venster: margeVenster,
+    winst_per_dag: winstPerDag,
+    winst_uren: winstUren,
     uren: prijzen.map(u => ({ tijd: new Date(u.t).toISOString(), markt: u.markt, allin: u.allin })),
   };
   mkdirSync(dirname(UIT), { recursive: true });
@@ -109,6 +137,7 @@ export async function maakLaadadvies({ stil = false } = {}) {
     if (nacht && (!globaal || nacht.start !== globaal.start)) console.log(`  's Nachts:  ${advies.nacht_venster.label}  gem €${nacht.gem.toFixed(3)}/kWh`);
     if (negatief.length) console.log(`  ⚠ Negatieve marktprijs: ${negatief.map(n => n.label).join(', ')} (all-in ~€${negatief[0].allin.toFixed(3)}) — laad dan extra / op zon.`);
     else console.log('  Geen negatieve uren in deze horizon.');
+    console.log(`  Vergoeding 50five ~€${VERGOEDING.toFixed(3)}/kWh → ${winstUren.length} uur met winst${margeVenster != null ? ` (venstermarge €${margeVenster.toFixed(3)}/kWh, ~€${winstPerDag.toFixed(2)}/dag)` : ''}.`);
     console.log(`  Geschreven: ${UIT}`);
   }
   return advies;

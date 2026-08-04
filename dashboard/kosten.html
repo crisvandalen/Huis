@@ -93,8 +93,8 @@
   <div class="foot">
     Opgebouwd uit je gemeten meterdata (Homey Insights) × de echte EPEX-uurprijzen, omgerekend naar je
     Vattenfall FlexPrijs (markt + belasting + opslag). Het logboek groeit mee: bijwerken met
-    <code>make kosten</code> voegt nieuwe dagen toe. Zie ook <a href="./energie.html">Energie nu</a> en de
-    <a href="./batterijsimulator.html">batterijsimulator</a>.
+    <code>make kosten</code> voegt nieuwe dagen toe. Zie ook <a href="./energie.html">Energie nu</a>,
+    <a href="./laadadvies.html">Laadadvies</a> en de <a href="./batterijsimulator.html">batterijsimulator</a>.
   </div>
 </div>
 
@@ -161,7 +161,7 @@ function toonLaad(){
       `<td class="neg">${euro(s.kostenDyn)}</td><td class="pos">${euro(s.vergoeding)}</td>`+
       `<td class="${s.marge>=0?'pos':'neg'}">${euro(s.marge)}</td>`;
     tb.appendChild(tr);}
-  $('laadNote').textContent='Kosten = je sessie-kWh uitgesmeerd over de uren × je dynamische FlexPrijs. Vergoeding = het vaste 50five-tarief (~€0,375/kWh). Marge = vergoeding − kosten; positief = slim (nacht)laden levert meer op dan het kost.';
+  $('laadNote').innerHTML='Kosten = je sessie-kWh uitgesmeerd over de uren × je dynamische FlexPrijs. Vergoeding = het vaste 50five-tarief (~€0,375/kWh). Marge = vergoeding − kosten; positief = slim (nacht)laden levert meer op dan het kost. <a href="./laadadvies.html">→ Bekijk het laadadvies</a>';
 }
 function tekenBars(reeks){
   const {ctx,w,h}=(()=>{const cv=$('cBars');const dpr=window.devicePixelRatio||1,W=cv.clientWidth,H=cv.getAttribute('height')*1;
