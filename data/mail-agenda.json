@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-03T05:10:00Z",
+  "opgehaald_op": "2026-08-04T05:11:24Z",
   "agenda": [
     {
       "start": "2026-08-04T20:00:00+02:00",
@@ -8,41 +8,37 @@
       "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-08-05T19:30:00+02:00",
+      "eind": "2026-08-05T20:30:00+02:00",
+      "titel": "De Molenwiek Reservering gewijzigd",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-08-06T20:00:00+02:00",
+      "eind": "2026-08-06T21:00:00+02:00",
+      "titel": "De Molenwiek Nieuwe reservering",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 5,
+    "ongelezen_aantal": 2,
     "items": [
       {
+        "van": "IKEA",
+        "onderwerp": "C, je IKEA bestelling komt eraan",
+        "tijd": "2026-08-04T05:14:27Z",
+        "belangrijk": true
+      },
+      {
         "van": "The AI Daily",
-        "onderwerp": "Claude brak per ongeluk in bij drie echte bedrijven",
-        "tijd": "2026-08-03T05:00:32Z",
+        "onderwerp": "Claude Code gebruikt je API-sleutel ongevraagd en factureert apart",
+        "tijd": "2026-08-04T05:00:31Z",
         "belangrijk": true
-      },
-      {
-        "van": "Foodie",
-        "onderwerp": "Magnesium in de kijker - 26% korting deze week! 👀",
-        "tijd": "2026-08-03T05:00:00Z",
-        "belangrijk": true
-      },
-      {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 65% korting op CAMP DAVID, Verstopte highlights,...",
-        "tijd": "2026-08-03T04:06:47Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Hetzner",
-        "onderwerp": "Hetzner Online GmbH - Invoice 080001084019 (K0739918126)",
-        "tijd": "2026-08-03T00:29:21Z",
-        "belangrijk": false
-      },
-      {
-        "van": "Apple",
-        "onderwerp": "De account van Kim heeft nieuwe rechten",
-        "tijd": "2026-08-02T23:42:28Z",
-        "belangrijk": false
       }
     ]
   }
