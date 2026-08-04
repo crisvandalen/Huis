@@ -93,3 +93,9 @@ laadpaal: ## 50five-laadsessies (xlsx in inventaris/import/50five/) importeren +
 
 laadadvies: ## goedkoopste/negatieve laaduren (vandaag+morgen) bepalen -> dashboard/laadadvies.json
 	node scripts/homey/laadadvies.mjs
+
+.PHONY: app-deploy
+app-deploy: ## hele dashboard-map (PWA + pagina's + assets) naar de VPS-webroot rsyncen
+	@set -a; . ./.env; set +a; \
+	if [ -z "$$VPS_WEBROOT" ]; then echo "VPS_WEBROOT ontbreekt in .env (bijv. cris@46.62.194.166:/var/www/huis/)"; exit 1; fi; \
+	rsync -az --exclude='_to_delete' dashboard/ "$$VPS_WEBROOT" && echo "App gepubliceerd naar $$VPS_WEBROOT"

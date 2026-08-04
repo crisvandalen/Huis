@@ -851,6 +851,31 @@ def tab_overzicht(apparaten, groepen, meldingen) -> str:
 # ---------------------------------------------------------------------------
 # Assemblage
 # ---------------------------------------------------------------------------
+def _pwa_inject(doc: str) -> str:
+    """Voegt de PWA-tags (manifest, iconen, tabbalk) toe zodat 'Zet op
+    beginscherm' op de iPhone een echte app-tegel geeft. Idempotent."""
+    if "manifest.webmanifest" in doc:
+        return doc
+    vp_old = '<meta name="viewport" content="width=device-width, initial-scale=1">'
+    vp_new = '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">'
+    head = (
+        '\n<link rel="manifest" href="./manifest.webmanifest">'
+        '\n<meta name="apple-mobile-web-app-capable" content="yes">'
+        '\n<meta name="mobile-web-app-capable" content="yes">'
+        '\n<meta name="apple-mobile-web-app-status-bar-style" content="default">'
+        '\n<meta name="apple-mobile-web-app-title" content="Huis">'
+        '\n<link rel="apple-touch-icon" href="./icon-180.png">'
+        '\n<link rel="icon" href="./favicon.png" sizes="32x32">'
+        '\n<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fcfcfb">'
+        '\n<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1420">'
+    )
+    if vp_old in doc:
+        doc = doc.replace(vp_old, vp_new + head, 1)
+    tag = '<script src="./pwa.js" defer></script>\n'
+    i = doc.rfind("</body>")
+    return doc[:i] + tag + doc[i:] if i != -1 else doc + "\n" + tag
+
+
 def main() -> None:
     apparaten, flows, adv, stamp = verzamel()
     groepen = kpis(apparaten)
@@ -1129,6 +1154,7 @@ project <code>~/projects/Prive/huis</code></footer>
 """
 
     UIT.parent.mkdir(parents=True, exist_ok=True)
+    doc = _pwa_inject(doc)
     UIT.write_text(doc)
     print(f"{len(apparaten)} apparaten, {len(TABS)} tabbladen, "
           f"{len(meldingen)} meldingen -> {UIT}")

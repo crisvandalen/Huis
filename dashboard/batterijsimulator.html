@@ -2,7 +2,16 @@
 <html lang="nl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Huis">
+<link rel="apple-touch-icon" href="./icon-180.png">
+<link rel="icon" href="./favicon.png" sizes="32x32">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fcfcfb">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1420">
 <title>Batterijsimulator — huis Waardenburg</title>
 <style>
   :root{
@@ -674,5 +683,6 @@ window.addEventListener('resize',()=>render());
 $('saldering').checked=false;
 render();
 </script>
+<script src="./pwa.js" defer></script>
 </body>
 </html>

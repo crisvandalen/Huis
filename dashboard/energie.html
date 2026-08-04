@@ -2,7 +2,16 @@
 <html lang="nl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Huis">
+<link rel="apple-touch-icon" href="./icon-180.png">
+<link rel="icon" href="./favicon.png" sizes="32x32">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fcfcfb">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1420">
 <title>Energie nu — huis Waardenburg</title>
 <style>
   :root{--bg:#0f1420;--panel:#171e2e;--panel2:#1e2637;--line:#2b3548;--tekst:#e8edf6;--dim:#9aa7bd;
@@ -188,5 +197,6 @@ function tekenPrijs(d){
 tik();setInterval(tik,30000);
 window.addEventListener('resize',tik);
 </script>
+<script src="./pwa.js" defer></script>
 </body>
 </html>
