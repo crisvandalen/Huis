@@ -3,10 +3,10 @@
 
     make serve          → http://localhost:8321
 
-De pagina krijgt alleen in deze modus een ververs-knop (op file:// is er
-niets dat de export kan draaien). De knop roept /ververs aan; dit script
-draait dan de Homey-export en de dashboard-generator opnieuw en de pagina
-herlaadt zichzelf.
+Serveert de héle dashboard-map (index + energie/kosten/laadadvies/
+batterijsimulator + de PWA-bestanden), zodat de app-tabbalk werkt. De pagina
+krijgt alleen in deze modus een ververs-knop; die roept /ververs aan, draait
+de Homey-export en de generator opnieuw, en de pagina herlaadt zichzelf.
 
 Alleen bereikbaar vanaf deze Mac (bindt op 127.0.0.1).
 """
@@ -15,13 +15,14 @@ from __future__ import annotations
 
 import http.server
 import json
+import mimetypes
 import os
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DASHBOARD = ROOT / "dashboard" / "index.html"
+DASHBOARD_DIR = ROOT / "dashboard"
 POORT = int(os.environ.get("HUIS_POORT", "8321"))   # op de VPS: 8765 (Caddy)
 
 
@@ -61,13 +62,27 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def _bestand(self) -> Path | None:
+        """Zet het pad om naar een bestand binnen dashboard/, of None."""
+        rel = self.path.split("?", 1)[0].split("#", 1)[0].lstrip("/")
+        if rel in ("", "index.html"):
+            return DASHBOARD_DIR / "index.html"
+        doel = (DASHBOARD_DIR / rel).resolve()
+        # geen path-traversal buiten de map
+        if DASHBOARD_DIR.resolve() not in doel.parents and doel != DASHBOARD_DIR.resolve():
+            return None
+        return doel if doel.is_file() else None
+
     def do_GET(self) -> None:  # noqa: N802
-        if self.path in ("/", "/index.html"):
-            if DASHBOARD.exists():
-                self._stuur(200, DASHBOARD.read_bytes(), "text/html; charset=utf-8")
-            else:
-                self._stuur(200, "<p>Nog geen dashboard. Klik ververs of draai make dashboard.</p>"
-                            .encode(), "text/html; charset=utf-8")
+        doel = self._bestand()
+        if doel and doel.is_file():
+            ctype = mimetypes.guess_type(str(doel))[0] or "application/octet-stream"
+            if ctype.startswith("text/") or ctype in ("application/javascript", "application/json"):
+                ctype += "; charset=utf-8"
+            self._stuur(200, doel.read_bytes(), ctype)
+        elif self.path in ("/", "/index.html"):
+            self._stuur(200, "<p>Nog geen dashboard. Klik ververs of draai make dashboard.</p>"
+                        .encode(), "text/html; charset=utf-8")
         else:
             self._stuur(404, b"niet gevonden", "text/plain")
 
