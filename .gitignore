@@ -22,3 +22,11 @@ package-lock.json
 
 # macOS
 .DS_Store
+
+# Enphase Enlighten OAuth-token
+scripts/homey/.enphase-token.json
+dashboard/energie-live.json
+dashboard/kosten-overzicht.json
+dashboard/laadadvies.json
+inventaris/import/*
+!inventaris/import/.gitkeep

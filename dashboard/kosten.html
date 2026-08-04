@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kosten & opbrengsten — huis Waardenburg</title>
+<style>
+  :root{--bg:#0f1420;--panel:#171e2e;--panel2:#1e2637;--line:#2b3548;--tekst:#e8edf6;--dim:#9aa7bd;
+    --kosten:#f2557a;--opbrengst:#12b3a6;--zon:#f5a524;--laad:#a06bff;--netto:#4f8cff;--goed:#2fbf71;--accent:#4f8cff;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--tekst);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:1040px;margin:0 auto;padding:22px 16px 60px}
+  header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+  h1{font-size:22px;margin:0}
+  .stamp{font-size:12.5px;color:var(--dim)}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+  @media(max-width:760px){.kpis{grid-template-columns:1fr 1fr}}
+  @media(max-width:420px){.kpis{grid-template-columns:1fr}}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:15px}
+  .kpi .lab{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--dim)}
+  .kpi .val{font-size:27px;font-weight:700;margin-top:5px}
+  .kpi .sub{font-size:12px;color:var(--dim);margin-top:3px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px 8px;margin-top:16px}
+  .card .top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+  .card h2{font-size:15px;margin:0}
+  .legend{font-size:12px;color:var(--dim);display:flex;gap:14px;flex-wrap:wrap}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .dot{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .dot.l{height:3px;width:14px}
+  canvas{width:100%;display:block;margin-top:6px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:6px}
+  th,td{text-align:right;padding:7px 8px;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  th{color:var(--dim);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em}
+  td.neg{color:var(--kosten)}td.pos{color:var(--opbrengst)}
+  .err{background:rgba(242,85,122,.12);border:1px solid rgba(242,85,122,.45);padding:10px 13px;border-radius:10px;margin:14px 0;font-size:13.5px}
+  .foot{margin-top:18px;font-size:12.5px;color:var(--dim)}
+  a{color:var(--accent)}
+  .seg{display:inline-flex;background:var(--panel2);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+  .seg button{background:transparent;border:0;color:var(--dim);padding:6px 12px;font-size:13px;cursor:pointer}
+  .seg button.on{background:var(--accent);color:#fff;font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Kosten &amp; opbrengsten</h1>
+    <div class="stamp" id="stamp">laden…</div>
+  </header>
+
+  <div id="err" class="err" style="display:none"></div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="lab">Kosten (afname)</div><div class="val" id="kKost" style="color:var(--kosten)">–</div><div class="sub" id="kKostSub"></div></div>
+    <div class="kpi"><div class="lab">Opbrengsten (teruglevering)</div><div class="val" id="kOpb" style="color:var(--opbrengst)">–</div><div class="sub" id="kOpbSub"></div></div>
+    <div class="kpi"><div class="lab">Bespaard door zon</div><div class="val" id="kZon" style="color:var(--zon)">–</div><div class="sub" id="kZonSub"></div></div>
+    <div class="kpi"><div class="lab">Netto energiekosten</div><div class="val" id="kNetto">–</div><div class="sub" id="kNettoSub"></div></div>
+  </div>
+
+  <div class="card">
+    <div class="top"><h2>Per <span id="perLabel">dag</span></h2>
+      <div style="display:flex;gap:10px;align-items:center">
+        <div class="legend">
+          <span><i class="dot" style="background:var(--kosten)"></i>kosten</span>
+          <span><i class="dot" style="background:var(--opbrengst)"></i>opbrengst</span>
+          <span><i class="dot l" style="background:var(--netto)"></i>netto cumulatief</span>
+        </div>
+        <div class="seg" id="segPer"><button data-p="dag" class="on">Dag</button><button data-p="maand">Maand</button></div>
+      </div>
+    </div>
+    <canvas id="cBars" height="260"></canvas>
+  </div>
+
+  <div class="card">
+    <div class="top"><h2>Laatste dagen</h2></div>
+    <div style="overflow-x:auto"><table id="tabel">
+      <thead><tr><th>Datum</th><th>Afname kWh</th><th>Laden kWh</th><th>Terug kWh</th><th>Zon kWh</th><th>Kosten</th><th>Opbrengst</th><th>Netto</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </div>
+
+  <div class="card" id="cardLaad" style="display:none">
+    <div class="top"><h2>Laadpaal — sessies &amp; marge</h2>
+      <div class="legend" id="laadSamen"></div>
+    </div>
+    <div style="overflow-x:auto"><table id="laadTabel">
+      <thead><tr><th>Start</th><th>Auto</th><th>kWh</th><th>Duur</th><th>Kosten (dyn.)</th><th>Vergoeding</th><th>Marge</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <div class="note" id="laadNote"></div>
+  </div>
+
+  <div class="foot">
+    Opgebouwd uit je gemeten meterdata (Homey Insights) × de echte EPEX-uurprijzen, omgerekend naar je
+    Vattenfall FlexPrijs (markt + belasting + opslag). Het logboek groeit mee: bijwerken met
+    <code>make kosten</code> voegt nieuwe dagen toe. Zie ook <a href="./energie.html">Energie nu</a> en de
+    <a href="./batterijsimulator.html">batterijsimulator</a>.
+  </div>
+</div>
+
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const euro=n=>n==null?'–':'€'+n.toLocaleString('nl-NL',{minimumFractionDigits:2,maximumFractionDigits:2});
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+function hexA(hex,a){hex=css(hex).replace('#','');const n=parseInt(hex,16);return`rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`;}
+let DATA=null, PER='dag';
+
+async function laad(){
+  try{
+    const r=await fetch('./kosten-overzicht.json?_='+Date.now(),{cache:'no-store'});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    DATA=await r.json();$('err').style.display='none';toon();
+  }catch(e){
+    $('err').style.display='';$('err').textContent='Kan het overzicht niet laden: '+e.message+'. Draai eerst  make kosten  (of node scripts/homey/kosten-bijwerken.mjs).';
+    $('stamp').textContent='geen data';
+  }
+}
+function maandAgg(dagen){
+  const m=new Map();
+  for(const d of dagen){const mm=d.datum.slice(0,7);
+    const r=m.get(mm)||{datum:mm,import_kwh:0,teruglev_kwh:0,kosten:0,opbrengst:0,netto:0};
+    r.import_kwh+=d.import_kwh;r.teruglev_kwh+=d.teruglev_kwh;r.kosten+=d.kosten;r.opbrengst+=d.opbrengst;r.netto+=d.netto;m.set(mm,r);}
+  return [...m.values()];
+}
+function toon(){
+  const t=DATA.totalen||{};
+  $('stamp').textContent='bijgewerkt '+new Date(DATA.bijgewerkt).toLocaleString('nl-NL');
+  const dg=DATA.dagen||[];
+  // Meterdagen = dagen met import/teruglevering; alleen daar zijn kosten/opbrengst/bespaard zinvol.
+  const meter=dg.filter(d=>(d.import_kwh||0)>0||(d.teruglev_kwh||0)>0);
+  const van=meter.length?meter[0].datum:'', tot=meter.length?meter[meter.length-1].datum:'';
+  $('kKost').textContent=euro(t.kosten);$('kKostSub').textContent=(t.import_kwh||0).toFixed(0)+' kWh afgenomen';
+  $('kOpb').textContent=euro(t.opbrengst);$('kOpbSub').textContent=(t.teruglev_kwh||0).toFixed(0)+' kWh teruggeleverd';
+  $('kZon').textContent=euro(t.zon_bespaard);$('kZonSub').textContent=(t.zon_kwh||0).toFixed(0)+' kWh opgewekt ('+dg.length+' dgn)';
+  $('kNetto').textContent=euro(t.netto);$('kNetto').style.color=t.netto>0?'var(--kosten)':'var(--opbrengst)';
+  $('kNettoSub').textContent=(t.netto>0?'betaald':'ontvangen')+' · '+van+' t/m '+tot+' (meterdata)';
+
+  const reeks=PER==='maand'?maandAgg(meter):meter;
+  tekenBars(reeks);
+  vulTabel(meter.slice(-14).reverse());
+  toonLaad();
+}
+// laadpaal
+const CAR_NAMES={'NL-ENE-C32355715-9':'Mini Cris','NL-TCE-826321-1':'Mini Anja'};
+function autoNaam(k){return CAR_NAMES[k]||k;}
+function duurStr(a,b){const m=Math.max(0,Math.round((new Date(b)-new Date(a))/60000));return Math.floor(m/60)+'u'+String(m%60).padStart(2,'0');}
+function toonLaad(){
+  const L=DATA.laadpaal, card=$('cardLaad');
+  if(!L||!L.sessies||!L.sessies.length){card.style.display='none';return;}
+  card.style.display='';
+  $('laadSamen').innerHTML=
+    '<span>'+L.kwh.toFixed(0)+' kWh geladen ('+L.aantal+' sessies)</span>'+
+    '<span>kosten (dyn.) <b style="color:var(--kosten)">'+euro(L.kostenDyn)+'</b></span>'+
+    '<span>vergoeding <b style="color:var(--opbrengst)">'+euro(L.vergoeding)+'</b></span>'+
+    '<span>marge <b style="color:'+(L.marge>=0?'var(--opbrengst)':'var(--kosten)')+'">'+euro(L.marge)+'</b></span>';
+  const tb=$('laadTabel').querySelector('tbody');tb.innerHTML='';
+  for(const s of L.sessies){const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${new Date(s.start).toLocaleString('nl-NL',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})}</td>`+
+      `<td>${autoNaam(s.kaart)}</td><td>${s.kwh.toFixed(1)}</td><td>${duurStr(s.start,s.eind)}</td>`+
+      `<td class="neg">${euro(s.kostenDyn)}</td><td class="pos">${euro(s.vergoeding)}</td>`+
+      `<td class="${s.marge>=0?'pos':'neg'}">${euro(s.marge)}</td>`;
+    tb.appendChild(tr);}
+  $('laadNote').textContent='Kosten = je sessie-kWh uitgesmeerd over de uren × je dynamische FlexPrijs. Vergoeding = het vaste 50five-tarief (~€0,375/kWh). Marge = vergoeding − kosten; positief = slim (nacht)laden levert meer op dan het kost.';
+}
+function tekenBars(reeks){
+  const {ctx,w,h}=(()=>{const cv=$('cBars');const dpr=window.devicePixelRatio||1,W=cv.clientWidth,H=cv.getAttribute('height')*1;
+    cv.width=W*dpr;cv.height=H*dpr;const ctx=cv.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);return{ctx,w:W,h:H};})();
+  const toon=PER==='dag'?reeks.slice(-45):reeks;
+  if(!toon.length)return;
+  const L=52,R=52,T=12,B=34,pw=w-L-R,ph=h-T-B;
+  let mx=0;for(const d of toon)mx=Math.max(mx,d.kosten,d.opbrengst);mx=Math.max(mx,0.5)*1.12;
+  // cumulatieve netto
+  let cum=0;const cumArr=toon.map(d=>cum+=d.netto);
+  let cmin=Math.min(0,...cumArr),cmax=Math.max(0,...cumArr);if(cmax===cmin)cmax=cmin+1;
+  const n=toon.length,slot=pw/n,bw=Math.min(slot*0.36,16);
+  const y=v=>T+ph*(1-v/mx), yC=v=>T+ph*(1-(v-cmin)/(cmax-cmin));
+  ctx.strokeStyle=css('--line');ctx.fillStyle=css('--dim');ctx.font='11px sans-serif';ctx.lineWidth=1;
+  for(let g=0;g<=4;g++){const val=mx*(1-g/4),yy=T+ph*g/4;ctx.beginPath();ctx.moveTo(L,yy);ctx.lineTo(L+pw,yy);ctx.stroke();
+    ctx.textAlign='right';ctx.fillStyle=css('--dim');ctx.fillText('€'+val.toFixed(1),L-6,yy+3);}
+  // rechter as (cumulatief)
+  ctx.textAlign='left';ctx.fillStyle=css('--netto');
+  for(let g=0;g<=4;g++){const val=cmin+(cmax-cmin)*(1-g/4);ctx.fillText('€'+val.toFixed(0),L+pw+6,T+ph*g/4+3);}
+  // bars
+  for(let i=0;i<n;i++){const cx=L+slot*(i+0.5);
+    ctx.fillStyle=css('--kosten');ctx.fillRect(cx-bw-1,y(toon[i].kosten),bw,ph-(y(toon[i].kosten)-T));
+    ctx.fillStyle=css('--opbrengst');ctx.fillRect(cx+1,y(toon[i].opbrengst),bw,ph-(y(toon[i].opbrengst)-T));}
+  // x-labels (dun)
+  ctx.fillStyle=css('--dim');ctx.textAlign='center';
+  const stap=Math.ceil(n/(PER==='maand'?12:9));
+  for(let i=0;i<n;i++){if(i%stap)continue;const lab=PER==='maand'?toon[i].datum:toon[i].datum.slice(5);ctx.fillText(lab,L+slot*(i+0.5),h-10);}
+  // nul-lijn cumulatief
+  ctx.strokeStyle=hexA('--netto',.3);ctx.beginPath();ctx.moveTo(L,yC(0));ctx.lineTo(L+pw,yC(0));ctx.stroke();
+  // cumulatieve netto-lijn
+  ctx.strokeStyle=css('--netto');ctx.lineWidth=2;ctx.beginPath();
+  cumArr.forEach((v,i)=>{const X=L+slot*(i+0.5),Y=yC(v);i?ctx.lineTo(X,Y):ctx.moveTo(X,Y);});ctx.stroke();
+}
+function vulTabel(rijen){
+  const tb=$('tabel').querySelector('tbody');tb.innerHTML='';
+  for(const d of rijen){const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${d.datum}</td><td>${d.import_kwh.toFixed(1)}</td>`+
+      `<td style="color:var(--laad)">${(d.laad_kwh||0).toFixed(1)}</td>`+
+      `<td>${d.teruglev_kwh.toFixed(1)}</td>`+
+      `<td style="color:var(--zon)">${(d.zon_kwh||0).toFixed(1)}</td>`+
+      `<td class="neg">${euro(d.kosten)}</td><td class="pos">${euro(d.opbrengst)}</td>`+
+      `<td class="${d.netto>0?'neg':'pos'}">${euro(d.netto)}</td>`;
+    tb.appendChild(tr);}
+}
+$('segPer').querySelectorAll('button').forEach(b=>b.onclick=()=>{
+  PER=b.dataset.p;$('perLabel').textContent=PER;
+  $('segPer').querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');toon();});
+window.addEventListener('resize',()=>DATA&&toon());
+laad();
+</script>
+</body>
+</html>

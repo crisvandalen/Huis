@@ -1,4 +1,4 @@
-.PHONY: setup inventaris homey tahoma appletv dashboard serve publiceer schoon help
+.PHONY: setup inventaris homey tahoma appletv dashboard serve publiceer schoon help energie kosten kosten-data zon laadpaal laadadvies
 
 VENV := .venv
 PY := $(VENV)/bin/python
@@ -13,6 +13,12 @@ help:
 	@echo "make serve       - dashboard serveren op localhost:8321 met ververs-knop"
 	@echo "make publiceer   - verse export + dashboard naar de VPS sturen (VPS_DOEL in .env)"
 	@echo "make schoon      - exports en dashboard weggooien"
+	@echo "make energie     - poller + live energiepagina op localhost:8080 (Ctrl+C stopt)"
+	@echo "make kosten      - kosten/opbrengsten bijwerken en overzicht openen"
+	@echo "make kosten-data - alleen het kostenlogboek bijwerken (geen server; naast make energie)"
+	@echo "make zon         - zonproductie uit Enphase Enlighten backfillen + kosten bijwerken"
+	@echo "make laadpaal    - 50five-laadsessies importeren + kostenoverzicht bijwerken"
+	@echo "make laadadvies  - goedkoopste/negatieve laaduren van vandaag+morgen bepalen"
 
 setup:
 	@test -f .env || (cp .env.example .env && echo "Aangemaakt: .env — vul je tokens in")
@@ -61,3 +67,29 @@ cloud-dashboard: cloud-export dashboard ## cloud-export + dashboard bouwen (voor
 
 router: ## Teltonika-router uitlezen naar inventaris/export/router.json (thuis draaien)
 	node scripts/netwerk/router-teltonika.mjs
+
+energie: ## poller + live energiepagina, samen starten en stoppen
+	@echo "Start poller + live pagina -> http://localhost:8080/energie.html  (Ctrl+C stopt beide)"
+	@node scripts/homey/export-energie-live.mjs --loop & \
+	POLLER=$$!; trap 'kill $$POLLER 2>/dev/null' EXIT INT TERM; \
+	(sleep 3 && command -v open >/dev/null && open http://localhost:8080/energie.html) & \
+	python3 -m http.server 8080 --directory dashboard
+
+kosten: ## kosten/opbrengsten bijwerken uit meterdata + prijzen, en het overzicht openen
+	@node scripts/homey/kosten-bijwerken.mjs
+	@(sleep 2 && command -v open >/dev/null && open http://localhost:8080/kosten.html) & \
+	python3 -m http.server 8080 --directory dashboard
+
+kosten-data: ## alleen bijwerken (geen server) — handig naast een draaiende make energie
+	node scripts/homey/kosten-bijwerken.mjs
+
+zon: ## Enphase Enlighten-dagproductie ophalen en het kostenoverzicht bijwerken
+	node scripts/homey/enphase-enlighten.mjs
+	node scripts/homey/kosten-bijwerken.mjs
+
+laadpaal: ## 50five-laadsessies (xlsx in inventaris/import/50five/) importeren + kosten bijwerken
+	$(PY) scripts/50five/laadpaal_import.py
+	node scripts/homey/kosten-bijwerken.mjs
+
+laadadvies: ## goedkoopste/negatieve laaduren (vandaag+morgen) bepalen -> dashboard/laadadvies.json
+	node scripts/homey/laadadvies.mjs
