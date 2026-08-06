@@ -3,6 +3,9 @@
 **Status:** geaccepteerd
 **Datum:** 2026-07-29
 
+> **Update aug 2026:** verwijzingen naar de VPS hieronder zijn vervangen door
+> linuxcris (zie ADR 0004); het besluit zelf verandert niet.
+
 ## Context
 
 De drie Ring-camera's (Front, Backyard, Woonkamer) zitten al aan Homey
@@ -14,9 +17,8 @@ inclusief — indien mogelijk — live beeld.
 De Homey Ring-app levert per camera alleen: `alarm_motion` (beweging),
 `measure_battery` (accu; niet bij Woonkamer), `flood_light` (schijnwerper) en
 `siren`. Er is **geen** capability voor een videostream. Het dashboard zelf is
-bovendien een statische momentopname (`bouw_dashboard.py`), die op de VPS elk
-uur opnieuw wordt gebouwd en achter Caddy + basic-auth wordt geserveerd — geen
-live-verbinding met het thuisnetwerk.
+bovendien een statische momentopname (`bouw_dashboard.py`), die elk uur opnieuw
+wordt gebouwd en geserveerd — geen live-verbinding voor een videostream.
 
 ## Opties
 
@@ -29,7 +31,7 @@ live-verbinding met het thuisnetwerk.
    refresh-token een on-demand WebRTC/RTSP-stream opzetten en die in het
    dashboard embedden.
    *Voor:* echt live beeld. *Tegen:* apart, fors project; vereist een
-   restream-relay (draaiende dienst op de VPS), Ring-inloggegevens met 2FA-
+   restream-relay (een extra draaiende dienst), Ring-inloggegevens met 2FA-
    token als nieuw geheim, en het botst met het statische, uurlijks-gebouwde
    karakter van het dashboard. Ring blokkeert bovendien regelmatig
    ongeofficiële clients.
@@ -45,9 +47,9 @@ wacht op een eigen spec + ADR als Cris het alsnog wil.
 - `scripts/bouw_dashboard.py` herkent Ring-camera's aan `com.amazon.ring` in de
   driver (`is_ring()`), geeft ze het 📷-icoon, een eigen "Camera's"-blok met
   badges, en meldt live beweging + een loeiende sirene in de meldingenbalk.
-- Werkt zowel lokaal (`make dashboard`) als op de VPS (`make cloud-dashboard`).
-  De uurlijkse VPS-cron gebruikt de VPS-kopie van het script, dus de wijziging
-  is pas extern zichtbaar ná `git pull` op de VPS.
+- Werkt via `make dashboard` (met verse export: `make homey dashboard`). De
+  uurlijkse cron op linuxcris gebruikt de repo-kopie van het script, dus een
+  wijziging is pas zichtbaar ná `git pull` op linuxcris.
 - Wil Cris later tóch live beeld: nieuwe spec in `automatiseringen/` + ADR die
   deze vervangt, met keuze voor een restream-aanpak en opslag van het Ring-
   token in `.env` (nooit in git).

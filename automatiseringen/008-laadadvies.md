@@ -31,7 +31,7 @@ LAAD_PER_DAG_KWH=29    # typische dagelijkse laadhoeveelheid (voor de besparing-
 
 ### Dagelijks draaien
 
-Cron op de Mac of VPS:
+Cron op linuxcris (of de Mac):
 
 ```
 15 13 * * *  cd ~/projects/huis && node scripts/homey/laadadvies.mjs >> ~/laadadvies.log 2>&1

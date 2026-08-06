@@ -1,4 +1,4 @@
-# 005 — Live energie-beeld op de VPS
+# 005 — Live energie-beeld (op linuxcris)
 
 **Status:** gebouwd
 **Draait op:** script (`scripts/homey/export-energie-live.mjs`, --loop) als systemd-service + statische pagina `dashboard/energie.html`
@@ -13,16 +13,16 @@ Het gewone dashboard is een momentopname per uur. Voor gevoel bij dynamische pri
 
 ## Trigger
 
-Een always-on poller op de VPS (systemd-service met `--loop`, interval 30 s). De pagina in de browser haalt elke 30 s `energie-live.json` op en hertekent.
+Een always-on poller op linuxcris (systemd-service met `--loop`, interval 30 s). De pagina in de browser haalt elke 30 s `energie-live.json` op en hertekent.
 
 ## Actie
 
 1. `export-energie-live.mjs` leest via de Athom-cloud (`maakHomeyApi`) de slimme meter (`11df88ce`, `measure_power` + dag/totaal-tellers) en de Enphase (`6e19c3c8`, `measure_power` = zon nu, `meter_power.day` = zon vandaag).
 2. Haalt de EPEX-uurprijzen van vandaag op bij EnergyZero (kale marktprijs incl. btw) en rekent ze om naar all-in FlexPrijs: `markt + energiebelasting + Vattenfall-opslag`.
 3. Schrijft `dashboard/energie-live.json` (momentopname + prijzen van vandaag + batterij-advies).
-4. `dashboard/energie.html` (statisch) leest dat bestand en ververst zichzelf; nginx serveert beide achter dezelfde basic-auth als het dashboard.
+4. `dashboard/energie.html` (statisch) leest dat bestand en ververst zichzelf; linuxcris serveert beide uit de statische map (`:8766`) achter LAN + Tailscale, net als het dashboard.
 
-### .env (op de VPS aanvullen)
+### .env (op linuxcris aanvullen)
 
 ```
 FLEX_OPSLAG_KWH=0.02      # Vattenfall FlexPrijs inkoopvergoeding, EUR/kWh incl btw
@@ -43,7 +43,7 @@ After=network-online.target
 
 [Service]
 User=cris
-WorkingDirectory=/home/cris/projects/huis
+WorkingDirectory=/home/cris/huis
 ExecStart=/usr/bin/node scripts/homey/export-energie-live.mjs --loop
 Restart=on-failure
 RestartSec=15
@@ -57,23 +57,24 @@ sudo systemctl enable --now huis-energie
 journalctl -u huis-energie -f      # meekijken
 ```
 
-### nginx (naast de bestaande dashboard-proxy)
+### Serveren op linuxcris
 
-De live pagina en het JSON zijn statische bestanden uit `dashboard/`; serveer ze
-rechtstreeks (niet via serveer.py), met dezelfde auth:
+De live pagina en het JSON zijn statische bestanden uit `dashboard/`; die worden
+uit de statische map geserveerd (poort 8766, niet via serveer.py), achter LAN +
+Tailscale:
 
 ```nginx
 location /energie {
-    alias /home/cris/projects/huis/dashboard/energie.html;
+    alias /home/cris/huis/dashboard/energie.html;
     default_type text/html;
 }
 location = /energie-live.json {
-    alias /home/cris/projects/huis/dashboard/energie-live.json;
+    alias /home/cris/huis/dashboard/energie-live.json;
     add_header Cache-Control "no-store";
 }
 ```
 
-Openen: `https://huis.<domein>/energie`.
+Openen: `http://192.168.2.196:8766/energie.html` (thuis) of via Tailscale `https://linuxcris.taile5370e.ts.net/energie.html`.
 
 ## Ontsnapping
 
@@ -85,11 +86,11 @@ Puur uitlezen, stuurt niets aan — niets te overrulen. Stoppen: `sudo systemctl
 - **Cloud/sessie valt weg** — een mislukte tik wordt gelogd en overgeslagen; de pagina toont de laatst bekende data plus een foutbalk als het JSON te oud/onbereikbaar is. `Restart=on-failure` vangt een harde crash.
 - **EnergyZero onbereikbaar** — prijzen vallen terug op de laatste cache; vermogen blijft gewoon updaten.
 - **Sign-conventie meter** — `measure_power` positief = afname, negatief = teruglevering (HomeWizard). Klopt dit bij jou niet, draai dan het teken in `snapshot()`.
-- **Herstart VPS** — systemd start de service vanzelf weer.
+- **Herstart linuxcris** — systemd start de service vanzelf weer.
 
 ## Testen
 
-Op de VPS eenmalig: `node scripts/homey/export-energie-live.mjs` (zonder `--loop`) — moet een regel loggen met net-vermogen, zon en prijs, en `dashboard/energie-live.json` schrijven. Open daarna `/energie`: tiles vullen zich, de prijsgrafiek toont vandaag met nu-marker en goedkoopste/duurste uur. Zet 's middags met zon een grote verbruiker aan/uit en kijk of `net_w` mee beweegt.
+Op linuxcris eenmalig: `node scripts/homey/export-energie-live.mjs` (zonder `--loop`) — moet een regel loggen met net-vermogen, zon en prijs, en `dashboard/energie-live.json` schrijven. Open daarna `/energie`: tiles vullen zich, de prijsgrafiek toont vandaag met nu-marker en goedkoopste/duurste uur. Zet 's middags met zon een grote verbruiker aan/uit en kijk of `net_w` mee beweegt.
 
 ## Openstaande vragen
 

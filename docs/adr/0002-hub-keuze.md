@@ -3,6 +3,11 @@
 **Status:** geaccepteerd
 **Datum:** 2026-07-26
 
+> **Update 2026-08-06:** de context-aanname *"er is geen always-on machine"* is
+> vervallen — **linuxcris** draait sindsdien 24/7 (zie ADR 0004). Het besluit
+> hieronder (optie A, Homey blijft de baas) blijft ongewijzigd; de always-on
+> machine host nu het dashboard en de exports, niet een andere hub.
+
 ## Context
 
 Er is een Homey Pro, een Somfy TaHoma en een Apple TV. De wens is om de
@@ -19,6 +24,7 @@ De inventarisatie (25/26-07) wees uit:
 - **De Apple TV-app zit al in Homey** (Apple TV & HomePod).
 - De app **Zonnestanden** draait al: zonstand-triggers zijn beschikbaar.
 - Er is geen always-on machine, en geen wens om er een te kopen.
+  *(Achterhaald sinds aug 2026: linuxcris draait nu 24/7 — zie ADR 0004.)*
 
 ## Opties
 

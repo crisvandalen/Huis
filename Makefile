@@ -11,7 +11,7 @@ help:
 	@echo "make appletv     - Apple TV's scannen"
 	@echo "make dashboard   - dashboard/index.html bouwen uit de exports"
 	@echo "make serve       - dashboard serveren op localhost:8321 met ververs-knop"
-	@echo "make publiceer   - verse export + dashboard naar de VPS sturen (VPS_DOEL in .env)"
+	@echo "make publiceer   - verse export + dashboard naar linuxcris sturen (VPS_DOEL in .env)"
 	@echo "make schoon      - exports en dashboard weggooien"
 	@echo "make energie     - poller + live energiepagina op localhost:8080 (Ctrl+C stopt)"
 	@echo "make kosten      - kosten/opbrengsten bijwerken en overzicht openen"
@@ -60,10 +60,10 @@ cloud-auth: ## Eenmalig inloggen bij Athom-cloud (OAuth2)
 cloud-test: ## Test de cloud-verbinding met Homey
 	node scripts/homey/cloud-test.mjs
 
-cloud-export: ## Homey via de cloud exporteren (werkt ook op de VPS)
+cloud-export: ## Homey via de cloud exporteren (fallback; op linuxcris werkt de lokale 'make homey')
 	node scripts/homey/export-cloud.mjs
 
-cloud-dashboard: cloud-export dashboard ## cloud-export + dashboard bouwen (voor de VPS-cron)
+cloud-dashboard: cloud-export dashboard ## cloud-export + dashboard bouwen (fallback; linuxcris-cron gebruikt 'make homey dashboard')
 
 router: ## Teltonika-router uitlezen naar inventaris/export/router.json (thuis draaien)
 	node scripts/netwerk/router-teltonika.mjs
@@ -95,7 +95,7 @@ laadadvies: ## goedkoopste/negatieve laaduren (vandaag+morgen) bepalen -> dashbo
 	node scripts/homey/laadadvies.mjs
 
 .PHONY: app-deploy
-app-deploy: ## hele dashboard-map (PWA + pagina's + assets) naar de VPS-webroot rsyncen
+app-deploy: ## hele dashboard-map (PWA + pagina's + assets) naar de linuxcris-webroot rsyncen
 	@set -a; . ./.env; set +a; \
-	if [ -z "$$VPS_WEBROOT" ]; then echo "VPS_WEBROOT ontbreekt in .env (bijv. cris@46.62.194.166:/var/www/huis/)"; exit 1; fi; \
+	if [ -z "$$VPS_WEBROOT" ]; then echo "VPS_WEBROOT ontbreekt in .env (bijv. cris@192.168.2.196:/var/www/huis/)"; exit 1; fi; \
 	rsync -az --exclude='_to_delete' dashboard/ "$$VPS_WEBROOT" && echo "App gepubliceerd naar $$VPS_WEBROOT"

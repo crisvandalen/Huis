@@ -2,7 +2,7 @@
 
 **Status:** gespecificeerd
 **Draait op:** Homey (officiële Tuya-app `com.tuya2`) → mee in de bestaande
-`cloud-export` (uitlezen) + een backend-endpoint `POST /airco` op de ververs-
+Homey-export (uitlezen) + een backend-endpoint `POST /airco` op de ververs-
 server dat via de Homey-API stuurt (bedienen)
 
 ## Wat moet het doen
@@ -22,11 +22,11 @@ starten zonder de app te zoeken.
 
 - De airco heeft de **USB-Tuya wifi-module** en staat in de **Smart Life / Tuya-
   app**. Zit (nog) niet in Homey.
-- Het dashboard is nu een **statische momentopname**, elk uur herbouwd op de VPS
-  (`make cloud-dashboard` via cron) en geserveerd door Caddy op
-  `https://46.62.194.166` met basic-auth. Bedienen kan daarop meeliften via het
-  bestaande backend-servertje (`~/ververs-server.py`, systemd `huis-ververs`,
-  127.0.0.1:8765), dat Caddy al proxyt op `/ververs`.
+- Het dashboard is nu een **statische momentopname**, elk uur herbouwd op
+  linuxcris (`make homey dashboard` via cron) en geserveerd op `:8765`
+  (systemd `huis-dashboard`) achter LAN + Tailscale. Bedienen kan daarop
+  meeliften via het ververs-endpoint van serveer.py (`/ververs`), op dezelfde
+  poort.
 
 ## Route-keuze
 
@@ -53,15 +53,15 @@ van vroeger (de oude, onderhouden-loze Tuya-app) vervalt: dit is de officiële.
 
 ## Trigger
 
-- **Uitlezen:** cron op de VPS, elk uur, mee in de bestaande dashboard-bouw
-  (`make cloud-dashboard`). Geen nieuw script nodig.
+- **Uitlezen:** cron op linuxcris, elk uur, mee in de bestaande dashboard-bouw
+  (`make homey dashboard`). Geen nieuw script nodig.
 - **Bedienen:** de mens klikt op een knop/slider in het dashboard.
 
 ## Actie
 
 **Uitlezen** (bestaande pijplijn):
 
-1. Airco staat in Homey (via `com.tuya2`) → `export-cloud.mjs` haalt 'm mee op in
+1. Airco staat in Homey (via `com.tuya2`) → `export-devices.mjs` haalt 'm mee op in
    `homey-ruw.json` / `homey.json`, net als elk ander Homey-device.
 2. `bouw_dashboard.py` herkent de airco (op klasse, vermoedelijk `thermostat`/
    airco, of op de Tuya-driver) en toont een **Klimaat/Airco-kaart** op Overzicht
@@ -69,13 +69,13 @@ van vroeger (de oude, onderhouden-loze Tuya-app) vervalt: dit is de officiële.
 
 **Bedienen** (`POST /airco` op de backend):
 
-3. Dashboardknoppen posten `{ commando, waarde }` naar `/airco` (Caddy
-   `handle /airco*` → `reverse_proxy 127.0.0.1:8765`, basic-auth dekt het al).
+3. Dashboardknoppen posten `{ commando, waarde }` naar `/airco` op serveer.py
+   (zelfde poort 8765 als het dashboard en de ververs-knop).
 4. De backend zet via de **Homey-API** de capability
    (`onoff` of `target_temperature`) van de airco, leest daarna vers uit en
    herbouwt het dashboard, zodat de knop meteen de nieuwe stand toont.
-   Aandachtspunt: de cloud-OAuth die de export gebruikt moet **schrijfrechten**
-   hebben (device control), niet alleen lezen — checken bij het bouwen.
+   Aandachtspunt: de Homey-key die de export gebruikt moet **schrijfrechten**
+   hebben (device control) — de lokale key heeft die (maakt al flows aan).
 
 ## Ontsnapping
 
@@ -101,7 +101,7 @@ maximaal één uur (of één ververs) achter.
 
 ## Testen
 
-- **Uitlezen:** na pairing `make cloud-export` → airco staat in `homey.json`;
+- **Uitlezen:** na pairing `make homey` → airco staat in `homey.json`;
   huidige temp klopt met de app. Daarna `make dashboard`: kaart verschijnt.
 - **Bedienen:** eerst een dry-run in de backend die het Homey-commando logt maar
   niet stuurt; daarna één echte test (doeltemp +1°) en in de app controleren dat
@@ -115,6 +115,6 @@ maximaal één uur (of één ververs) achter.
       uurlijkse cron). Cowork kan dit niet zelf (Homey-app + thuisnetwerk).
 - [ ] Na de export: exacte capabilities aflezen (onoff, target_temperature,
       measure_temperature, klasse/driver) → mapping in `bouw_dashboard.py`.
-- [ ] Heeft de cloud-OAuth schrijfrechten voor device-control? Zo niet: scope
-      uitbreiden / opnieuw autoriseren.
+- [ ] Heeft de lokale Homey-key schrijfrechten voor device-control? Waarschijnlijk
+      wel (hij maakt al advanced flows aan); bij bediening verifiëren.
 - [ ] In welke ruimte hangt de airco? (voor de kaart en `apparaten.yaml`)

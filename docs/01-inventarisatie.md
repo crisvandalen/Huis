@@ -70,5 +70,5 @@ Dit bepaalt wat er straks mogelijk is, dus doe dit zorgvuldig:
 - [ ] Welke Homey heb je precies (Pro 2019 / Pro 2023 / Pro Mini)? Dat bepaalt
       of de lokale API beschikbaar is.
 - [ ] Welke TaHoma-gateway (TaHoma switch / Connectivity Kit / oude TaHoma)?
-- [ ] Draait er al iets always-on in huis (NAS, Pi, mini-pc)?
+- [x] Draait er al iets always-on in huis (NAS, Pi, mini-pc)? **Ja — linuxcris, een Ubuntu-server op het thuisnetwerk (192.168.2.196). Zie `docs/04-linuxcris.md`.**
 - [ ] Wat werkt nu níét goed? Dat is de beste startlijst voor automatiseringen.

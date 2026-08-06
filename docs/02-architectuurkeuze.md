@@ -4,6 +4,11 @@
 `docs/adr/0002-hub-keuze.md` voor het besluit en de gevolgen. De rest van dit
 document blijft staan als achtergrond bij die afweging.
 
+> **Update aug 2026:** een van de aannames onder die keuze is veranderd — er is
+> nu wel een always-on machine (**linuxcris**, zie ADR 0004). Dat maakt optie B
+> technisch haalbaarder, maar het besluit (A) blijft staan tot deze afweging
+> bewust opnieuw wordt gemaakt.
+
 ## De vraag
 
 Waar draait de automatiseringslogica: in Homey, in Home Assistant, of in een
@@ -45,7 +50,7 @@ Vul in na de inventarisatie:
 - [ ] Is de zonwering io of RTS? (RTS zonder terugkoppeling → logica moet
       toestand zelf bijhouden; dat pleit voor B)
 - [ ] Wil je zonder internet kunnen draaien? (ja → B, met TaHoma local)
-- [ ] Is er always-on hardware, of wil je die kopen? (nee → A)
+- [x] Is er always-on hardware, of wil je die kopen? **Ja — linuxcris draait 24/7 (aug 2026, zie ADR 0004).** *(dit pleitte eerder voor A bij 'nee'; die grond is vervallen)*
 - [ ] Hoeveel wil je in code doen versus klikken? (veel code → B)
 
 ## Voorlopige neiging

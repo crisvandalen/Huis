@@ -80,7 +80,12 @@ zodra er iets start, pauzeert of stopt, zonder te pollen.
 | Rolluik-/screenstand | TaHoma, maar alleen betrouwbaar bij io |
 | Licht, sensoren, schakelaars | Homey |
 
-## Homey via de cloud (VPS/remote)
+## Homey via de cloud (fallback)
+
+> **Sinds aug 2026 niet meer nodig voor het dashboard.** De vaste draai-omgeving
+> is nu linuxcris, op het LAN, dus de lokale API-key werkt weer (`make homey`).
+> Deze cloud-route blijft bewaard als fallback voor een eventuele off-LAN
+> situatie; zie `docs/04-linuxcris.md`.
 
 Getest 26-07: de lokale API-key wordt door de Athom-cloud geweigerd (HTTP 401)
 en `<homey-id>.homey.eu-west-1.homeypro.net` lost niet op. Remote werkt dus
@@ -92,4 +97,4 @@ NIET met de lokale key, wel via de officiele OAuth2-flow:
    `node scripts/homey/cloud-auth.mjs <code>`.
 4. Daarna altijd: `make cloud-test`, of in code `maakHomeyApi()` uit
    `scripts/homey/cloud-client.mjs`. Refresh-token staat in
-   `scripts/homey/.homey-cloud-token.json` (gitignored) - kopieer die mee naar de VPS.
+   `scripts/homey/.homey-cloud-token.json` (gitignored). Volledige uitleg: `docs/archief/04-cloud-oauth2.md`.

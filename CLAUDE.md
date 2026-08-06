@@ -9,8 +9,9 @@ commentaar en commit messages.
   refactoren, git.
 - **Cowork (chat)**: documentatie bijwerken, automatiseringen bedenken en
   specificeren, dashboards genereren, samenvatten. Cowork draait in de cloud en
-  kan het thuisnetwerk **niet** bereiken — draai netwerkscripts daarom lokaal
-  (via `device_bash` op de Mac) of laat Cris ze draaien.
+  kan het thuisnetwerk **niet** bereiken (ook `device_bash` op de Mac komt niet
+  op het LAN — de sandbox-allowlist blokkeert het). Netwerkscripts draaien
+  daarom op **linuxcris** (always-on, op het LAN) of laat Cris ze draaien.
 
 ## Vaste regels
 
@@ -42,6 +43,11 @@ make dashboard    # dashboard/index.html genereren uit exports
 
 ## Context die je moet kennen
 
+- **linuxcris** is de always-on thuisserver (`192.168.2.196`, Tailscale
+  `100.117.180.2`). Die host nu het dashboard + de Homey-exports (repo `~/huis`,
+  uur-cron `git pull` + `make homey dashboard`) en zit op het LAN, dus lokale
+  Homey-scripts draaien daar. Zie `docs/04-linuxcris.md`. De oude Hetzner-VPS
+  "het brein" is opgezegd (aug 2026).
 - **Homey Pro** praat lokaal via een API-key: `http://<ip>/api/manager/...`
   met `Authorization: Bearer <key>`.
 - **TaHoma** kan via de cloud (Overkiz, gebruikersnaam/wachtwoord) of lokaal
