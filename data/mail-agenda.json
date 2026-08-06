@@ -1,18 +1,12 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-04T05:11:24Z",
+  "opgehaald_op": "2026-08-06T05:12:00Z",
   "agenda": [
     {
-      "start": "2026-08-04T20:00:00+02:00",
-      "eind": "2026-08-04T21:00:00+02:00",
-      "titel": "De Molenwiek Nieuwe reservering",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-08-05T19:30:00+02:00",
-      "eind": "2026-08-05T20:30:00+02:00",
-      "titel": "De Molenwiek Reservering gewijzigd",
+      "start": "2026-08-06T11:00:00+02:00",
+      "eind": "2026-08-06T12:00:00+02:00",
+      "titel": "Afspraak Profile Geldermalsen, Nout",
+      "locatie": "De Elzenhof 1, 4191PA Geldermalsen",
       "agenda": "Gezin",
       "hele_dag": false
     },
@@ -26,18 +20,12 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "ongelezen_aantal": 1,
     "items": [
       {
-        "van": "IKEA",
-        "onderwerp": "C, je IKEA bestelling komt eraan",
-        "tijd": "2026-08-04T05:14:27Z",
-        "belangrijk": true
-      },
-      {
-        "van": "The AI Daily",
-        "onderwerp": "Claude Code gebruikt je API-sleutel ongevraagd en factureert apart",
-        "tijd": "2026-08-04T05:00:31Z",
+        "van": "ABOUT YOU Outlet",
+        "onderwerp": "Tot wel 70% korting op Onze favoriete items, NAPAPIJRI,...",
+        "tijd": "2026-08-06T04:05:26Z",
         "belangrijk": true
       }
     ]
