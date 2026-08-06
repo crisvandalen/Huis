@@ -19,12 +19,14 @@ openen.
 
 ## Hoe (mechaniek)
 
-Homey kan een melding naar de app op de telefoon duwen via een
-**timeline-notificatie**. Lokaal (op het LAN) gaat dat met een POST naar
-`http://<HOMEY_HOST>/api/manager/notifications/notification/` met body
-`{ "excerpt": "<tekst>" }` en de Bearer-API-key. Dit is dezelfde soort melding
-als de meldingskaart in de nachtslot-flow (003), maar dan rechtstreeks vanuit een
-script.
+Homey duwt een melding naar de app op de telefoon via de
+**notificatie-actiekaart** `homey:manager:notifications:create_notification` —
+dezelfde kaart die de nachtslot-flow (003) gebruikt. De lokale API heeft géén
+directe `createNotification` (alleen lezen/verwijderen), maar kan die flow-kaart
+wél uitvoeren via `runFlowCardAction`
+(`POST /api/manager/flow/flowcardaction/:uri/:id/run`, scope `homey.flow`), met
+het tekst-argument `text`. Dat gebeurt met de `homey-api`-library
+(`HomeyAPI.createLocalAPI` + `flow.runFlowCardAction`).
 
 - `push.mjs` is de generieke bouwsteen: `stuurPush(tekst)` + CLI
   `node scripts/homey/push.mjs "tekst"`.
@@ -52,8 +54,8 @@ online (zelfde timing als 008):
 2. Formatteert een korte NL-melding, bv.:
    *"⚡ Laadadvies — goedkoopst di 11:00–di 16:00 (gem €0,248/kWh, ~€1,63 voordeel).
    Goedkoopste uur: di 13:00 (€0,236/kWh)."*
-3. `stuurPush(tekst)` POST't de melding naar Homey; die verschijnt in de
-   Homey-app op de iPhone.
+3. `stuurPush(tekst)` voert de notificatie-actiekaart uit via de lokale API; de
+   melding verschijnt als push in de Homey-app op de iPhone.
 
 ## Randgevallen
 
@@ -61,9 +63,9 @@ online (zelfde timing als 008):
   (HTTP-status wordt gelogd), stuurt niets half.
 - **Prijzen van morgen nog niet online** (vóór ~13:00) — `maakLaadadvies` gebruikt
   dan alleen de resterende uren van vandaag; de melding klopt nog steeds.
-- **Notificatie-API pusht niet naar de telefoon** — sommige Homey-instellingen
-  duwen timeline-meldingen niet door. Zie *Openstaande vragen* voor de fallback
-  (een kleine Homey-flow met meldingskaart, via de API getriggerd).
+- **Verschijnt wel in de tijdlijn maar niet als push** — dan staat de
+  app-notificatie voor die categorie uit in de Homey-app; even aanzetten in de
+  Homey-app-instellingen.
 - **RTS/aansturing** — n.v.t., dit stuurt niets aan; puur een melding.
 
 ## Ontsnapping
@@ -85,9 +87,8 @@ niet: check de gelogde HTTP-status en zie de fallback hieronder.
 
 ## Openstaande vragen
 
-- [ ] **Bevestigen dat de timeline-notificatie ook echt naar de iPhone pusht.**
-      Zo niet: fallback = een Homey-flow "Stuur pushmelding" (meldingskaart
-      `homey:manager:notifications`) die we via de API starten; dan gaat de push
-      gegarandeerd via de app-notificaties. (Aanpak zoals `maak-nachtslot-flow.mjs`.)
+- [ ] **Bevestigen dat de melding ook echt als push op de iPhone binnenkomt**
+      (niet alleen in de Homey-tijdlijn). Zo niet: de notificatie voor deze
+      categorie aanzetten in de Homey-app-instellingen.
 - [ ] Eventueel alleen pushen als er iets bijzonders is (bv. negatieve uren of
       besparing boven een drempel), i.p.v. elke dag.

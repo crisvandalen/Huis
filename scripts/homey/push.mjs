@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 /**
  * push.mjs — stuurt een pushbericht naar de Homey-app (iPhone) via de LOKALE
- * Homey-API, met de homey-api-library (createLocalAPI + notifications). Draait op
- * linuxcris of lokaal op de Mac — NIET vanuit de cloud/Cowork (die komt niet op
- * het thuisnetwerk).
+ * Homey-API. De lokale API kan zelf geen notificatie aanmaken, maar wel de
+ * notificatie-actiekaart uitvoeren (dezelfde kaart die de nachtslot-flow
+ * gebruikt): homey:manager:notifications:create_notification, via runFlowCardAction.
+ *
+ * Draait op linuxcris of lokaal op de Mac — NIET vanuit de cloud/Cowork.
  *
  * CLI:   node scripts/homey/push.mjs "Je bericht"
  * Code:  import { stuurPush } from './push.mjs'; await stuurPush('tekst');
@@ -27,6 +29,13 @@ function laadEnv() {
   } catch { /* geen .env: dan verwachten we echte omgevingsvariabelen */ }
 }
 
+function vindNotificatieKaart(lijst) {
+  const owner = k => k.uri || k.ownerUri || '';
+  return lijst.find(k => owner(k) === 'homey:flowcardaction:homey:manager:notifications:create_notification')
+    || lijst.find(k => /manager:notifications:create_notification/.test(owner(k) + ':' + (k.id || '')))
+    || lijst.find(k => /notification/i.test(owner(k) + (k.id || '')));
+}
+
 export async function stuurPush(tekst) {
   laadEnv();
   const host = process.env.HOMEY_HOST;
@@ -35,10 +44,14 @@ export async function stuurPush(tekst) {
   if (!tekst || !tekst.trim()) throw new Error('lege meldingstekst');
 
   const api = await HomeyAPI.createLocalAPI({ address: `http://${host}`, token });
-  if (!api.notifications || typeof api.notifications.createNotification !== 'function') {
-    throw new Error('notifications.createNotification niet beschikbaar op deze Homey-API');
-  }
-  await api.notifications.createNotification({ excerpt: tekst });
+  const acties = await api.flow.getFlowCardActions();
+  const lijst = Array.isArray(acties) ? acties : Object.values(acties);
+  const kaart = vindNotificatieKaart(lijst);
+  if (!kaart) throw new Error('notificatie-actiekaart niet gevonden op deze Homey');
+
+  const uri = kaart.uri || kaart.ownerUri;
+  const arg = (kaart.args && kaart.args.find(a => a.type === 'text')?.name) || 'text';
+  await api.flow.runFlowCardAction({ uri, id: kaart.id, args: { [arg]: tekst } });
   return { ok: true };
 }
 

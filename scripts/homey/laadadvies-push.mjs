@@ -34,8 +34,8 @@ async function main() {
   const advies = await maakLaadadvies({ stil: true });
   const tekst = meldingTekst(advies);
   console.log('Melding:\n' + tekst + '\n');
-  const res = await stuurPush(tekst);
-  console.log(`Push verstuurd (HTTP ${res.status}).`);
+  await stuurPush(tekst);
+  console.log('Push verstuurd.');
 }
 
 main().catch(e => { console.error('Mislukt:', e.message); process.exit(1); });
