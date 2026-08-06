@@ -1,4 +1,4 @@
-.PHONY: setup inventaris homey tahoma appletv dashboard serve publiceer schoon help energie kosten kosten-data zon laadpaal laadadvies
+.PHONY: setup inventaris homey tahoma appletv dashboard serve publiceer schoon help energie kosten kosten-data zon laadpaal laadadvies push laadadvies-push
 
 VENV := .venv
 PY := $(VENV)/bin/python
@@ -19,6 +19,8 @@ help:
 	@echo "make zon         - zonproductie uit Enphase Enlighten backfillen + kosten bijwerken"
 	@echo "make laadpaal    - 50five-laadsessies importeren + kostenoverzicht bijwerken"
 	@echo "make laadadvies  - goedkoopste/negatieve laaduren van vandaag+morgen bepalen"
+	@echo "make push        - los pushbericht naar de Homey-app sturen: make push MSG=..."
+	@echo "make laadadvies-push - laadadvies berekenen en als push naar de iPhone sturen"
 
 setup:
 	@test -f .env || (cp .env.example .env && echo "Aangemaakt: .env — vul je tokens in")
@@ -93,6 +95,12 @@ laadpaal: ## 50five-laadsessies (xlsx in inventaris/import/50five/) importeren +
 
 laadadvies: ## goedkoopste/negatieve laaduren (vandaag+morgen) bepalen -> dashboard/laadadvies.json
 	node scripts/homey/laadadvies.mjs
+
+push: ## los pushbericht naar de Homey-app sturen: make push MSG="tekst"
+	@node scripts/homey/push.mjs "$(MSG)"
+
+laadadvies-push: ## laadadvies berekenen en als push naar de iPhone sturen (op linuxcris)
+	node scripts/homey/laadadvies-push.mjs
 
 .PHONY: app-deploy
 app-deploy: ## hele dashboard-map (PWA + pagina's + assets) naar de linuxcris-webroot rsyncen

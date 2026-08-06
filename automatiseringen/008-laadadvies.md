@@ -55,5 +55,5 @@ Puur advies; er valt niets te overrulen. Cron/target weglaten = klaar.
 
 ## Openstaande vragen
 
-- [ ] Dagelijkse melding via push/e-mail koppelen (nu: pagina + console).
+- [x] Dagelijkse melding via **push** naar de iPhone gekoppeld — zie `automatiseringen/009-laadadvies-push.md` (`scripts/homey/laadadvies-push.mjs`).
 - [ ] Later koppelen aan aansturing (auto-API / 50five) — aparte automatisering, vereist spec + bevestiging.
