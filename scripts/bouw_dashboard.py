@@ -4,7 +4,10 @@
 Persoonlijke startpagina met tabbladen:
 
     Overzicht · Beveiliging · Sensors · Vannacht · Netwerk & router ·
-    Mail & agenda · Energie · Huis
+    Energie · Huis
+
+Mail & agenda staan bewust NIET meer op deze huispagina; die kregen een eigen
+pagina dashboard/vandaag.html (leest zelf data/mail-agenda.json).
 
 Eén zelfstandig HTML-bestand: dubbelklikken opent het, licht/donker volgt het
 systeem. Het is een momentopname van de laatste `make homey` — geen live
@@ -15,7 +18,8 @@ Databronnen (allemaal optioneel; ontbreekt er één, dan blijft dat tabblad leeg
 of toont het een uitleg):
   - homey-ruw.json / homey.json  → apparaten, sensoren, flows, energie
   - ring-log.json                → camera-beweging (voor "Vannacht")
-  - mail-agenda.json             → mail + agenda (Cowork bakt dit mee)
+  - mail-agenda.json             → mail + agenda (Cowork bakt dit mee; nu alleen
+                                    nog gebruikt door dashboard/vandaag.html)
   - router.json                  → routerstatus (lokaal netwerkscript)
 """
 
@@ -63,7 +67,6 @@ TABS = [
     ("sensors", "Sensors"),
     ("vannacht", "Vannacht"),
     ("netwerk", "Netwerk & router"),
-    ("mailagenda", "Mail & agenda"),
     ("energie", "Energie"),
     ("huis", "Huis"),
 ]
@@ -578,78 +581,6 @@ def tab_netwerk(apparaten, net_html) -> str:
     return "".join(delen)
 
 
-def tab_mailagenda() -> str:
-    data = lees("mail-agenda.json")
-    if not data:
-        return ('<p class="leeg">Mail en agenda nog niet gekoppeld. Cowork haalt '
-                'ze op en schrijft <code>inventaris/export/mail-agenda.json</code>; '
-                'dit tabblad toont ze dan hier.</p>')
-
-    stamp = tijdkort(data.get("opgehaald_op")) if data.get("opgehaald_op") else ""
-    delen = []
-
-    # --- Agenda -----------------------------------------------------------
-    agenda = data.get("agenda") or []
-    vandaag = nu_lokaal().date()
-    morgen = vandaag + timedelta(days=1)
-
-    def daglabel(d):
-        if d == vandaag:
-            return "Vandaag"
-        if d == morgen:
-            return "Morgen"
-        return f"{WEEKDAGEN[d.weekday()].capitalize()} {d.strftime('%d-%m')}"
-
-    groepen = {}
-    for ev in sorted(agenda, key=lambda e: str(e.get("start"))):
-        d = parse_iso(ev.get("start"))
-        sleutel = d.date() if d else vandaag
-        groepen.setdefault(sleutel, []).append((d, ev))
-
-    agenda_html = ""
-    for d in sorted(groepen):
-        items = ""
-        for start_dt, ev in groepen[d]:
-            tijd = "hele dag" if ev.get("hele_dag") else (
-                uur_kort(ev.get("start")) +
-                (f"–{uur_kort(ev.get('eind'))}" if ev.get("eind") else ""))
-            loc = ev.get("locatie")
-            agn = ev.get("agenda")
-            meta = " · ".join(x for x in (loc, agn) if x)
-            items += (
-                f'<li class="afspraak"><span class="afspraak-tijd">{esc(tijd)}</span>'
-                f'<span class="afspraak-body"><span class="afspraak-titel">{esc(ev.get("titel"))}</span>'
-                f'{f"<span class=afspraak-meta>{esc(meta)}</span>" if meta else ""}</span></li>')
-        agenda_html += f'<div class="daggroep"><h3>{esc(daglabel(d))}</h3><ul class="afspraken">{items}</ul></div>'
-    delen.append(sectie("Agenda", agenda_html, "Geen afspraken gevonden."))
-
-    # --- Mail -------------------------------------------------------------
-    mail = data.get("mail") or {}
-    items = mail.get("items") or []
-    onnodig = mail.get("ongelezen_aantal")
-    if mail.get("type") == "ongelezen":
-        koptekst = f"Ongelezen ({onnodig if onnodig is not None else len(items)})"
-    else:
-        koptekst = "Recente mail"
-        if onnodig is not None:
-            koptekst += f" · {onnodig} ongelezen"
-
-    rijen = ""
-    for m in items:
-        ster = '<span class="mail-ster" title="belangrijk">★</span>' if m.get("belangrijk") else '<span class="mail-ster leeg"></span>'
-        rijen += (
-            f'<li class="mailrij">{ster}'
-            f'<span class="mail-body"><span class="mail-van">{esc(m.get("van"))}</span>'
-            f'<span class="mail-onderwerp">{esc(m.get("onderwerp"))}</span></span>'
-            f'<span class="mail-tijd">{esc(tijdkort(m.get("tijd")))}</span></li>')
-    mail_html = f'<ul class="maillijst">{rijen}</ul>' if rijen else ""
-    delen.append(sectie(koptekst, mail_html, "Postvak leeg — niets ongelezen."))
-
-    if stamp:
-        delen.append(f'<p class="uitleg">Opgehaald {esc(stamp)} via Cowork.</p>')
-    return "".join(delen)
-
-
 def tab_energie(groepen, apparaten) -> str:
     delen = []
     for titel in ("Energie — nu", "Vandaag"):
@@ -812,36 +743,11 @@ def tab_overzicht(apparaten, groepen, meldingen) -> str:
                        f'<span class="app-status">{esc(status)}</span></li>')
         cam_html = f'<div class="kolom"><h2>Laatste beweging</h2><ul>{regels}</ul></div>'
 
-    # Agenda-snippet (max 3 komende).
-    data = lees("mail-agenda.json") or {}
-    agenda = sorted(data.get("agenda") or [], key=lambda e: str(e.get("start")))[:3]
-    agenda_html = ""
-    if agenda:
-        rijen = ""
-        for ev in agenda:
-            tijd = "hele dag" if ev.get("hele_dag") else tijdkort(ev.get("start"))
-            rijen += (f'<li class="afspraak"><span class="afspraak-tijd">{esc(tijd)}</span>'
-                      f'<span class="afspraak-body"><span class="afspraak-titel">{esc(ev.get("titel"))}</span></span></li>')
-        agenda_html = f'<div class="kolom"><h2>Komende afspraken</h2><ul class="afspraken">{rijen}</ul></div>'
-
-    # Mail-snippet (max 3).
-    mail = (data.get("mail") or {})
-    mitems = (mail.get("items") or [])[:3]
-    mail_html = ""
-    if mitems:
-        rijen = ""
-        for m in mitems:
-            ster = '★ ' if m.get("belangrijk") else ''
-            rijen += (f'<li class="mailrij"><span class="mail-body">'
-                      f'<span class="mail-van">{esc(ster)}{esc(m.get("van"))}</span>'
-                      f'<span class="mail-onderwerp">{esc(m.get("onderwerp"))}</span></span>'
-                      f'<span class="mail-tijd">{esc(tijdkort(m.get("tijd")))}</span></li>')
-        kop = "Ongelezen mail" if mail.get("type") == "ongelezen" else "Recente mail"
-        mail_html = f'<div class="kolom"><h2>{esc(kop)}</h2><ul class="maillijst">{rijen}</ul></div>'
-
+    # Mail & agenda staan niet meer op het huis-overzicht: die verhuisden naar de
+    # losse pagina dashboard/vandaag.html (leest zelf data/mail-agenda.json).
     kolommen = ""
-    if agenda_html or mail_html or cam_html:
-        kolommen = f'<div class="tweekolom">{agenda_html}{cam_html}{mail_html}</div>'
+    if cam_html:
+        kolommen = f'<div class="tweekolom">{cam_html}</div>'
 
     return (f'<div class="meldingen">{melding_html}</div>'
             + (f'<h2>Nu in huis</h2>{kern_html}{zon_html}' if kern_html else "")
@@ -915,7 +821,6 @@ def main() -> None:
         "sensors": tab_sensors(apparaten),
         "vannacht": tab_vannacht(apparaten),
         "netwerk": tab_netwerk(apparaten, net_html),
-        "mailagenda": tab_mailagenda(),
         "energie": tab_energie(groepen, apparaten),
         "huis": tab_huis(apparaten, flows, adv),
     }
@@ -1158,6 +1063,15 @@ project <code>~/projects/Prive/huis</code></footer>
     UIT.write_text(doc)
     print(f"{len(apparaten)} apparaten, {len(TABS)} tabbladen, "
           f"{len(meldingen)} meldingen -> {UIT}")
+
+    # Mail & agenda als los JSON-bestand in dashboard/ zetten, zodat de losse
+    # pagina vandaag.html het client-side kan fetchen (net als energie-live.json).
+    # De webroot is dashboard/, dus data/mail-agenda.json is daar niet bereikbaar.
+    ma = lees("mail-agenda.json")
+    doel = UIT.parent / "mail-agenda.json"
+    if ma is not None:
+        doel.write_text(json.dumps(ma, ensure_ascii=False, indent=2))
+        print(f"mail-agenda.json -> {doel}")
 
 
 if __name__ == "__main__":

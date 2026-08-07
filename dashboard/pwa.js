@@ -14,6 +14,7 @@
   // 2) Tabbalk. Actieve tab wordt bepaald op basis van de bestandsnaam.
   var TABS = [
     { href: 'index.html',             label: 'Start',    icon: '🏠' }, // 🏠
+    { href: 'vandaag.html',           label: 'Vandaag',  icon: '☀️' },      // ☀️ mail + agenda
     { href: 'energie.html',           label: 'Energie',  icon: '⚡' },       // ⚡
     { href: 'kosten.html',            label: 'Kosten',   icon: '💶' }, // 💶
     { href: 'laadadvies.html',        label: 'Laden',    icon: '🔌' }, // 🔌

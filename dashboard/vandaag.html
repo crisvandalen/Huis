@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Huis">
+<link rel="apple-touch-icon" href="./icon-180.png">
+<link rel="icon" href="./favicon.png" sizes="32x32">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fcfcfb">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1420">
+<title>Vandaag — mail &amp; agenda</title>
+<style>
+  :root{--bg:#0f1420;--panel:#171e2e;--panel2:#1e2637;--line:#2b3548;--tekst:#e8edf6;--dim:#9aa7bd;
+    --accent:#4f8cff;--goed:#2fbf71;--oranje:#f5a524;--imp:#f2557a;--gezin:#b98cff;--nu:#4f8cff;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--tekst);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:22px 16px 60px}
+  header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
+  h1{font-size:22px;margin:0}
+  .stamp{font-size:12.5px;color:var(--dim)}
+  .live{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--goed);margin-right:6px;vertical-align:middle;animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  h2{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--dim);margin:26px 0 10px;font-weight:600}
+  .err{background:rgba(242,85,122,.12);border:1px solid rgba(242,85,122,.45);padding:10px 13px;border-radius:10px;margin:14px 0;font-size:13.5px}
+
+  /* Agenda */
+  .dag{margin-bottom:14px}
+  .dag-kop{font-size:14px;font-weight:600;margin:0 0 6px;color:var(--tekst)}
+  .dag-kop small{font-weight:400;color:var(--dim);font-size:12px;margin-left:6px}
+  .afspraak{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);
+    border-radius:12px;padding:11px 13px;margin-bottom:7px;position:relative;overflow:hidden}
+  .afspraak.nu{border-color:rgba(79,140,255,.55);background:rgba(79,140,255,.08)}
+  .afspraak .tijd{flex:none;width:5.4em;font-variant-numeric:tabular-nums;color:var(--tekst);font-weight:600;font-size:13.5px;line-height:1.35}
+  .afspraak .tijd small{display:block;font-weight:400;color:var(--dim);font-size:11.5px}
+  .afspraak .body{min-width:0;flex:1}
+  .afspraak .titel{font-size:14.5px;overflow-wrap:anywhere}
+  .afspraak .meta{font-size:12px;color:var(--dim);margin-top:2px;overflow-wrap:anywhere}
+  .tag{display:inline-block;font-size:10.5px;padding:1px 7px;border-radius:20px;margin-left:6px;
+    background:var(--panel2);color:var(--dim);vertical-align:middle}
+  .tag.gezin{color:var(--gezin);background:rgba(185,140,255,.14)}
+  .nu-badge{position:absolute;top:9px;right:11px;font-size:10px;color:var(--nu);font-weight:700;letter-spacing:.03em}
+
+  /* Mail */
+  .mailrij{display:flex;gap:10px;align-items:baseline;background:var(--panel);border:1px solid var(--line);
+    border-radius:12px;padding:11px 13px;margin-bottom:7px}
+  .ster{flex:none;width:1em;color:var(--oranje)}
+  .ster.leeg{color:var(--line)}
+  .mail-body{min-width:0;flex:1}
+  .mail-van{font-size:12px;color:var(--dim)}
+  .mail-onderwerp{font-size:14px;overflow-wrap:anywhere}
+  .mail-tijd{flex:none;color:var(--dim);font-size:12px;font-variant-numeric:tabular-nums}
+
+  .leeg{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:14px;color:var(--dim);font-size:13.5px}
+  .foot{margin-top:22px;font-size:12.5px;color:var(--dim)}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>☀️ Vandaag</h1>
+    <div class="stamp"><span class="live" id="live"></span><span id="stamp">laden…</span></div>
+  </header>
+
+  <div id="err" class="err" style="display:none"></div>
+
+  <h2 id="agendaKop">Agenda</h2>
+  <div id="agenda"></div>
+
+  <h2 id="mailKop">Mail</h2>
+  <div id="mail"></div>
+
+  <div class="foot" id="foot"></div>
+</div>
+
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const pad=n=>String(n).padStart(2,'0');
+const WEEK=['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+
+function esc(s){const d=document.createElement('div');d.textContent=s==null?'':String(s);return d.innerHTML;}
+function d2(dt){return dt.getFullYear()+'-'+pad(dt.getMonth()+1)+'-'+pad(dt.getDate());}
+function hm(dt){return pad(dt.getHours())+':'+pad(dt.getMinutes());}
+
+function daglabel(dsleutel){
+  const nu=new Date(); const vandaag=d2(nu);
+  const morgen=new Date(nu); morgen.setDate(nu.getDate()+1);
+  if(dsleutel===vandaag) return 'Vandaag';
+  if(dsleutel===d2(morgen)) return 'Morgen';
+  const [y,m,d]=dsleutel.split('-').map(Number);
+  const dt=new Date(y,m-1,d);
+  return WEEK[dt.getDay()].replace(/^./,c=>c.toUpperCase())+' '+pad(d)+'-'+pad(m);
+}
+
+async function tik(){
+  try{
+    const r=await fetch('./mail-agenda.json?_='+Date.now(),{cache:'no-store'});
+    if(!r.ok) throw new Error('geen data (HTTP '+r.status+')');
+    const d=await r.json();
+    $('err').style.display='none';
+    toon(d);
+  }catch(e){
+    $('err').style.display='';
+    $('err').textContent='Kan mail-agenda.json niet laden: '+e.message+'. Wordt elke ochtend door Cowork ververst.';
+    $('live').style.background='var(--imp)';
+    $('stamp').textContent='geen verbinding';
+  }
+}
+
+function toon(d){
+  const opg=d.opgehaald_op?new Date(d.opgehaald_op):null;
+  $('stamp').textContent=opg?('bijgewerkt '+opg.toLocaleString('nl-NL',{weekday:'short',hour:'2-digit',minute:'2-digit'})):'—';
+  $('live').style.background='var(--goed)';
+
+  // ---- Agenda ----
+  const nu=new Date();
+  const evs=(d.agenda||[]).slice().sort((a,b)=>String(a.start).localeCompare(String(b.start)));
+  const groepen={};
+  for(const ev of evs){
+    const s=new Date(ev.start);
+    const key=ev.hele_dag?d2(s):d2(s);
+    (groepen[key]=groepen[key]||[]).push(ev);
+  }
+  const dagen=Object.keys(groepen).sort();
+  $('agendaKop').innerHTML='Agenda <small style="text-transform:none;letter-spacing:0;font-weight:400">· '+evs.length+' de komende dagen</small>';
+  if(!dagen.length){
+    $('agenda').innerHTML='<div class="leeg">Geen afspraken gevonden.</div>';
+  }else{
+    let html='';
+    for(const key of dagen){
+      html+='<div class="dag"><p class="dag-kop">'+esc(daglabel(key))+'</p>';
+      for(const ev of groepen[key]){
+        const s=new Date(ev.start), e=ev.eind?new Date(ev.eind):null;
+        const bezig=e&&s<=nu&&nu<e;
+        const tijd=ev.hele_dag?'<span class="tijd">hele<small>dag</small></span>'
+          :'<span class="tijd">'+hm(s)+(e?'<small>tot '+hm(e)+'</small>':'')+'</span>';
+        const gezin=(ev.agenda||'').toLowerCase()==='gezin';
+        const tag=ev.agenda?'<span class="tag'+(gezin?' gezin':'')+'">'+esc(ev.agenda)+'</span>':'';
+        const meta=ev.locatie?'<div class="meta">📍 '+esc(ev.locatie)+'</div>':'';
+        html+='<div class="afspraak'+(bezig?' nu':'')+'">'+tijd
+          +'<div class="body"><div class="titel">'+esc(ev.titel)+tag+'</div>'+meta+'</div>'
+          +(bezig?'<span class="nu-badge">NU</span>':'')+'</div>';
+      }
+      html+='</div>';
+    }
+    $('agenda').innerHTML=html;
+  }
+
+  // ---- Mail ----
+  const mail=d.mail||{};
+  const items=mail.items||[];
+  const aantal=(mail.ongelezen_aantal!=null)?mail.ongelezen_aantal:items.length;
+  $('mailKop').innerHTML=(mail.type==='ongelezen'?'Ongelezen mail':'Recente mail')
+    +' <small style="text-transform:none;letter-spacing:0;font-weight:400">· '+aantal+'</small>';
+  if(!items.length){
+    $('mail').innerHTML='<div class="leeg">Postvak leeg — niets ongelezen. 🎉</div>';
+  }else{
+    let html='';
+    for(const m of items){
+      const ster=m.belangrijk?'<span class="ster" title="belangrijk">★</span>':'<span class="ster leeg">☆</span>';
+      const t=m.tijd?new Date(m.tijd):null;
+      const tijd=t?t.toLocaleString('nl-NL',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):'';
+      html+='<div class="mailrij">'+ster
+        +'<div class="mail-body"><div class="mail-van">'+esc(m.van)+'</div>'
+        +'<div class="mail-onderwerp">'+esc(m.onderwerp)+'</div></div>'
+        +'<div class="mail-tijd">'+esc(tijd)+'</div></div>';
+    }
+    $('mail').innerHTML=html;
+  }
+
+  $('foot').innerHTML='Mail &amp; agenda uit Google, elke ochtend ververst via Cowork ('
+    +esc(d.bron||'Google')+'). Terug naar het <a href="./index.html">huis-dashboard</a>.';
+}
+
+tik();
+// Ververst de weergave als je terugkeert naar de app of tabblad; de JSON zelf
+// wordt 's ochtends door Cowork bijgewerkt.
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)tik();});
+setInterval(tik,300000);
+</script>
+<script src="./pwa.js" defer></script>
+</body>
+</html>

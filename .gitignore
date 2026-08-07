@@ -28,5 +28,6 @@ scripts/homey/.enphase-token.json
 dashboard/energie-live.json
 dashboard/kosten-overzicht.json
 dashboard/laadadvies.json
+dashboard/mail-agenda.json
 inventaris/import/*
 !inventaris/import/.gitkeep
