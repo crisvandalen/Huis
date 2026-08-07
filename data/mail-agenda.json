@@ -1,18 +1,25 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-06T05:12:00Z",
+  "opgehaald_op": "2026-08-07T05:12:00Z",
   "agenda": [
     {
-      "start": "2026-08-06T11:00:00+02:00",
-      "eind": "2026-08-06T12:00:00+02:00",
-      "titel": "Afspraak Profile Geldermalsen, Nout",
-      "locatie": "De Elzenhof 1, 4191PA Geldermalsen",
+      "start": "2026-08-07T15:30:00+02:00",
+      "eind": "2026-08-07T15:45:00+02:00",
+      "titel": "Afspraak voor Bella",
+      "locatie": "Dierenartsenpraktijk West-Betuwe",
       "agenda": "Gezin",
       "hele_dag": false
     },
     {
-      "start": "2026-08-06T20:00:00+02:00",
-      "eind": "2026-08-06T21:00:00+02:00",
+      "start": "2026-08-07T15:30:00+02:00",
+      "eind": "2026-08-07T16:30:00+02:00",
+      "titel": "Bevestiging afspraak 7 augustus 2026 om 15:30",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-08-09T10:00:00+02:00",
+      "eind": "2026-08-09T11:00:00+02:00",
       "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
@@ -23,9 +30,9 @@
     "ongelezen_aantal": 1,
     "items": [
       {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 70% korting op Onze favoriete items, NAPAPIJRI,...",
-        "tijd": "2026-08-06T04:05:26Z",
+        "van": "The AI Daily",
+        "onderwerp": "Videogenerator FLUX 3 spreekt nu veertien talen in gesproken dialoog",
+        "tijd": "2026-08-07T05:00:35Z",
         "belangrijk": true
       }
     ]
