@@ -6,10 +6,11 @@
    Let op: iOS registreert een service worker alléén op HTTPS met een
    vertrouwd certificaat. Op het self-signed VPS-cert werkt de app wél als
    app-tegel (schermvullend), maar niet offline. Zie het runbook. */
-const CACHE = 'huis-pwa-v3';
+const CACHE = 'huis-pwa-v4';
 const SHELL = [
   './',
   './index.html',
+  './vandaag.html',
   './energie.html',
   './kosten.html',
   './laadadvies.html',
