@@ -1,19 +1,11 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-07T05:12:00Z",
+  "opgehaald_op": "2026-08-08T06:08:00Z",
   "agenda": [
     {
-      "start": "2026-08-07T15:30:00+02:00",
-      "eind": "2026-08-07T15:45:00+02:00",
-      "titel": "Afspraak voor Bella",
-      "locatie": "Dierenartsenpraktijk West-Betuwe",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-08-07T15:30:00+02:00",
-      "eind": "2026-08-07T16:30:00+02:00",
-      "titel": "Bevestiging afspraak 7 augustus 2026 om 15:30",
+      "start": "2026-08-08T09:30:00+02:00",
+      "eind": "2026-08-08T10:30:00+02:00",
+      "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
     },
@@ -23,16 +15,89 @@
       "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-08-10T14:30:00+02:00",
+      "eind": "2026-08-10T15:30:00+02:00",
+      "titel": "Afspraakbevestiging voor uw hond Bella",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
-    "type": "ongelezen",
-    "ongelezen_aantal": 1,
+    "type": "recent",
+    "ongelezen_aantal": 0,
     "items": [
       {
-        "van": "The AI Daily",
-        "onderwerp": "Videogenerator FLUX 3 spreekt nu veertien talen in gesproken dialoog",
-        "tijd": "2026-08-07T05:00:35Z",
+        "van": "Only for Men",
+        "onderwerp": "Vanaf nu nog meer: 3 HALEN = 1 BETALEN!",
+        "tijd": "2026-08-08T05:04:33Z",
+        "belangrijk": true
+      },
+      {
+        "van": "ABOUT YOU Outlet",
+        "onderwerp": "Tot wel 55% korting op ADIDAS ORIGINALS, ADIDAS PERFORMANCE,...",
+        "tijd": "2026-08-08T04:02:40Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Bol.com",
+        "onderwerp": "Je pakket is nu bij PostNL",
+        "tijd": "2026-08-07T20:03:01Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Dierenarts West Betuwe",
+        "onderwerp": "Afspraakbevestiging voor uw hond Bella",
+        "tijd": "2026-08-07T16:21:22Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Bol.com",
+        "onderwerp": "Bedankt voor je bestelling",
+        "tijd": "2026-08-07T16:01:56Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Enphase Energy",
+        "onderwerp": "Maandelijks energierapport voor Cris van Dalen",
+        "tijd": "2026-08-07T08:18:31Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Padel Nuestro",
+        "onderwerp": "Gear up more. Spend less. 😎",
+        "tijd": "2026-08-07T07:32:42Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Nextdoor",
+        "onderwerp": "Hallo,",
+        "tijd": "2026-08-07T06:44:49Z",
+        "belangrijk": true
+      },
+      {
+        "van": "KNLTB",
+        "onderwerp": "De Molenwiek Nieuwe reservering",
+        "tijd": "2026-08-07T06:29:40Z",
+        "belangrijk": true
+      },
+      {
+        "van": "C&A",
+        "onderwerp": "Word member en verzamel dubbel zoveel punten 💛",
+        "tijd": "2026-08-07T06:02:56Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Padel Bommelerwaard",
+        "onderwerp": "🏆 KNLTB Open Padel Dagtoernooi",
+        "tijd": "2026-08-06T17:59:04Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Ticketcounter",
+        "onderwerp": "Bevestiging van bestelling voor 'Nederlands Openluchtmuseum - Combishop' (bestelnummer: 2632094728)",
+        "tijd": "2026-08-06T16:44:44Z",
         "belangrijk": true
       }
     ]
