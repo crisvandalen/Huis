@@ -30,11 +30,16 @@ def ververs() -> tuple[bool, str]:
     """Draait de exports en de generator. Geeft (gelukt, logtekst) terug."""
     log = []
     stappen = [
-        # eerst git pull: haalt o.a. de door Cowork gepushte data/mail-agenda.json
-        # binnen; niet-fataal (geen repo of geen netwerk = gewoon doorgaan)
+        # eerst git pull (niet-fataal: geen repo of geen netwerk = gewoon doorgaan)
         ("git-pull", ["git", "pull", "-q", "--ff-only"], False),
         ("homey-export", ["node", str(ROOT / "scripts/homey/export-devices.mjs")], True),
     ]
+    # Mail & agenda lokaal ophalen (Gmail + Google Agenda) — alleen als de
+    # OAuth-token er is (dus op linuxcris, niet op een Mac zonder credentials).
+    # Niet-fataal: een Google-storing mag de verversing niet blokkeren.
+    if (ROOT / "scripts/google/token.json").exists():
+        stappen.append(("mail-agenda",
+                        [sys.executable, str(ROOT / "scripts/google/export_mail_agenda.py")], False))
     # Ring-cameralog is optioneel: alleen als de OAuth-token er is, en een
     # mislukking mag de verversing niet blokkeren.
     if (ROOT / "scripts/homey/.homey-cloud-token.json").exists():

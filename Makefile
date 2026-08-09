@@ -1,4 +1,4 @@
-.PHONY: setup inventaris homey tahoma appletv dashboard serve publiceer schoon help energie kosten kosten-data zon laadpaal laadadvies push laadadvies-push
+.PHONY: setup inventaris homey tahoma appletv dashboard serve publiceer schoon help energie kosten kosten-data zon laadpaal laadadvies push laadadvies-push mail-agenda google-auth
 
 VENV := .venv
 PY := $(VENV)/bin/python
@@ -21,6 +21,8 @@ help:
 	@echo "make laadadvies  - goedkoopste/negatieve laaduren van vandaag+morgen bepalen"
 	@echo "make push        - los pushbericht naar de Homey-app sturen: make push MSG=..."
 	@echo "make laadadvies-push - laadadvies berekenen en als push naar de iPhone sturen"
+	@echo "make mail-agenda - Gmail + Google Agenda ophalen -> inventaris/export/mail-agenda.json (linuxcris)"
+	@echo "make google-auth - eenmalig Google-OAuth (op een machine met browser, bijv. de Mac)"
 
 setup:
 	@test -f .env || (cp .env.example .env && echo "Aangemaakt: .env — vul je tokens in")
@@ -101,6 +103,13 @@ push: ## los pushbericht naar de Homey-app sturen: make push MSG="tekst"
 
 laadadvies-push: ## laadadvies berekenen en als push naar de iPhone sturen (op linuxcris)
 	node scripts/homey/laadadvies-push.mjs
+
+mail-agenda: ## Gmail + Google Agenda ophalen -> inventaris/export/mail-agenda.json (lokaal, op linuxcris)
+	$(PY) scripts/google/export_mail_agenda.py
+
+google-auth: ## eenmalig Google-OAuth: opent browser en schrijft scripts/google/token.json (op de Mac)
+	$(PY) scripts/google/export_mail_agenda.py --auth
+
 
 .PHONY: app-deploy
 app-deploy: ## hele dashboard-map (PWA + pagina's + assets) naar de linuxcris-webroot rsyncen

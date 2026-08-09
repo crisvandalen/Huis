@@ -3,6 +3,7 @@
 *.token
 scripts/**/credentials.json
 scripts/homey/.homey-cloud-token.json
+scripts/google/token.json
 
 # Machine-exports (kunnen device-ID's en gateway-PIN bevatten)
 inventaris/export/*

@@ -181,8 +181,9 @@ function toon(d){
     $('mail').innerHTML=html;
   }
 
-  $('foot').innerHTML='Mail &amp; agenda uit Google, elke ochtend ververst via Cowork ('
-    +esc(d.bron||'Google')+'). Terug naar het <a href="./index.html">huis-dashboard</a>.';
+  $('foot').innerHTML='Mail &amp; agenda uit Google ('+esc(d.bron||'Google')
+    +'), te verversen met ↻ hierboven of automatisch elk uur. '
+    +'Terug naar het <a href="./index.html">huis-dashboard</a>.';
 }
 
 tik();
