@@ -21,7 +21,12 @@
   .wrap{max-width:760px;margin:0 auto;padding:22px 16px 60px}
   header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px}
   h1{font-size:22px;margin:0}
+  .kop-rechts{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
   .stamp{font-size:12.5px;color:var(--dim)}
+  #ververs{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--panel);
+    color:var(--tekst);border-radius:20px;padding:6px 14px;cursor:pointer}
+  #ververs:hover{border-color:var(--accent)}
+  #ververs[disabled]{opacity:.55;cursor:wait}
   .live{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--goed);margin-right:6px;vertical-align:middle;animation:pulse 2s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
   h2{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--dim);margin:26px 0 10px;font-weight:600}
@@ -63,7 +68,10 @@
 <div class="wrap">
   <header>
     <h1>☀️ Vandaag</h1>
-    <div class="stamp"><span class="live" id="live"></span><span id="stamp">laden…</span></div>
+    <div class="kop-rechts">
+      <div class="stamp"><span class="live" id="live"></span><span id="stamp">laden…</span></div>
+      <button id="ververs" hidden>↻ Ververs</button>
+    </div>
   </header>
 
   <div id="err" class="err" style="display:none"></div>
@@ -182,6 +190,26 @@ tik();
 // wordt 's ochtends door Cowork bijgewerkt.
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)tik();});
 setInterval(tik,300000);
+
+// Ververs-knop: alleen zinvol via `make serve` (serveer.py). Draait git pull +
+// Homey-export + de generator (die dashboard/mail-agenda.json opnieuw wegschrijft),
+// daarna herladen we de pagina met de verse data. Op file:// blijft de knop verborgen.
+const knop=$('ververs');
+if(location.protocol.startsWith('http')){
+  knop.hidden=false;
+  knop.addEventListener('click',async()=>{
+    knop.disabled=true; const oud=knop.textContent; knop.textContent='… bezig';
+    try{
+      const r=await fetch('/ververs',{method:'POST'});
+      const j=await r.json();
+      if(j.gelukt){location.reload();return;}
+      alert('Verversen mislukt:\n\n'+j.log);
+    }catch(e){
+      alert('Kon de server niet bereiken: '+e.message);
+    }
+    knop.disabled=false; knop.textContent=oud;
+  });
+}
 </script>
 <script src="./pwa.js" defer></script>
 </body>
