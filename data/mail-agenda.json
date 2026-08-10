@@ -1,14 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-09T05:10:05Z",
+  "opgehaald_op": "2026-08-10T05:14:24Z",
   "agenda": [
-    {
-      "start": "2026-08-09T10:00:00+02:00",
-      "eind": "2026-08-09T11:00:00+02:00",
-      "titel": "De Molenwiek Nieuwe reservering",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-08-10T14:30:00+02:00",
       "eind": "2026-08-10T15:30:00+02:00",
@@ -26,18 +19,24 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "ongelezen_aantal": 3,
     "items": [
       {
-        "van": "KNLTB",
-        "onderwerp": "De Molenwiek Nieuwe reservering",
-        "tijd": "2026-08-08T14:09:50Z",
+        "van": "Foodie",
+        "onderwerp": "2+1 & 6+1 gratis Krill Olie deze week! 🎁",
+        "tijd": "2026-08-10T05:00:00Z",
         "belangrijk": true
       },
       {
-        "van": "KNLTB",
-        "onderwerp": "De Molenwiek Nieuwe reservering",
-        "tijd": "2026-08-08T18:00:14Z",
+        "van": "The AI Daily",
+        "onderwerp": "Berichtenlimiet in gratis ChatGPT verdwijnt volgende week",
+        "tijd": "2026-08-10T05:00:33Z",
+        "belangrijk": true
+      },
+      {
+        "van": "ABOUT YOU Outlet",
+        "onderwerp": "Tot wel 60% korting op Top merken: Outdoor, Exclusieve vondsten,...",
+        "tijd": "2026-08-10T04:06:43Z",
         "belangrijk": true
       }
     ]
