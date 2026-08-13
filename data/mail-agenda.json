@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-12T05:15:00Z",
+  "opgehaald_op": "2026-08-13T05:14:03Z",
   "agenda": [
     {
       "start": "2026-08-14T08:00:00+02:00",
@@ -8,24 +8,25 @@
       "titel": "rackets retour",
       "agenda": "crisvandalen@gmail.com",
       "hele_dag": false
+    },
+    {
+      "start": "2026-08-15T10:00:00+02:00",
+      "eind": "2026-08-15T11:00:00+02:00",
+      "titel": "De Molenwiek Nieuwe reservering",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
-    "type": "recent",
-    "ongelezen_aantal": 0,
+    "type": "ongelezen",
+    "ongelezen_aantal": 1,
     "items": [
-      { "van": "The AI Daily", "onderwerp": "AI-agent vond een lek en schoof zijn baas naar plek 3 op de wachtlijst", "tijd": "2026-08-12T05:00:35Z", "belangrijk": true },
-      { "van": "Claude", "onderwerp": "Reminder: Share your 2 Claude Code guest passes", "tijd": "2026-08-11T19:41:45Z", "belangrijk": true },
-      { "van": "HEAD", "onderwerp": "Summer Isn't Over Yet", "tijd": "2026-08-11T18:00:37Z", "belangrijk": true },
-      { "van": "Padel Bommelerwaard", "onderwerp": "🏆 Word jij de nieuwe najaarskampioen? Inschrijving nu open!", "tijd": "2026-08-11T15:01:25Z", "belangrijk": true },
-      { "van": "50five", "onderwerp": "Actie nodig: foto's voor uw ERE-aanmelding", "tijd": "2026-08-11T12:34:10Z", "belangrijk": true },
-      { "van": "WeSport", "onderwerp": "⭐️ Cris, schrijf een beoordeling van je aankoop bij WeSport", "tijd": "2026-08-11T10:51:25Z", "belangrijk": false },
-      { "van": "The AI Report", "onderwerp": "Hij wilde een plekje bij de spinningles. Zijn AI hackte de sportschool", "tijd": "2026-08-11T10:03:02Z", "belangrijk": true },
-      { "van": "Denkkracht", "onderwerp": "mail verzonden", "tijd": "2026-08-11T09:20:29Z", "belangrijk": true },
-      { "van": "ZorgMail", "onderwerp": "ZorgMail Secure e-mail - Nieuw bericht van info denkkracht", "tijd": "2026-08-11T09:20:21Z", "belangrijk": false },
-      { "van": "The AI Daily", "onderwerp": "OpenAI houdt zijn nieuwste model achter slot, het hackt zelf te goed", "tijd": "2026-08-11T05:00:33Z", "belangrijk": true },
-      { "van": "The AI Daily", "onderwerp": "Berichtenlimiet in gratis ChatGPT verdwijnt volgende week", "tijd": "2026-08-10T05:00:33Z", "belangrijk": true },
-      { "van": "Albert Heijn", "onderwerp": "Cris, laatste week van het prijzenrad!", "tijd": "2026-08-09T15:18:59Z", "belangrijk": true }
+      {
+        "van": "The AI Daily",
+        "onderwerp": "ChatGPT en Claude lekten 33 wachtwoorden in hun geheime denkwerk",
+        "tijd": "2026-08-13T05:00:33Z",
+        "belangrijk": true
+      }
     ]
   }
 }
