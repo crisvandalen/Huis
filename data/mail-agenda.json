@@ -1,14 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-13T05:14:03Z",
+  "opgehaald_op": "2026-08-14T05:19:00Z",
   "agenda": [
-    {
-      "start": "2026-08-14T08:00:00+02:00",
-      "eind": "2026-08-14T09:00:00+02:00",
-      "titel": "rackets retour",
-      "agenda": "crisvandalen@gmail.com",
-      "hele_dag": false
-    },
     {
       "start": "2026-08-15T10:00:00+02:00",
       "eind": "2026-08-15T11:00:00+02:00",
@@ -19,12 +12,48 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 1,
+    "ongelezen_aantal": 7,
     "items": [
       {
+        "van": "Only for Men",
+        "onderwerp": "🔥 Je 15% EXTRA kassakorting staat klaar! 🔥",
+        "tijd": "2026-08-14T05:04:27Z",
+        "belangrijk": true
+      },
+      {
         "van": "The AI Daily",
-        "onderwerp": "ChatGPT en Claude lekten 33 wachtwoorden in hun geheime denkwerk",
-        "tijd": "2026-08-13T05:00:33Z",
+        "onderwerp": "Airship laat Claude Code je website aanpassen met een klik",
+        "tijd": "2026-08-14T05:00:34Z",
+        "belangrijk": true
+      },
+      {
+        "van": "TeamNL",
+        "onderwerp": "Heb jij het Fanplein al ontdekt? 👀",
+        "tijd": "2026-08-14T04:53:31Z",
+        "belangrijk": false
+      },
+      {
+        "van": "OpenAI",
+        "onderwerp": "Bewerk je favoriete foto's",
+        "tijd": "2026-08-14T04:16:47Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Sovendus",
+        "onderwerp": "Je levering is binnen, Cris!",
+        "tijd": "2026-08-13T22:01:26Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Vinted",
+        "onderwerp": "Nieuw bod voor Adidas metalbone reserve 2025",
+        "tijd": "2026-08-13T20:56:26Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Ring",
+        "onderwerp": "Het is tijd om je apparaat Outdoor Cam op te laden",
+        "tijd": "2026-08-13T20:34:51Z",
         "belangrijk": true
       }
     ]
