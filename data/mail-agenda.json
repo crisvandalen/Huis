@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-16T05:10:00Z",
+  "opgehaald_op": "2026-08-17T05:12:07Z",
   "agenda": [
     {
       "start": "2026-08-18T20:00:00+02:00",
@@ -8,22 +8,23 @@
       "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-08-19T19:00:00+02:00",
+      "eind": "2026-08-19T20:00:00+02:00",
+      "titel": "De Molenwiek Reservering gewijzigd",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "ongelezen_aantal": 1,
     "items": [
       {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 70% korting op Onze lievelings items, Karl Lagerfeld,...",
-        "tijd": "2026-08-16T04:05:18Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Last Mile Solutions",
-        "onderwerp": "Uw factuur van 50five 032608115904947",
-        "tijd": "2026-08-16T02:42:03Z",
+        "van": "Microsoft",
+        "onderwerp": "Beveiligingswaarschuwing voor Microsoft-account",
+        "tijd": "2026-08-16T23:03:52Z",
         "belangrijk": true
       }
     ]
