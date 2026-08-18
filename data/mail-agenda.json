@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-17T05:12:07Z",
+  "opgehaald_op": "2026-08-18T05:09:35Z",
   "agenda": [
     {
       "start": "2026-08-18T20:00:00+02:00",
@@ -15,16 +15,29 @@
       "titel": "De Molenwiek Reservering gewijzigd",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-08-20T20:00:00+02:00",
+      "eind": "2026-08-20T21:00:00+02:00",
+      "titel": "De Molenwiek Nieuwe reservering",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 1,
+    "ongelezen_aantal": 2,
     "items": [
       {
-        "van": "Microsoft",
-        "onderwerp": "Beveiligingswaarschuwing voor Microsoft-account",
-        "tijd": "2026-08-16T23:03:52Z",
+        "van": "The AI Daily",
+        "onderwerp": "Anthropic gebruikt intern een model dat Mythos 5 verslaat",
+        "tijd": "2026-08-18T05:00:33Z",
+        "belangrijk": true
+      },
+      {
+        "van": "ABOUT YOU Outlet",
+        "onderwerp": "Tot wel 65% korting op Verborgen highlights, Coole jersey shirts,...",
+        "tijd": "2026-08-18T04:05:03Z",
         "belangrijk": true
       }
     ]
