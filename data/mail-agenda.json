@@ -1,14 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-18T05:09:35Z",
+  "opgehaald_op": "2026-08-19T05:11:04Z",
   "agenda": [
-    {
-      "start": "2026-08-18T20:00:00+02:00",
-      "eind": "2026-08-18T21:00:00+02:00",
-      "titel": "De Molenwiek Nieuwe reservering",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-08-19T19:00:00+02:00",
       "eind": "2026-08-19T20:00:00+02:00",
@@ -22,22 +15,62 @@
       "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-08-21T12:30:00+02:00",
+      "eind": "2026-08-21T13:30:00+02:00",
+      "titel": "🏁 GP van Nederland – Eerste vrije training",
+      "locatie": "Circuit Park Zandvoort, Zandvoort",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-08-21T16:30:00+02:00",
+      "eind": "2026-08-21T17:30:00+02:00",
+      "titel": "🏁 GP van Nederland – Sprintkwalificatie",
+      "locatie": "Circuit Park Zandvoort, Zandvoort",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "ongelezen_aantal": 6,
     "items": [
       {
         "van": "The AI Daily",
-        "onderwerp": "Anthropic gebruikt intern een model dat Mythos 5 verslaat",
-        "tijd": "2026-08-18T05:00:33Z",
+        "onderwerp": "3M liet ChatGPT een rapport schrijven, dat werd 61 miljoen dollar duur",
+        "tijd": "2026-08-19T05:00:33Z",
         "belangrijk": true
       },
       {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 65% korting op Verborgen highlights, Coole jersey shirts,...",
-        "tijd": "2026-08-18T04:05:03Z",
+        "van": "KNLTB",
+        "onderwerp": "Tegen wie speel jij tijdens de Najaarscompetitie?",
+        "tijd": "2026-08-19T01:03:18Z",
+        "belangrijk": true
+      },
+      {
+        "van": "KNLTB Padel",
+        "onderwerp": "Maak je klaar voor een najaar vol padel fun!",
+        "tijd": "2026-08-19T01:02:15Z",
+        "belangrijk": true
+      },
+      {
+        "van": "TeamNL",
+        "onderwerp": "Een Televizier-Ring voor TeamNL?! 😱",
+        "tijd": "2026-08-18T17:39:38Z",
+        "belangrijk": true
+      },
+      {
+        "van": "AD",
+        "onderwerp": "Medische misser komt Amsterdam UMC duur te staan | Wat helpt tegen kalknagels?",
+        "tijd": "2026-08-18T17:31:24Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Marktplaats",
+        "onderwerp": "Je item is verkocht 🥳 Gefeliciteerd!",
+        "tijd": "2026-08-18T17:17:08Z",
         "belangrijk": true
       }
     ]
