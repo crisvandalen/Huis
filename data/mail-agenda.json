@@ -1,14 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-19T05:11:04Z",
+  "opgehaald_op": "2026-08-20T05:10:00Z",
   "agenda": [
-    {
-      "start": "2026-08-19T19:00:00+02:00",
-      "eind": "2026-08-19T20:00:00+02:00",
-      "titel": "De Molenwiek Reservering gewijzigd",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-08-20T20:00:00+02:00",
       "eind": "2026-08-20T21:00:00+02:00",
@@ -31,46 +24,38 @@
       "locatie": "Circuit Park Zandvoort, Zandvoort",
       "agenda": "F1 Kalender 2026",
       "hele_dag": false
+    },
+    {
+      "start": "2026-08-22T12:00:00+02:00",
+      "eind": "2026-08-22T13:00:00+02:00",
+      "titel": "🏁 GP van Nederland – Sprintrace",
+      "locatie": "Circuit Park Zandvoort, Zandvoort",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-08-22T16:00:00+02:00",
+      "eind": "2026-08-22T17:00:00+02:00",
+      "titel": "🏁 GP van Nederland – Kwalificatie",
+      "locatie": "Circuit Park Zandvoort, Zandvoort",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 6,
+    "ongelezen_aantal": 2,
     "items": [
       {
+        "van": "Lovely Stickers",
+        "onderwerp": "Ontdek onze nieuwe producten! Cris, stickers die op je favoriete raceauto lijken.",
+        "tijd": "2026-08-20T05:09:13Z",
+        "belangrijk": true
+      },
+      {
         "van": "The AI Daily",
-        "onderwerp": "3M liet ChatGPT een rapport schrijven, dat werd 61 miljoen dollar duur",
-        "tijd": "2026-08-19T05:00:33Z",
-        "belangrijk": true
-      },
-      {
-        "van": "KNLTB",
-        "onderwerp": "Tegen wie speel jij tijdens de Najaarscompetitie?",
-        "tijd": "2026-08-19T01:03:18Z",
-        "belangrijk": true
-      },
-      {
-        "van": "KNLTB Padel",
-        "onderwerp": "Maak je klaar voor een najaar vol padel fun!",
-        "tijd": "2026-08-19T01:02:15Z",
-        "belangrijk": true
-      },
-      {
-        "van": "TeamNL",
-        "onderwerp": "Een Televizier-Ring voor TeamNL?! 😱",
-        "tijd": "2026-08-18T17:39:38Z",
-        "belangrijk": true
-      },
-      {
-        "van": "AD",
-        "onderwerp": "Medische misser komt Amsterdam UMC duur te staan | Wat helpt tegen kalknagels?",
-        "tijd": "2026-08-18T17:31:24Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Marktplaats",
-        "onderwerp": "Je item is verkocht 🥳 Gefeliciteerd!",
-        "tijd": "2026-08-18T17:17:08Z",
+        "onderwerp": "Cursor lanceert eigen GitHub-alternatief, net op dag van 6 uur storing",
+        "tijd": "2026-08-20T05:00:33Z",
         "belangrijk": true
       }
     ]
