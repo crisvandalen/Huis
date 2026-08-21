@@ -1,14 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-20T05:10:00Z",
+  "opgehaald_op": "2026-08-21T05:10:22Z",
   "agenda": [
-    {
-      "start": "2026-08-20T20:00:00+02:00",
-      "eind": "2026-08-20T21:00:00+02:00",
-      "titel": "De Molenwiek Nieuwe reservering",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-08-21T12:30:00+02:00",
       "eind": "2026-08-21T13:30:00+02:00",
@@ -40,22 +33,31 @@
       "locatie": "Circuit Park Zandvoort, Zandvoort",
       "agenda": "F1 Kalender 2026",
       "hele_dag": false
+    },
+    {
+      "start": "2026-08-23T15:00:00+02:00",
+      "eind": "2026-08-23T16:00:00+02:00",
+      "titel": "Altena Open Padeltoernooi",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-08-23T15:00:00+02:00",
+      "eind": "2026-08-23T17:00:00+02:00",
+      "titel": "🏁 GP van Nederland – Race",
+      "locatie": "Circuit Park Zandvoort, Zandvoort",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "ongelezen_aantal": 1,
     "items": [
       {
-        "van": "Lovely Stickers",
-        "onderwerp": "Ontdek onze nieuwe producten! Cris, stickers die op je favoriete raceauto lijken.",
-        "tijd": "2026-08-20T05:09:13Z",
-        "belangrijk": true
-      },
-      {
-        "van": "The AI Daily",
-        "onderwerp": "Cursor lanceert eigen GitHub-alternatief, net op dag van 6 uur storing",
-        "tijd": "2026-08-20T05:00:33Z",
+        "van": "Google One",
+        "onderwerp": "Opslagtips van Google One",
+        "tijd": "2026-08-21T00:22:33Z",
         "belangrijk": true
       }
     ]
