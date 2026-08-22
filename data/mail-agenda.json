@@ -1,23 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-21T05:10:22Z",
+  "opgehaald_op": "2026-08-22T05:09:00Z",
   "agenda": [
-    {
-      "start": "2026-08-21T12:30:00+02:00",
-      "eind": "2026-08-21T13:30:00+02:00",
-      "titel": "🏁 GP van Nederland – Eerste vrije training",
-      "locatie": "Circuit Park Zandvoort, Zandvoort",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-08-21T16:30:00+02:00",
-      "eind": "2026-08-21T17:30:00+02:00",
-      "titel": "🏁 GP van Nederland – Sprintkwalificatie",
-      "locatie": "Circuit Park Zandvoort, Zandvoort",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
     {
       "start": "2026-08-22T12:00:00+02:00",
       "eind": "2026-08-22T13:00:00+02:00",
@@ -27,18 +11,18 @@
       "hele_dag": false
     },
     {
+      "start": "2026-08-22T13:30:00+02:00",
+      "eind": "2026-08-22T14:30:00+02:00",
+      "titel": "Baanreservering Padel 3",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
       "start": "2026-08-22T16:00:00+02:00",
       "eind": "2026-08-22T17:00:00+02:00",
       "titel": "🏁 GP van Nederland – Kwalificatie",
       "locatie": "Circuit Park Zandvoort, Zandvoort",
       "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-08-23T15:00:00+02:00",
-      "eind": "2026-08-23T16:00:00+02:00",
-      "titel": "Altena Open Padeltoernooi",
-      "agenda": "Gezin",
       "hele_dag": false
     },
     {
@@ -52,12 +36,24 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 1,
+    "ongelezen_aantal": 3,
     "items": [
       {
-        "van": "Google One",
-        "onderwerp": "Opslagtips van Google One",
-        "tijd": "2026-08-21T00:22:33Z",
+        "van": "Only for Men",
+        "onderwerp": "De perfecte broek? NU -15% extra!",
+        "tijd": "2026-08-22T05:05:55Z",
+        "belangrijk": true
+      },
+      {
+        "van": "ABOUT YOU Outlet",
+        "onderwerp": "TOMMY HILFIGER, Calvin Klein en meer!",
+        "tijd": "2026-08-22T04:03:56Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Claude",
+        "onderwerp": "This week in Claude Code: /design, Concise output style, and more",
+        "tijd": "2026-08-21T23:52:14Z",
         "belangrijk": true
       }
     ]
