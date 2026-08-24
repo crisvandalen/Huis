@@ -1,43 +1,49 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-23T05:09:00Z",
+  "opgehaald_op": "2026-08-24T05:11:00Z",
   "agenda": [
-    {
-      "start": "2026-08-23T15:00:00+02:00",
-      "eind": "2026-08-23T17:00:00+02:00",
-      "titel": "🏁 GP van Nederland – Race",
-      "locatie": "Circuit Park Zandvoort, Zandvoort",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
     {
       "start": "2026-08-25T20:00:00+02:00",
       "eind": "2026-08-25T21:00:00+02:00",
       "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-08-26T14:30:00+02:00",
+      "eind": "2026-08-26T15:30:00+02:00",
+      "titel": "Kim therapie",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-08-26T18:00:00+02:00",
+      "eind": "2026-08-26T19:00:00+02:00",
+      "titel": "Altena Open Padeltoernooi",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
-    "type": "ongelezen",
-    "ongelezen_aantal": 3,
+    "type": "recent",
+    "ongelezen_aantal": 0,
     "items": [
       {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 75% korting op NAPAPIJRI, Onze lievelings items,...",
-        "tijd": "2026-08-23T04:05:28Z",
+        "van": "The AI Daily",
+        "onderwerp": "ChatGPT herhaalt nu zelf je terugkerende taken, ook in Nederland",
+        "tijd": "2026-08-24T05:00:35Z",
         "belangrijk": true
       },
       {
-        "van": "Tennis-Point",
-        "onderwerp": "🎾Serve and Save: 15% extra korting²",
-        "tijd": "2026-08-23T00:00:04Z",
+        "van": "Spotify",
+        "onderwerp": "Prijswijziging voor uw Premium-abonnement",
+        "tijd": "2026-08-23T19:25:13Z",
         "belangrijk": true
       },
       {
-        "van": "Play",
-        "onderwerp": "Je najaar begint volgende week",
-        "tijd": "2026-08-22T19:00:55Z",
+        "van": "Claude",
+        "onderwerp": "This week in Claude Code: /design, Concise output style, and more",
+        "tijd": "2026-08-21T23:52:14Z",
         "belangrijk": true
       }
     ]
