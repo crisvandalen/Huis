@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-08-24T05:11:00Z",
+  "opgehaald_op": "2026-08-24T07:11:00Z",
   "agenda": [
     {
       "start": "2026-08-25T20:00:00+02:00",
@@ -25,25 +25,13 @@
     }
   ],
   "mail": {
-    "type": "recent",
-    "ongelezen_aantal": 0,
+    "type": "ongelezen",
+    "ongelezen_aantal": 1,
     "items": [
       {
-        "van": "The AI Daily",
-        "onderwerp": "ChatGPT herhaalt nu zelf je terugkerende taken, ook in Nederland",
-        "tijd": "2026-08-24T05:00:35Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Spotify",
-        "onderwerp": "Prijswijziging voor uw Premium-abonnement",
-        "tijd": "2026-08-23T19:25:13Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Claude",
-        "onderwerp": "This week in Claude Code: /design, Concise output style, and more",
-        "tijd": "2026-08-21T23:52:14Z",
+        "van": "PadelXpert",
+        "onderwerp": "Laatste kans: Bespaar 20% op HEAD-uitrusting 🔥",
+        "tijd": "2026-08-24T06:45:26Z",
         "belangrijk": true
       }
     ]
