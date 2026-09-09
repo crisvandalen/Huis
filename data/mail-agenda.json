@@ -1,49 +1,22 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-05T05:03:00Z",
+  "opgehaald_op": "2026-09-09T05:18:33Z",
   "agenda": [
-    {
-      "start": "2026-09-05T12:30:00+02:00",
-      "eind": "2026-09-05T13:30:00+02:00",
-      "titel": "🏁 GP van Italië – Derde vrije training",
-      "locatie": "Autodromo Nazionale Monza, Monza",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-09-05T13:00:00+02:00",
-      "eind": "2026-09-05T14:00:00+02:00",
-      "titel": "De Molenwiek Nieuwe reservering",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-09-05T16:00:00+02:00",
-      "eind": "2026-09-05T17:00:00+02:00",
-      "titel": "🏁 GP van Italië – Kwalificatie",
-      "locatie": "Autodromo Nazionale Monza, Monza",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-09-06T15:00:00+02:00",
-      "eind": "2026-09-06T17:00:00+02:00",
-      "titel": "🏁 GP van Italië – Race",
-      "locatie": "Autodromo Nazionale Monza, Monza",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    }
+    {"start": "2026-09-09T10:45:00+02:00", "eind": "2026-09-09T11:45:00+02:00", "titel": "Bandenwissel", "locatie": "Rietveldenweg 64A, 's-Hertogenbosch, Nederland", "agenda": "Gezin", "hele_dag": false},
+    {"start": "2026-09-09T14:30:00+02:00", "eind": "2026-09-09T15:30:00+02:00", "titel": "Kim therapie", "agenda": "Gezin", "hele_dag": false},
+    {"start": "2026-09-09T20:30:00+02:00", "eind": "2026-09-09T21:30:00+02:00", "titel": "De Molenwiek Nieuwe reservering", "agenda": "Gezin", "hele_dag": false},
+    {"start": "2026-09-10T13:15:00+02:00", "eind": "2026-09-10T14:30:00+02:00", "titel": "Bella trimmer", "agenda": "Gezin", "hele_dag": false},
+    {"start": "2026-09-10T20:00:00+02:00", "eind": "2026-09-10T21:00:00+02:00", "titel": "Padel reservering De Molenwiek", "locatie": "De Molenwiek - Padel 1", "agenda": "Gezin", "hele_dag": false},
+    {"start": "2026-09-11T09:00:00+02:00", "eind": "2026-09-11T11:00:00+02:00", "titel": "Neuropsychologisch onderzoek Kim", "agenda": "Gezin", "hele_dag": false},
+    {"start": "2026-09-11T13:30:00+02:00", "eind": "2026-09-11T14:30:00+02:00", "titel": "🏁 GP van Spanje – Eerste vrije training", "locatie": "Circuito de Madring, Madrid", "agenda": "F1 Kalender 2026", "hele_dag": false},
+    {"start": "2026-09-11T17:00:00+02:00", "eind": "2026-09-11T18:00:00+02:00", "titel": "🏁 GP van Spanje – Tweede vrije training", "locatie": "Circuito de Madring, Madrid", "agenda": "F1 Kalender 2026", "hele_dag": false}
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 1,
+    "ongelezen_aantal": 2,
     "items": [
-      {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 65% korting op Superdry & Co, JACK & JONES,...",
-        "tijd": "2026-09-05T04:05:46Z",
-        "belangrijk": false
-      }
+      {"van": "The AI Daily", "onderwerp": "Beslist.nl adverteert in ChatGPT voor 20 cent per klik", "tijd": "2026-09-09T05:00:36Z", "belangrijk": true},
+      {"van": "TikTok", "onderwerp": "Agustin Tapia heeft het volgende herplaatst: Lo hacemos @Agustin Tapia...", "tijd": "2026-09-08T11:27:13Z", "belangrijk": false}
     ]
   }
 }
