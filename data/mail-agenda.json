@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-13T05:09:00Z",
+  "opgehaald_op": "2026-09-13T05:10:00Z",
   "agenda": [
     {
       "start": "2026-09-13T15:00:00+02:00",
@@ -22,10 +22,10 @@
     "type": "recent",
     "ongelezen_aantal": 0,
     "items": [
-      { "van": "Tennis-Point", "onderwerp": "Bestel TP-2964716 bevestigde I TP-NL", "tijd": "2026-09-12T07:12:47Z" },
-      { "van": "AD", "onderwerp": "Bevestiging van opzegging AD-abonnement", "tijd": "2026-09-12T07:08:41Z" },
-      { "van": "AD", "onderwerp": "Bevestiging van opzeggen", "tijd": "2026-09-12T06:54:00Z" },
-      { "van": "Padel District", "onderwerp": "Wat zit er in de tas van een fanatieke speler?", "tijd": "2026-09-11T14:01:23Z", "belangrijk": true },
+      { "van": "Tennis-Point", "onderwerp": "Bestel TP-2964716 bevestigde I TP-NL", "tijd": "2026-09-12T07:12:47Z", "belangrijk": false },
+      { "van": "AD", "onderwerp": "Bevestiging van opzegging AD-abonnement", "tijd": "2026-09-12T07:08:41Z", "belangrijk": false },
+      { "van": "AD", "onderwerp": "Bevestiging van opzeggen", "tijd": "2026-09-12T06:54:00Z", "belangrijk": false },
+      { "van": "Padeldistrict", "onderwerp": "Wat zit er in de tas van een fanatieke speler?", "tijd": "2026-09-11T14:01:23Z", "belangrijk": true },
       { "van": "Cambium College", "onderwerp": "Nieuwsbrief 4 - week 37", "tijd": "2026-09-11T12:01:46Z", "belangrijk": true },
       { "van": "The AI Daily", "onderwerp": "Gemini plant je vergadering nu vanuit je Gmail-inbox", "tijd": "2026-09-11T05:00:33Z", "belangrijk": true }
     ]
