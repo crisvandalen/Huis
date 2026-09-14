@@ -1,33 +1,56 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-13T05:10:00Z",
+  "opgehaald_op": "2026-09-14T05:07:00Z",
   "agenda": [
-    {
-      "start": "2026-09-13T15:00:00+02:00",
-      "eind": "2026-09-13T17:00:00+02:00",
-      "titel": "🏁 GP van Spanje – Race",
-      "locatie": "Circuito de Madring, Madrid",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
     {
       "start": "2026-09-15T20:00:00+02:00",
       "eind": "2026-09-15T21:00:00+02:00",
       "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-09-16T14:30:00+02:00",
+      "eind": "2026-09-16T15:30:00+02:00",
+      "titel": "Kim therapie",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
-    "type": "recent",
-    "ongelezen_aantal": 0,
+    "type": "ongelezen",
+    "ongelezen_aantal": 5,
     "items": [
-      { "van": "Tennis-Point", "onderwerp": "Bestel TP-2964716 bevestigde I TP-NL", "tijd": "2026-09-12T07:12:47Z", "belangrijk": false },
-      { "van": "AD", "onderwerp": "Bevestiging van opzegging AD-abonnement", "tijd": "2026-09-12T07:08:41Z", "belangrijk": false },
-      { "van": "AD", "onderwerp": "Bevestiging van opzeggen", "tijd": "2026-09-12T06:54:00Z", "belangrijk": false },
-      { "van": "Padeldistrict", "onderwerp": "Wat zit er in de tas van een fanatieke speler?", "tijd": "2026-09-11T14:01:23Z", "belangrijk": true },
-      { "van": "Cambium College", "onderwerp": "Nieuwsbrief 4 - week 37", "tijd": "2026-09-11T12:01:46Z", "belangrijk": true },
-      { "van": "The AI Daily", "onderwerp": "Gemini plant je vergadering nu vanuit je Gmail-inbox", "tijd": "2026-09-11T05:00:33Z", "belangrijk": true }
+      {
+        "van": "Foodie",
+        "onderwerp": "Herfst Deal: Collageen & Probiotica GRATIS 🍂",
+        "tijd": "2026-09-14T05:00:00Z",
+        "belangrijk": false
+      },
+      {
+        "van": "The AI Daily",
+        "onderwerp": "Gemini is nu een Windows-app en pakt gegevens uit je Gmail en Drive",
+        "tijd": "2026-09-14T05:00:33Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Tennis-Point",
+        "onderwerp": "Bestelling is onderweg",
+        "tijd": "2026-09-14T04:48:59Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Tennis-Point",
+        "onderwerp": "Jouw rekening bij Tennis-Point",
+        "tijd": "2026-09-14T04:48:58Z",
+        "belangrijk": true
+      },
+      {
+        "van": "ABOUT YOU Outlet",
+        "onderwerp": "Tot wel 65% korting op Exclusieve vondsten, Stijlen in resterende maten,...",
+        "tijd": "2026-09-14T04:06:14Z",
+        "belangrijk": false
+      }
     ]
   }
 }
