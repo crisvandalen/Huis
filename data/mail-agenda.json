@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-14T05:10:00Z",
+  "opgehaald_op": "2026-09-14T05:13:00Z",
   "agenda": [
     {
       "start": "2026-09-15T20:00:00+02:00",
@@ -19,7 +19,7 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 5,
+    "ongelezen_aantal": 2,
     "items": [
       {
         "van": "Vinted",
@@ -32,24 +32,6 @@
         "onderwerp": "Gemini is nu een Windows-app en pakt gegevens uit je Gmail en Drive",
         "tijd": "2026-09-14T05:00:33Z",
         "belangrijk": true
-      },
-      {
-        "van": "Tennis-Point",
-        "onderwerp": "Bestelling is onderweg",
-        "tijd": "2026-09-14T04:48:59Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Tennis-Point",
-        "onderwerp": "Jouw rekening bij Tennis-Point",
-        "tijd": "2026-09-14T04:48:58Z",
-        "belangrijk": true
-      },
-      {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 65% korting op Exclusieve vondsten, Stijlen in resterende maten,...",
-        "tijd": "2026-09-14T04:06:14Z",
-        "belangrijk": false
       }
     ]
   }
