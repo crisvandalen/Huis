@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-14T05:13:00Z",
+  "opgehaald_op": "2026-09-15T05:08:00Z",
   "agenda": [
     {
       "start": "2026-09-15T20:00:00+02:00",
@@ -15,22 +15,23 @@
       "titel": "Kim therapie",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-09-17T20:00:00+02:00",
+      "eind": "2026-09-17T21:00:00+02:00",
+      "titel": "De Molenwiek Nieuwe reservering",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "ongelezen_aantal": 1,
     "items": [
       {
-        "van": "Vinted",
-        "onderwerp": "Dit is je verzendlabel. Uiterste verzenddatum: 21-09-2026, 10.00 uur",
-        "tijd": "2026-09-14T05:06:49Z",
-        "belangrijk": true
-      },
-      {
         "van": "The AI Daily",
-        "onderwerp": "Gemini is nu een Windows-app en pakt gegevens uit je Gmail en Drive",
-        "tijd": "2026-09-14T05:00:33Z",
+        "onderwerp": "ElevenLabs geeft je gratis vijf AI-nummers per dag voor je video's",
+        "tijd": "2026-09-15T05:00:36Z",
         "belangrijk": true
       }
     ]
