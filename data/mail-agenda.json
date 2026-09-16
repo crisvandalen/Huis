@@ -1,14 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-15T05:10:00Z",
+  "opgehaald_op": "2026-09-16T05:06:03Z",
   "agenda": [
-    {
-      "start": "2026-09-15T20:00:00+02:00",
-      "eind": "2026-09-15T21:00:00+02:00",
-      "titel": "De Molenwiek Nieuwe reservering",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-09-16T14:30:00+02:00",
       "eind": "2026-09-16T15:30:00+02:00",
@@ -22,17 +15,30 @@
       "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-09-18T09:00:00+02:00",
+      "eind": "2026-09-18T11:00:00+02:00",
+      "titel": "Sociaal cognitief onderzoek Kim",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 1,
+    "ongelezen_aantal": 2,
     "items": [
       {
         "van": "The AI Daily",
-        "onderwerp": "ElevenLabs geeft je gratis vijf AI-nummers per dag voor je video's",
-        "tijd": "2026-09-15T05:00:36Z",
+        "onderwerp": "De Googlebook is een nieuwe laptop die helemaal om Gemini draait",
+        "tijd": "2026-09-16T05:00:36Z",
         "belangrijk": true
+      },
+      {
+        "van": "RocketGrip",
+        "onderwerp": "AUTUMN SALE EXTENDED DUE TO HIGH DEMAND",
+        "tijd": "2026-09-16T04:42:03Z",
+        "belangrijk": false
       }
     ]
   }
