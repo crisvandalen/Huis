@@ -1,14 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-16T05:10:00Z",
+  "opgehaald_op": "2026-09-17T05:06:00Z",
   "agenda": [
-    {
-      "start": "2026-09-16T14:30:00+02:00",
-      "eind": "2026-09-16T15:30:00+02:00",
-      "titel": "Kim therapie",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-09-17T20:00:00+02:00",
       "eind": "2026-09-17T21:00:00+02:00",
@@ -22,22 +15,41 @@
       "titel": "Sociaal cognitief onderzoek Kim",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-09-19T00:00:00+02:00",
+      "eind": "2026-09-19T01:00:00+02:00",
+      "titel": "MALISKAMP 2 - DE MOLENWIEK 1",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "ongelezen_aantal": 4,
     "items": [
       {
-        "van": "The AI Daily",
-        "onderwerp": "De Googlebook is een nieuwe laptop die helemaal om Gemini draait",
-        "tijd": "2026-09-16T05:00:36Z",
+        "van": "Tuya",
+        "onderwerp": "[Platform Announcement]App Update Reminder | Google Smart Home Account Linking Migration",
+        "tijd": "2026-09-17T05:04:29Z",
         "belangrijk": true
       },
       {
-        "van": "RocketGrip",
-        "onderwerp": "AUTUMN SALE EXTENDED DUE TO HIGH DEMAND",
-        "tijd": "2026-09-16T04:42:03Z",
+        "van": "The AI Daily",
+        "onderwerp": "iPhone 18 Pro legt bewijs in de sensor vast dat een foto echt is",
+        "tijd": "2026-09-17T05:00:37Z",
+        "belangrijk": true
+      },
+      {
+        "van": "VinkVink",
+        "onderwerp": "Prinsjesdag 2026",
+        "tijd": "2026-09-16T17:30:48Z",
+        "belangrijk": true
+      },
+      {
+        "van": "ABOUT YOU Outlet",
+        "onderwerp": "Tot wel 70% korting op Onze favoriete items, G-STAR,...",
+        "tijd": "2026-09-17T04:05:45Z",
         "belangrijk": false
       }
     ]
