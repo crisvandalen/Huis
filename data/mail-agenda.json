@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-17T05:09:27Z",
+  "opgehaald_op": "2026-09-17T05:08:41Z",
   "agenda": [
     {
       "start": "2026-09-17T20:00:00+02:00",
@@ -17,8 +17,8 @@
       "hele_dag": false
     },
     {
-      "start": "2026-09-19T02:00:00+02:00",
-      "eind": "2026-09-19T03:00:00+02:00",
+      "start": "2026-09-19T00:00:00+02:00",
+      "eind": "2026-09-19T01:00:00+02:00",
       "titel": "MALISKAMP 2 - DE MOLENWIEK 1",
       "agenda": "Gezin",
       "hele_dag": false
@@ -26,8 +26,14 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 5,
+    "ongelezen_aantal": 6,
     "items": [
+      {
+        "van": "Google",
+        "onderwerp": "Beveiligingsmelding",
+        "tijd": "2026-09-17T05:08:44Z",
+        "belangrijk": false
+      },
       {
         "van": "Google",
         "onderwerp": "Beveiligingsmelding",
@@ -36,7 +42,7 @@
       },
       {
         "van": "Tuya",
-        "onderwerp": "[Platform Announcement]App Update Reminder | Google Smart Home Account Linking Migration",
+        "onderwerp": "[Platform Announcement] App Update Reminder | Google Smart Home Account Linking Migration",
         "tijd": "2026-09-17T05:04:29Z",
         "belangrijk": true
       },
@@ -47,16 +53,16 @@
         "belangrijk": true
       },
       {
-        "van": "VinkVink",
-        "onderwerp": "Prinsjesdag 2026",
-        "tijd": "2026-09-16T17:30:48Z",
-        "belangrijk": true
-      },
-      {
         "van": "ABOUT YOU Outlet",
         "onderwerp": "Tot wel 70% korting op Onze favoriete items, G-STAR,...",
         "tijd": "2026-09-17T04:05:45Z",
         "belangrijk": false
+      },
+      {
+        "van": "VinkVink",
+        "onderwerp": "Prinsjesdag 2026",
+        "tijd": "2026-09-16T17:30:48Z",
+        "belangrijk": true
       }
     ]
   }
