@@ -1,17 +1,10 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-18T05:10:00Z",
+  "opgehaald_op": "2026-09-19T05:06:00Z",
   "agenda": [
     {
-      "start": "2026-09-18T09:00:00+02:00",
-      "eind": "2026-09-18T11:00:00+02:00",
-      "titel": "Sociaal cognitief onderzoek Kim",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-09-19T00:00:00+02:00",
-      "eind": "2026-09-19T01:00:00+02:00",
+      "start": "2026-09-19T13:00:00+02:00",
+      "eind": "2026-09-19T16:55:00+02:00",
       "titel": "MALISKAMP 2 - DE MOLENWIEK 1",
       "agenda": "Gezin",
       "hele_dag": false
@@ -22,16 +15,35 @@
       "titel": "Gewicht Bella mailen",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-09-21T19:30:00+02:00",
+      "eind": "2026-09-21T20:30:00+02:00",
+      "titel": "De Molenwiek Reservering gewijzigd",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 1,
+    "ongelezen_aantal": 3,
     "items": [
       {
-        "van": "The AI Daily",
-        "onderwerp": "Claude en ChatGPT kunnen nu je thermostaat bedienen via Google Home",
-        "tijd": "2026-09-18T05:00:35Z",
+        "van": "ABOUT YOU Outlet",
+        "onderwerp": "Tot wel 75% korting op NAPAPIJRI, JACK & JONES,...",
+        "tijd": "2026-09-19T04:04:04Z",
+        "belangrijk": false
+      },
+      {
+        "van": "Claude",
+        "onderwerp": "This week in Claude Code: Projects, and Claude Design, Slides & Docs on desktop and web",
+        "tijd": "2026-09-19T02:18:19Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Vinted",
+        "onderwerp": "Prijsverlaging op Head T-shirt Tenis/Padel XL",
+        "tijd": "2026-09-19T01:24:48Z",
         "belangrijk": true
       }
     ]
