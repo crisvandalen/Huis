@@ -1,14 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-19T05:09:00Z",
+  "opgehaald_op": "2026-09-20T05:06:00Z",
   "agenda": [
-    {
-      "start": "2026-09-19T13:00:00+02:00",
-      "eind": "2026-09-19T16:55:00+02:00",
-      "titel": "MALISKAMP 2 - DE MOLENWIEK 1",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-09-20T13:00:00+02:00",
       "eind": "2026-09-20T14:00:00+02:00",
@@ -22,6 +15,13 @@
       "titel": "De Molenwiek Reservering gewijzigd",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-09-22T20:00:00+02:00",
+      "eind": "2026-09-22T21:00:00+02:00",
+      "titel": "De Molenwiek Nieuwe reservering",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
@@ -29,21 +29,21 @@
     "ongelezen_aantal": 3,
     "items": [
       {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 75% korting op NAPAPIJRI, JACK & JONES,...",
-        "tijd": "2026-09-19T04:04:04Z",
-        "belangrijk": false
-      },
-      {
-        "van": "Claude",
-        "onderwerp": "This week in Claude Code: Projects, and Claude Design, Slides & Docs on desktop and web",
-        "tijd": "2026-09-19T02:18:19Z",
+        "van": "Only & Sons",
+        "onderwerp": "40% korting op de tweede broek",
+        "tijd": "2026-09-20T04:07:56Z",
         "belangrijk": true
       },
       {
-        "van": "Vinted",
-        "onderwerp": "Prijsverlaging op Head T-shirt Tenis/Padel XL",
-        "tijd": "2026-09-19T01:24:48Z",
+        "van": "ABOUT YOU Outlet",
+        "onderwerp": "Tot wel 70% korting op Onze lievelings items, Deals: sneakers voor heren,...",
+        "tijd": "2026-09-20T04:05:41Z",
+        "belangrijk": false
+      },
+      {
+        "van": "AD.nl",
+        "onderwerp": "Jaar na Elsfest gaat het opnieuw mis in Den Haag | René Froger spreekt fans met brok in keel toe over ziekte",
+        "tijd": "2026-09-19T19:01:26Z",
         "belangrijk": true
       }
     ]
