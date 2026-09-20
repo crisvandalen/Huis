@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-20T05:06:00Z",
+  "opgehaald_op": "2026-09-20T05:09:00Z",
   "agenda": [
     {
       "start": "2026-09-20T13:00:00+02:00",
@@ -26,10 +26,16 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 3,
+    "ongelezen_aantal": 4,
     "items": [
       {
-        "van": "Only & Sons",
+        "van": "Plutosport",
+        "onderwerp": "ALLEEN VANDAAG NOG Trainingspakken 39,95",
+        "tijd": "2026-09-20T05:07:15Z",
+        "belangrijk": true
+      },
+      {
+        "van": "ONLY & SONS",
         "onderwerp": "40% korting op de tweede broek",
         "tijd": "2026-09-20T04:07:56Z",
         "belangrijk": true
