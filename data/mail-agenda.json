@@ -1,14 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-20T05:09:00Z",
+  "opgehaald_op": "2026-09-21T05:07:00Z",
   "agenda": [
-    {
-      "start": "2026-09-20T13:00:00+02:00",
-      "eind": "2026-09-20T14:00:00+02:00",
-      "titel": "Gewicht Bella mailen",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-09-21T19:30:00+02:00",
       "eind": "2026-09-21T20:30:00+02:00",
@@ -22,36 +15,31 @@
       "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-09-23T14:30:00+02:00",
+      "eind": "2026-09-23T15:30:00+02:00",
+      "titel": "Kim therapie",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
-    "type": "ongelezen",
-    "ongelezen_aantal": 4,
+    "type": "recent",
+    "ongelezen_aantal": 0,
     "items": [
-      {
-        "van": "Plutosport",
-        "onderwerp": "ALLEEN VANDAAG NOG Trainingspakken 39,95",
-        "tijd": "2026-09-20T05:07:15Z",
-        "belangrijk": true
-      },
-      {
-        "van": "ONLY & SONS",
-        "onderwerp": "40% korting op de tweede broek",
-        "tijd": "2026-09-20T04:07:56Z",
-        "belangrijk": true
-      },
-      {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 70% korting op Onze lievelings items, Deals: sneakers voor heren,...",
-        "tijd": "2026-09-20T04:05:41Z",
-        "belangrijk": false
-      },
-      {
-        "van": "AD.nl",
-        "onderwerp": "Jaar na Elsfest gaat het opnieuw mis in Den Haag | René Froger spreekt fans met brok in keel toe over ziekte",
-        "tijd": "2026-09-19T19:01:26Z",
-        "belangrijk": true
-      }
+      { "van": "The AI Daily", "onderwerp": "ChatGPT zit nu in Word, ook op het gratis plan", "tijd": "2026-09-21T05:00:38Z", "belangrijk": true },
+      { "van": "Vinted", "onderwerp": "Je bod is geaccepteerd: Maillot de tennis neuf head taille xl couleur rouge et gris", "tijd": "2026-09-21T00:54:20Z", "belangrijk": true },
+      { "van": "Tennis-Point", "onderwerp": "⌛Nog maar heel even: -10% op meer dan 600 artikelen", "tijd": "2026-09-20T16:00:05Z", "belangrijk": true },
+      { "van": "Premier Padel Rotterdam", "onderwerp": "Nog 1 week!", "tijd": "2026-09-20T14:14:54Z", "belangrijk": true },
+      { "van": "KNLTB", "onderwerp": "De Molenwiek Nieuwe reservering", "tijd": "2026-09-19T14:49:33Z", "belangrijk": true },
+      { "van": "Vinted", "onderwerp": "Je bon voor Head T-shirt Tenis/Padel XL", "tijd": "2026-09-19T07:34:40Z", "belangrijk": true },
+      { "van": "Vinted", "onderwerp": "Prijsverlaging op Head T-shirt Tenis/Padel XL", "tijd": "2026-09-19T01:24:48Z", "belangrijk": true },
+      { "van": "The AI Daily", "onderwerp": "iPhone 18 Pro legt bewijs in de sensor vast dat een foto echt is", "tijd": "2026-09-17T05:00:37Z", "belangrijk": true },
+      { "van": "The AI Report", "onderwerp": "Morgen om 12:00: AI-agents die voor je doorwerken (alvast de link)", "tijd": "2026-09-16T14:32:34Z", "belangrijk": true },
+      { "van": "50five", "onderwerp": "Wat vindt u van een thuisbatterij?", "tijd": "2026-09-16T12:14:29Z" },
+      { "van": "Helix ProGrip", "onderwerp": "The pack that keeps selling out", "tijd": "2026-09-16T10:01:45Z" },
+      { "van": "Tennis-Point", "onderwerp": "💛Cris, bespaar nu op jouw persoonlijke aanbevelingen", "tijd": "2026-09-16T07:44:07Z", "belangrijk": true }
     ]
   }
 }
