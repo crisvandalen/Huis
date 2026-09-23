@@ -1,14 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-22T05:11:22Z",
+  "opgehaald_op": "2026-09-23T05:07:53Z",
   "agenda": [
-    {
-      "start": "2026-09-22T20:00:00+02:00",
-      "eind": "2026-09-22T21:00:00+02:00",
-      "titel": "De Molenwiek Nieuwe reservering",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-09-23T14:30:00+02:00",
       "eind": "2026-09-23T15:30:00+02:00",
@@ -38,35 +31,33 @@
       "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-09-25T10:30:00+02:00",
+      "eind": "2026-09-25T11:30:00+02:00",
+      "titel": "🏁 GP van Azerbeidzjan – Derde vrije training",
+      "locatie": "Baku City Circuit, Baku",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-09-25T14:00:00+02:00",
+      "eind": "2026-09-25T15:00:00+02:00",
+      "titel": "🏁 GP van Azerbeidzjan – Kwalificatie",
+      "locatie": "Baku City Circuit, Baku",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 4,
+    "ongelezen_aantal": 1,
     "items": [
       {
         "van": "The AI Daily",
-        "onderwerp": "AI-assistenten Instinct en Muse bellen nu zelf bedrijven voor je op",
-        "tijd": "2026-09-22T05:00:36Z",
+        "onderwerp": "Je AI-assistent belt nu zelf een restaurant voor een tafel",
+        "tijd": "2026-09-23T05:00:36Z",
         "belangrijk": true
-      },
-      {
-        "van": "Vinted",
-        "onderwerp": "Update over je bestelling 'Maillot de tennis neuf head taille xl couleur rouge et gris'",
-        "tijd": "2026-09-22T04:29:09Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Ring",
-        "onderwerp": "Cris, tijd voor een upgrade: bespaar tot 60%",
-        "tijd": "2026-09-22T04:10:34Z",
-        "belangrijk": false
-      },
-      {
-        "van": "About You Outlet",
-        "onderwerp": "Tot wel 70% korting op Verborgen highlights, Klassiekers: Poloshirts,...",
-        "tijd": "2026-09-22T04:04:32Z",
-        "belangrijk": false
       }
     ]
   }
