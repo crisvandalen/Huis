@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-24T05:07:00Z",
+  "opgehaald_op": "2026-09-24T05:14:36Z",
   "agenda": [
     {
       "start": "2026-09-24T10:30:00+02:00",
@@ -58,8 +58,8 @@
     }
   ],
   "mail": {
-    "type": "ongelezen",
-    "ongelezen_aantal": 5,
+    "type": "recent",
+    "ongelezen_aantal": 0,
     "items": [
       {
         "van": "The AI Daily",
@@ -68,27 +68,63 @@
         "belangrijk": true
       },
       {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 70% korting op Karl Lagerfeld + Karl Lagerfeld Jeans, Onze favoriete items,...",
-        "tijd": "2026-09-24T04:02:43Z",
+        "van": "Vinted",
+        "onderwerp": "Nieuw bod voor The Indian Maharadja Regenjas Senior",
+        "tijd": "2026-09-23T21:01:40Z",
         "belangrijk": true
       },
       {
-        "van": "RocketGrip",
-        "onderwerp": "Your next grip upgrade ships free on orders over €75",
-        "tijd": "2026-09-24T03:30:04Z",
+        "van": "50five",
+        "onderwerp": "Uw ERE-update van september!",
+        "tijd": "2026-09-23T14:16:49Z",
         "belangrijk": false
       },
       {
-        "van": "Claude",
-        "onderwerp": "New in Claude Code: Opus 5.5 and a limit reset",
-        "tijd": "2026-09-24T01:35:56Z",
+        "van": "Cambium College",
+        "onderwerp": "Uitnodiging startgesprek",
+        "tijd": "2026-09-23T07:28:26Z",
+        "belangrijk": true
+      },
+      {
+        "van": "The AI Daily",
+        "onderwerp": "Je AI-assistent belt nu zelf een restaurant voor een tafel",
+        "tijd": "2026-09-23T05:00:36Z",
+        "belangrijk": true
+      },
+      {
+        "van": "TPV De Molenwiek",
+        "onderwerp": "RE: Inschrijving wintercompetitie",
+        "tijd": "2026-09-22T18:43:21Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Royal Canin",
+        "onderwerp": "Voedingsadvies voor uw huisdier",
+        "tijd": "2026-09-22T06:29:50Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Stryda Club",
+        "onderwerp": "RE: Nieuw sponsor aanvraagformulier ingevuld",
+        "tijd": "2026-09-21T18:47:57Z",
         "belangrijk": true
       },
       {
         "van": "Vinted",
-        "onderwerp": "Nieuw bod voor The Indian Maharadja Regenjas Senior",
-        "tijd": "2026-09-23T21:01:40Z",
+        "onderwerp": "Je bon voor Maillot de tennis neuf head taille xl couleur rouge et gris",
+        "tijd": "2026-09-21T12:24:17Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Premier Padel Rotterdam",
+        "onderwerp": "Nog 1 week!",
+        "tijd": "2026-09-20T14:14:54Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Vinted",
+        "onderwerp": "Je bon voor Head T-shirt Tenis/Padel XL",
+        "tijd": "2026-09-19T07:34:40Z",
         "belangrijk": true
       }
     ]
