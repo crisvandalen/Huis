@@ -1,131 +1,18 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-24T05:15:00Z",
+  "opgehaald_op": "2026-09-25T05:10:00Z",
   "agenda": [
-    {
-      "start": "2026-09-24T10:30:00+02:00",
-      "eind": "2026-09-24T11:30:00+02:00",
-      "titel": "🏁 GP van Azerbeidzjan – Eerste vrije training",
-      "locatie": "Baku City Circuit, Baku",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-09-24T14:00:00+02:00",
-      "eind": "2026-09-24T15:00:00+02:00",
-      "titel": "🏁 GP van Azerbeidzjan – Tweede vrije training",
-      "locatie": "Baku City Circuit, Baku",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-09-24T20:00:00+02:00",
-      "eind": "2026-09-24T21:00:00+02:00",
-      "titel": "De Molenwiek Nieuwe reservering",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-09-25T10:30:00+02:00",
-      "eind": "2026-09-25T11:30:00+02:00",
-      "titel": "🏁 GP van Azerbeidzjan – Derde vrije training",
-      "locatie": "Baku City Circuit, Baku",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-09-25T14:00:00+02:00",
-      "eind": "2026-09-25T15:00:00+02:00",
-      "titel": "🏁 GP van Azerbeidzjan – Kwalificatie",
-      "locatie": "Baku City Circuit, Baku",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-09-26T09:30:00+02:00",
-      "eind": "2026-09-26T10:30:00+02:00",
-      "titel": "MAASPOORT 6 - DE MOLENWIEK 1",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-09-26T13:00:00+02:00",
-      "eind": "2026-09-26T15:00:00+02:00",
-      "titel": "🏁 GP van Azerbeidzjan – Race",
-      "locatie": "Baku City Circuit, Baku",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    }
+    {"start": "2026-09-25T10:30:00+02:00", "eind": "2026-09-25T11:30:00+02:00", "titel": "🏁 GP van Azerbeidzjan – Derde vrije training", "locatie": "Baku City Circuit, Baku", "agenda": "F1 Kalender 2026", "hele_dag": false},
+    {"start": "2026-09-25T14:00:00+02:00", "eind": "2026-09-25T15:00:00+02:00", "titel": "🏁 GP van Azerbeidzjan – Kwalificatie", "locatie": "Baku City Circuit, Baku", "agenda": "F1 Kalender 2026", "hele_dag": false},
+    {"start": "2026-09-26T09:30:00+02:00", "eind": "2026-09-26T10:30:00+02:00", "titel": "MAASPOORT 6 - DE MOLENWIEK 1", "agenda": "Gezin", "hele_dag": false},
+    {"start": "2026-09-26T13:00:00+02:00", "eind": "2026-09-26T15:00:00+02:00", "titel": "🏁 GP van Azerbeidzjan – Race", "locatie": "Baku City Circuit, Baku", "agenda": "F1 Kalender 2026", "hele_dag": false},
+    {"start": "2026-09-27T12:00:00+02:00", "eind": "2026-09-27T14:00:00+02:00", "titel": "Brunch verjaardag oma", "agenda": "Gezin", "hele_dag": false}
   ],
   "mail": {
-    "type": "recent",
-    "ongelezen_aantal": 0,
+    "type": "ongelezen",
+    "ongelezen_aantal": 1,
     "items": [
-      {
-        "van": "The AI Daily",
-        "onderwerp": "Claude stuurt nu robots aan in Anthropics eigen laboratorium",
-        "tijd": "2026-09-24T05:00:36Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Vinted",
-        "onderwerp": "Nieuw bod voor The Indian Maharadja Regenjas Senior",
-        "tijd": "2026-09-23T21:01:40Z",
-        "belangrijk": true
-      },
-      {
-        "van": "50five",
-        "onderwerp": "Uw ERE-update van september!",
-        "tijd": "2026-09-23T14:16:49Z"
-      },
-      {
-        "van": "Cambium College",
-        "onderwerp": "Uitnodiging startgesprek",
-        "tijd": "2026-09-23T07:28:26Z",
-        "belangrijk": true
-      },
-      {
-        "van": "The AI Daily",
-        "onderwerp": "Je AI-assistent belt nu zelf een restaurant voor een tafel",
-        "tijd": "2026-09-23T05:00:36Z",
-        "belangrijk": true
-      },
-      {
-        "van": "TPV De Molenwiek",
-        "onderwerp": "RE: Inschrijving wintercompetitie",
-        "tijd": "2026-09-22T18:43:21Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Royal Canin",
-        "onderwerp": "Voedingsadvies voor uw huisdier",
-        "tijd": "2026-09-22T06:29:50Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Stryda Club",
-        "onderwerp": "RE: Nieuw sponsor aanvraagformulier ingevuld",
-        "tijd": "2026-09-21T18:47:57Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Vinted",
-        "onderwerp": "Je bon voor Maillot de tennis neuf head taille xl couleur rouge et gris",
-        "tijd": "2026-09-21T12:24:17Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Premier Padel Rotterdam",
-        "onderwerp": "Nog 1 week!",
-        "tijd": "2026-09-20T14:14:54Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Vinted",
-        "onderwerp": "Je bon voor Head T-shirt Tenis/Padel XL",
-        "tijd": "2026-09-19T07:34:40Z",
-        "belangrijk": true
-      }
+      {"van": "The AI Daily", "onderwerp": "Google kloont je stem na 30 seconden audio, 81 dollarcent per uur", "tijd": "2026-09-25T05:00:40Z", "belangrijk": true}
     ]
   }
 }
