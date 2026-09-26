@@ -1,18 +1,54 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-25T05:15:27Z",
+  "opgehaald_op": "2026-09-26T05:08:00Z",
   "agenda": [
-    {"start": "2026-09-25T10:30:00+02:00", "eind": "2026-09-25T11:30:00+02:00", "titel": "🏁 GP van Azerbeidzjan – Derde vrije training", "locatie": "Baku City Circuit, Baku", "agenda": "F1 Kalender 2026", "hele_dag": false},
-    {"start": "2026-09-25T14:00:00+02:00", "eind": "2026-09-25T15:00:00+02:00", "titel": "🏁 GP van Azerbeidzjan – Kwalificatie", "locatie": "Baku City Circuit, Baku", "agenda": "F1 Kalender 2026", "hele_dag": false},
-    {"start": "2026-09-26T09:30:00+02:00", "eind": "2026-09-26T10:30:00+02:00", "titel": "MAASPOORT 6 - DE MOLENWIEK 1", "agenda": "Gezin", "hele_dag": false},
-    {"start": "2026-09-26T13:00:00+02:00", "eind": "2026-09-26T15:00:00+02:00", "titel": "🏁 GP van Azerbeidzjan – Race", "locatie": "Baku City Circuit, Baku", "agenda": "F1 Kalender 2026", "hele_dag": false},
-    {"start": "2026-09-27T12:00:00+02:00", "eind": "2026-09-27T14:00:00+02:00", "titel": "Brunch verjaardag oma", "agenda": "Gezin", "hele_dag": false}
+    {
+      "start": "2026-09-26T09:30:00+02:00",
+      "eind": "2026-09-26T10:30:00+02:00",
+      "titel": "MAASPOORT 6 - DE MOLENWIEK 1",
+      "locatie": "Marathonloop 2, 's-Hertogenbosch, Nederland",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-09-26T13:00:00+02:00",
+      "eind": "2026-09-26T15:00:00+02:00",
+      "titel": "🏁 GP van Azerbeidzjan – Race",
+      "locatie": "Baku City Circuit, Baku",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-09-26T13:30:00+02:00",
+      "eind": "2026-09-26T15:00:00+02:00",
+      "titel": "Onderwijsbeurs",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-09-27T12:00:00+02:00",
+      "eind": "2026-09-27T14:00:00+02:00",
+      "titel": "Brunch verjaardag oma",
+      "agenda": "Gezin",
+      "hele_dag": false
+    }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 1,
+    "ongelezen_aantal": 2,
     "items": [
-      {"van": "The AI Daily", "onderwerp": "Google kloont je stem na 30 seconden audio, 81 dollarcent per uur", "tijd": "2026-09-25T05:00:40Z", "belangrijk": true}
+      {
+        "van": "ABOUT YOU Outlet",
+        "onderwerp": "Tot wel 65% korting op ELLESSE, Klassiekers: Poloshirts,...",
+        "tijd": "2026-09-26T04:02:09Z",
+        "belangrijk": true
+      },
+      {
+        "van": "ONLY & SONS",
+        "onderwerp": "20% KORTING OP ALLE JEANS 💥",
+        "tijd": "2026-09-26T04:02:06Z",
+        "belangrijk": true
+      }
     ]
   }
 }
