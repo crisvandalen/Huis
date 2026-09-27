@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-27T05:08:00Z",
+  "opgehaald_op": "2026-09-27T05:14:00Z",
   "agenda": [
     {
       "start": "2026-09-27T12:00:00+02:00",
@@ -19,8 +19,14 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "ongelezen_aantal": 3,
     "items": [
+      {
+        "van": "Plutosport",
+        "onderwerp": "ALLEEN VANDAAG NOG Nike Basics Sale",
+        "tijd": "2026-09-27T05:12:16Z",
+        "belangrijk": true
+      },
       {
         "van": "OpenAI",
         "onderwerp": "Professionele foto's vanuit één selfie",
