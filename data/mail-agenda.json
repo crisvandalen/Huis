@@ -1,34 +1,18 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-26T05:15:00Z",
+  "opgehaald_op": "2026-09-27T05:08:00Z",
   "agenda": [
-    {
-      "start": "2026-09-26T09:30:00+02:00",
-      "eind": "2026-09-26T10:30:00+02:00",
-      "titel": "MAASPOORT 6 - DE MOLENWIEK 1",
-      "locatie": "Marathonloop 2, 's-Hertogenbosch, Nederland",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-09-26T13:00:00+02:00",
-      "eind": "2026-09-26T15:00:00+02:00",
-      "titel": "🏁 GP van Azerbeidzjan – Race",
-      "locatie": "Baku City Circuit, Baku",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-09-26T13:30:00+02:00",
-      "eind": "2026-09-26T15:00:00+02:00",
-      "titel": "Onderwijsbeurs",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-09-27T12:00:00+02:00",
       "eind": "2026-09-27T14:00:00+02:00",
       "titel": "Brunch verjaardag oma",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-09-29T20:00:00+02:00",
+      "eind": "2026-09-29T21:00:00+02:00",
+      "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
     }
@@ -38,15 +22,15 @@
     "ongelezen_aantal": 2,
     "items": [
       {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 65% korting op ELLESSE, Klassiekers: Poloshirts,...",
-        "tijd": "2026-09-26T04:02:09Z",
+        "van": "OpenAI",
+        "onderwerp": "Professionele foto's vanuit één selfie",
+        "tijd": "2026-09-27T04:44:49Z",
         "belangrijk": true
       },
       {
-        "van": "ONLY & SONS",
-        "onderwerp": "20% KORTING OP ALLE JEANS 💥",
-        "tijd": "2026-09-26T04:02:06Z",
+        "van": "ABOUT YOU Outlet",
+        "onderwerp": "Tommy Jeans, Je favoriete merken en meer!",
+        "tijd": "2026-09-27T04:02:37Z",
         "belangrijk": true
       }
     ]
