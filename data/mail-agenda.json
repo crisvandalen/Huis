@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-28T05:15:12Z",
+  "opgehaald_op": "2026-09-28T05:19:00Z",
   "agenda": [
     {
       "start": "2026-09-29T20:00:00+02:00",
@@ -29,16 +29,15 @@
     "ongelezen_aantal": 7,
     "items": [
       {
-        "van": "Foodie",
-        "onderwerp": "Kurkuma - het supplement van de herfst",
-        "tijd": "2026-09-28T05:00:00Z",
-        "belangrijk": false
-      },
-      {
         "van": "The AI Daily",
         "onderwerp": "GPT-6 Astra ziet 80 procent van de fouten in je IKEA-kast",
         "tijd": "2026-09-28T05:00:39Z",
         "belangrijk": true
+      },
+      {
+        "van": "Foodie",
+        "onderwerp": "Kurkuma - het supplement van de herfst",
+        "tijd": "2026-09-28T05:00:00Z"
       },
       {
         "van": "ABOUT YOU Outlet",
@@ -55,14 +54,12 @@
       {
         "van": "Overheid.nl",
         "onderwerp": "Berichten over uw Buurt",
-        "tijd": "2026-09-28T03:17:25Z",
-        "belangrijk": false
+        "tijd": "2026-09-28T03:17:25Z"
       },
       {
         "van": "Duolingo",
         "onderwerp": "🤩 Oefenhub is nu GRATIS!",
-        "tijd": "2026-09-28T01:36:35Z",
-        "belangrijk": false
+        "tijd": "2026-09-28T01:36:35Z"
       },
       {
         "van": "OpenAI",
