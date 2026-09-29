@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-29T05:08:53Z",
+  "opgehaald_op": "2026-09-29T05:15:00Z",
   "agenda": [
     {
       "start": "2026-09-29T20:00:00+02:00",
@@ -40,22 +40,17 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 3,
+    "ongelezen_aantal": 2,
     "items": [
-      {
-        "van": "The AI Daily",
-        "onderwerp": "GPT-6 Astra herkent 80 procent van de fouten in je IKEA-kast",
-        "tijd": "2026-09-29T05:00:37Z",
-        "belangrijk": true
-      },
       {
         "van": "PayPal",
         "onderwerp": "Ontvangstbewijs voor uw betaling aan Microsoft Payments",
-        "tijd": "2026-09-29T00:53:11Z"
+        "tijd": "2026-09-29T00:53:11Z",
+        "belangrijk": false
       },
       {
         "van": "Holland & Barrett",
-        "onderwerp": "Deze deals lopen binnenkort af",
+        "onderwerp": "Deze deals lopen binnenkort af ⌛",
         "tijd": "2026-09-28T20:40:11Z",
         "belangrijk": true
       }
