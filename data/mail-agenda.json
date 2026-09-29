@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-28T05:19:00Z",
+  "opgehaald_op": "2026-09-29T05:08:53Z",
   "agenda": [
     {
       "start": "2026-09-29T20:00:00+02:00",
@@ -22,49 +22,41 @@
       "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-10-01T16:00:00+02:00",
+      "eind": "2026-10-01T17:00:00+02:00",
+      "titel": "Startgesprek Kim",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-10-01T20:00:00+02:00",
+      "eind": "2026-10-01T21:00:00+02:00",
+      "titel": "De Molenwiek Nieuwe reservering",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 7,
+    "ongelezen_aantal": 3,
     "items": [
       {
         "van": "The AI Daily",
-        "onderwerp": "GPT-6 Astra ziet 80 procent van de fouten in je IKEA-kast",
-        "tijd": "2026-09-28T05:00:39Z",
+        "onderwerp": "GPT-6 Astra herkent 80 procent van de fouten in je IKEA-kast",
+        "tijd": "2026-09-29T05:00:37Z",
         "belangrijk": true
       },
       {
-        "van": "Foodie",
-        "onderwerp": "Kurkuma - het supplement van de herfst",
-        "tijd": "2026-09-28T05:00:00Z"
+        "van": "PayPal",
+        "onderwerp": "Ontvangstbewijs voor uw betaling aan Microsoft Payments",
+        "tijd": "2026-09-29T00:53:11Z"
       },
       {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 70% korting op Exclusieve vondsten, Tijdloze herenmode,...",
-        "tijd": "2026-09-28T04:04:14Z",
-        "belangrijk": true
-      },
-      {
-        "van": "ONLY & SONS",
-        "onderwerp": "Laatste kans: 20% korting op alle jeans",
-        "tijd": "2026-09-28T04:00:49Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Overheid.nl",
-        "onderwerp": "Berichten over uw Buurt",
-        "tijd": "2026-09-28T03:17:25Z"
-      },
-      {
-        "van": "Duolingo",
-        "onderwerp": "🤩 Oefenhub is nu GRATIS!",
-        "tijd": "2026-09-28T01:36:35Z"
-      },
-      {
-        "van": "OpenAI",
-        "onderwerp": "4 nieuwe afbeeldingsstijlen om uit te proberen",
-        "tijd": "2026-09-27T20:10:44Z",
+        "van": "Holland & Barrett",
+        "onderwerp": "Deze deals lopen binnenkort af",
+        "tijd": "2026-09-28T20:40:11Z",
         "belangrijk": true
       }
     ]
