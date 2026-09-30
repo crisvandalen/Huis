@@ -1,25 +1,11 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-29T05:16:00Z",
+  "opgehaald_op": "2026-09-30T05:07:26Z",
   "agenda": [
-    {
-      "start": "2026-09-29T20:00:00+02:00",
-      "eind": "2026-09-29T21:00:00+02:00",
-      "titel": "De Molenwiek Nieuwe reservering",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-09-30T14:30:00+02:00",
       "eind": "2026-09-30T15:30:00+02:00",
       "titel": "Kim therapie",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-09-30T20:00:00+02:00",
-      "eind": "2026-09-30T21:00:00+02:00",
-      "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
     },
@@ -36,6 +22,22 @@
       "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-10-02T06:30:00+02:00",
+      "eind": "2026-10-02T07:30:00+02:00",
+      "titel": "🏁 GP van Bahrein – Eerste vrije training",
+      "locatie": "Sepang International Circuit, Sepang",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-10-02T10:00:00+02:00",
+      "eind": "2026-10-02T11:00:00+02:00",
+      "titel": "🏁 GP van Bahrein – Tweede vrije training",
+      "locatie": "Sepang International Circuit, Sepang",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
     }
   ],
   "mail": {
@@ -43,16 +45,15 @@
     "ongelezen_aantal": 2,
     "items": [
       {
-        "van": "PayPal",
-        "onderwerp": "Ontvangstbewijs voor uw betaling aan Microsoft Payments",
-        "tijd": "2026-09-29T00:53:11Z",
-        "belangrijk": false
+        "van": "The AI Daily",
+        "onderwerp": "Claude Sonnet 5.5 kost tot 30 procent minder per taak",
+        "tijd": "2026-09-30T05:00:36Z",
+        "belangrijk": true
       },
       {
-        "van": "Holland & Barrett",
-        "onderwerp": "Deze deals lopen binnenkort af ⌛",
-        "tijd": "2026-09-28T20:40:11Z",
-        "belangrijk": true
+        "van": "AboutYou Outlet",
+        "onderwerp": "Tot wel 65% korting op Verborgen schatten, PUMA,...",
+        "tijd": "2026-09-30T03:22:34Z"
       }
     ]
   }
