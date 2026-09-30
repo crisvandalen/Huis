@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-30T05:14:20Z",
+  "opgehaald_op": "2026-09-30T05:16:00Z",
   "agenda": [
     {
       "start": "2026-09-30T14:30:00+02:00",
@@ -53,7 +53,8 @@
       {
         "van": "AboutYou Outlet",
         "onderwerp": "Tot wel 65% korting op Verborgen schatten, PUMA,...",
-        "tijd": "2026-09-30T03:22:34Z"
+        "tijd": "2026-09-30T03:22:34Z",
+        "belangrijk": false
       }
     ]
   }
