@@ -1,61 +1,22 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-09-30T05:16:00Z",
+  "opgehaald_op": "2026-10-01T05:08:31Z",
   "agenda": [
-    {
-      "start": "2026-09-30T14:30:00+02:00",
-      "eind": "2026-09-30T15:30:00+02:00",
-      "titel": "Kim therapie",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-01T16:00:00+02:00",
-      "eind": "2026-10-01T17:00:00+02:00",
-      "titel": "Startgesprek Kim",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-01T20:00:00+02:00",
-      "eind": "2026-10-01T21:00:00+02:00",
-      "titel": "De Molenwiek Nieuwe reservering",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-02T06:30:00+02:00",
-      "eind": "2026-10-02T07:30:00+02:00",
-      "titel": "🏁 GP van Bahrein – Eerste vrije training",
-      "locatie": "Sepang International Circuit, Sepang",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-02T10:00:00+02:00",
-      "eind": "2026-10-02T11:00:00+02:00",
-      "titel": "🏁 GP van Bahrein – Tweede vrije training",
-      "locatie": "Sepang International Circuit, Sepang",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    }
+    {"start": "2026-10-01T16:00:00+02:00", "eind": "2026-10-01T17:00:00+02:00", "titel": "Startgesprek Kim", "agenda": "Gezin", "hele_dag": false},
+    {"start": "2026-10-01T20:00:00+02:00", "eind": "2026-10-01T21:00:00+02:00", "titel": "De Molenwiek Nieuwe reservering", "agenda": "Gezin", "hele_dag": false},
+    {"start": "2026-10-02T06:30:00+02:00", "eind": "2026-10-02T07:30:00+02:00", "titel": "🏁 GP van Bahrein – Eerste vrije training", "locatie": "Sepang International Circuit, Sepang", "agenda": "F1 Kalender 2026", "hele_dag": false},
+    {"start": "2026-10-02T10:00:00+02:00", "eind": "2026-10-02T11:00:00+02:00", "titel": "🏁 GP van Bahrein – Tweede vrije training", "locatie": "Sepang International Circuit, Sepang", "agenda": "F1 Kalender 2026", "hele_dag": false},
+    {"start": "2026-10-03T00:00:00+02:00", "eind": "2026-10-03T01:00:00+02:00", "titel": "ENGELEN 2 - DE MOLENWIEK 1", "agenda": "Gezin", "hele_dag": false},
+    {"start": "2026-10-03T06:30:00+02:00", "eind": "2026-10-03T07:30:00+02:00", "titel": "🏁 GP van Bahrein – Derde vrije training", "locatie": "Sepang International Circuit, Sepang", "agenda": "F1 Kalender 2026", "hele_dag": false},
+    {"start": "2026-10-03T10:00:00+02:00", "eind": "2026-10-03T11:00:00+02:00", "titel": "🏁 GP van Bahrein – Kwalificatie", "locatie": "Sepang International Circuit, Sepang", "agenda": "F1 Kalender 2026", "hele_dag": false}
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "ongelezen_aantal": 3,
     "items": [
-      {
-        "van": "The AI Daily",
-        "onderwerp": "Claude Sonnet 5.5 kost tot 30 procent minder per taak",
-        "tijd": "2026-09-30T05:00:36Z",
-        "belangrijk": true
-      },
-      {
-        "van": "AboutYou Outlet",
-        "onderwerp": "Tot wel 65% korting op Verborgen schatten, PUMA,...",
-        "tijd": "2026-09-30T03:22:34Z",
-        "belangrijk": false
-      }
+      {"van": "bol.com", "onderwerp": "Wij hebben iets van je gevonden, cris 👀", "tijd": "2026-10-01T05:04:45Z", "belangrijk": true},
+      {"van": "The AI Daily", "onderwerp": "McDonald's-algoritme adviseerde 18 dollar voor een Big Mac", "tijd": "2026-10-01T05:00:40Z", "belangrijk": true},
+      {"van": "AboutYou Outlet", "onderwerp": "Tot wel 70% korting op Onze favoriete items, THE NORTH FACE,...", "tijd": "2026-10-01T03:18:10Z", "belangrijk": false}
     ]
   }
 }
