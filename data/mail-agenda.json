@@ -1,30 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-02T05:14:56Z",
+  "opgehaald_op": "2026-10-03T05:08:00Z",
   "agenda": [
-    {
-      "start": "2026-10-02T06:30:00+02:00",
-      "eind": "2026-10-02T07:30:00+02:00",
-      "titel": "🏁 GP van Bahrein – Eerste vrije training",
-      "locatie": "Sepang International Circuit, Sepang",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-02T10:00:00+02:00",
-      "eind": "2026-10-02T11:00:00+02:00",
-      "titel": "🏁 GP van Bahrein – Tweede vrije training",
-      "locatie": "Sepang International Circuit, Sepang",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-03T00:00:00+02:00",
-      "eind": "2026-10-03T01:00:00+02:00",
-      "titel": "ENGELEN 2 - DE MOLENWIEK 1",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-10-03T06:30:00+02:00",
       "eind": "2026-10-03T07:30:00+02:00",
@@ -42,6 +19,13 @@
       "hele_dag": false
     },
     {
+      "start": "2026-10-03T10:30:00+02:00",
+      "eind": "2026-10-03T13:00:00+02:00",
+      "titel": "ENGELEN 2 - DE MOLENWIEK 1",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
       "start": "2026-10-04T09:00:00+02:00",
       "eind": "2026-10-04T11:00:00+02:00",
       "titel": "🏁 GP van Bahrein – Race",
@@ -52,30 +36,24 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 4,
+    "ongelezen_aantal": 3,
     "items": [
       {
-        "van": "The AI Daily",
-        "onderwerp": "Gemini 4 schrijft antwoorden tot 1 miljoen tokens lang in een keer",
-        "tijd": "2026-10-02T05:00:37Z",
-        "belangrijk": true
-      },
-      {
-        "van": "AboutYou Outlet",
-        "onderwerp": "Tot wel 70% korting op T-shirts die bij jouw style passen, Favorieten aller tijden,...",
-        "tijd": "2026-10-02T04:06:26Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Amazon",
-        "onderwerp": "Your Audible free trial is waiting",
-        "tijd": "2026-10-02T04:04:24Z",
+        "van": "RocketGrip",
+        "onderwerp": "LIMITED TIME: Autumn Sale 🍂",
+        "tijd": "2026-10-03T04:30:04Z",
         "belangrijk": false
       },
       {
-        "van": "Composio",
-        "onderwerp": "Composio Newsletter",
-        "tijd": "2026-10-01T22:27:07Z",
+        "van": "AboutYou Outlet",
+        "onderwerp": "Tot wel 70% korting op Pepe Jeans, Gebreide vesten & truien,...",
+        "tijd": "2026-10-03T04:10:21Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Ring",
+        "onderwerp": "Cris, laatste kans voor tot 60% korting",
+        "tijd": "2026-10-03T04:08:21Z",
         "belangrijk": true
       }
     ]
