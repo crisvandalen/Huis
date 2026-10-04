@@ -1,30 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-03T05:14:25Z",
+  "opgehaald_op": "2026-10-04T05:07:00Z",
   "agenda": [
-    {
-      "start": "2026-10-03T06:30:00+02:00",
-      "eind": "2026-10-03T07:30:00+02:00",
-      "titel": "🏁 GP van Bahrein – Derde vrije training",
-      "locatie": "Sepang International Circuit, Sepang",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-03T10:00:00+02:00",
-      "eind": "2026-10-03T11:00:00+02:00",
-      "titel": "🏁 GP van Bahrein – Kwalificatie",
-      "locatie": "Sepang International Circuit, Sepang",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-03T10:30:00+02:00",
-      "eind": "2026-10-03T13:00:00+02:00",
-      "titel": "ENGELEN 2 - DE MOLENWIEK 1",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-10-04T09:00:00+02:00",
       "eind": "2026-10-04T11:00:00+02:00",
@@ -32,27 +9,50 @@
       "locatie": "Sepang International Circuit, Sepang",
       "agenda": "F1 Kalender 2026",
       "hele_dag": false
+    },
+    {
+      "start": "2026-10-06T07:00:00+02:00",
+      "eind": "2026-10-06T17:11:00+02:00",
+      "titel": "Leerlingenraadcongres",
+      "locatie": "Omnisport Apeldoorn, Apeldoorn",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-10-06T22:00:00+02:00",
+      "eind": "2026-10-06T23:00:00+02:00",
+      "titel": "Baanreservering bij De Molenwiek",
+      "locatie": "De Molenwiek",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 3,
+    "ongelezen_aantal": 4,
     "items": [
       {
-        "van": "RocketGrip",
-        "onderwerp": "LIMITED TIME: Autumn Sale 🍂",
-        "tijd": "2026-10-03T04:30:04Z"
-      },
-      {
-        "van": "AboutYou Outlet",
-        "onderwerp": "Tot wel 70% korting op Pepe Jeans, Gebreide vesten & truien,...",
-        "tijd": "2026-10-03T04:10:21Z",
+        "van": "Plutosport",
+        "onderwerp": "ALLEEN VANDAAG NOG Adidas Essentials Sale",
+        "tijd": "2026-10-04T05:05:02Z",
         "belangrijk": true
       },
       {
-        "van": "Ring",
-        "onderwerp": "Cris, laatste kans voor tot 60% korting",
-        "tijd": "2026-10-03T04:08:21Z",
+        "van": "AboutYou Outlet",
+        "onderwerp": "Tot wel 70% korting op Je favoriete merken, G-STAR,...",
+        "tijd": "2026-10-04T04:01:12Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Tennis-Point",
+        "onderwerp": "🔥Sale! Tot -65% op meer dan 7.500 artikelen",
+        "tijd": "2026-10-03T23:59:43Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Premier Padel Rotterdam",
+        "onderwerp": "Morgen is de finale",
+        "tijd": "2026-10-03T20:21:37Z",
         "belangrijk": true
       }
     ]
