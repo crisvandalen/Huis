@@ -1,15 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-04T05:14:34Z",
+  "opgehaald_op": "2026-10-05T05:15:00Z",
   "agenda": [
-    {
-      "start": "2026-10-04T09:00:00+02:00",
-      "eind": "2026-10-04T11:00:00+02:00",
-      "titel": "🏁 GP van Bahrein – Race",
-      "locatie": "Sepang International Circuit, Sepang",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
     {
       "start": "2026-10-06T07:00:00+02:00",
       "eind": "2026-10-06T17:11:00+02:00",
@@ -29,30 +21,42 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 4,
+    "ongelezen_aantal": 6,
     "items": [
       {
-        "van": "Plutosport",
-        "onderwerp": "ALLEEN VANDAAG NOG Adidas Essentials Sale",
-        "tijd": "2026-10-04T05:05:02Z",
+        "van": "Google",
+        "onderwerp": "Beveiligingsmelding voor cris.anja.van.dalen@gmail.com",
+        "tijd": "2026-10-05T05:10:16Z",
+        "belangrijk": false
+      },
+      {
+        "van": "The AI Daily",
+        "onderwerp": "Copilot wijzigt nu zelf records in je HubSpot en Notion",
+        "tijd": "2026-10-05T05:00:39Z",
         "belangrijk": true
+      },
+      {
+        "van": "Foodie",
+        "onderwerp": "🦠 MEGA DEAL: 27% korting op Probiotica",
+        "tijd": "2026-10-05T05:00:00Z",
+        "belangrijk": false
+      },
+      {
+        "van": "RocketGrip",
+        "onderwerp": "The 3 Things Ruining Your One-Timer",
+        "tijd": "2026-10-05T04:45:05Z",
+        "belangrijk": false
       },
       {
         "van": "About You Outlet",
-        "onderwerp": "Tot wel 70% korting op Je favoriete merken, G-STAR,...",
-        "tijd": "2026-10-04T04:01:12Z",
+        "onderwerp": "Tot wel 75% korting op Functionele shirts voor jou, T-shirts met logo,...",
+        "tijd": "2026-10-05T04:08:46Z",
         "belangrijk": true
       },
       {
-        "van": "Tennis-Point",
-        "onderwerp": "🔥Sale! Tot -65% op meer dan 7.500 artikelen",
-        "tijd": "2026-10-03T23:59:43Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Premier Padel Rotterdam",
-        "onderwerp": "Morgen is de finale",
-        "tijd": "2026-10-03T20:21:37Z",
+        "van": "Holland & Barrett",
+        "onderwerp": "Psst Cris! 💚 Jouw 10% korting wacht nog...",
+        "tijd": "2026-10-04T23:02:41Z",
         "belangrijk": true
       }
     ]
