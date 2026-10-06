@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-05T05:16:00Z",
+  "opgehaald_op": "2026-10-06T05:07:08Z",
   "agenda": [
     {
       "start": "2026-10-06T07:00:00+02:00",
@@ -17,47 +17,43 @@
       "locatie": "De Molenwiek",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-10-08T22:00:00+02:00",
+      "eind": "2026-10-08T23:00:00+02:00",
+      "titel": "Baanreservering bij De Molenwiek",
+      "locatie": "De Molenwiek",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 6,
+    "ongelezen_aantal": 4,
     "items": [
       {
         "van": "The AI Daily",
-        "onderwerp": "Copilot wijzigt nu zelf records in je HubSpot en Notion",
-        "tijd": "2026-10-05T05:00:39Z",
+        "onderwerp": "Codex scant je code op lekken en schrijft zelf de fix: zo zet je het op",
+        "tijd": "2026-10-06T05:00:36Z",
         "belangrijk": true
       },
       {
-        "van": "Google",
-        "onderwerp": "Beveiligingsmelding voor cris.anja.van.dalen@gmail.com",
-        "tijd": "2026-10-05T05:10:16Z",
-        "belangrijk": false
-      },
-      {
-        "van": "Foodie",
-        "onderwerp": "🦠 MEGA DEAL: 27% korting op Probiotica",
-        "tijd": "2026-10-05T05:00:00Z",
-        "belangrijk": false
-      },
-      {
-        "van": "RocketGrip",
-        "onderwerp": "The 3 Things Ruining Your One-Timer",
-        "tijd": "2026-10-05T04:45:05Z",
-        "belangrijk": false
+        "van": "Google Agenda",
+        "onderwerp": "Melding: Leerlingenraadcongres op di 6 okt 2026 07:00 - 17:11 (CEST) (Gezin)",
+        "tijd": "2026-10-06T04:50:16Z",
+        "belangrijk": true
       },
       {
         "van": "About You Outlet",
-        "onderwerp": "Tot wel 75% korting op Functionele shirts voor jou, T-shirts met logo",
-        "tijd": "2026-10-05T04:08:46Z",
+        "onderwerp": "Tot wel 70% korting op Verborgen highlights, Color blocking,...",
+        "tijd": "2026-10-06T04:10:22Z",
         "belangrijk": true
       },
       {
-        "van": "Holland & Barrett",
-        "onderwerp": "Psst Cris! 💚 Jouw 10% korting wacht nog...",
-        "tijd": "2026-10-04T23:02:41Z",
-        "belangrijk": true
+        "van": "Amazon",
+        "onderwerp": "Prime Big Deal Days is here",
+        "tijd": "2026-10-06T00:09:20Z",
+        "belangrijk": false
       }
     ]
   }
