@@ -1,23 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-06T05:15:00Z",
+  "opgehaald_op": "2026-10-07T05:10:16Z",
   "agenda": [
-    {
-      "start": "2026-10-06T07:00:00+02:00",
-      "eind": "2026-10-06T17:11:00+02:00",
-      "titel": "Leerlingenraadcongres",
-      "locatie": "Omnisport Apeldoorn, Apeldoorn",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-06T22:00:00+02:00",
-      "eind": "2026-10-06T23:00:00+02:00",
-      "titel": "Baanreservering bij De Molenwiek",
-      "locatie": "De Molenwiek",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-10-08T22:00:00+02:00",
       "eind": "2026-10-08T23:00:00+02:00",
@@ -25,40 +9,38 @@
       "locatie": "De Molenwiek",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-10-09T11:30:00+02:00",
+      "eind": "2026-10-09T12:30:00+02:00",
+      "titel": "🏁 GP van Singapore – Eerste vrije training",
+      "locatie": "Marina Bay Street Circuit, Singapore",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-10-09T14:30:00+02:00",
+      "eind": "2026-10-09T15:30:00+02:00",
+      "titel": "🏁 GP van Singapore – Sprintkwalificatie",
+      "locatie": "Marina Bay Street Circuit, Singapore",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
     }
   ],
   "mail": {
-    "type": "recent",
-    "ongelezen_aantal": 0,
+    "type": "ongelezen",
+    "ongelezen_aantal": 2,
     "items": [
       {
-        "van": "Read AI",
-        "onderwerp": "Weekly Kickoff | Mon, September 28th - Sun, October 4th | Read AI",
-        "tijd": "2026-10-05T16:58:00Z",
+        "van": "The AI Daily",
+        "onderwerp": "Deze AI-assistenten app je gewoon, vanaf 8 dollar per maand",
+        "tijd": "2026-10-07T05:00:36Z",
         "belangrijk": true
       },
       {
-        "van": "Cambium College",
-        "onderwerp": "Nieuwsbrief 7 - week 40",
-        "tijd": "2026-10-02T12:20:01Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Just Padel",
-        "onderwerp": "Een verzending van bestelling #199295 is nu onderweg",
-        "tijd": "2026-10-02T12:02:20Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Just Padel",
-        "onderwerp": "Bestelling #199295 bevestigd",
-        "tijd": "2026-10-02T09:27:32Z",
-        "belangrijk": true
-      },
-      {
-        "van": "bol.com",
-        "onderwerp": "Je pakket is nu bij PostNL",
-        "tijd": "2026-10-01T08:54:07Z",
+        "van": "About You Outlet",
+        "onderwerp": "Tot wel 70% korting op Verborgen schatten, Populaire merken,...",
+        "tijd": "2026-10-07T04:10:31Z",
         "belangrijk": true
       }
     ]
