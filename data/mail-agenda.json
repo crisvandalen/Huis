@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-07T05:10:16Z",
+  "opgehaald_op": "2026-10-07T05:15:24Z",
   "agenda": [
     {
       "start": "2026-10-08T22:00:00+02:00",
@@ -29,8 +29,14 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "ongelezen_aantal": 3,
     "items": [
+      {
+        "van": "Enphase",
+        "onderwerp": "Maandelijks energierapport voor Cris van Dalen",
+        "tijd": "2026-10-07T05:11:53Z",
+        "belangrijk": true
+      },
       {
         "van": "The AI Daily",
         "onderwerp": "Deze AI-assistenten app je gewoon, vanaf 8 dollar per maand",
