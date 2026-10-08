@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-07T05:15:13Z",
+  "opgehaald_op": "2026-10-08T05:08:00Z",
   "agenda": [
     {
       "start": "2026-10-08T22:00:00+02:00",
@@ -25,28 +25,45 @@
       "locatie": "Marina Bay Street Circuit, Singapore",
       "agenda": "F1 Kalender 2026",
       "hele_dag": false
+    },
+    {
+      "start": "2026-10-10T00:00:00+02:00",
+      "eind": "2026-10-10T01:00:00+02:00",
+      "titel": "DE MOLENWIEK 1 - WAALRACKETS 1",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-10-10T11:00:00+02:00",
+      "eind": "2026-10-10T12:00:00+02:00",
+      "titel": "🏁 GP van Singapore – Sprintrace",
+      "locatie": "Marina Bay Street Circuit, Singapore",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-10-10T15:00:00+02:00",
+      "eind": "2026-10-10T16:00:00+02:00",
+      "titel": "🏁 GP van Singapore – Kwalificatie",
+      "locatie": "Marina Bay Street Circuit, Singapore",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 3,
+    "ongelezen_aantal": 2,
     "items": [
       {
-        "van": "Enphase",
-        "onderwerp": "Maandelijks energierapport voor Cris van Dalen",
-        "tijd": "2026-10-07T05:11:53Z",
-        "belangrijk": true
-      },
-      {
         "van": "The AI Daily",
-        "onderwerp": "Deze AI-assistenten app je gewoon, vanaf 8 dollar per maand",
-        "tijd": "2026-10-07T05:00:36Z",
+        "onderwerp": "Claude schrijft nu zelf de formules in je Google Sheets",
+        "tijd": "2026-10-08T05:00:36Z",
         "belangrijk": true
       },
       {
-        "van": "About You Outlet",
-        "onderwerp": "Tot wel 70% korting op Verborgen schatten, Populaire merken,...",
-        "tijd": "2026-10-07T04:10:31Z",
+        "van": "AboutYou Outlet",
+        "onderwerp": "Tot wel 70% korting op Onze favoriete items, Lyle & Scott,...",
+        "tijd": "2026-10-08T04:08:01Z",
         "belangrijk": true
       }
     ]
