@@ -1,15 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-08T05:15:01Z",
+  "opgehaald_op": "2026-10-09T05:12:00Z",
   "agenda": [
-    {
-      "start": "2026-10-08T22:00:00+02:00",
-      "eind": "2026-10-08T23:00:00+02:00",
-      "titel": "Baanreservering bij De Molenwiek",
-      "locatie": "De Molenwiek",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-10-09T11:30:00+02:00",
       "eind": "2026-10-09T12:30:00+02:00",
@@ -48,22 +40,36 @@
       "locatie": "Marina Bay Street Circuit, Singapore",
       "agenda": "F1 Kalender 2026",
       "hele_dag": false
+    },
+    {
+      "start": "2026-10-11T14:00:00+02:00",
+      "eind": "2026-10-11T16:00:00+02:00",
+      "titel": "🏁 GP van Singapore – Race",
+      "locatie": "Marina Bay Street Circuit, Singapore",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "ongelezen_aantal": 3,
     "items": [
       {
         "van": "The AI Daily",
-        "onderwerp": "Claude schrijft nu zelf de formules in je Google Sheets",
-        "tijd": "2026-10-08T05:00:36Z",
+        "onderwerp": "Google's gratis AI-check laat zien of een foto door AI is gemaakt",
+        "tijd": "2026-10-09T05:00:40Z",
         "belangrijk": true
       },
       {
         "van": "AboutYou Outlet",
-        "onderwerp": "Tot wel 70% korting op Onze favoriete items, Lyle & Scott,...",
-        "tijd": "2026-10-08T04:08:01Z",
+        "onderwerp": "Tot wel 70% korting op Onze favorieten voor jou, Sneaker-Special,...",
+        "tijd": "2026-10-09T04:10:07Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Apple",
+        "onderwerp": "Je factuur van Apple",
+        "tijd": "2026-10-08T21:51:08Z",
         "belangrijk": true
       }
     ]
