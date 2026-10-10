@@ -1,36 +1,20 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-09T05:15:09Z",
+  "opgehaald_op": "2026-10-10T05:06:56Z",
   "agenda": [
-    {
-      "start": "2026-10-09T11:30:00+02:00",
-      "eind": "2026-10-09T12:30:00+02:00",
-      "titel": "🏁 GP van Singapore – Eerste vrije training",
-      "locatie": "Marina Bay Street Circuit, Singapore",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-09T14:30:00+02:00",
-      "eind": "2026-10-09T15:30:00+02:00",
-      "titel": "🏁 GP van Singapore – Sprintkwalificatie",
-      "locatie": "Marina Bay Street Circuit, Singapore",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-10T00:00:00+02:00",
-      "eind": "2026-10-10T01:00:00+02:00",
-      "titel": "DE MOLENWIEK 1 - WAALRACKETS 1",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-10-10T11:00:00+02:00",
       "eind": "2026-10-10T12:00:00+02:00",
       "titel": "🏁 GP van Singapore – Sprintrace",
       "locatie": "Marina Bay Street Circuit, Singapore",
       "agenda": "F1 Kalender 2026",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-10-10T13:00:00+02:00",
+      "eind": "2026-10-10T14:00:00+02:00",
+      "titel": "DE MOLENWIEK 1 - WAALRACKETS 1",
+      "agenda": "Gezin",
       "hele_dag": false
     },
     {
@@ -52,24 +36,12 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 3,
+    "ongelezen_aantal": 1,
     "items": [
       {
-        "van": "The AI Daily",
-        "onderwerp": "Google's gratis AI-check laat zien of een foto door AI is gemaakt",
-        "tijd": "2026-10-09T05:00:40Z",
-        "belangrijk": true
-      },
-      {
         "van": "AboutYou Outlet",
-        "onderwerp": "Tot wel 70% korting op Onze favorieten voor jou, Sneaker-Special,...",
-        "tijd": "2026-10-09T04:10:07Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Apple",
-        "onderwerp": "Je factuur van Apple",
-        "tijd": "2026-10-08T21:51:08Z",
+        "onderwerp": "Tot wel 70% korting op Merkfavorieten, ALPHA INDUSTRIES,...",
+        "tijd": "2026-10-10T04:09:48Z",
         "belangrijk": true
       }
     ]
