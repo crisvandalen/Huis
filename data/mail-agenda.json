@@ -1,30 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-10T05:14:24Z",
+  "opgehaald_op": "2026-10-11T05:08:00Z",
   "agenda": [
-    {
-      "start": "2026-10-10T11:00:00+02:00",
-      "eind": "2026-10-10T12:00:00+02:00",
-      "titel": "🏁 GP van Singapore – Sprintrace",
-      "locatie": "Marina Bay Street Circuit, Singapore",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-10T13:00:00+02:00",
-      "eind": "2026-10-10T14:00:00+02:00",
-      "titel": "DE MOLENWIEK 1 - WAALRACKETS 1",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-10T15:00:00+02:00",
-      "eind": "2026-10-10T16:00:00+02:00",
-      "titel": "🏁 GP van Singapore – Kwalificatie",
-      "locatie": "Marina Bay Street Circuit, Singapore",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
     {
       "start": "2026-10-11T14:00:00+02:00",
       "eind": "2026-10-11T16:00:00+02:00",
@@ -32,16 +9,36 @@
       "locatie": "Marina Bay Street Circuit, Singapore",
       "agenda": "F1 Kalender 2026",
       "hele_dag": false
+    },
+    {
+      "start": "2026-10-13T15:00:00+02:00",
+      "eind": "2026-10-13T16:00:00+02:00",
+      "titel": "Adviesgesprek Kim",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-10-13T20:00:00+02:00",
+      "eind": "2026-10-13T21:00:00+02:00",
+      "titel": "De Molenwiek Nieuwe reservering",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 1,
+    "ongelezen_aantal": 2,
     "items": [
       {
         "van": "AboutYou Outlet",
-        "onderwerp": "Tot wel 70% korting op Merkfavorieten, ALPHA INDUSTRIES,...",
-        "tijd": "2026-10-10T04:09:48Z",
+        "onderwerp": "Tot wel 70% korting op Jassen & mantels, Onze lievelings items,...",
+        "tijd": "2026-10-11T04:08:09Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Tennis-Point",
+        "onderwerp": "🎾Tennisrackets onder €150: topkwaliteit voor de beste prijs",
+        "tijd": "2026-10-10T22:00:45Z",
         "belangrijk": true
       }
     ]
