@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-12T05:16:00Z",
+  "opgehaald_op": "2026-10-12T05:18:00Z",
   "agenda": [
     {
       "start": "2026-10-13T15:00:00+02:00",
@@ -25,31 +25,20 @@
     }
   ],
   "mail": {
-    "type": "ongelezen",
-    "ongelezen_aantal": 5,
+    "type": "recent",
+    "ongelezen_aantal": 0,
     "items": [
-      {
-        "van": "The AI Daily",
-        "onderwerp": "Ontwikkelaar bouwt zeven gratis Adobe-klonen met Claude",
-        "tijd": "2026-10-12T05:00:39Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Foodie",
-        "onderwerp": "GRATIS Magnesium & Ashwagandha deze week!",
-        "tijd": "2026-10-12T05:00:00Z"
-      },
-      {
-        "van": "RocketGrip",
-        "onderwerp": "Relaxed Wrist or Firm? You Need Both.",
-        "tijd": "2026-10-12T04:15:06Z"
-      },
-      {
-        "van": "Vinted",
-        "onderwerp": "Nieuw bericht over 2 x Nox Polo Shirt XL",
-        "tijd": "2026-10-12T04:10:22Z",
-        "belangrijk": true
-      }
+      { "van": "The AI Daily", "onderwerp": "Ontwikkelaar bouwt zeven gratis Adobe-klonen met Claude", "tijd": "2026-10-12T05:00:39Z", "belangrijk": true },
+      { "van": "Vinted", "onderwerp": "Nieuw bericht over 2 x Nox Polo Shirt XL", "tijd": "2026-10-12T04:10:24Z", "belangrijk": true },
+      { "van": "Vinted", "onderwerp": "Nieuw bod voor 2 x Nox Polo Shirt XL", "tijd": "2026-10-12T04:10:06Z", "belangrijk": true },
+      { "van": "Jimmy Joy", "onderwerp": "Bestelling EU777822 bevestigd", "tijd": "2026-10-11T17:31:44Z", "belangrijk": true },
+      { "van": "Tennisplanet", "onderwerp": "15% korting op jouw favoriete merken bij Tennisplanet!", "tijd": "2026-10-11T07:42:24Z", "belangrijk": true },
+      { "van": "Vinted", "onderwerp": "Je bon voor Head sudadera", "tijd": "2026-10-11T06:57:40Z", "belangrijk": true },
+      { "van": "Toernooi.nl", "onderwerp": "Inschrijfbevestiging Pals Masters Dagtoernooi HD7", "tijd": "2026-10-10T21:29:36Z", "belangrijk": true },
+      { "van": "The AI Report", "onderwerp": "3 eindscenario's poëtischer dan uitroeiing door AI", "tijd": "2026-10-10T09:03:01Z", "belangrijk": true },
+      { "van": "Tennis-Point", "onderwerp": "Cris, je artikel in de winkelwagen is goedkoper", "tijd": "2026-10-09T17:06:09Z", "belangrijk": true },
+      { "van": "Cambium College", "onderwerp": "Vrijwillige ouderbijdrage 2026-2027", "tijd": "2026-10-09T11:57:26Z", "belangrijk": true },
+      { "van": "KNLTB", "onderwerp": "Plan je bardienst voor 2027 in", "tijd": "2026-10-07T07:04:44Z", "belangrijk": true }
     ]
   }
 }
