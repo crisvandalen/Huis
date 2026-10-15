@@ -1,17 +1,17 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-14T05:15:30Z",
+  "opgehaald_op": "2026-10-15T05:10:00Z",
   "agenda": [
     {
-      "start": "2026-10-14T14:30:00+02:00",
-      "eind": "2026-10-14T15:30:00+02:00",
-      "titel": "Kim therapie",
+      "start": "2026-10-15T20:00:00+02:00",
+      "eind": "2026-10-15T21:00:00+02:00",
+      "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
     },
     {
-      "start": "2026-10-15T20:00:00+02:00",
-      "eind": "2026-10-15T21:00:00+02:00",
+      "start": "2026-10-17T09:00:00+02:00",
+      "eind": "2026-10-17T10:00:00+02:00",
       "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
@@ -23,27 +23,27 @@
     "items": [
       {
         "van": "The AI Daily",
-        "onderwerp": "Copilot kijkt mee in Excel en doet je rapportage daarna zelf",
-        "tijd": "2026-10-14T05:00:38Z",
+        "onderwerp": "Google lanceert Gemini 4 Argon, prijs verdubbelt na 30 november",
+        "tijd": "2026-10-15T05:00:40Z",
         "belangrijk": true
       },
       {
         "van": "AboutYou Outlet",
-        "onderwerp": "Tot wel 70% korting op ELLESSE, Populaire merken,...",
-        "tijd": "2026-10-14T04:10:32Z",
+        "onderwerp": "Tot wel 70% korting op Onze favoriete items, T-shirts voor jou,...",
+        "tijd": "2026-10-15T04:05:29Z",
         "belangrijk": true
       },
       {
-        "van": "Google One",
-        "onderwerp": "Aankomende wijzigingen in je Google AI Plus-abonnement",
-        "tijd": "2026-10-13T23:07:02Z",
+        "van": "Geldvoorelkaar.nl",
+        "onderwerp": "Bericht over uw verzamelbetaling - Geldvoorelkaar.nl",
+        "tijd": "2026-10-14T22:36:10Z",
         "belangrijk": true
       },
       {
-        "van": "bunq",
-        "onderwerp": "💰 Je rente gaat omhoog",
-        "tijd": "2026-10-13T21:16:14Z",
-        "belangrijk": true
+        "van": "Simply Wall St",
+        "onderwerp": "Weekly Picks: Why Planet Labs' crash might be a golden opportunity",
+        "tijd": "2026-10-14T22:33:40Z",
+        "belangrijk": false
       }
     ]
   }
