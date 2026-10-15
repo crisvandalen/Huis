@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-15T05:10:00Z",
+  "opgehaald_op": "2026-10-15T05:15:00Z",
   "agenda": [
     {
       "start": "2026-10-15T20:00:00+02:00",
@@ -18,32 +18,56 @@
     }
   ],
   "mail": {
-    "type": "ongelezen",
-    "ongelezen_aantal": 4,
+    "type": "recent",
+    "ongelezen_aantal": 0,
     "items": [
       {
+        "van": "Vinted",
+        "onderwerp": "Update over je bestelling 'Head sudadera'",
+        "tijd": "2026-10-14T15:28:53Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Turing Station",
+        "onderwerp": "#17 - Schelden op je AI-agent kan je straks je account kosten",
+        "tijd": "2026-10-14T11:59:54Z",
+        "belangrijk": true
+      },
+      {
+        "van": "De Molenwiek (KNLTB)",
+        "onderwerp": "De Molenwiek Nieuwe reservering",
+        "tijd": "2026-10-13T11:01:01Z",
+        "belangrijk": true
+      },
+      {
         "van": "The AI Daily",
-        "onderwerp": "Google lanceert Gemini 4 Argon, prijs verdubbelt na 30 november",
-        "tijd": "2026-10-15T05:00:40Z",
+        "onderwerp": "Ontwikkelaar bouwt zeven gratis Adobe-klonen met Claude",
+        "tijd": "2026-10-12T05:00:39Z",
         "belangrijk": true
       },
       {
-        "van": "AboutYou Outlet",
-        "onderwerp": "Tot wel 70% korting op Onze favoriete items, T-shirts voor jou,...",
-        "tijd": "2026-10-15T04:05:29Z",
+        "van": "Jimmy Joy",
+        "onderwerp": "Bestelling EU777822 bevestigd",
+        "tijd": "2026-10-11T17:31:44Z",
         "belangrijk": true
       },
       {
-        "van": "Geldvoorelkaar.nl",
-        "onderwerp": "Bericht over uw verzamelbetaling - Geldvoorelkaar.nl",
-        "tijd": "2026-10-14T22:36:10Z",
+        "van": "Tennisplanet",
+        "onderwerp": "15% korting op jouw favoriete merken bij Tennisplanet! 🎾",
+        "tijd": "2026-10-11T07:42:24Z",
         "belangrijk": true
       },
       {
-        "van": "Simply Wall St",
-        "onderwerp": "Weekly Picks: Why Planet Labs' crash might be a golden opportunity",
-        "tijd": "2026-10-14T22:33:40Z",
-        "belangrijk": false
+        "van": "Vinted",
+        "onderwerp": "Je bon voor Head sudadera",
+        "tijd": "2026-10-11T06:57:40Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Toernooi.nl",
+        "onderwerp": "Inschrijfbevestiging Pals Masters Dagtoernooi HD7",
+        "tijd": "2026-10-10T21:29:36Z",
+        "belangrijk": true
       }
     ]
   }
