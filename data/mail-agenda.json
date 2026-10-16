@@ -1,14 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-15T05:15:00Z",
+  "opgehaald_op": "2026-10-16T05:08:03Z",
   "agenda": [
-    {
-      "start": "2026-10-15T20:00:00+02:00",
-      "eind": "2026-10-15T21:00:00+02:00",
-      "titel": "De Molenwiek Nieuwe reservering",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-10-17T09:00:00+02:00",
       "eind": "2026-10-17T10:00:00+02:00",
@@ -18,55 +11,19 @@
     }
   ],
   "mail": {
-    "type": "recent",
-    "ongelezen_aantal": 0,
+    "type": "ongelezen",
+    "ongelezen_aantal": 2,
     "items": [
       {
-        "van": "Vinted",
-        "onderwerp": "Update over je bestelling 'Head sudadera'",
-        "tijd": "2026-10-14T15:28:53Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Turing Station",
-        "onderwerp": "#17 - Schelden op je AI-agent kan je straks je account kosten",
-        "tijd": "2026-10-14T11:59:54Z",
-        "belangrijk": true
-      },
-      {
-        "van": "KNLTB",
-        "onderwerp": "De Molenwiek Nieuwe reservering",
-        "tijd": "2026-10-13T11:01:01Z",
-        "belangrijk": true
-      },
-      {
         "van": "The AI Daily",
-        "onderwerp": "Ontwikkelaar bouwt zeven gratis Adobe-klonen met Claude",
-        "tijd": "2026-10-12T05:00:39Z",
+        "onderwerp": "Samsungs Now Nudge leest nu je scherm mee, ook in het Nederlands",
+        "tijd": "2026-10-16T05:00:41Z",
         "belangrijk": true
       },
       {
-        "van": "Jimmy Joy",
-        "onderwerp": "Bestelling EU777822 bevestigd",
-        "tijd": "2026-10-11T17:31:44Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Etrias",
-        "onderwerp": "15% korting op jouw favoriete merken bij Tennisplanet! 🎾",
-        "tijd": "2026-10-11T07:42:24Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Vinted",
-        "onderwerp": "Je bon voor Head sudadera",
-        "tijd": "2026-10-11T06:57:40Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Toernooi.nl",
-        "onderwerp": "Inschrijfbevestiging Pals Masters Dagtoernooi HD7",
-        "tijd": "2026-10-10T21:29:36Z",
+        "van": "About You Outlet",
+        "onderwerp": "Tot wel 70% korting op Onze favorieten voor jou, JACK & JONES,...",
+        "tijd": "2026-10-16T04:08:13Z",
         "belangrijk": true
       }
     ]
