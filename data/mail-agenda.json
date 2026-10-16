@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-16T05:08:03Z",
+  "opgehaald_op": "2026-10-16T05:14:00Z",
   "agenda": [
     {
       "start": "2026-10-17T09:00:00+02:00",
@@ -12,8 +12,14 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "ongelezen_aantal": 3,
     "items": [
+      {
+        "van": "AD",
+        "onderwerp": "We hebben een persoonlijk aanbod voor je",
+        "tijd": "2026-10-16T05:10:52Z",
+        "belangrijk": true
+      },
       {
         "van": "The AI Daily",
         "onderwerp": "Samsungs Now Nudge leest nu je scherm mee, ook in het Nederlands",
