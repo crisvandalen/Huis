@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-16T05:15:00Z",
+  "opgehaald_op": "2026-10-17T05:07:55Z",
   "agenda": [
     {
       "start": "2026-10-17T09:00:00+02:00",
@@ -12,24 +12,18 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 3,
+    "ongelezen_aantal": 2,
     "items": [
       {
-        "van": "AD",
-        "onderwerp": "We hebben een persoonlijk aanbod voor je",
-        "tijd": "2026-10-16T05:10:52Z",
+        "van": "AboutYou Outlet",
+        "onderwerp": "Tot wel 65% korting op Broeken-special, Merkfavorieten,...",
+        "tijd": "2026-10-17T04:09:04Z",
         "belangrijk": true
       },
       {
-        "van": "The AI Daily",
-        "onderwerp": "Samsungs Now Nudge leest nu je scherm mee, ook in het Nederlands",
-        "tijd": "2026-10-16T05:00:41Z",
-        "belangrijk": true
-      },
-      {
-        "van": "About You Outlet",
-        "onderwerp": "Tot wel 70% korting op Onze favorieten voor jou, JACK & JONES,...",
-        "tijd": "2026-10-16T04:08:13Z",
+        "van": "Composio",
+        "onderwerp": "composio instant",
+        "tijd": "2026-10-17T00:48:55Z",
         "belangrijk": true
       }
     ]
