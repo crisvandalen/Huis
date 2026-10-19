@@ -1,45 +1,35 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-18T05:10:32Z",
-  "agenda": [],
+  "opgehaald_op": "2026-10-19T05:04:11Z",
+  "agenda": [
+    {
+      "start": "2026-10-21T14:30:00+02:00",
+      "eind": "2026-10-21T15:30:00+02:00",
+      "titel": "Kim therapie",
+      "agenda": "Gezin",
+      "hele_dag": false
+    }
+  ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 6,
+    "ongelezen_aantal": 3,
     "items": [
       {
-        "van": "AboutYou Outlet",
-        "onderwerp": "Tot wel 70% korting op Hippe lage sneakers, Merkfavorieten,...",
-        "tijd": "2026-10-18T04:06:57Z",
+        "van": "The AI Daily",
+        "onderwerp": "AI-agent stuurt 187 berichten om treingeld terug te halen",
+        "tijd": "2026-10-19T05:00:40Z",
         "belangrijk": true
       },
       {
-        "van": "Tennis-Point",
-        "onderwerp": "⏳Waar wacht je nog op? Meer dan 80 Wilson-artikelen tot -70% afgeprijsd",
-        "tijd": "2026-10-18T01:59:57Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Simply Wall St",
-        "onderwerp": "Week 42: CLNX is up 7.2% this week and the market is up 1.6%",
-        "tijd": "2026-10-18T01:02:27Z",
+        "van": "Foodie",
+        "onderwerp": "25% korting op soepele gewrichten!",
+        "tijd": "2026-10-19T05:00:00Z",
         "belangrijk": false
       },
       {
-        "van": "Claude",
-        "onderwerp": "This week in Claude Code: updates to the desktop app, cloud sessions, and more",
-        "tijd": "2026-10-17T20:13:17Z",
-        "belangrijk": true
-      },
-      {
-        "van": "AD",
-        "onderwerp": "Demonstraties in Frankrijk en België lopen uit de hand | Maarten Spanjer ging fanatiek schrijven na operatie vanwege kanker",
-        "tijd": "2026-10-17T19:02:33Z",
-        "belangrijk": true
-      },
-      {
-        "van": "De Molenwiek",
-        "onderwerp": "De Molenwiek Nieuwe reservering",
-        "tijd": "2026-10-17T18:00:00Z",
+        "van": "AboutYou Outlet",
+        "onderwerp": "Tot wel 70% korting op Deals: wandeluitrusting, Hallo herfst: knitwear,...",
+        "tijd": "2026-10-19T04:09:47Z",
         "belangrijk": true
       }
     ]
