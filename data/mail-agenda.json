@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-19T05:10:50Z",
+  "opgehaald_op": "2026-10-20T05:02:38Z",
   "agenda": [
     {
       "start": "2026-10-21T14:30:00+02:00",
@@ -8,27 +8,77 @@
       "titel": "Kim therapie",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-10-22T20:00:00+02:00",
+      "eind": "2026-10-22T21:00:00+02:00",
+      "titel": "De Molenwiek Nieuwe reservering",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 3,
+    "ongelezen_aantal": 10,
     "items": [
       {
         "van": "The AI Daily",
-        "onderwerp": "AI-agent stuurt 187 berichten om treingeld terug te halen",
-        "tijd": "2026-10-19T05:00:40Z",
+        "onderwerp": "Vier Gemini-agents verslaan Minecraft na 605 keer doodgaan",
+        "tijd": "2026-10-20T05:00:41Z",
         "belangrijk": true
       },
       {
-        "van": "Foodie",
-        "onderwerp": "25% korting op soepele gewrichten!",
-        "tijd": "2026-10-19T05:00:00Z"
+        "van": "About You Outlet",
+        "onderwerp": "Tot wel 70% korting op Verborgen highlights, Klassieke favoriete merken,...",
+        "tijd": "2026-10-20T04:09:45Z",
+        "belangrijk": true
       },
       {
-        "van": "AboutYou Outlet",
-        "onderwerp": "Tot wel 70% korting op Deals: wandeluitrusting, Hallo herfst: knitwear,...",
-        "tijd": "2026-10-19T04:09:47Z",
+        "van": "Universal Music",
+        "onderwerp": "get 25% off select merch",
+        "tijd": "2026-10-19T21:49:14Z",
+        "belangrijk": false
+      },
+      {
+        "van": "SeeWillow",
+        "onderwerp": "Meet Wally, your new Scribe agent :)",
+        "tijd": "2026-10-19T20:40:27Z",
+        "belangrijk": true
+      },
+      {
+        "van": "SeeWillow",
+        "onderwerp": "Meet Wally, your new Scribe agent :)",
+        "tijd": "2026-10-19T20:30:06Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Netflix",
+        "onderwerp": "crisvandalen, hier zie je wat er binnenkort beschikbaar is op Netflix",
+        "tijd": "2026-10-19T19:24:45Z",
+        "belangrijk": false
+      },
+      {
+        "van": "AD.nl",
+        "onderwerp": "Rob Jetten en Nico Keenan krijgen een baby | Duidelijkheid rondom cyberincident moederbedrijf Albert Heijn",
+        "tijd": "2026-10-19T18:47:11Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Sport of Padel",
+        "onderwerp": "Every point starts with the right step: Discover Padel Shoes",
+        "tijd": "2026-10-19T18:04:09Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Vegavriend",
+        "onderwerp": "Innovatieve kattenbakvulling🐱!",
+        "tijd": "2026-10-19T18:01:44Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Only & Sons",
+        "onderwerp": "DE LAATSTE UURTJES: 20% KORTING OP KNITWEAR",
+        "tijd": "2026-10-19T18:01:25Z",
         "belangrijk": true
       }
     ]
