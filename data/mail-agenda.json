@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-20T05:11:00Z",
+  "opgehaald_op": "2026-10-21T05:02:42Z",
   "agenda": [
     {
       "start": "2026-10-21T14:30:00+02:00",
@@ -15,82 +15,65 @@
       "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-10-23T10:30:00+02:00",
+      "eind": "2026-10-23T11:00:00+02:00",
+      "titel": "Afspraak bij Adrie's Hairstyling",
+      "locatie": "Fiep Westendorpplein 8, Zaltbommel",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-10-23T13:40:00+02:00",
+      "eind": "2026-10-23T15:00:00+02:00",
+      "titel": "Bella trimmer",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-10-23T19:30:00+02:00",
+      "eind": "2026-10-23T20:30:00+02:00",
+      "titel": "🏁 GP van de Verenigde Staten – Eerste vrije training",
+      "locatie": "Circuit of the Americas, Austin",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-10-23T23:00:00+02:00",
+      "eind": "2026-10-24T00:00:00+02:00",
+      "titel": "🏁 GP van de Verenigde Staten – Tweede vrije training",
+      "locatie": "Circuit of the Americas, Austin",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
     }
   ],
   "mail": {
-    "type": "recent",
-    "ongelezen_aantal": 0,
+    "type": "ongelezen",
+    "ongelezen_aantal": 4,
     "items": [
       {
         "van": "The AI Daily",
-        "onderwerp": "Vier Gemini-agents verslaan Minecraft na 605 keer doodgaan",
-        "tijd": "2026-10-20T05:00:41Z",
+        "onderwerp": "Claude Code ruimt de reclame van je smart-tv op",
+        "tijd": "2026-10-21T05:00:39Z",
         "belangrijk": true
       },
       {
-        "van": "Adrie's Hairstyling",
-        "onderwerp": "🗓 Uw afspraak bij Adrie's Hairstyling",
-        "tijd": "2026-10-19T16:37:01Z",
+        "van": "ABOUT YOU Outlet",
+        "onderwerp": "Tot wel 65% korting op Verborgen schatten, Onze favoriete t-shirts,...",
+        "tijd": "2026-10-21T04:09:45Z",
         "belangrijk": true
       },
       {
-        "van": "The AI Report",
-        "onderwerp": "Jouw uitnodiging voor Agent Week: start 26 oktober",
-        "tijd": "2026-10-19T13:03:52Z",
+        "van": "OpenAI",
+        "onderwerp": "4 nieuwe afbeeldingsstijlen om uit te proberen",
+        "tijd": "2026-10-20T20:32:56Z",
         "belangrijk": true
       },
       {
-        "van": "Wat vindt NL",
-        "onderwerp": "Wat vindt NL - Uitnodiging",
-        "tijd": "2026-10-19T10:56:44Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Claude",
-        "onderwerp": "This week in Claude Code: updates to the desktop app, cloud sessions, and more",
-        "tijd": "2026-10-17T20:13:17Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Google Play",
-        "onderwerp": "De bevestiging van je Google Play-bestelling van 17 okt 2026",
-        "tijd": "2026-10-17T08:44:57Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Composio",
-        "onderwerp": "composio instant",
-        "tijd": "2026-10-17T00:48:55Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Wesport",
-        "onderwerp": "Kopie van WESPORT SAMPLE SALE – 23 & 24 OKTOBER!",
-        "tijd": "2026-10-16T15:04:14Z",
-        "belangrijk": true
-      },
-      {
-        "van": "The AI Daily",
-        "onderwerp": "Samsungs Now Nudge leest nu je scherm mee, ook in het Nederlands",
-        "tijd": "2026-10-16T05:00:41Z",
-        "belangrijk": true
-      },
-      {
-        "van": "KNLTB",
-        "onderwerp": "De Molenwiek Nieuwe reservering",
-        "tijd": "2026-10-15T18:00:00Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Anthropic",
-        "onderwerp": "$100 USD in API credits was added",
-        "tijd": "2026-10-15T11:47:22Z",
-        "belangrijk": false
-      },
-      {
-        "van": "JustPadel",
-        "onderwerp": "Bestelling #201552 bevestigd",
-        "tijd": "2026-10-15T11:14:48Z",
+        "van": "AD",
+        "onderwerp": "Man aangehouden voor dood Hajar in Amsterdam | Joling vertelde collega's pas afgelopen week over vertrek",
+        "tijd": "2026-10-20T20:23:17Z",
         "belangrijk": true
       }
     ]
