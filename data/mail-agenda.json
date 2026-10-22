@@ -1,14 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-21T05:11:35Z",
+  "opgehaald_op": "2026-10-22T05:02:39Z",
   "agenda": [
-    {
-      "start": "2026-10-21T14:30:00+02:00",
-      "eind": "2026-10-21T15:30:00+02:00",
-      "titel": "Kim therapie",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-10-22T20:00:00+02:00",
       "eind": "2026-10-22T21:00:00+02:00",
@@ -46,34 +39,74 @@
       "locatie": "Circuit of the Americas, Austin",
       "agenda": "F1 Kalender 2026",
       "hele_dag": false
+    },
+    {
+      "start": "2026-10-24T19:30:00+02:00",
+      "eind": "2026-10-24T20:30:00+02:00",
+      "titel": "🏁 GP van de Verenigde Staten – Derde vrije training",
+      "locatie": "Circuit of the Americas, Austin",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-10-24T23:00:00+02:00",
+      "eind": "2026-10-25T00:00:00+02:00",
+      "titel": "🏁 GP van de Verenigde Staten – Kwalificatie",
+      "locatie": "Circuit of the Americas, Austin",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 4,
+    "ongelezen_aantal": 8,
     "items": [
       {
         "van": "The AI Daily",
-        "onderwerp": "Claude Code ruimt de reclame van je smart-tv op",
-        "tijd": "2026-10-21T05:00:39Z",
+        "onderwerp": "ChatGPT vergrendelt losse gesprekken met pincode of Face ID",
+        "tijd": "2026-10-22T05:00:39Z",
         "belangrijk": true
       },
       {
         "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 65% korting op Verborgen schatten, Onze favoriete t-shirts,...",
-        "tijd": "2026-10-21T04:09:45Z",
+        "onderwerp": "Tot wel 70% korting op Onze favoriete items, Lyle & Scott,...",
+        "tijd": "2026-10-22T04:06:37Z",
         "belangrijk": true
       },
       {
-        "van": "OpenAI",
-        "onderwerp": "4 nieuwe afbeeldingsstijlen om uit te proberen",
-        "tijd": "2026-10-20T20:32:56Z",
+        "van": "Simply Wall St",
+        "onderwerp": "Weekly Picks: 🔐 Is Zscaler the security stock the AI era needs?",
+        "tijd": "2026-10-21T22:31:35Z",
+        "belangrijk": false
+      },
+      {
+        "van": "Holland & Barrett",
+        "onderwerp": "Dit is trending deze herfst 🍂",
+        "tijd": "2026-10-21T20:40:33Z",
         "belangrijk": true
       },
       {
-        "van": "AD",
-        "onderwerp": "Man aangehouden voor dood Hajar in Amsterdam | Joling vertelde collega's pas afgelopen week over vertrek",
-        "tijd": "2026-10-20T20:23:17Z",
+        "van": "bunq",
+        "onderwerp": "PHP vulnerability issues: fixed",
+        "tijd": "2026-10-21T18:28:17Z",
+        "belangrijk": true
+      },
+      {
+        "van": "KNLTB",
+        "onderwerp": "Speel ook nu toernooien en ga de baan op!",
+        "tijd": "2026-10-21T18:07:00Z",
+        "belangrijk": false
+      },
+      {
+        "van": "OrangeFit",
+        "onderwerp": "Er komt iets warms aan",
+        "tijd": "2026-10-21T18:00:10Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Tigre Padel",
+        "onderwerp": "Hoe lang speel je al op die grip? 🤔",
+        "tijd": "2026-10-21T17:31:04Z",
         "belangrijk": true
       }
     ]
