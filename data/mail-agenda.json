@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-22T05:02:39Z",
+  "opgehaald_op": "2026-10-22T05:06:03Z",
   "agenda": [
     {
       "start": "2026-10-22T20:00:00+02:00",
@@ -61,54 +61,14 @@
     "type": "ongelezen",
     "ongelezen_aantal": 8,
     "items": [
-      {
-        "van": "The AI Daily",
-        "onderwerp": "ChatGPT vergrendelt losse gesprekken met pincode of Face ID",
-        "tijd": "2026-10-22T05:00:39Z",
-        "belangrijk": true
-      },
-      {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 70% korting op Onze favoriete items, Lyle & Scott,...",
-        "tijd": "2026-10-22T04:06:37Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Simply Wall St",
-        "onderwerp": "Weekly Picks: 🔐 Is Zscaler the security stock the AI era needs?",
-        "tijd": "2026-10-21T22:31:35Z",
-        "belangrijk": false
-      },
-      {
-        "van": "Holland & Barrett",
-        "onderwerp": "Dit is trending deze herfst 🍂",
-        "tijd": "2026-10-21T20:40:33Z",
-        "belangrijk": true
-      },
-      {
-        "van": "bunq",
-        "onderwerp": "PHP vulnerability issues: fixed",
-        "tijd": "2026-10-21T18:28:17Z",
-        "belangrijk": true
-      },
-      {
-        "van": "KNLTB",
-        "onderwerp": "Speel ook nu toernooien en ga de baan op!",
-        "tijd": "2026-10-21T18:07:00Z",
-        "belangrijk": false
-      },
-      {
-        "van": "OrangeFit",
-        "onderwerp": "Er komt iets warms aan",
-        "tijd": "2026-10-21T18:00:10Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Tigre Padel",
-        "onderwerp": "Hoe lang speel je al op die grip? 🤔",
-        "tijd": "2026-10-21T17:31:04Z",
-        "belangrijk": true
-      }
+      { "van": "The AI Daily", "onderwerp": "ChatGPT vergrendelt losse gesprekken met pincode of Face ID", "tijd": "2026-10-22T05:00:39Z", "belangrijk": true },
+      { "van": "ABOUT YOU Outlet", "onderwerp": "Tot wel 70% korting op Onze favoriete items, Lyle & Scott,...", "tijd": "2026-10-22T04:06:37Z", "belangrijk": true },
+      { "van": "Simply Wall St", "onderwerp": "Weekly Picks: 🔐 Is Zscaler the security stock the AI era needs?", "tijd": "2026-10-21T22:31:35Z", "belangrijk": false },
+      { "van": "Holland & Barrett", "onderwerp": "Dit is trending deze herfst 🍂", "tijd": "2026-10-21T20:40:33Z", "belangrijk": true },
+      { "van": "bunq", "onderwerp": "PHP vulnerability issues: fixed", "tijd": "2026-10-21T18:28:17Z", "belangrijk": true },
+      { "van": "KNLTB", "onderwerp": "Speel ook nu toernooien en ga de baan op!", "tijd": "2026-10-21T18:07:00Z", "belangrijk": false },
+      { "van": "OrangeFit", "onderwerp": "Er komt iets warms aan", "tijd": "2026-10-21T18:00:10Z", "belangrijk": true },
+      { "van": "Tigre Padel", "onderwerp": "Hoe lang speel je al op die grip? 🤔", "tijd": "2026-10-21T17:31:04Z", "belangrijk": true }
     ]
   }
 }
