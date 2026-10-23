@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-23T05:04:03Z",
+  "opgehaald_op": "2026-10-23T05:04:35Z",
   "agenda": [
     {
       "start": "2026-10-23T10:30:00+02:00",
@@ -76,8 +76,18 @@
     "type": "ongelezen",
     "ongelezen_aantal": 2,
     "items": [
-      { "van": "The AI Daily", "onderwerp": "Spreek je voorstel in, Google Docs schrijft het meteen uit", "tijd": "2026-10-23T05:00:39Z", "belangrijk": true },
-      { "van": "ABOUT YOU Outlet", "onderwerp": "Tot wel 70% korting op Favorieten aller tijden, Populaire items,...", "tijd": "2026-10-23T04:06:36Z", "belangrijk": true }
+      {
+        "van": "The AI Daily",
+        "onderwerp": "Spreek je voorstel in, Google Docs schrijft het meteen uit",
+        "tijd": "2026-10-23T05:00:39Z",
+        "belangrijk": true
+      },
+      {
+        "van": "ABOUT YOU Outlet",
+        "onderwerp": "Tot wel 70% korting op Favorieten aller tijden, Populaire items,...",
+        "tijd": "2026-10-23T04:06:36Z",
+        "belangrijk": true
+      }
     ]
   }
 }
