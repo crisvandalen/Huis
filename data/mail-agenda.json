@@ -1,14 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-22T05:10:00Z",
+  "opgehaald_op": "2026-10-23T05:04:03Z",
   "agenda": [
-    {
-      "start": "2026-10-22T20:00:00+02:00",
-      "eind": "2026-10-22T21:00:00+02:00",
-      "titel": "De Molenwiek Nieuwe reservering",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-10-23T10:30:00+02:00",
       "eind": "2026-10-23T11:00:00+02:00",
@@ -41,6 +34,20 @@
       "hele_dag": false
     },
     {
+      "start": "2026-10-24T09:15:00+02:00",
+      "eind": "2026-10-24T10:15:00+02:00",
+      "titel": "Pals Dagtoernooi HD7",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-10-24T10:30:00+02:00",
+      "eind": "2026-10-24T11:30:00+02:00",
+      "titel": "Pals Dagtoernooi HD7",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
       "start": "2026-10-24T19:30:00+02:00",
       "eind": "2026-10-24T20:30:00+02:00",
       "titel": "🏁 GP van de Verenigde Staten – Derde vrije training",
@@ -55,20 +62,22 @@
       "locatie": "Circuit of the Americas, Austin",
       "agenda": "F1 Kalender 2026",
       "hele_dag": false
+    },
+    {
+      "start": "2026-10-25T21:00:00+01:00",
+      "eind": "2026-10-25T23:00:00+01:00",
+      "titel": "🏁 GP van de Verenigde Staten – Race",
+      "locatie": "Circuit of the Americas, Austin",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 8,
+    "ongelezen_aantal": 2,
     "items": [
-      { "van": "The AI Daily", "onderwerp": "ChatGPT vergrendelt losse gesprekken met pincode of Face ID", "tijd": "2026-10-22T05:00:39Z", "belangrijk": true },
-      { "van": "ABOUT YOU Outlet", "onderwerp": "Tot wel 70% korting op Onze favoriete items, Lyle & Scott,...", "tijd": "2026-10-22T04:06:37Z", "belangrijk": true },
-      { "van": "Simply Wall St", "onderwerp": "Weekly Picks: 🔐 Is Zscaler the security stock the AI era needs?", "tijd": "2026-10-21T22:31:35Z", "belangrijk": false },
-      { "van": "Holland & Barrett", "onderwerp": "Dit is trending deze herfst 🍂", "tijd": "2026-10-21T20:40:33Z", "belangrijk": true },
-      { "van": "bunq", "onderwerp": "PHP vulnerability issues: fixed", "tijd": "2026-10-21T18:28:17Z", "belangrijk": true },
-      { "van": "KNLTB", "onderwerp": "Speel ook nu toernooien en ga de baan op!", "tijd": "2026-10-21T18:07:00Z", "belangrijk": false },
-      { "van": "OrangeFit", "onderwerp": "Er komt iets warms aan", "tijd": "2026-10-21T18:00:10Z", "belangrijk": true },
-      { "van": "Tigre Padel", "onderwerp": "Hoe lang speel je al op die grip? 🤔", "tijd": "2026-10-21T17:31:04Z", "belangrijk": true }
+      { "van": "The AI Daily", "onderwerp": "Spreek je voorstel in, Google Docs schrijft het meteen uit", "tijd": "2026-10-23T05:00:39Z", "belangrijk": true },
+      { "van": "ABOUT YOU Outlet", "onderwerp": "Tot wel 70% korting op Favorieten aller tijden, Populaire items,...", "tijd": "2026-10-23T04:06:36Z", "belangrijk": true }
     ]
   }
 }
