@@ -1,38 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-23T05:10:29Z",
+  "opgehaald_op": "2026-10-24T05:03:00Z",
   "agenda": [
-    {
-      "start": "2026-10-23T10:30:00+02:00",
-      "eind": "2026-10-23T11:00:00+02:00",
-      "titel": "Afspraak bij Adrie's Hairstyling",
-      "locatie": "Fiep Westendorpplein 8, Zaltbommel",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-23T13:40:00+02:00",
-      "eind": "2026-10-23T15:00:00+02:00",
-      "titel": "Bella trimmer",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-23T19:30:00+02:00",
-      "eind": "2026-10-23T20:30:00+02:00",
-      "titel": "🏁 GP van de Verenigde Staten – Eerste vrije training",
-      "locatie": "Circuit of the Americas, Austin",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-23T23:00:00+02:00",
-      "eind": "2026-10-24T00:00:00+02:00",
-      "titel": "🏁 GP van de Verenigde Staten – Tweede vrije training",
-      "locatie": "Circuit of the Americas, Austin",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
     {
       "start": "2026-10-24T09:15:00+02:00",
       "eind": "2026-10-24T10:15:00+02:00",
@@ -77,16 +46,16 @@
     "ongelezen_aantal": 2,
     "items": [
       {
-        "van": "The AI Daily",
-        "onderwerp": "Spreek je voorstel in, Google Docs schrijft het meteen uit",
-        "tijd": "2026-10-23T05:00:39Z",
+        "van": "ABOUT YOU Outlet",
+        "onderwerp": "Tot wel 70% korting op VANS, Knus: Truien & Sweats,...",
+        "tijd": "2026-10-24T04:10:00Z",
         "belangrijk": true
       },
       {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 70% korting op Favorieten aller tijden, Populaire items,...",
-        "tijd": "2026-10-23T04:06:36Z",
-        "belangrijk": true
+        "van": "Medallia",
+        "onderwerp": "Your migration environment is now open",
+        "tijd": "2026-10-24T01:27:19Z",
+        "belangrijk": false
       }
     ]
   }
