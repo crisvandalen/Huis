@@ -1,37 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-24T05:09:37Z",
+  "opgehaald_op": "2026-10-25T06:03:00Z",
   "agenda": [
-    {
-      "start": "2026-10-24T09:15:00+02:00",
-      "eind": "2026-10-24T10:15:00+02:00",
-      "titel": "Pals Dagtoernooi HD7",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-24T10:30:00+02:00",
-      "eind": "2026-10-24T11:30:00+02:00",
-      "titel": "Pals Dagtoernooi HD7",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-24T19:30:00+02:00",
-      "eind": "2026-10-24T20:30:00+02:00",
-      "titel": "🏁 GP van de Verenigde Staten – Derde vrije training",
-      "locatie": "Circuit of the Americas, Austin",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-24T23:00:00+02:00",
-      "eind": "2026-10-25T00:00:00+02:00",
-      "titel": "🏁 GP van de Verenigde Staten – Kwalificatie",
-      "locatie": "Circuit of the Americas, Austin",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
     {
       "start": "2026-10-25T21:00:00+01:00",
       "eind": "2026-10-25T23:00:00+01:00",
@@ -43,19 +13,30 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "ongelezen_aantal": 4,
     "items": [
       {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 70% korting op VANS, Knus: Truien & Sweats,...",
-        "tijd": "2026-10-24T04:10:00Z",
+        "van": "PayPal",
+        "onderwerp": "Ontvangstbewijs voor uw betaling aan Apple Services",
+        "tijd": "2026-10-25T05:58:13Z"
+      },
+      {
+        "van": "OpenAI",
+        "onderwerp": "Vertaal alles op jouw manier",
+        "tijd": "2026-10-25T05:22:20Z",
         "belangrijk": true
       },
       {
-        "van": "Medallia",
-        "onderwerp": "Your migration environment is now open",
-        "tijd": "2026-10-24T01:27:19Z",
-        "belangrijk": false
+        "van": "ABOUT YOU Outlet",
+        "onderwerp": "Tot wel 70% korting op Onze lievelings items, Jassen & mantels,...",
+        "tijd": "2026-10-25T05:06:26Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Google",
+        "onderwerp": "Kim is ingelogd op een nieuw apparaat",
+        "tijd": "2026-10-24T22:02:53Z",
+        "belangrijk": true
       }
     ]
   }
