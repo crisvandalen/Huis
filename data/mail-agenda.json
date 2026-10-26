@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-26T06:06:03Z",
+  "opgehaald_op": "2026-10-26T06:07:00Z",
   "agenda": [
     {
       "start": "2026-10-27T20:30:00+01:00",
@@ -20,7 +20,7 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 5,
+    "ongelezen_aantal": 4,
     "items": [
       {
         "van": "The AI Daily",
@@ -44,12 +44,6 @@
         "van": "PayPal",
         "onderwerp": "Ontvangstbewijs voor uw betaling aan Microsoft Payments",
         "tijd": "2026-10-26T02:09:50Z"
-      },
-      {
-        "van": "Tigre Padel",
-        "onderwerp": "We hebben iets voor je achtergelaten 🎁",
-        "tijd": "2026-10-25T22:21:47Z",
-        "belangrijk": true
       }
     ]
   }
