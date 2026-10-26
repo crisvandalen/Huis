@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-26T06:07:00Z",
+  "opgehaald_op": "2026-10-26T06:19:00Z",
   "agenda": [
     {
       "start": "2026-10-27T20:30:00+01:00",
@@ -19,8 +19,8 @@
     }
   ],
   "mail": {
-    "type": "ongelezen",
-    "ongelezen_aantal": 4,
+    "type": "recent",
+    "ongelezen_aantal": 0,
     "items": [
       {
         "van": "The AI Daily",
@@ -29,21 +29,40 @@
         "belangrijk": true
       },
       {
-        "van": "Foodie",
-        "onderwerp": "MEGA ACTIE: 1+1 / 3+2 / 6+3 GRATIS Ultimate Detox",
-        "tijd": "2026-10-26T06:00:00Z",
+        "van": "Tigre Padel",
+        "onderwerp": "We hebben iets voor je achtergelaten 🎁",
+        "tijd": "2026-10-25T22:21:47Z",
         "belangrijk": true
       },
       {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 75% korting op Stijlen in resterende maten, Tijdloze herenmode,...",
-        "tijd": "2026-10-26T05:06:45Z",
+        "van": "AD.nl",
+        "onderwerp": "Beekse Bergen: kans op herstel aangevallen panterverzorger is 'heel klein' | Jan Smit biedt excuses aan",
+        "tijd": "2026-10-25T19:22:50Z",
         "belangrijk": true
       },
       {
-        "van": "PayPal",
-        "onderwerp": "Ontvangstbewijs voor uw betaling aan Microsoft Payments",
-        "tijd": "2026-10-26T02:09:50Z"
+        "van": "Tigre Padel",
+        "onderwerp": "Aanvaller of allrounder?",
+        "tijd": "2026-10-25T18:45:23Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Tennis-Point",
+        "onderwerp": "Griezelig goede prijzen: 15% extra korting",
+        "tijd": "2026-10-25T10:59:54Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Ziggo Sport",
+        "onderwerp": "Alle ogen op El Clasico!",
+        "tijd": "2026-10-25T09:21:28Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Herman Meerlo (Athom)",
+        "onderwerp": "Action requested: update homey-api to bind Homey sign-in tokens (v3.21.0)",
+        "tijd": "2026-10-22T14:57:58Z",
+        "belangrijk": true
       }
     ]
   }
