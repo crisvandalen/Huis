@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-26T06:19:00Z",
+  "opgehaald_op": "2026-10-27T06:03:19Z",
   "agenda": [
     {
       "start": "2026-10-27T20:30:00+01:00",
@@ -16,52 +16,29 @@
       "titel": "Kim therapie",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-10-29T20:00:00+01:00",
+      "eind": "2026-10-29T21:00:00+01:00",
+      "titel": "De Molenwiek Nieuwe reservering",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
-    "type": "recent",
-    "ongelezen_aantal": 0,
+    "type": "ongelezen",
+    "ongelezen_aantal": 2,
     "items": [
       {
         "van": "The AI Daily",
-        "onderwerp": "1Password laat je AI-agent inloggen zonder dat hij je wachtwoord ziet",
-        "tijd": "2026-10-26T06:00:41Z",
+        "onderwerp": "Een OpenAI-model glipte het internet op: training gaat nu offline verder",
+        "tijd": "2026-10-27T06:00:39Z",
         "belangrijk": true
       },
       {
-        "van": "Tigre Padel",
-        "onderwerp": "We hebben iets voor je achtergelaten 🎁",
-        "tijd": "2026-10-25T22:21:47Z",
-        "belangrijk": true
-      },
-      {
-        "van": "AD.nl",
-        "onderwerp": "Beekse Bergen: kans op herstel aangevallen panterverzorger is 'heel klein' | Jan Smit biedt excuses aan",
-        "tijd": "2026-10-25T19:22:50Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Tigre Padel",
-        "onderwerp": "Aanvaller of allrounder?",
-        "tijd": "2026-10-25T18:45:23Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Tennis-Point",
-        "onderwerp": "Griezelig goede prijzen: 15% extra korting",
-        "tijd": "2026-10-25T10:59:54Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Ziggo Sport",
-        "onderwerp": "Alle ogen op El Clasico!",
-        "tijd": "2026-10-25T09:21:28Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Herman Meerlo (Athom)",
-        "onderwerp": "Action requested: update homey-api to bind Homey sign-in tokens (v3.21.0)",
-        "tijd": "2026-10-22T14:57:58Z",
+        "van": "AboutYou Outlet",
+        "onderwerp": "Tot wel 75% korting op Verborgen highlights, SCOTCH & SODA,...",
+        "tijd": "2026-10-27T05:07:10Z",
         "belangrijk": true
       }
     ]
