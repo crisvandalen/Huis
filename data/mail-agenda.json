@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-27T06:06:21Z",
+  "opgehaald_op": "2026-10-27T06:21:46Z",
   "agenda": [
     {
       "start": "2026-10-27T20:30:00+01:00",
@@ -26,8 +26,8 @@
     }
   ],
   "mail": {
-    "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "type": "recent",
+    "ongelezen_aantal": 0,
     "items": [
       {
         "van": "The AI Daily",
@@ -36,9 +36,45 @@
         "belangrijk": true
       },
       {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 75% korting op Verborgen highlights, SCOTCH & SODA,...",
-        "tijd": "2026-10-27T05:07:10Z",
+        "van": "Padelshop",
+        "onderwerp": "Black Friday wordt een maand. Jij begint 2 dagen eerder 🥳",
+        "tijd": "2026-10-26T16:34:01Z",
+        "belangrijk": true
+      },
+      {
+        "van": "The AI Report",
+        "onderwerp": "Agent Week is begonnen: je kunt aan de slag",
+        "tijd": "2026-10-26T10:40:06Z",
+        "belangrijk": true
+      },
+      {
+        "van": "KNLTB",
+        "onderwerp": "De Molenwiek Reservering gewijzigd",
+        "tijd": "2026-10-26T08:41:58Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Toernooi.nl",
+        "onderwerp": "Wedstrijd gepland - Het Winkelse Winter Tennis&Padel Toernooi 2026",
+        "tijd": "2026-10-26T08:22:58Z",
+        "belangrijk": true
+      },
+      {
+        "van": "The AI Daily",
+        "onderwerp": "1Password laat je AI-agent inloggen zonder dat hij je wachtwoord ziet",
+        "tijd": "2026-10-26T06:00:41Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Tigre Padel",
+        "onderwerp": "We hebben iets voor je achtergelaten 🎁",
+        "tijd": "2026-10-25T22:21:47Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Herman Meerlo (Athom)",
+        "onderwerp": "Action requested: update homey-api to bind Homey sign-in tokens (v3.21.0)",
+        "tijd": "2026-10-22T14:57:58Z",
         "belangrijk": true
       }
     ]
