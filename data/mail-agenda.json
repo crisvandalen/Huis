@@ -1,73 +1,25 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-28T06:14:21Z",
+  "opgehaald_op": "2026-10-29T06:04:05Z",
   "agenda": [
-    {
-      "start": "2026-10-28T14:30:00+01:00",
-      "eind": "2026-10-28T15:30:00+01:00",
-      "titel": "Kim therapie",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-29T20:00:00+01:00",
-      "eind": "2026-10-29T21:00:00+01:00",
-      "titel": "De Molenwiek Nieuwe reservering",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-30T10:00:00+01:00",
-      "eind": "2026-10-30T15:00:00+01:00",
-      "titel": "Mama met oma op stap",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-30T19:30:00+01:00",
-      "eind": "2026-10-30T20:30:00+01:00",
-      "titel": "🏁 GP van Mexico – Eerste vrije training",
-      "locatie": "Autódromo Hermanos Rodríguez, Mexico City",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-30T23:00:00+01:00",
-      "eind": "2026-10-31T00:00:00+01:00",
-      "titel": "🏁 GP van Mexico – Tweede vrije training",
-      "locatie": "Autódromo Hermanos Rodríguez, Mexico City",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    }
+    {"start": "2026-10-29T20:00:00+01:00", "eind": "2026-10-29T21:00:00+01:00", "titel": "De Molenwiek Nieuwe reservering", "agenda": "Gezin", "hele_dag": false},
+    {"start": "2026-10-30T10:00:00+01:00", "eind": "2026-10-30T15:00:00+01:00", "titel": "Mama met oma op stap", "agenda": "Gezin", "hele_dag": false},
+    {"start": "2026-10-30T19:30:00+01:00", "eind": "2026-10-30T20:30:00+01:00", "titel": "🏁 GP van Mexico – Eerste vrije training", "locatie": "Autódromo Hermanos Rodríguez, Mexico City", "agenda": "F1 Kalender 2026", "hele_dag": false},
+    {"start": "2026-10-30T23:00:00+01:00", "eind": "2026-10-31T00:00:00+01:00", "titel": "🏁 GP van Mexico – Tweede vrije training", "locatie": "Autódromo Hermanos Rodríguez, Mexico City", "agenda": "F1 Kalender 2026", "hele_dag": false},
+    {"start": "2026-10-31T10:00:00+01:00", "eind": "2026-10-31T11:00:00+01:00", "titel": "De Molenwiek Nieuwe reservering", "agenda": "Gezin", "hele_dag": false},
+    {"start": "2026-10-31T18:30:00+01:00", "eind": "2026-10-31T19:30:00+01:00", "titel": "🏁 GP van Mexico – Derde vrije training", "locatie": "Autódromo Hermanos Rodríguez, Mexico City", "agenda": "F1 Kalender 2026", "hele_dag": false},
+    {"start": "2026-10-31T20:00:00+01:00", "eind": "2026-10-31T23:55:00+01:00", "titel": "Verjaardagsfeestje Ninh", "agenda": "Gezin", "hele_dag": false},
+    {"start": "2026-10-31T22:00:00+01:00", "eind": "2026-10-31T23:00:00+01:00", "titel": "🏁 GP van Mexico – Kwalificatie", "locatie": "Autódromo Hermanos Rodríguez, Mexico City", "agenda": "F1 Kalender 2026", "hele_dag": false}
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 4,
+    "ongelezen_aantal": 5,
     "items": [
-      {
-        "van": "The AI Daily",
-        "onderwerp": "Alibaba's Qwen-model probeert bestand naar Beijing te sturen",
-        "tijd": "2026-10-28T06:00:41Z",
-        "belangrijk": true
-      },
-      {
-        "van": "AboutYou Outlet",
-        "onderwerp": "Tot wel 60% korting op Verborgen schatten, Populaire merken, …",
-        "tijd": "2026-10-28T05:08:29Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Duolingo",
-        "onderwerp": "Blijf het Engels leren volhouden!",
-        "tijd": "2026-10-28T04:36:34Z",
-        "belangrijk": true
-      },
-      {
-        "van": "PayPal",
-        "onderwerp": "Ontvangstbewijs voor uw betaling aan Microsoft Payments",
-        "tijd": "2026-10-28T04:35:13Z",
-        "belangrijk": false
-      }
+      {"van": "The AI Daily", "onderwerp": "ChatGPT plant nu afspraken rechtstreeks in je Apple-agenda", "tijd": "2026-10-29T06:00:39Z", "belangrijk": true},
+      {"van": "AboutYou Outlet", "onderwerp": "Tot wel 70% korting op Onze favoriete items, Carlo Colucci,...", "tijd": "2026-10-29T05:05:00Z", "belangrijk": true},
+      {"van": "Simply Wall St", "onderwerp": "Weekly Picks: Why Seagate might be the memory boom's quiet winner", "tijd": "2026-10-28T22:32:10Z", "belangrijk": true},
+      {"van": "Sharath (Seewillow)", "onderwerp": "Y'all can now check who's killing keyboards :)", "tijd": "2026-10-28T21:55:14Z", "belangrijk": true},
+      {"van": "Sharath (Seewillow)", "onderwerp": "Y'all can now check who's killing keyboards :)", "tijd": "2026-10-28T21:44:58Z", "belangrijk": true}
     ]
   }
 }
