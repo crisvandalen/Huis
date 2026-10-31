@@ -1,30 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-30T06:14:04Z",
+  "opgehaald_op": "2026-10-31T06:03:42Z",
   "agenda": [
-    {
-      "start": "2026-10-30T10:00:00+01:00",
-      "eind": "2026-10-30T15:00:00+01:00",
-      "titel": "Mama met oma op stap",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-30T19:30:00+01:00",
-      "eind": "2026-10-30T20:30:00+01:00",
-      "titel": "🏁 GP van Mexico – Eerste vrije training",
-      "locatie": "Autódromo Hermanos Rodríguez, Mexico City",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-30T23:00:00+01:00",
-      "eind": "2026-10-31T00:00:00+01:00",
-      "titel": "🏁 GP van Mexico – Tweede vrije training",
-      "locatie": "Autódromo Hermanos Rodríguez, Mexico City",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
     {
       "start": "2026-10-31T10:00:00+01:00",
       "eind": "2026-10-31T11:00:00+01:00",
@@ -62,6 +39,13 @@
       "locatie": "Autódromo Hermanos Rodríguez, Mexico City",
       "agenda": "F1 Kalender 2026",
       "hele_dag": false
+    },
+    {
+      "start": "2026-11-02T20:30:00+01:00",
+      "eind": "2026-11-02T21:30:00+01:00",
+      "titel": "De Molenwiek Reservering gewijzigd",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
@@ -69,15 +53,15 @@
     "ongelezen_aantal": 2,
     "items": [
       {
-        "van": "The AI Daily",
-        "onderwerp": "Gemini vult 3.000 cellen in je Sheet en zet de bron erbij",
-        "tijd": "2026-10-30T06:00:39Z",
+        "van": "Foodie",
+        "onderwerp": "1+1 gratis Halloween Deals",
+        "tijd": "2026-10-31T06:00:00Z",
         "belangrijk": true
       },
       {
         "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 75% korting op Favorieten aller tijden, NAPAPIJRI,...",
-        "tijd": "2026-10-30T05:04:51Z",
+        "onderwerp": "Tot wel 70% korting op G-STAR, No Excess,...",
+        "tijd": "2026-10-31T05:07:12Z",
         "belangrijk": true
       }
     ]
