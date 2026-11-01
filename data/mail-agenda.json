@@ -1,37 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-10-31T06:11:00Z",
+  "opgehaald_op": "2026-11-01T06:03:34Z",
   "agenda": [
-    {
-      "start": "2026-10-31T10:00:00+01:00",
-      "eind": "2026-10-31T11:00:00+01:00",
-      "titel": "De Molenwiek Nieuwe reservering",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-31T18:30:00+01:00",
-      "eind": "2026-10-31T19:30:00+01:00",
-      "titel": "🏁 GP van Mexico – Derde vrije training",
-      "locatie": "Autódromo Hermanos Rodríguez, Mexico City",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-31T20:00:00+01:00",
-      "eind": "2026-10-31T23:55:00+01:00",
-      "titel": "Verjaardagsfeestje Ninh",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-10-31T22:00:00+01:00",
-      "eind": "2026-10-31T23:00:00+01:00",
-      "titel": "🏁 GP van Mexico – Kwalificatie",
-      "locatie": "Autódromo Hermanos Rodríguez, Mexico City",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
     {
       "start": "2026-11-01T21:00:00+01:00",
       "eind": "2026-11-01T23:00:00+01:00",
@@ -46,22 +16,24 @@
       "titel": "De Molenwiek Reservering gewijzigd",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-11-03T20:30:00+01:00",
+      "eind": "2026-11-03T21:30:00+01:00",
+      "titel": "Padel les De Molenwiek (Youri Meijer)",
+      "locatie": "TV De Molenwiek, Brakel",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "ongelezen_aantal": 1,
     "items": [
       {
-        "van": "Foodie",
-        "onderwerp": "1+1 gratis Halloween Deals",
-        "tijd": "2026-10-31T06:00:00Z",
-        "belangrijk": true
-      },
-      {
         "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 70% korting op G-STAR, No Excess,...",
-        "tijd": "2026-10-31T05:07:12Z",
+        "onderwerp": "Tot wel 70% korting op Karl Lagerfeld + Karl Lagerfeld Jeans, JACK & JONES,...",
+        "tijd": "2026-11-01T05:01:40Z",
         "belangrijk": true
       }
     ]
