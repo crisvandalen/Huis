@@ -1,15 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-11-01T06:10:00Z",
+  "opgehaald_op": "2026-11-02T06:16:44Z",
   "agenda": [
-    {
-      "start": "2026-11-01T21:00:00+01:00",
-      "eind": "2026-11-01T23:00:00+01:00",
-      "titel": "🏁 GP van Mexico – Race",
-      "locatie": "Autódromo Hermanos Rodríguez, Mexico City",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
     {
       "start": "2026-11-02T20:30:00+01:00",
       "eind": "2026-11-02T21:30:00+01:00",
@@ -24,6 +16,20 @@
       "locatie": "TV De Molenwiek, Brakel",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-11-04T14:30:00+01:00",
+      "eind": "2026-11-04T15:30:00+01:00",
+      "titel": "Kim therapie",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-11-04T20:00:00+01:00",
+      "eind": "2026-11-04T21:00:00+01:00",
+      "titel": "De Molenwiek Nieuwe reservering",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
@@ -31,9 +37,9 @@
     "ongelezen_aantal": 1,
     "items": [
       {
-        "van": "ABOUT YOU Outlet",
-        "onderwerp": "Tot wel 70% korting op Karl Lagerfeld + Karl Lagerfeld Jeans, JACK & JONES,...",
-        "tijd": "2026-11-01T05:01:40Z",
+        "van": "Vinted",
+        "onderwerp": "Nieuw bod voor Head extreme motion 2026",
+        "tijd": "2026-11-01T23:29:01Z",
         "belangrijk": true
       }
     ]
