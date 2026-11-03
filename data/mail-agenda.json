@@ -1,14 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-11-02T06:16:44Z",
+  "opgehaald_op": "2026-11-03T06:10:00Z",
   "agenda": [
-    {
-      "start": "2026-11-02T20:30:00+01:00",
-      "eind": "2026-11-02T21:30:00+01:00",
-      "titel": "De Molenwiek Reservering gewijzigd",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-11-03T20:30:00+01:00",
       "eind": "2026-11-03T21:30:00+01:00",
@@ -30,16 +23,36 @@
       "titel": "De Molenwiek Nieuwe reservering",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-11-05T20:00:00+01:00",
+      "eind": "2026-11-05T21:00:00+01:00",
+      "titel": "Het Winkelse Winter Tennis&Padel Toernooi 2026",
+      "locatie": "De Winkels Baan 1B",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 1,
+    "ongelezen_aantal": 3,
     "items": [
       {
-        "van": "Vinted",
-        "onderwerp": "Nieuw bod voor Head extreme motion 2026",
-        "tijd": "2026-11-01T23:29:01Z",
+        "van": "The AI Daily",
+        "onderwerp": "Ontwikkelaars bouwen met Claude een gratis Photoshop-kloon",
+        "tijd": "2026-11-03T06:00:34Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Simply Wall St",
+        "onderwerp": "Is your portfolio overvalued?",
+        "tijd": "2026-11-03T05:06:34Z",
+        "belangrijk": true
+      },
+      {
+        "van": "ABOUT YOU OUTLET",
+        "onderwerp": "Tot wel 75% korting op Verborgen highlights, SELECTED,...",
+        "tijd": "2026-11-03T05:06:46Z",
         "belangrijk": true
       }
     ]
