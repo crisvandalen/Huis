@@ -1,21 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-11-04T06:11:00Z",
+  "opgehaald_op": "2026-11-05T06:12:00Z",
   "agenda": [
-    {
-      "start": "2026-11-04T14:30:00+01:00",
-      "eind": "2026-11-04T15:30:00+01:00",
-      "titel": "Kim therapie",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-11-04T20:00:00+01:00",
-      "eind": "2026-11-04T21:00:00+01:00",
-      "titel": "De Molenwiek Nieuwe reservering",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-11-05T20:00:00+01:00",
       "eind": "2026-11-05T21:00:00+01:00",
@@ -39,46 +25,53 @@
       "locatie": "Autódromo José Carlos Pace, São Paulo",
       "agenda": "F1 Kalender 2026",
       "hele_dag": false
+    },
+    {
+      "start": "2026-11-07T13:15:00+01:00",
+      "eind": "2026-11-07T14:00:00+01:00",
+      "titel": "Avans",
+      "locatie": "Onderwijsboulevard 300",
+      "agenda": "Gezin",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-11-07T15:30:00+01:00",
+      "eind": "2026-11-07T16:30:00+01:00",
+      "titel": "🏁 GP van São Paulo – Derde vrije training",
+      "locatie": "Autódromo José Carlos Pace, São Paulo",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-11-07T19:00:00+01:00",
+      "eind": "2026-11-07T20:00:00+01:00",
+      "titel": "🏁 GP van São Paulo – Kwalificatie",
+      "locatie": "Autódromo José Carlos Pace, São Paulo",
+      "agenda": "F1 Kalender 2026",
+      "hele_dag": false
+    },
+    {
+      "start": "2026-11-07T20:30:00+01:00",
+      "eind": "2026-11-07T23:30:00+01:00",
+      "titel": "Koffie bij JW en Jenet",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 6,
+    "ongelezen_aantal": 2,
     "items": [
       {
-        "van": "TheAIDaily",
-        "onderwerp": "Google Vids maakt van je eigen foto een pratende videopresentator",
-        "tijd": "2026-11-04T06:00:34Z",
+        "van": "The AI Daily",
+        "onderwerp": "Upload een foto in Google Vids en krijg een pratende AI-presentator",
+        "tijd": "2026-11-05T06:00:35Z",
         "belangrijk": true
       },
       {
-        "van": "Apple",
-        "onderwerp": "Je abonnement wordt verlengd",
-        "tijd": "2026-11-04T06:00:07Z",
-        "belangrijk": true
-      },
-      {
-        "van": "ABOUT YOU OUTLET",
-        "onderwerp": "Tot wel 65% korting op GAP, Verborgen schatten,...",
-        "tijd": "2026-11-04T05:05:27Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Composio",
-        "onderwerp": "From Composio: a firewall for your agents",
-        "tijd": "2026-11-04T03:54:32Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Tuya Smart",
-        "onderwerp": "[Tuya Smart] Updates to Tuya Development Platform",
-        "tijd": "2026-11-04T02:31:50Z",
-        "belangrijk": true
-      },
-      {
-        "van": "DHL eCommerce",
-        "onderwerp": "Woensdag komen we bij je langs (JVGL06421333000780422771)",
-        "tijd": "2026-11-03T23:17:38Z",
+        "van": "Claude Team",
+        "onderwerp": "Your guide to Claude Managed Agents",
+        "tijd": "2026-11-05T02:48:18Z",
         "belangrijk": true
       }
     ]
