@@ -1,23 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-11-06T06:11:00Z",
+  "opgehaald_op": "2026-11-07T06:09:06Z",
   "agenda": [
-    {
-      "start": "2026-11-06T16:30:00+01:00",
-      "eind": "2026-11-06T17:30:00+01:00",
-      "titel": "🏁 GP van São Paulo – Eerste vrije training",
-      "locatie": "Autódromo José Carlos Pace, São Paulo",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-11-06T20:00:00+01:00",
-      "eind": "2026-11-06T21:00:00+01:00",
-      "titel": "🏁 GP van São Paulo – Tweede vrije training",
-      "locatie": "Autódromo José Carlos Pace, São Paulo",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
     {
       "start": "2026-11-07T13:15:00+01:00",
       "eind": "2026-11-07T14:00:00+01:00",
@@ -56,22 +40,36 @@
       "locatie": "Autódromo José Carlos Pace, São Paulo",
       "agenda": "F1 Kalender 2026",
       "hele_dag": false
+    },
+    {
+      "start": "2026-11-09T18:00:00+01:00",
+      "eind": "2026-11-09T19:00:00+01:00",
+      "titel": "Het Winkelse Winter Tennis&Padel Toernooi 2026",
+      "locatie": "De Winkels Baan 1A",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "ongelezen_aantal": 3,
     "items": [
       {
-        "van": "The AI Daily",
-        "onderwerp": "ChatGPT maakt nu bewegende gifs van je foto of tekst",
-        "tijd": "2026-11-06T06:00:35Z",
+        "van": "Welkoop",
+        "onderwerp": "Alleen vandaag: 20% korting op kerst! 🎄",
+        "tijd": "2026-11-07T06:02:40Z",
         "belangrijk": true
       },
       {
         "van": "ABOUT YOU OUTLET",
-        "onderwerp": "Tot wel 75% korting op Favorieten aller tijden, GAP,...",
-        "tijd": "2026-11-06T05:04:24Z",
+        "onderwerp": "Tot wel 70% korting op Lyle & Scott, Sweatshirts & -jassen,...",
+        "tijd": "2026-11-07T05:02:20Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Somtoday",
+        "onderwerp": "Uitnodiging 10 minuten gesprekken do 26-11 en di 1-12, Sam van Dalen",
+        "tijd": "2026-11-07T01:34:40Z",
         "belangrijk": true
       }
     ]
