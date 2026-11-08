@@ -1,38 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-11-07T06:09:06Z",
+  "opgehaald_op": "2026-11-08T06:10:22Z",
   "agenda": [
-    {
-      "start": "2026-11-07T13:15:00+01:00",
-      "eind": "2026-11-07T14:00:00+01:00",
-      "titel": "Avans",
-      "locatie": "Onderwijsboulevard 300",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-11-07T15:30:00+01:00",
-      "eind": "2026-11-07T16:30:00+01:00",
-      "titel": "🏁 GP van São Paulo – Derde vrije training",
-      "locatie": "Autódromo José Carlos Pace, São Paulo",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-11-07T19:00:00+01:00",
-      "eind": "2026-11-07T20:00:00+01:00",
-      "titel": "🏁 GP van São Paulo – Kwalificatie",
-      "locatie": "Autódromo José Carlos Pace, São Paulo",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
-    {
-      "start": "2026-11-07T20:30:00+01:00",
-      "eind": "2026-11-07T23:30:00+01:00",
-      "titel": "Koffie bij JW en Jenet",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-11-08T18:00:00+01:00",
       "eind": "2026-11-08T20:00:00+01:00",
@@ -48,30 +17,31 @@
       "locatie": "De Winkels Baan 1A",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-11-10T20:30:00+01:00",
+      "eind": "2026-11-10T21:30:00+01:00",
+      "titel": "Padel les De Molenwiek (Youri Meijer)",
+      "locatie": "TV De Molenwiek, Brakel",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
-    "type": "ongelezen",
-    "ongelezen_aantal": 3,
+    "type": "recent",
+    "ongelezen_aantal": 0,
     "items": [
-      {
-        "van": "Welkoop",
-        "onderwerp": "Alleen vandaag: 20% korting op kerst! 🎄",
-        "tijd": "2026-11-07T06:02:40Z",
-        "belangrijk": true
-      },
-      {
-        "van": "ABOUT YOU OUTLET",
-        "onderwerp": "Tot wel 70% korting op Lyle & Scott, Sweatshirts & -jassen,...",
-        "tijd": "2026-11-07T05:02:20Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Somtoday",
-        "onderwerp": "Uitnodiging 10 minuten gesprekken do 26-11 en di 1-12, Sam van Dalen",
-        "tijd": "2026-11-07T01:34:40Z",
-        "belangrijk": true
-      }
+      { "van": "De Molenwiek", "onderwerp": "De Molenwiek Nieuwe reservering", "tijd": "2026-11-07T19:01:14Z", "belangrijk": true },
+      { "van": "Wehkamp", "onderwerp": "Cris, vergeet je dit niet? 🛒", "tijd": "2026-11-07T14:32:37Z", "belangrijk": true },
+      { "van": "Team Vinted", "onderwerp": "Je bon voor Head Coello", "tijd": "2026-11-07T10:41:25Z", "belangrijk": true },
+      { "van": "HappyFlops NL", "onderwerp": "Denk je nog steeds aan die heerlijke slippers?👀", "tijd": "2026-11-07T10:04:13Z", "belangrijk": true },
+      { "van": "HappyFlops", "onderwerp": "Je bent erbij! VIP NIGHT start do 19 nov 🔑", "tijd": "2026-11-07T09:01:59Z", "belangrijk": false },
+      { "van": "Padeldistrict.com", "onderwerp": "Doe mee met de challenge van de maand 🎾", "tijd": "2026-11-07T08:30:56Z", "belangrijk": true },
+      { "van": "Enphase", "onderwerp": "Maandelijks energierapport voor Cris van Dalen", "tijd": "2026-11-07T06:40:48Z", "belangrijk": true },
+      { "van": "De Molenwiek", "onderwerp": "De Molenwiek Nieuwe reservering", "tijd": "2026-11-06T18:29:47Z", "belangrijk": true },
+      { "van": "New York Pizza", "onderwerp": "🍕Nu bij jouw winkel: 50% korting op je 2e pizza 🍕", "tijd": "2026-11-06T14:03:01Z", "belangrijk": true },
+      { "van": "Cambium College", "onderwerp": "Nieuwsbrief 11 - week 45", "tijd": "2026-11-06T13:12:16Z", "belangrijk": true },
+      { "van": "DailyEdge (TradeZero)", "onderwerp": "Stock Futures Wobble After Sell-Off as Jobs Report Looms", "tijd": "2026-11-06T13:11:54Z", "belangrijk": true }
     ]
   }
 }
