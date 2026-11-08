@@ -40,7 +40,8 @@ goedkoper zijn dan met de cv (zeker bij zonne-overschot).
 | **C1** | **Homey's eigen IR-zender** | gratis, al aanwezig | Homey Pro (2023) kan IR **zenden maar niet aanleren** (geen IR-ontvanger). Werkt alleen als de airco in Homey's IR-database staat (Qventi zelf, of het merk dat erachter zit), of als we de codes ergens anders vandaan halen |
 | **C2** | **Broadlink RM4 mini** (~€30) met de Broadlink-app in Homey | leert de codes gewoon van je afstandsbediening | extra kastje |
 
-**Keuze: C, eerst C1 proberen.** Lukt C1 niet, dan C2. Bij beide: het
+**Keuze: C2.** C1 is afgevallen (geen airco in Homey's IR-lijst, ook niet onder TCL).
+Wifi via `com.tuya2` blijft de voorkeur als die alsnog lukt (dan mét status). Bij beide: het
 IR-signaal moet de airco kunnen "zien" (Homey of de Broadlink in zicht van de
 airco).
 
@@ -149,13 +150,10 @@ verwarmen ze allebei. Voorstel:
 - [ ] **Welke Homey heb je?** Homey Pro (2023) zendt IR maar leert niet aan;
       de oudere Homey Pro (2016–2019) kon wel aanleren.
 - [x] "Qventi" staat **niet** in Homey's IR-lijst (Cris, 08-11).
-- [ ] **TCL proberen in Homey's IR-lijst.** De Qventi Matador is vrijwel zeker
-      een **TCL** onder eigen naam: de handleiding (qventi.com, SAC24MRW) heeft als
-      interne titel "R32 (T-PRO)", de naam van TCL's T-Pro-serie (TPG11), en de
-      afstandsbediening heeft precies de TCL-knoppen (I FEEL, GENTLE WIND,
-      MUTE, HEALTH, ANTI-MILDEW); ook de wifi-reset (6× DISPLAY binnen 8 s) is
-      die van TCL. Niet hard bevestigd. Testen: koelen/verwarmen/uit en
-      temperatuur ±1 vanuit de Homey-app. Werkt TCL niet → Broadlink (C2).
+- [x] TCL geprobeerd (08-11): Homey's IR-lijst heeft bij TCL **alleen tv's en
+      soundbars**, geen airco's. Route **C1 valt af** → C2 (Broadlink) of een
+      wifi-route. De Qventi is vermoedelijk een TCL (handleiding "R32 (T-PRO)",
+      TCL-knoppen I FEEL / GENTLE WIND); handig om te weten bij het aanleren.
 - [ ] Na `make homey`: tado opzoeken in de export (driver, capabilities, of hij
       ook `target_temperature` / verwarmstatus laat zien) en in
       `apparaten.yaml` zetten.
