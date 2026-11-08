@@ -1,8 +1,8 @@
 # 011 — Airco automatisch aan op basis van temperatuur
 
 **Status:** idee
-**Draait op:** nog te kiezen — voorstel: Homey-flow via een IR-zender (route C),
-met de Smart Life-automatisering (route A) als tussenoplossing
+**Draait op:** voorstel: Homey-flow via een IR-zender (route C) + een
+temperatuursensor in Homey
 
 ## Wat moet het doen
 
@@ -23,21 +23,23 @@ de automatisering zoals de rest van het huis.
   openstaande vragen; misschien is dat nog op te lossen.)*
 - De eigen Tuya-cloud-route (`scripts/tuya/airco.mjs`) is eerder vastgelopen
   op het aanmaken van het Tuya IoT Cloud-project.
-- Er staat nog **geen temperatuursensor** in `inventaris/apparaten.yaml`. De
-  airco meet zelf wel de kamertemperatuur, maar die kunnen we alleen lezen als
-  de Tuya-koppeling werkt.
+- Er staat nog **geen temperatuursensor** in `inventaris/apparaten.yaml`.
+- De Smart Life-app toont **geen binnentemperatuur** van de airco (Cris,
+  08-11). De wifi-module geeft die dus niet door; de kamertemperatuur moet van
+  een eigen sensor komen, welke route we ook kiezen.
 
 ## Route-keuze
 
 | | Route | Wat kost het | Plus | Min |
 |---|---|---|---|---|
-| **A** | **Automatisering in de Smart Life-app** (Slim → Automatisering: "als temperatuur > X, dan airco aan, koelen, Y °C") | niets, vandaag klaar | geen bouwwerk, Tuya kent de echte stand van de airco | hangt los van Homey: geen aanwezigheid, zonne-overschot of dashboard; trigger is alleen de weertemperatuur van Tuya of een Tuya-sensor |
+| ~~A~~ | ~~Automatisering in de Smart Life-app~~ | — | — | **afgevallen** (08-11): de app toont geen binnentemperatuur, alleen het weer buiten |
 | **B** | **Lokaal via `tinytuya` op linuxcris** (script praat over het LAN met de wifi-module) | eenmalig de `local_key` van de airco ophalen (vraagt alsnog één keer een Tuya IoT-project) | lokaal, met status, kan alles | hetzelfde Tuya-console-gedoe waar route 004/A op vastliep; de key verandert als je de airco opnieuw koppelt |
 | **C** | **IR-zender in Homey** (bv. Broadlink RM4 mini, met Homey-app) die de knoppen van de afstandsbediening nadoet | ~€30 | helemaal lokaal, geen Tuya; gewoon een Homey-flow met Homey-sensoren, aanwezigheid en zonne-overschot | **geen statusterugkoppeling** (net als RTS); de zender moet zicht op de airco hebben |
 
-**Voorstel: C, met A als tussenoplossing.** A kun je vanavond al instellen. C
-brengt de airco echt in Homey, zonder afhankelijk te zijn van Tuya's cloud of
-console. Airco-afstandsbedieningen sturen bij elke druk de **hele stand** mee
+**Voorstel: C.** A valt af (geen binnentemperatuur in Smart Life). B verliest
+zijn grootste plus: de module meldt geen kamertemperatuur, dus ook bij B is een
+losse sensor nodig, en het Tuya-console-gedoe blijft. C brengt de airco echt in
+Homey, zonder afhankelijk te zijn van Tuya's cloud of console. Airco-afstandsbedieningen sturen bij elke druk de **hele stand** mee
 (aan, koelen, temperatuur, ventilator), dus één aangeleerde code "koelen 22 °C
 aan" zet de airco altijd in dezelfde stand, wat hij ook deed. Dat maakt het
 gebrek aan terugkoppeling grotendeels onschuldig.
@@ -116,7 +118,8 @@ gebrek aan terugkoppeling grotendeels onschuldig.
       of kwam hij wel binnen maar zonder bediening? Als hij er wel in staat maar
       zonder de juiste capabilities is dat misschien nog op te lossen, en dan
       wordt dit een gewone Homey-flow mét status (en is 004 ook weer bruikbaar).
-- [ ] Welke route: **A** (nu, gratis), **C** (IR-zender kopen) of **B**?
+- [x] ~~Route A~~ valt af: Smart Life heeft geen binnentemperatuur (08-11).
+- [ ] Akkoord met route **C** (IR-zender + temperatuursensor kopen)?
 - [ ] In welke **ruimte** hangt de airco? Is daar al een temperatuursensor in
       Homey, of moet die erbij (Zigbee-sensor, ~€15)?
 - [ ] Drempels: aan boven 25 °C en uit onder 23 °C, op 22 °C koelen. Akkoord?
