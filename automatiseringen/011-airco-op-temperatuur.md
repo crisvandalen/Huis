@@ -1,8 +1,8 @@
 # 011 — Airco automatisch aan op basis van temperatuur
 
 **Status:** idee
-**Draait op:** voorstel: Homey-flow via een IR-zender (route C) + een
-temperatuursensor in Homey
+**Draait op:** voorstel: Homey-flow via een IR-zender (route C), met de
+temperatuur van de tado-thermostaat die al in Homey zit
 
 ## Wat moet het doen
 
@@ -23,10 +23,12 @@ de automatisering zoals de rest van het huis.
   openstaande vragen; misschien is dat nog op te lossen.)*
 - De eigen Tuya-cloud-route (`scripts/tuya/airco.mjs`) is eerder vastgelopen
   op het aanmaken van het Tuya IoT Cloud-project.
-- Er staat nog **geen temperatuursensor** in `inventaris/apparaten.yaml`.
+- In Homey zit al een **tado-thermostaat** die de kamertemperatuur meet
+  (`measure_temperature`) (Cris, 08-11). Die gebruiken we als sensor; er hoeft
+  geen losse sensor bij, mits de tado in dezelfde ruimte hangt als de airco.
 - De Smart Life-app toont **geen binnentemperatuur** van de airco (Cris,
-  08-11). De wifi-module geeft die dus niet door; de kamertemperatuur moet van
-  een eigen sensor komen, welke route we ook kiezen.
+  08-11). De wifi-module geeft die dus niet door; de kamertemperatuur komt van de
+  tado.
 
 ## Route-keuze
 
@@ -46,7 +48,7 @@ gebrek aan terugkoppeling grotendeels onschuldig.
 
 ## Trigger (route C)
 
-- Kamertemperatuur (Homey-sensor in dezelfde ruimte) stijgt **boven 25 °C**
+- Kamertemperatuur van de **tado-thermostaat** (Homey-device, `measure_temperature`) stijgt **boven 25 °C**
   → aan.
 - Kamertemperatuur zakt **onder 23 °C** → uit.
 - De 2 °C ertussen is de **hysterese**: zo gaat de airco niet elke paar minuten
@@ -93,7 +95,10 @@ gebrek aan terugkoppeling grotendeels onschuldig.
   pushbericht "airco reageert niet?".
 - **Niemand thuis:** niets doen. Iemand thuisgekomen in een warm huis → de
   trigger slaat vanzelf aan bij de volgende meting.
-- **Sensor offline / batterij leeg:** geen nieuwe meting = geen actie. Een airco
+- **tado verwarmt:** de airco mag niet gaan koelen terwijl de tado aan het
+  verwarmen is (tegen elkaar in werken). Voorwaarde: tado-doeltemperatuur ligt
+  onder de kamertemperatuur, of de tado staat uit / in zomerstand.
+- **tado offline / batterij leeg / tado-cloud weg:** geen nieuwe meting = geen actie. Een airco
   die al aanstaat gaat dan ook niet uit, dus: als de sensor >1 uur niets meldt
   en de automaat heeft hem aangezet → uit en melden.
 - **Stroomuitval en herstart:** de airco komt meestal uit terug; de Homey-
@@ -119,8 +124,11 @@ gebrek aan terugkoppeling grotendeels onschuldig.
       zonder de juiste capabilities is dat misschien nog op te lossen, en dan
       wordt dit een gewone Homey-flow mét status (en is 004 ook weer bruikbaar).
 - [x] ~~Route A~~ valt af: Smart Life heeft geen binnentemperatuur (08-11).
-- [ ] Akkoord met route **C** (IR-zender + temperatuursensor kopen)?
-- [ ] In welke **ruimte** hangt de airco? Is daar al een temperatuursensor in
-      Homey, of moet die erbij (Zigbee-sensor, ~€15)?
+- [ ] Akkoord met route **C** (alleen een IR-zender kopen, ~€30)?
+- [x] Sensor: de **tado-thermostaat** die al in Homey zit (08-11).
+- [ ] Hangen de airco en de tado in **dezelfde ruimte**? Zo niet, dan meet de
+      tado de verkeerde kamer en is toch een losse sensor (~€15) nodig.
+- [ ] Na `make homey`: de tado opzoeken in de export (driver, capabilities) en in
+      `apparaten.yaml` zetten.
 - [ ] Drempels: aan boven 25 °C en uit onder 23 °C, op 22 °C koelen. Akkoord?
 - [ ] Mag hij 's nachts aan (slaapkamer)? Alleen als er iemand thuis is?
