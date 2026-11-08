@@ -148,11 +148,14 @@ verwarmen ze allebei. Voorstel:
 - [x] Koelen **én** verwarmen (08-11).
 - [ ] **Welke Homey heb je?** Homey Pro (2023) zendt IR maar leert niet aan;
       de oudere Homey Pro (2016–2019) kon wel aanleren.
-- [ ] **Staat de airco in Homey's IR-database?** Cris: Homey-app →
-      Apparaat toevoegen → Homey → Infrarood → zoek "Qventi" (en anders het merk
-      op het typeplaatje of in de handleiding; Qventi verkoopt vaak andermans
-      airco onder eigen naam). Gevonden → testen of aan/uit, modus en
-      temperatuur werken. Niet gevonden → Broadlink (C2).
+- [x] "Qventi" staat **niet** in Homey's IR-lijst (Cris, 08-11).
+- [ ] **TCL proberen in Homey's IR-lijst.** De Qventi Matador is vrijwel zeker
+      een **TCL** onder eigen naam: de handleiding (qventi.com, SAC24MRW) heeft als
+      interne titel "R32 (T-PRO)", de naam van TCL's T-Pro-serie (TPG11), en de
+      afstandsbediening heeft precies de TCL-knoppen (I FEEL, GENTLE WIND,
+      MUTE, HEALTH, ANTI-MILDEW); ook de wifi-reset (6× DISPLAY binnen 8 s) is
+      die van TCL. Niet hard bevestigd. Testen: koelen/verwarmen/uit en
+      temperatuur ±1 vanuit de Homey-app. Werkt TCL niet → Broadlink (C2).
 - [ ] Na `make homey`: tado opzoeken in de export (driver, capabilities, of hij
       ook `target_temperature` / verwarmstatus laat zien) en in
       `apparaten.yaml` zetten.
