@@ -1,6 +1,8 @@
 # 004 — Qventi-airco: uitlezen én bedienen op het dashboard
 
-**Status:** gespecificeerd
+**Status:** gespecificeerd — **geblokkeerd**: koppelen via `com.tuya2` lukte
+niet (Cris, 08-11-2026). Alternatieven en de temperatuur-automatisering staan in
+`011-airco-op-temperatuur.md`.
 **Draait op:** Homey (officiële Tuya-app `com.tuya2`) → mee in de bestaande
 Homey-export (uitlezen) + een backend-endpoint `POST /airco` op de ververs-
 server dat via de Homey-API stuurt (bedienen)
