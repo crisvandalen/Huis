@@ -1,15 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-11-08T06:10:22Z",
+  "opgehaald_op": "2026-11-09T06:15:00Z",
   "agenda": [
-    {
-      "start": "2026-11-08T18:00:00+01:00",
-      "eind": "2026-11-08T20:00:00+01:00",
-      "titel": "🏁 GP van São Paulo – Race",
-      "locatie": "Autódromo José Carlos Pace, São Paulo",
-      "agenda": "F1 Kalender 2026",
-      "hele_dag": false
-    },
     {
       "start": "2026-11-09T18:00:00+01:00",
       "eind": "2026-11-09T19:00:00+01:00",
@@ -31,17 +23,42 @@
     "type": "recent",
     "ongelezen_aantal": 0,
     "items": [
-      { "van": "De Molenwiek", "onderwerp": "De Molenwiek Nieuwe reservering", "tijd": "2026-11-07T19:01:14Z", "belangrijk": true },
-      { "van": "Wehkamp", "onderwerp": "Cris, vergeet je dit niet? 🛒", "tijd": "2026-11-07T14:32:37Z", "belangrijk": true },
-      { "van": "Team Vinted", "onderwerp": "Je bon voor Head Coello", "tijd": "2026-11-07T10:41:25Z", "belangrijk": true },
-      { "van": "HappyFlops NL", "onderwerp": "Denk je nog steeds aan die heerlijke slippers?👀", "tijd": "2026-11-07T10:04:13Z", "belangrijk": true },
-      { "van": "HappyFlops", "onderwerp": "Je bent erbij! VIP NIGHT start do 19 nov 🔑", "tijd": "2026-11-07T09:01:59Z", "belangrijk": false },
-      { "van": "Padeldistrict.com", "onderwerp": "Doe mee met de challenge van de maand 🎾", "tijd": "2026-11-07T08:30:56Z", "belangrijk": true },
-      { "van": "Enphase", "onderwerp": "Maandelijks energierapport voor Cris van Dalen", "tijd": "2026-11-07T06:40:48Z", "belangrijk": true },
-      { "van": "De Molenwiek", "onderwerp": "De Molenwiek Nieuwe reservering", "tijd": "2026-11-06T18:29:47Z", "belangrijk": true },
-      { "van": "New York Pizza", "onderwerp": "🍕Nu bij jouw winkel: 50% korting op je 2e pizza 🍕", "tijd": "2026-11-06T14:03:01Z", "belangrijk": true },
-      { "van": "Cambium College", "onderwerp": "Nieuwsbrief 11 - week 45", "tijd": "2026-11-06T13:12:16Z", "belangrijk": true },
-      { "van": "DailyEdge (TradeZero)", "onderwerp": "Stock Futures Wobble After Sell-Off as Jobs Report Looms", "tijd": "2026-11-06T13:11:54Z", "belangrijk": true }
+      {
+        "van": "The AI Daily",
+        "onderwerp": "Claude mag in de VS meekijken in je bankrekening: twee jaar transacties",
+        "tijd": "2026-11-09T06:00:35Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Claude Team",
+        "onderwerp": "Five ways to build efficiently with Claude",
+        "tijd": "2026-11-09T00:25:18Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Vinted",
+        "onderwerp": "Update over je bestelling 'Head Coello'",
+        "tijd": "2026-11-08T17:30:37Z",
+        "belangrijk": true
+      },
+      {
+        "van": "De Schoolfotograaf",
+        "onderwerp": "De schoolfoto's staan online",
+        "tijd": "2026-11-08T17:01:25Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Vinted",
+        "onderwerp": "Je bon voor Head Coello",
+        "tijd": "2026-11-07T10:41:25Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Just Padel",
+        "onderwerp": "Jouw Black Friday Early Access is bevestigd!",
+        "tijd": "2026-11-05T11:45:00Z",
+        "belangrijk": true
+      }
     ]
   }
 }
