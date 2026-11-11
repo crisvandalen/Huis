@@ -1,15 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-11-10T06:13:00Z",
+  "opgehaald_op": "2026-11-11T06:14:35Z",
   "agenda": [
-    {
-      "start": "2026-11-10T20:30:00+01:00",
-      "eind": "2026-11-10T21:30:00+01:00",
-      "titel": "Padel les De Molenwiek (Youri Meijer)",
-      "locatie": "TV De Molenwiek, Brakel",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-11-12T20:00:00+01:00",
       "eind": "2026-11-12T21:00:00+01:00",
@@ -21,19 +13,37 @@
   ],
   "mail": {
     "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "ongelezen_aantal": 5,
     "items": [
       {
         "van": "The AI Daily",
-        "onderwerp": "ChatGPT voegt Chat en Work samen: je werkt straks in één venster",
-        "tijd": "2026-11-10T06:00:35Z",
+        "onderwerp": "Otter notuleert nu ook in het Nederlands en herkent taalwissels zelf",
+        "tijd": "2026-11-11T06:00:34Z",
         "belangrijk": true
       },
       {
-        "van": "Ring",
-        "onderwerp": "Cris, de megakortingen zijn terug",
-        "tijd": "2026-11-10T04:03:40Z",
+        "van": "ONLY & SONS",
+        "onderwerp": "Krijg 20% korting op je aankoop!",
+        "tijd": "2026-11-11T05:00:59Z",
         "belangrijk": true
+      },
+      {
+        "van": "Apple",
+        "onderwerp": "Je factuur van Apple",
+        "tijd": "2026-11-11T03:02:38Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Claude Code",
+        "onderwerp": "What’s new in Claude Code: Fable 5.2, easier cloud setup, and more",
+        "tijd": "2026-11-11T02:45:24Z",
+        "belangrijk": true
+      },
+      {
+        "van": "KNLTB",
+        "onderwerp": "Jouw speelsterkte voor 2027 is bekend!",
+        "tijd": "2026-11-11T02:02:42Z",
+        "belangrijk": false
       }
     ]
   }
