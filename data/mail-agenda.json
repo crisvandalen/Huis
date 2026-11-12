@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-11-11T06:14:35Z",
+  "opgehaald_op": "2026-11-12T06:11:02Z",
   "agenda": [
     {
       "start": "2026-11-12T20:00:00+01:00",
@@ -9,42 +9,32 @@
       "locatie": "TPV De Molenwiek, Brakel",
       "agenda": "Gezin",
       "hele_dag": false
+    },
+    {
+      "start": "2026-11-14T14:00:00+01:00",
+      "eind": "2026-11-14T15:00:00+01:00",
+      "titel": "Het Winkelse Winter Tennis&Padel Toernooi 2026",
+      "locatie": "De Winkels, Winkelseweg 2, 5321 NA Hedel",
+      "agenda": "Gezin",
+      "hele_dag": false
     }
   ],
   "mail": {
-    "type": "ongelezen",
-    "ongelezen_aantal": 5,
+    "type": "recent",
+    "ongelezen_aantal": 0,
     "items": [
-      {
-        "van": "The AI Daily",
-        "onderwerp": "Otter notuleert nu ook in het Nederlands en herkent taalwissels zelf",
-        "tijd": "2026-11-11T06:00:34Z",
-        "belangrijk": true
-      },
-      {
-        "van": "ONLY & SONS",
-        "onderwerp": "Krijg 20% korting op je aankoop!",
-        "tijd": "2026-11-11T05:00:59Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Apple",
-        "onderwerp": "Je factuur van Apple",
-        "tijd": "2026-11-11T03:02:38Z",
-        "belangrijk": true
-      },
-      {
-        "van": "Claude Code",
-        "onderwerp": "What’s new in Claude Code: Fable 5.2, easier cloud setup, and more",
-        "tijd": "2026-11-11T02:45:24Z",
-        "belangrijk": true
-      },
-      {
-        "van": "KNLTB",
-        "onderwerp": "Jouw speelsterkte voor 2027 is bekend!",
-        "tijd": "2026-11-11T02:02:42Z",
-        "belangrijk": false
-      }
+      {"van": "The AI Daily", "onderwerp": "Claude maakt nu spreadsheets en whiteboards in elk betaald abonnement", "tijd": "2026-11-12T06:00:34Z", "belangrijk": true},
+      {"van": "De Molenwiek", "onderwerp": "De Molenwiek Nieuwe reservering", "tijd": "2026-11-11T22:42:34Z", "belangrijk": true},
+      {"van": "Toernooi.nl", "onderwerp": "Wedstrijd gepland - Het Winkelse Winter Tennis&Padel Toernooi 2026", "tijd": "2026-11-11T13:25:36Z", "belangrijk": true},
+      {"van": "Claude Code", "onderwerp": "What's new in Claude Code: Fable 5.2, easier cloud setup, and more", "tijd": "2026-11-11T02:45:24Z", "belangrijk": true},
+      {"van": "De Molenwiek", "onderwerp": "De Molenwiek Reservering gewijzigd", "tijd": "2026-11-10T15:18:33Z", "belangrijk": true},
+      {"van": "AI Report", "onderwerp": "AI vond alle elf valkuilen in onze testcontracten", "tijd": "2026-11-10T11:03:48Z", "belangrijk": true},
+      {"van": "50five", "onderwerp": "Uw self-billing factuur van 50five 032611077020077", "tijd": "2026-11-10T08:38:23Z", "belangrijk": true},
+      {"van": "KNLTB", "onderwerp": "Geef jouw club een compliment!", "tijd": "2026-11-09T19:01:18Z", "belangrijk": false},
+      {"van": "50five", "onderwerp": "Profiteer van 10% korting bij alle ALLSAFE-50five snelladers", "tijd": "2026-11-09T17:55:44Z", "belangrijk": true},
+      {"van": "AI Report", "onderwerp": "Donderdag om 12:00: Bespaar geld, bouw je eigen software", "tijd": "2026-11-09T13:46:46Z", "belangrijk": true},
+      {"van": "Team Vinted", "onderwerp": "Nieuw bod voor Head Extreme motion 2026", "tijd": "2026-11-09T09:52:58Z", "belangrijk": true},
+      {"van": "Cambium College", "onderwerp": "Tevredenheid ouders Cambium College locatie Buys Ballot", "tijd": "2026-11-09T07:00:19Z", "belangrijk": false}
     ]
   }
 }
