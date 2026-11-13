@@ -1,15 +1,7 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-11-12T06:11:02Z",
+  "opgehaald_op": "2026-11-13T06:10:03Z",
   "agenda": [
-    {
-      "start": "2026-11-12T20:00:00+01:00",
-      "eind": "2026-11-12T21:00:00+01:00",
-      "titel": "Padel TPV De Molenwiek",
-      "locatie": "TPV De Molenwiek, Brakel",
-      "agenda": "Gezin",
-      "hele_dag": false
-    },
     {
       "start": "2026-11-14T14:00:00+01:00",
       "eind": "2026-11-14T15:00:00+01:00",
@@ -20,21 +12,21 @@
     }
   ],
   "mail": {
-    "type": "recent",
-    "ongelezen_aantal": 0,
+    "type": "ongelezen",
+    "ongelezen_aantal": 2,
     "items": [
-      {"van": "The AI Daily", "onderwerp": "Claude maakt nu spreadsheets en whiteboards in elk betaald abonnement", "tijd": "2026-11-12T06:00:34Z", "belangrijk": true},
-      {"van": "De Molenwiek", "onderwerp": "De Molenwiek Nieuwe reservering", "tijd": "2026-11-11T22:42:34Z", "belangrijk": true},
-      {"van": "Toernooi.nl", "onderwerp": "Wedstrijd gepland - Het Winkelse Winter Tennis&Padel Toernooi 2026", "tijd": "2026-11-11T13:25:36Z", "belangrijk": true},
-      {"van": "Claude Code", "onderwerp": "What's new in Claude Code: Fable 5.2, easier cloud setup, and more", "tijd": "2026-11-11T02:45:24Z", "belangrijk": true},
-      {"van": "De Molenwiek", "onderwerp": "De Molenwiek Reservering gewijzigd", "tijd": "2026-11-10T15:18:33Z", "belangrijk": true},
-      {"van": "AI Report", "onderwerp": "AI vond alle elf valkuilen in onze testcontracten", "tijd": "2026-11-10T11:03:48Z", "belangrijk": true},
-      {"van": "50five", "onderwerp": "Uw self-billing factuur van 50five 032611077020077", "tijd": "2026-11-10T08:38:23Z", "belangrijk": true},
-      {"van": "KNLTB", "onderwerp": "Geef jouw club een compliment!", "tijd": "2026-11-09T19:01:18Z", "belangrijk": false},
-      {"van": "50five", "onderwerp": "Profiteer van 10% korting bij alle ALLSAFE-50five snelladers", "tijd": "2026-11-09T17:55:44Z", "belangrijk": true},
-      {"van": "AI Report", "onderwerp": "Donderdag om 12:00: Bespaar geld, bouw je eigen software", "tijd": "2026-11-09T13:46:46Z", "belangrijk": true},
-      {"van": "Team Vinted", "onderwerp": "Nieuw bod voor Head Extreme motion 2026", "tijd": "2026-11-09T09:52:58Z", "belangrijk": true},
-      {"van": "Cambium College", "onderwerp": "Tevredenheid ouders Cambium College locatie Buys Ballot", "tijd": "2026-11-09T07:00:19Z", "belangrijk": false}
+      {
+        "van": "The AI Daily",
+        "onderwerp": "Gemini zet je spreadsheet om in een dashboard, cijfers blijven privé",
+        "tijd": "2026-11-13T06:00:34Z",
+        "belangrijk": true
+      },
+      {
+        "van": "GitHub",
+        "onderwerp": "[GitHub] Claude is requesting updated permissions",
+        "tijd": "2026-11-13T00:01:45Z",
+        "belangrijk": true
+      }
     ]
   }
 }
