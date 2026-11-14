@@ -1,6 +1,6 @@
 {
   "bron": "Google (via Cowork)",
-  "opgehaald_op": "2026-11-13T06:10:03Z",
+  "opgehaald_op": "2026-11-14T06:09:02Z",
   "agenda": [
     {
       "start": "2026-11-14T14:00:00+01:00",
@@ -12,20 +12,68 @@
     }
   ],
   "mail": {
-    "type": "ongelezen",
-    "ongelezen_aantal": 2,
+    "type": "recent",
+    "ongelezen_aantal": 0,
     "items": [
       {
-        "van": "The AI Daily",
-        "onderwerp": "Gemini zet je spreadsheet om in een dashboard, cijfers blijven privé",
-        "tijd": "2026-11-13T06:00:34Z",
+        "van": "AI Report",
+        "onderwerp": "Masterclass: je eigen softwarefabriek met Claude Fable 5.2",
+        "tijd": "2026-11-13T11:47:49Z",
         "belangrijk": true
       },
       {
-        "van": "GitHub",
-        "onderwerp": "[GitHub] Claude is requesting updated permissions",
-        "tijd": "2026-11-13T00:01:45Z",
+        "van": "Wehkamp",
+        "onderwerp": "Laatste uren: 10.- korting! ⏰",
+        "tijd": "2026-11-13T07:00:32Z",
         "belangrijk": true
+      },
+      {
+        "van": "AI Report",
+        "onderwerp": "Deze Claude Fable 5.2-prompts wil je testen vóór dinsdag",
+        "tijd": "2026-11-12T10:05:22Z",
+        "belangrijk": true
+      },
+      {
+        "van": "TheAIDaily",
+        "onderwerp": "Claude maakt nu spreadsheets en whiteboards in elk betaald abonnement",
+        "tijd": "2026-11-12T06:00:34Z",
+        "belangrijk": true
+      },
+      {
+        "van": "De Molenwiek",
+        "onderwerp": "De Molenwiek Nieuwe reservering",
+        "tijd": "2026-11-11T22:42:34Z",
+        "belangrijk": true
+      },
+      {
+        "van": "AI Report",
+        "onderwerp": "AI vond alle elf valkuilen in onze testcontracten",
+        "tijd": "2026-11-10T11:03:48Z",
+        "belangrijk": true
+      },
+      {
+        "van": "KNLTB",
+        "onderwerp": "Geef jouw club een compliment!",
+        "tijd": "2026-11-09T19:01:18Z",
+        "belangrijk": false
+      },
+      {
+        "van": "50five",
+        "onderwerp": "Profiteer van 10% korting bij alle ALLSAFE-50five snelladers",
+        "tijd": "2026-11-09T17:55:44Z",
+        "belangrijk": true
+      },
+      {
+        "van": "AI Report",
+        "onderwerp": "Donderdag om 12:00: Bespaar geld, bouw je eigen software",
+        "tijd": "2026-11-09T13:46:46Z",
+        "belangrijk": true
+      },
+      {
+        "van": "Cambium College",
+        "onderwerp": "Tevredenheid ouders Cambium College locatie Buys Ballot",
+        "tijd": "2026-11-09T07:00:19Z",
+        "belangrijk": false
       }
     ]
   }
